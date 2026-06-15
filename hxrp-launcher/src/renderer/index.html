@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>HxRP Launcher</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Barre de titre custom (drag zone) -->
+  <header class="titlebar">
+    <div class="titlebar-drag">
+      <div class="titlebar-brand">
+        <span class="brand-mark">⌖</span>
+        <span class="brand-name">HxRP</span>
+        <span class="brand-subtitle">Launcher</span>
+      </div>
+    </div>
+    <div class="titlebar-controls">
+      <button class="ctrl-btn" id="btn-minimize" title="Réduire">─</button>
+      <button class="ctrl-btn" id="btn-maximize" title="Agrandir">▢</button>
+      <button class="ctrl-btn ctrl-btn-close" id="btn-close" title="Fermer">✕</button>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="main">
+
+    <!-- Sidebar gauche -->
+    <aside class="sidebar">
+      <nav class="nav">
+        <button class="nav-item active" data-tab="home">
+          <span class="nav-icon">⌂</span>
+          <span class="nav-label">Accueil</span>
+        </button>
+        <button class="nav-item" data-tab="news">
+          <span class="nav-icon">◉</span>
+          <span class="nav-label">News</span>
+        </button>
+        <button class="nav-item" data-tab="settings">
+          <span class="nav-icon">⚙</span>
+          <span class="nav-label">Paramètres</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="social-link" data-url="https://discord.gg/" title="Discord">
+          <span>Discord</span>
+        </button>
+        <div class="version">v0.1.0</div>
+      </div>
+    </aside>
+
+    <!-- Zone principale -->
+    <section class="content">
+
+      <!-- Tab Accueil -->
+      <div class="tab tab-active" data-tab-content="home">
+        <div class="hero">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <div class="hero-eyebrow">Serveur RP Minecraft</div>
+            <h1 class="hero-title">Hunter <span class="hero-x">×</span> RP</h1>
+            <p class="hero-tagline">Plonge dans l'univers de Hunter x Hunter.<br>Deviens Hunter, rejoins une guilde, écris ta propre légende.</p>
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-value" id="stat-online">—</div>
+                <div class="stat-label">en ligne</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="stat-status">●</div>
+                <div class="stat-label">serveur</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="play-section">
+          <div class="auth-row">
+            <label class="auth-label">Pseudo</label>
+            <input
+              type="text"
+              id="username-input"
+              class="auth-input"
+              placeholder="Ton nom de Hunter..."
+              maxlength="16"
+              autocomplete="off"
+            >
+            <button class="auth-microsoft" id="btn-microsoft" title="Se connecter avec Microsoft">
+              <span>Microsoft</span>
+            </button>
+          </div>
+
+          <button class="btn-play" id="btn-play">
+            <span class="btn-play-label">JOUER</span>
+            <span class="btn-play-sub">Minecraft 1.12.2 · 39 mods</span>
+          </button>
+
+          <!-- Barre de progression (cachée par défaut) -->
+          <div class="progress-wrap" id="progress-wrap" hidden>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text" id="progress-text">Préparation...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab News (vide pour l'instant) -->
+      <div class="tab" data-tab-content="news">
+        <div class="placeholder">
+          <h2>News &amp; Patch notes</h2>
+          <p>Bientôt : les dernières mises à jour du serveur, événements RP en cours, et notes de patches.</p>
+        </div>
+      </div>
+
+      <!-- Tab Paramètres (vide pour l'instant) -->
+      <div class="tab" data-tab-content="settings">
+        <div class="placeholder">
+          <h2>Paramètres</h2>
+          <p>Bientôt : RAM allouée, dossier d'installation, options Java avancées.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
