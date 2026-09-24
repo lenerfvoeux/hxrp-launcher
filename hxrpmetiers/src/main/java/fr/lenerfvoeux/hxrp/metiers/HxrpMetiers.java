@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = HxrpMetiers.MODID, name = "HxRP Metiers", version = HxrpMetiers.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class HxrpMetiers {
     public static final String MODID = "hxrpmetiers";
-    public static final String VERSION = "0.4.0";
+    public static final String VERSION = "0.5.0";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.Instance(MODID)

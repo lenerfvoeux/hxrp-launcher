@@ -7,7 +7,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#e8b848",
+    "#f4e2a8",
+    "#c8a040"
+   ],
+   "motif": 0
   },
   {
    "id": "riz",
@@ -16,7 +23,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f6f3ea",
+    "#ffffff",
+    "#cdb68a"
+   ],
+   "motif": 0
   },
   {
    "id": "mais",
@@ -25,7 +39,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#f2c224",
+    "#f8dc5a",
+    "#8ab84a"
+   ],
+   "motif": 3
   },
   {
    "id": "avoine",
@@ -34,7 +55,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e6d49a",
+    "#f4ead0",
+    "#c8b070"
+   ],
+   "motif": 0
   },
   {
    "id": "sarrasin",
@@ -43,7 +71,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6a4a2c",
+    "#c8b08a",
+    "#4a3018"
+   ],
+   "motif": 0
   },
   {
    "id": "quinoa",
@@ -52,7 +87,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e8d8a8",
+    "#f4e8c0",
+    "#b84a30"
+   ],
+   "motif": 0
   },
   {
    "id": "carotte",
@@ -61,7 +103,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#f07a1a",
+    "#f8a040",
+    "#48a82a"
+   ],
+   "motif": 1
   },
   {
    "id": "pomme_de_terre",
@@ -70,7 +119,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#c8965a",
+    "#f4e4a8",
+    "#9a6a38"
+   ],
+   "motif": 0
   },
   {
    "id": "oignon",
@@ -79,7 +135,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#c8782c",
+    "#f4ecd8",
+    "#e8dcc0"
+   ],
+   "motif": 2
   },
   {
    "id": "echalote",
@@ -88,7 +151,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#c06a4a",
+    "#e8c8d8",
+    "#f4e4ec"
+   ],
+   "motif": 2
   },
   {
    "id": "ail",
@@ -97,7 +167,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f0e8e0",
+    "#fbf6e8",
+    "#c8b8b0"
+   ],
+   "motif": 0
   },
   {
    "id": "tomate",
@@ -106,7 +183,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e0321f",
+    "#f05a40",
+    "#f6e8a0"
+   ],
+   "motif": 3
   },
   {
    "id": "poivron",
@@ -115,7 +199,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#d8281c",
+    "#e84a3a",
+    "#f4f0e0"
+   ],
+   "motif": 3
   },
   {
    "id": "courgette",
@@ -124,7 +215,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#3a8a2a",
+    "#e8f0b0",
+    "#6ab04a"
+   ],
+   "motif": 1
   },
   {
    "id": "aubergine",
@@ -133,7 +231,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#5a2a6a",
+    "#f0ecc8",
+    "#3f7a2a"
+   ],
+   "motif": 3
   },
   {
    "id": "chou",
@@ -142,7 +247,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#5aa83a",
+    "#e8f0c0",
+    "#a8d870"
+   ],
+   "motif": 2
   },
   {
    "id": "chou_fleur",
@@ -151,7 +263,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f4ecd8",
+    "#fbf6e8",
+    "#4a9a3a"
+   ],
+   "motif": 0
   },
   {
    "id": "brocoli",
@@ -160,7 +279,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#2e7a2a",
+    "#a8c878",
+    "#5ab04a"
+   ],
+   "motif": 8
   },
   {
    "id": "laitue",
@@ -169,7 +295,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#7ac84a",
+    "#c8f090",
+    "#4a9a2a"
+   ],
+   "motif": 8
   },
   {
    "id": "poireau",
@@ -178,7 +311,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#f4f0dc",
+    "#fbfaee",
+    "#3a8a3a"
+   ],
+   "motif": 2
   },
   {
    "id": "concombre",
@@ -187,7 +327,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#2a6a22",
+    "#d8f0b0",
+    "#f4f8e0"
+   ],
+   "motif": 3
   },
   {
    "id": "champignon",
@@ -196,7 +343,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#c89a6a",
+    "#f4ecdc",
+    "#8a6040"
+   ],
+   "motif": 0
   },
   {
    "id": "epinards",
@@ -205,7 +359,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#2e7426",
+    "#4a9a3a",
+    "#6aa04a"
+   ],
+   "motif": 8
   },
   {
    "id": "haricot_vert",
@@ -214,7 +375,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#4aa032",
+    "#a8e080",
+    "#7ac85a"
+   ],
+   "motif": 3
   },
   {
    "id": "petit_pois",
@@ -223,7 +391,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6cc03a",
+    "#a8e080",
+    "#3a8a2a"
+   ],
+   "motif": 0
   },
   {
    "id": "potiron",
@@ -232,7 +407,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e8781a",
+    "#f8a848",
+    "#f4e4b0"
+   ],
+   "motif": 3
   },
   {
    "id": "radis",
@@ -241,7 +423,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#d8284a",
+    "#fbf4f4",
+    "#4a9a3a"
+   ],
+   "motif": 0
   },
   {
    "id": "betterave",
@@ -250,7 +439,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#7a1a3a",
+    "#b82a5a",
+    "#d85a88"
+   ],
+   "motif": 2
   },
   {
    "id": "patate_douce",
@@ -259,7 +455,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#a8483a",
+    "#f0a050",
+    "#7a2a22"
+   ],
+   "motif": 0
   },
   {
    "id": "navet",
@@ -268,7 +471,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 144,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f4f0e8",
+    "#fbfaf4",
+    "#9a3a8a"
+   ],
+   "motif": 0
   },
   {
    "id": "celeri",
@@ -277,7 +487,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#a8d078",
+    "#d8f0b0",
+    "#4a9a3a"
+   ],
+   "motif": 1
   },
   {
    "id": "asperge",
@@ -286,7 +503,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#6aa03a",
+    "#e0f0c0",
+    "#6a6a3a"
+   ],
+   "motif": 1
   },
   {
    "id": "artichaut",
@@ -295,7 +519,14 @@
    "source": "Culture",
    "cut": "Noyau",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#6a8a4a",
+    "#d8e0a8",
+    "#9a5a8a"
+   ],
+   "motif": 6
   },
   {
    "id": "avocat",
@@ -304,7 +535,14 @@
    "source": "Culture",
    "cut": "Noyau",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#2a4a1a",
+    "#d8e070",
+    "#8a5a2a"
+   ],
+   "motif": 6
   },
   {
    "id": "pomme",
@@ -313,7 +551,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#d8242a",
+    "#f8f0c8",
+    "#6a4a2a"
+   ],
+   "motif": 6
   },
   {
    "id": "poire",
@@ -322,7 +567,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#c8c83a",
+    "#f8f4d8",
+    "#6a4a2a"
+   ],
+   "motif": 6
   },
   {
    "id": "orange",
@@ -331,7 +583,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f08a14",
+    "#f8a830",
+    "#fbe8b8"
+   ],
+   "motif": 4
   },
   {
    "id": "citron",
@@ -340,7 +599,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f4d824",
+    "#f8ec80",
+    "#fbf8d8"
+   ],
+   "motif": 4
   },
   {
    "id": "citron_vert",
@@ -349,7 +615,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#5aa822",
+    "#b8e05a",
+    "#e8f8c0"
+   ],
+   "motif": 4
   },
   {
    "id": "fraise",
@@ -358,7 +631,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e0202a",
+    "#f86a6a",
+    "#fbe0e0"
+   ],
+   "motif": 3
   },
   {
    "id": "framboise",
@@ -367,7 +647,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#d02050",
+    "#e85078",
+    "#f8a0b8"
+   ],
+   "motif": 0
   },
   {
    "id": "myrtille",
@@ -376,7 +663,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#3a3a8a",
+    "#6a4a9a",
+    "#9a9ad0"
+   ],
+   "motif": 0
   },
   {
    "id": "banane",
@@ -385,7 +679,14 @@
    "source": "Cueillette",
    "cut": "Long",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#f4d02a",
+    "#f8f0c8",
+    "#6a5a2a"
+   ],
+   "motif": 0
   },
   {
    "id": "ananas",
@@ -394,7 +695,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#d8a02a",
+    "#f8e060",
+    "#3a8a3a"
+   ],
+   "motif": 1
   },
   {
    "id": "mangue",
@@ -403,7 +711,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#e8a02a",
+    "#f8c030",
+    "#f4e8b0"
+   ],
+   "motif": 6
   },
   {
    "id": "peche",
@@ -412,7 +727,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#f0a060",
+    "#f8c878",
+    "#a8503a"
+   ],
+   "motif": 6
   },
   {
    "id": "abricot",
@@ -421,7 +743,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#f09a2a",
+    "#f8b848",
+    "#9a5a2a"
+   ],
+   "motif": 6
   },
   {
    "id": "cerise",
@@ -430,7 +759,14 @@
    "source": "Cueillette",
    "cut": "Noyau",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Noyau",
+   "pal": [
+    "#b8101e",
+    "#d83040",
+    "#e8c8a0"
+   ],
+   "motif": 6
   },
   {
    "id": "raisin",
@@ -439,7 +775,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6a2a7a",
+    "#9a5aa0",
+    "#c8a0d0"
+   ],
+   "motif": 0
   },
   {
    "id": "kiwi",
@@ -448,7 +791,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#8a6a3a",
+    "#7ac03a",
+    "#f4f0c8"
+   ],
+   "motif": 3
   },
   {
    "id": "figue",
@@ -457,7 +807,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#5a2a5a",
+    "#d84a6a",
+    "#f4d0a0"
+   ],
+   "motif": 3
   },
   {
    "id": "melon",
@@ -466,7 +823,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#b8b86a",
+    "#f09a3a",
+    "#f4e0a0"
+   ],
+   "motif": 3
   },
   {
    "id": "pasteque",
@@ -475,7 +839,14 @@
    "source": "Culture",
    "cut": "Rond",
    "life": 96,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#2a7a2a",
+    "#e8303a",
+    "#1a1010"
+   ],
+   "motif": 3
   },
   {
    "id": "noix_de_coco",
@@ -484,7 +855,14 @@
    "source": "Cueillette",
    "cut": "Rond",
    "life": 240,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6a4428",
+    "#fbf8f0",
+    "#e8f0f4"
+   ],
+   "motif": 1
   },
   {
    "id": "boeuf",
@@ -493,7 +871,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#b8202a",
+    "#d84048",
+    "#f4d8d0"
+   ],
+   "motif": 5
   },
   {
    "id": "veau",
@@ -502,7 +887,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#e0909a",
+    "#f0b0b0",
+    "#f8e4e4"
+   ],
+   "motif": 5
   },
   {
    "id": "porc",
@@ -511,7 +903,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#e8888a",
+    "#f4b0b0",
+    "#f8ece4"
+   ],
+   "motif": 5
   },
   {
    "id": "poulet",
@@ -520,7 +919,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#f0c0a0",
+    "#f8d8c8",
+    "#f4ecdc"
+   ],
+   "motif": 0
   },
   {
    "id": "dinde",
@@ -529,7 +935,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#d8a080",
+    "#f0d0c0",
+    "#f4ecdc"
+   ],
+   "motif": 0
   },
   {
    "id": "mouton",
@@ -538,7 +951,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#a82a3a",
+    "#c84a58",
+    "#f4e8dc"
+   ],
+   "motif": 5
   },
   {
    "id": "lapin",
@@ -547,7 +967,14 @@
    "source": "Chasse",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#e8b0a8",
+    "#f0c8c0",
+    "#c8888a"
+   ],
+   "motif": 0
   },
   {
    "id": "canard",
@@ -556,7 +983,14 @@
    "source": "Élevage",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#9a1a2a",
+    "#b83040",
+    "#f0dcc0"
+   ],
+   "motif": 5
   },
   {
    "id": "cerf",
@@ -565,7 +999,14 @@
    "source": "Chasse",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#7a1a28",
+    "#9a2a38",
+    "#a84a50"
+   ],
+   "motif": 5
   },
   {
    "id": "sanglier",
@@ -574,7 +1015,14 @@
    "source": "Chasse",
    "cut": "Pavé",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Pavé",
+   "pal": [
+    "#8a2a2a",
+    "#a84040",
+    "#3a2418"
+   ],
+   "motif": 5
   },
   {
    "id": "saumon",
@@ -583,7 +1031,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#9aa0a8",
+    "#f07a50",
+    "#f8c8a8"
+   ],
+   "motif": 5
   },
   {
    "id": "thon",
@@ -592,7 +1047,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#1a2a5a",
+    "#c8303a",
+    "#d8dce4"
+   ],
+   "motif": 0
   },
   {
    "id": "cabillaud",
@@ -601,7 +1063,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#7a7a5a",
+    "#f4f0ec",
+    "#e8e4dc"
+   ],
+   "motif": 0
   },
   {
    "id": "truite",
@@ -610,7 +1079,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#5a7a4a",
+    "#f08a78",
+    "#e87a8a"
+   ],
+   "motif": 0
   },
   {
    "id": "sardine",
@@ -619,7 +1095,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#3a5a8a",
+    "#b86a6a",
+    "#e8ecf0"
+   ],
+   "motif": 0
   },
   {
    "id": "maquereau",
@@ -628,7 +1111,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#2a6a6a",
+    "#c88878",
+    "#e8ecec"
+   ],
+   "motif": 0
   },
   {
    "id": "anchois",
@@ -637,7 +1127,14 @@
    "source": "Pêche",
    "cut": "Poisson",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Poisson",
+   "pal": [
+    "#5a7a9a",
+    "#b87a7a",
+    "#e8eef4"
+   ],
+   "motif": 0
   },
   {
    "id": "crevette",
@@ -646,7 +1143,14 @@
    "source": "Pêche",
    "cut": "Carapace",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Carapace",
+   "pal": [
+    "#f07a5a",
+    "#f8c8b8",
+    "#c84a2a"
+   ],
+   "motif": 0
   },
   {
    "id": "calamar",
@@ -655,7 +1159,14 @@
    "source": "Pêche",
    "cut": "Long",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#f0d0d0",
+    "#fbf4f0",
+    "#c87a9a"
+   ],
+   "motif": 2
   },
   {
    "id": "moule",
@@ -664,7 +1175,14 @@
    "source": "Pêche",
    "cut": "Carapace",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Carapace",
+   "pal": [
+    "#2a2a4a",
+    "#f09a4a",
+    "#4a4a7a"
+   ],
+   "motif": 0
   },
   {
    "id": "huitre",
@@ -673,7 +1191,14 @@
    "source": "Pêche",
    "cut": "Carapace",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Carapace",
+   "pal": [
+    "#8a8a7a",
+    "#c8c0b0",
+    "#e8e4dc"
+   ],
+   "motif": 0
   },
   {
    "id": "crabe",
@@ -682,7 +1207,14 @@
    "source": "Pêche",
    "cut": "Carapace",
    "life": 12,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Carapace",
+   "pal": [
+    "#e04a2a",
+    "#f8ece4",
+    "#c83a22"
+   ],
+   "motif": 0
   },
   {
    "id": "oeuf",
@@ -691,7 +1223,14 @@
    "source": "Élevage",
    "cut": "—",
    "life": 72,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e8c89a",
+    "#fbf8f0",
+    "#f4b020"
+   ],
+   "motif": 0
   },
   {
    "id": "lait",
@@ -700,7 +1239,14 @@
    "source": "Élevage",
    "cut": "—",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f4f4f0",
+    "#ffffff",
+    "#2a6ad0"
+   ],
+   "motif": 0
   },
   {
    "id": "lait_de_chevre",
@@ -709,7 +1255,14 @@
    "source": "Élevage",
    "cut": "—",
    "life": 48,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#d8b890",
+    "#fbfbf8",
+    "#4a8a3a"
+   ],
+   "motif": 0
   },
   {
    "id": "miel",
@@ -718,7 +1271,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 1440,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e8a018",
+    "#f8c848",
+    "#c8302a"
+   ],
+   "motif": 0
   },
   {
    "id": "amande",
@@ -727,7 +1287,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#b8784a",
+    "#f4ead8",
+    "#8a5030"
+   ],
+   "motif": 0
   },
   {
    "id": "noisette",
@@ -736,7 +1303,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#9a5a2a",
+    "#f4e8d0",
+    "#6a3a1a"
+   ],
+   "motif": 0
   },
   {
    "id": "noix",
@@ -745,7 +1319,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#b88a5a",
+    "#d8a868",
+    "#8a5a30"
+   ],
+   "motif": 0
   },
   {
    "id": "pistache",
@@ -754,7 +1335,14 @@
    "source": "Cueillette",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e0cca0",
+    "#7ab03a",
+    "#8a3a6a"
+   ],
+   "motif": 0
   },
   {
    "id": "cacahuete",
@@ -763,7 +1351,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#d8b07a",
+    "#e8a878",
+    "#b88a58"
+   ],
+   "motif": 0
   },
   {
    "id": "lentilles",
@@ -772,7 +1367,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#7a8a3a",
+    "#c8b060",
+    "#5a6a2a"
+   ],
+   "motif": 0
   },
   {
    "id": "pois_chiche",
@@ -781,7 +1383,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#e0c088",
+    "#f0dcb0",
+    "#b89060"
+   ],
+   "motif": 0
   },
   {
    "id": "haricot_rouge",
@@ -790,7 +1399,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#8a1a24",
+    "#e8d0b8",
+    "#5a1018"
+   ],
+   "motif": 0
   },
   {
    "id": "haricot_blanc",
@@ -799,7 +1415,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#f0ecdc",
+    "#fbf8f0",
+    "#c8c0a8"
+   ],
+   "motif": 0
   },
   {
    "id": "soja",
@@ -808,7 +1431,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6aa83a",
+    "#e8e0a0",
+    "#9ad06a"
+   ],
+   "motif": 0
   },
   {
    "id": "basilic",
@@ -817,7 +1447,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#3aa02a",
+    "#6ac84a",
+    "#5a8a2a"
+   ],
+   "motif": 8
   },
   {
    "id": "persil",
@@ -826,7 +1463,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#2e8a2a",
+    "#5ab04a",
+    "#1a5a1a"
+   ],
+   "motif": 8
   },
   {
    "id": "menthe",
@@ -835,7 +1479,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#4ab04a",
+    "#8ad07a",
+    "#6a9a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "coriandre",
@@ -844,7 +1495,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#5ab83a",
+    "#8ad06a",
+    "#3a8a2a"
+   ],
+   "motif": 8
   },
   {
    "id": "thym",
@@ -853,7 +1511,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#6a8a5a",
+    "#8aa87a",
+    "#7a5a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "romarin",
@@ -862,7 +1527,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#3a6a5a",
+    "#5a8a7a",
+    "#9a7ac8"
+   ],
+   "motif": 8
   },
   {
    "id": "ciboulette",
@@ -871,7 +1543,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#3a9a2a",
+    "#6ac84a",
+    "#b87ad8"
+   ],
+   "motif": 8
   },
   {
    "id": "aneth",
@@ -880,7 +1559,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#6ab04a",
+    "#8ac86a",
+    "#6a9a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "estragon",
@@ -889,7 +1575,14 @@
    "source": "Culture",
    "cut": "Herbes",
    "life": 24,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#3a8a3a",
+    "#6ab04a",
+    "#5a8a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "grains_de_cafe",
@@ -898,7 +1591,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#6a3a1a",
+    "#8a5a2a",
+    "#2a1408"
+   ],
+   "motif": 0
   },
   {
    "id": "feuilles_de_the",
@@ -907,7 +1607,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Herbes",
+   "pal": [
+    "#2a6a2a",
+    "#4a8a3a",
+    "#6a7a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "feves_de_cacao",
@@ -916,7 +1623,14 @@
    "source": "Culture",
    "cut": "—",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#c8781a",
+    "#f4ecd8",
+    "#5a2a1a"
+   ],
+   "motif": 0
   },
   {
    "id": "canne_a_sucre",
@@ -925,7 +1639,14 @@
    "source": "Culture",
    "cut": "Long",
    "life": 720,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Long",
+   "pal": [
+    "#9ab84a",
+    "#f4f0d8",
+    "#5a9a3a"
+   ],
+   "motif": 1
   },
   {
    "id": "bouteille_d_eau",
@@ -934,7 +1655,14 @@
    "source": "Boutique",
    "cut": "—",
    "life": 0,
-   "kind": "ingredient"
+   "kind": "ingredient",
+   "famille": "Rond",
+   "pal": [
+    "#9ad0f0",
+    "#b8e4fa",
+    "#2a6ad0"
+   ],
+   "motif": 0
   }
  ],
  "epices": [
@@ -944,7 +1672,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 0,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#ffffff",
+    "#ffffff",
+    "#c0c4cc"
+   ],
+   "motif": 0
   },
   {
    "id": "poivre_noir",
@@ -952,7 +1687,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 0,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#2a2420",
+    "#4a4038",
+    "#5a3420"
+   ],
+   "motif": 0
   },
   {
    "id": "sucre",
@@ -960,7 +1702,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 0,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#ffffff",
+    "#ffffff",
+    "#e8e8e4"
+   ],
+   "motif": 0
   },
   {
    "id": "paprika",
@@ -968,7 +1717,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#c8321a",
+    "#e04a2a",
+    "#f4e8c8"
+   ],
+   "motif": 0
   },
   {
    "id": "cumin",
@@ -976,7 +1732,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#9a7038",
+    "#b88a48",
+    "#6a4a20"
+   ],
+   "motif": 0
   },
   {
    "id": "curcuma",
@@ -984,7 +1747,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#b8844a",
+    "#f0a818",
+    "#8a5a30"
+   ],
+   "motif": 1
   },
   {
    "id": "cannelle",
@@ -992,7 +1762,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Long",
+   "pal": [
+    "#9a5028",
+    "#b86a38",
+    "#6a3014"
+   ],
+   "motif": 2
   },
   {
    "id": "muscade",
@@ -1000,7 +1777,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#8a5a36",
+    "#c89a6a",
+    "#6a4024"
+   ],
+   "motif": 0
   },
   {
    "id": "piment",
@@ -1008,7 +1792,14 @@
    "cat": "Épice",
    "source": "Culture",
    "life": 720,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Long",
+   "pal": [
+    "#d8141a",
+    "#f04a3a",
+    "#f8e0a0"
+   ],
+   "motif": 3
   },
   {
    "id": "gingembre",
@@ -1016,7 +1807,14 @@
    "cat": "Épice",
    "source": "Culture",
    "life": 720,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Long",
+   "pal": [
+    "#d8b078",
+    "#f4e0a0",
+    "#a8804a"
+   ],
+   "motif": 1
   },
   {
    "id": "vanille",
@@ -1024,7 +1822,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Long",
+   "pal": [
+    "#3a2418",
+    "#5a3a28",
+    "#f4ecb0"
+   ],
+   "motif": 0
   },
   {
    "id": "safran",
@@ -1032,7 +1837,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#d82a14",
+    "#e8321a",
+    "#f0a020"
+   ],
+   "motif": 0
   },
   {
    "id": "clou_de_girofle",
@@ -1040,7 +1852,14 @@
    "cat": "Épice",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#5a3420",
+    "#6a3a22",
+    "#2a1a10"
+   ],
+   "motif": 0
   },
   {
    "id": "laurier",
@@ -1048,7 +1867,14 @@
    "cat": "Épice",
    "source": "Cueillette",
    "life": 720,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Herbes",
+   "pal": [
+    "#5a7a3a",
+    "#6a8a44",
+    "#6a5a3a"
+   ],
+   "motif": 8
   },
   {
    "id": "graines_de_moutarde",
@@ -1056,7 +1882,14 @@
    "cat": "Épice",
    "source": "Culture",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#d8b030",
+    "#f0d060",
+    "#9a7a18"
+   ],
+   "motif": 0
   },
   {
    "id": "sesame",
@@ -1064,7 +1897,14 @@
    "cat": "Épice",
    "source": "Culture",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#f0e0b8",
+    "#fbf4e0",
+    "#c8b088"
+   ],
+   "motif": 0
   },
   {
    "id": "levure",
@@ -1072,7 +1912,14 @@
    "cat": "Condiment",
    "source": "Boutique",
    "life": 720,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#e8d8a0",
+    "#f4e8b8",
+    "#c8b070"
+   ],
+   "motif": 0
   },
   {
    "id": "huile_d_olive",
@@ -1080,7 +1927,14 @@
    "cat": "Condiment",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#b8a820",
+    "#d8c840",
+    "#6a7a1a"
+   ],
+   "motif": 0
   },
   {
    "id": "vinaigre",
@@ -1088,7 +1942,14 @@
    "cat": "Condiment",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#8a1a2a",
+    "#a82a3a",
+    "#c8a040"
+   ],
+   "motif": 0
   },
   {
    "id": "sauce_soja",
@@ -1096,7 +1957,14 @@
    "cat": "Condiment",
    "source": "Boutique",
    "life": 1440,
-   "kind": "epice"
+   "kind": "epice",
+   "famille": "Rond",
+   "pal": [
+    "#3a1a0a",
+    "#5a2a14",
+    "#d8201a"
+   ],
+   "motif": 0
   }
  ],
  "preparations": [
@@ -1111,7 +1979,14 @@
     "Tamiser"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#fbfaf4",
+    "#ffffff",
+    "#efe8d8"
+   ],
+   "motif": 0
   },
   {
    "id": "farine_de_mais",
@@ -1124,7 +1999,14 @@
     "Tamiser"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f4d870",
+    "#f8e8a0",
+    "#efe8d8"
+   ],
+   "motif": 0
   },
   {
    "id": "semoule",
@@ -1137,7 +2019,14 @@
     "Tamiser"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f0d070",
+    "#f8e8a0",
+    "#d8b050"
+   ],
+   "motif": 0
   },
   {
    "id": "pate_a_pain",
@@ -1153,7 +2042,14 @@
     "Pétrir"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f0dcb0",
+    "#f8ecd0",
+    "#d8c090"
+   ],
+   "motif": 7
   },
   {
    "id": "pate_a_pizza",
@@ -1170,7 +2066,14 @@
     "Pétrir"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e8c890",
+    "#f4e0b0",
+    "#dcc088"
+   ],
+   "motif": 0
   },
   {
    "id": "pate_brisee",
@@ -1186,7 +2089,14 @@
     "Étaler"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f0d8a0",
+    "#f4e4b8",
+    "#d8b878"
+   ],
+   "motif": 0
   },
   {
    "id": "pate_feuilletee",
@@ -1202,7 +2112,14 @@
     "Étaler"
    ],
    "rank": 2,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#f0dcaa",
+    "#f8ecc8",
+    "#e0c890"
+   ],
+   "motif": 2
   },
   {
    "id": "pate_a_crepe",
@@ -1217,7 +2134,14 @@
     "Fouetter"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f4e0a0",
+    "#fbf0c8",
+    "#f2eee6"
+   ],
+   "motif": 0
   },
   {
    "id": "pates_fraiches",
@@ -1232,7 +2156,14 @@
     "Couper"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Long",
+   "pal": [
+    "#f0d070",
+    "#f8e8a0",
+    "#e0b850"
+   ],
+   "motif": 0
   },
   {
    "id": "tortilla",
@@ -1247,7 +2178,14 @@
     "Saisir"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f0d898",
+    "#f8e8c0",
+    "#b8803a"
+   ],
+   "motif": 0
   },
   {
    "id": "pain",
@@ -1260,7 +2198,14 @@
     "Four"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Long",
+   "pal": [
+    "#d8903a",
+    "#f8ecc8",
+    "#a8601a"
+   ],
+   "motif": 7
   },
   {
    "id": "pain_burger",
@@ -1274,7 +2219,14 @@
     "Four"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#d88a38",
+    "#f8e8c0",
+    "#f8ecc8"
+   ],
+   "motif": 7
   },
   {
    "id": "pain_de_mie",
@@ -1289,7 +2241,14 @@
     "Four"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#c8803a",
+    "#f8ecc8",
+    "#e8d4a0"
+   ],
+   "motif": 7
   },
   {
    "id": "chapelure",
@@ -1301,7 +2260,14 @@
     "Piler"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e0a850",
+    "#f4d890",
+    "#b8782a"
+   ],
+   "motif": 0
   },
   {
    "id": "beurre",
@@ -1313,7 +2279,14 @@
     "Fouetter"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#f4d860",
+    "#f8e88a",
+    "#e8c848"
+   ],
+   "motif": 0
   },
   {
    "id": "creme",
@@ -1325,7 +2298,14 @@
     "Mélanger"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f4f0e8",
+    "#fbfaf2",
+    "#4a8ad0"
+   ],
+   "motif": 0
   },
   {
    "id": "fromage",
@@ -1340,7 +2320,14 @@
     "Façonner"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#f0c030",
+    "#f8d860",
+    "#c89018"
+   ],
+   "motif": 7
   },
   {
    "id": "fromage_de_chevre",
@@ -1355,7 +2342,14 @@
     "Façonner"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Long",
+   "pal": [
+    "#f4f2ea",
+    "#fbfaf4",
+    "#b8b8b0"
+   ],
+   "motif": 0
   },
   {
    "id": "yaourt",
@@ -1367,7 +2361,14 @@
     "Bouillir"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#fbfaf6",
+    "#ffffff",
+    "#f0c0d0"
+   ],
+   "motif": 0
   },
   {
    "id": "lait_de_coco",
@@ -1380,7 +2381,14 @@
     "Presser"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#fbfaf4",
+    "#ffffff",
+    "#6a4428"
+   ],
+   "motif": 0
   },
   {
    "id": "bouillon",
@@ -1398,7 +2406,14 @@
     "Mijoter"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e0a840",
+    "#f0c870",
+    "#b8bcc4"
+   ],
+   "motif": 0
   },
   {
    "id": "fumet_de_poisson",
@@ -1413,7 +2428,14 @@
     "Mijoter"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e8dcb0",
+    "#f8f4e8",
+    "#b8bcc4"
+   ],
+   "motif": 0
   },
   {
    "id": "riz_cuit",
@@ -1426,7 +2448,14 @@
     "Bouillir"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f6f3ea",
+    "#ffffff",
+    "#2a2a3a"
+   ],
+   "motif": 0
   },
   {
    "id": "tofu",
@@ -1440,7 +2469,14 @@
     "Façonner"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#f4f0e0",
+    "#fbfaf0",
+    "#e4e0cc"
+   ],
+   "motif": 0
   },
   {
    "id": "caramel",
@@ -1455,7 +2491,14 @@
     "Mélanger"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#c8701a",
+    "#e89a3a",
+    "#6a3a1a"
+   ],
+   "motif": 0
   },
   {
    "id": "chocolat",
@@ -1471,7 +2514,14 @@
     "Mélanger"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Pavé",
+   "pal": [
+    "#5a2a14",
+    "#7a4a2a",
+    "#3a1a0e"
+   ],
+   "motif": 0
   },
   {
    "id": "creme_patissiere",
@@ -1488,7 +2538,14 @@
     "Bouillir"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f4d050",
+    "#f8e088",
+    "#3a2418"
+   ],
+   "motif": 0
   },
   {
    "id": "chantilly",
@@ -1501,7 +2558,14 @@
     "Fouetter"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#fbfaf6",
+    "#ffffff",
+    "#e8e4dc"
+   ],
+   "motif": 0
   },
   {
    "id": "sauce_tomate",
@@ -1519,7 +2583,14 @@
     "Assaisonner"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#c82a1a",
+    "#e04a2a",
+    "#3aa02a"
+   ],
+   "motif": 0
   },
   {
    "id": "mayonnaise",
@@ -1535,7 +2606,14 @@
     "Assaisonner"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f8e8a8",
+    "#fbf4d0",
+    "#2a5ab0"
+   ],
+   "motif": 0
   },
   {
    "id": "ketchup",
@@ -1551,7 +2629,14 @@
     "Assaisonner"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#d01a1a",
+    "#e03a2a",
+    "#f4ecd0"
+   ],
+   "motif": 0
   },
   {
    "id": "moutarde",
@@ -1566,7 +2651,14 @@
     "Mélanger"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#d8b020",
+    "#e8c030",
+    "#2a3a6a"
+   ],
+   "motif": 0
   },
   {
    "id": "vinaigrette",
@@ -1581,7 +2673,14 @@
     "Fouetter"
    ],
    "rank": 0,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e0c030",
+    "#8a2a2a",
+    "#3a8a2a"
+   ],
+   "motif": 0
   },
   {
    "id": "bechamel",
@@ -1597,7 +2696,14 @@
     "Bouillir"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#f8f4e4",
+    "#fbfaf2",
+    "#b8bcc4"
+   ],
+   "motif": 0
   },
   {
    "id": "pesto",
@@ -1614,7 +2720,14 @@
     "Mélanger"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#4a8a22",
+    "#6aa83a",
+    "#c8a040"
+   ],
+   "motif": 0
   },
   {
    "id": "sauce_barbecue",
@@ -1629,7 +2742,14 @@
     "Mijoter"
    ],
    "rank": 1,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#5a1e10",
+    "#8a3018",
+    "#e8a030"
+   ],
+   "motif": 0
   },
   {
    "id": "sauce_curry",
@@ -1646,7 +2766,14 @@
     "Mijoter"
    ],
    "rank": 2,
-   "kind": "preparation"
+   "kind": "preparation",
+   "famille": "Rond",
+   "pal": [
+    "#e8a020",
+    "#f4c050",
+    "#c86a10"
+   ],
+   "motif": 0
   }
  ],
  "plats": [
