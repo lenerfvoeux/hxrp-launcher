@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:doseur"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:doseur"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:doseur",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:doseur",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:doseur",
+   "y": 270
+  }
+ }
+}

@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:shaker"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:shaker"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:shaker",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:shaker",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:shaker",
+   "y": 270
+  }
+ }
+}

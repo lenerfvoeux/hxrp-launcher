@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:grill"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:grill"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:grill",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:grill",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:grill",
+   "y": 270
+  }
+ }
+}

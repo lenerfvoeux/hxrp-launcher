@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:presse"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:presse"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:presse",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:presse",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:presse",
+   "y": 270
+  }
+ }
+}

@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:friteuse"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:friteuse"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:friteuse",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:friteuse",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:friteuse",
+   "y": 270
+  }
+ }
+}

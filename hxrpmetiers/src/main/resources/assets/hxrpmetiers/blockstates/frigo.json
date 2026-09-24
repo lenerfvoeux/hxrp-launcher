@@ -1,6 +1,19 @@
-{ "variants": {
-  "facing=north": { "model": "hxrpmetiers:frigo" },
-  "facing=east":  { "model": "hxrpmetiers:frigo", "y": 90 },
-  "facing=south": { "model": "hxrpmetiers:frigo", "y": 180 },
-  "facing=west":  { "model": "hxrpmetiers:frigo", "y": 270 }
-} }
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:frigo"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:frigo",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:frigo",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:frigo",
+   "y": 270
+  }
+ }
+}

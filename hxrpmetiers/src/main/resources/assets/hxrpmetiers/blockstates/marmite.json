@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:marmite"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:marmite"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:marmite",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:marmite",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:marmite",
+   "y": 270
+  }
+ }
+}

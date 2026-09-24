@@ -1,1 +1,3 @@
-{ "parent": "hxrpmetiers:block/poubelle" }
+{
+ "parent": "hxrpmetiers:block/poubelle"
+}

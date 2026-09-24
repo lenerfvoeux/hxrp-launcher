@@ -1,1 +1,19 @@
-{ "variants": { "normal": { "model": "hxrpmetiers:poubelle" } } }
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:poubelle"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:poubelle",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:poubelle",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:poubelle",
+   "y": 270
+  }
+ }
+}

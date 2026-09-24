@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:fourneau"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:fourneau"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:fourneau",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:fourneau",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:fourneau",
+   "y": 270
+  }
+ }
+}

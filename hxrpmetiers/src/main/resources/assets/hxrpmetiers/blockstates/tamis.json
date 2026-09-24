@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:tamis"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:tamis"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:tamis",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:tamis",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:tamis",
+   "y": 270
+  }
+ }
+}

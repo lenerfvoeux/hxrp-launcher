@@ -1,1 +1,3 @@
-{ "parent": "hxrpmetiers:block/frigo" }
+{
+ "parent": "hxrpmetiers:block/frigo"
+}

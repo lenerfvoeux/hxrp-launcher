@@ -1,1 +1,19 @@
-{"variants": {"normal": {"model": "hxrpmetiers:mortier"}}}
+{
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:mortier"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:mortier",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:mortier",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:mortier",
+   "y": 270
+  }
+ }
+}
