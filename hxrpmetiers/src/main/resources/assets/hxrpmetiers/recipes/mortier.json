@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "pattern": ["S S", "SCS", " S "], "key": {"S": {"item": "minecraft:stone", "data": 0}, "C": {"item": "minecraft:cobblestone"}}, "result": {"item": "hxrpmetiers:mortier"}}

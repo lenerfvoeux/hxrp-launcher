@@ -1,0 +1,5848 @@
+{
+ "ingredients": [
+  {
+   "id": "ble",
+   "name": "Blé",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "riz",
+   "name": "Riz",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "mais",
+   "name": "Maïs",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "avoine",
+   "name": "Avoine",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "sarrasin",
+   "name": "Sarrasin",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "quinoa",
+   "name": "Quinoa",
+   "cat": "Céréales",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "carotte",
+   "name": "Carotte",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "pomme_de_terre",
+   "name": "Pomme de terre",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "oignon",
+   "name": "Oignon",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "echalote",
+   "name": "Échalote",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "ail",
+   "name": "Ail",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "tomate",
+   "name": "Tomate",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "poivron",
+   "name": "Poivron",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "courgette",
+   "name": "Courgette",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "aubergine",
+   "name": "Aubergine",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "chou",
+   "name": "Chou",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "chou_fleur",
+   "name": "Chou-fleur",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "brocoli",
+   "name": "Brocoli",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "laitue",
+   "name": "Laitue",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "poireau",
+   "name": "Poireau",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "concombre",
+   "name": "Concombre",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "champignon",
+   "name": "Champignon",
+   "cat": "Légumes",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "epinards",
+   "name": "Épinards",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "haricot_vert",
+   "name": "Haricot vert",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "petit_pois",
+   "name": "Petit pois",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "—",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "potiron",
+   "name": "Potiron",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "radis",
+   "name": "Radis",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "betterave",
+   "name": "Betterave",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "patate_douce",
+   "name": "Patate douce",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "navet",
+   "name": "Navet",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 144,
+   "kind": "ingredient"
+  },
+  {
+   "id": "celeri",
+   "name": "Céleri",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "asperge",
+   "name": "Asperge",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "artichaut",
+   "name": "Artichaut",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Noyau",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "avocat",
+   "name": "Avocat",
+   "cat": "Légumes",
+   "source": "Culture",
+   "cut": "Noyau",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "pomme",
+   "name": "Pomme",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "poire",
+   "name": "Poire",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "orange",
+   "name": "Orange",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "citron",
+   "name": "Citron",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "citron_vert",
+   "name": "Citron vert",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "fraise",
+   "name": "Fraise",
+   "cat": "Fruits",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "framboise",
+   "name": "Framboise",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "myrtille",
+   "name": "Myrtille",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "banane",
+   "name": "Banane",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Long",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "ananas",
+   "name": "Ananas",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "mangue",
+   "name": "Mangue",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "peche",
+   "name": "Pêche",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "abricot",
+   "name": "Abricot",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "cerise",
+   "name": "Cerise",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Noyau",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "raisin",
+   "name": "Raisin",
+   "cat": "Fruits",
+   "source": "Culture",
+   "cut": "—",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "kiwi",
+   "name": "Kiwi",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "figue",
+   "name": "Figue",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "melon",
+   "name": "Melon",
+   "cat": "Fruits",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "pasteque",
+   "name": "Pastèque",
+   "cat": "Fruits",
+   "source": "Culture",
+   "cut": "Rond",
+   "life": 96,
+   "kind": "ingredient"
+  },
+  {
+   "id": "noix_de_coco",
+   "name": "Noix de coco",
+   "cat": "Fruits",
+   "source": "Cueillette",
+   "cut": "Rond",
+   "life": 240,
+   "kind": "ingredient"
+  },
+  {
+   "id": "boeuf",
+   "name": "Bœuf",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "veau",
+   "name": "Veau",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "porc",
+   "name": "Porc",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "poulet",
+   "name": "Poulet",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "dinde",
+   "name": "Dinde",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "mouton",
+   "name": "Mouton",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "lapin",
+   "name": "Lapin",
+   "cat": "Viandes",
+   "source": "Chasse",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "canard",
+   "name": "Canard",
+   "cat": "Viandes",
+   "source": "Élevage",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "cerf",
+   "name": "Cerf",
+   "cat": "Viandes",
+   "source": "Chasse",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "sanglier",
+   "name": "Sanglier",
+   "cat": "Viandes",
+   "source": "Chasse",
+   "cut": "Pavé",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "saumon",
+   "name": "Saumon",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "thon",
+   "name": "Thon",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "cabillaud",
+   "name": "Cabillaud",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "truite",
+   "name": "Truite",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "sardine",
+   "name": "Sardine",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "maquereau",
+   "name": "Maquereau",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "anchois",
+   "name": "Anchois",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Poisson",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "crevette",
+   "name": "Crevette",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Carapace",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "calamar",
+   "name": "Calamar",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Long",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "moule",
+   "name": "Moule",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Carapace",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "huitre",
+   "name": "Huître",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Carapace",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "crabe",
+   "name": "Crabe",
+   "cat": "Poissons et fruits de mer",
+   "source": "Pêche",
+   "cut": "Carapace",
+   "life": 12,
+   "kind": "ingredient"
+  },
+  {
+   "id": "oeuf",
+   "name": "Œuf",
+   "cat": "Produits animaux",
+   "source": "Élevage",
+   "cut": "—",
+   "life": 72,
+   "kind": "ingredient"
+  },
+  {
+   "id": "lait",
+   "name": "Lait",
+   "cat": "Produits animaux",
+   "source": "Élevage",
+   "cut": "—",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "lait_de_chevre",
+   "name": "Lait de chèvre",
+   "cat": "Produits animaux",
+   "source": "Élevage",
+   "cut": "—",
+   "life": 48,
+   "kind": "ingredient"
+  },
+  {
+   "id": "miel",
+   "name": "Miel",
+   "cat": "Produits animaux",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 1440,
+   "kind": "ingredient"
+  },
+  {
+   "id": "amande",
+   "name": "Amande",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "noisette",
+   "name": "Noisette",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "noix",
+   "name": "Noix",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "pistache",
+   "name": "Pistache",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Cueillette",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "cacahuete",
+   "name": "Cacahuète",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "lentilles",
+   "name": "Lentilles",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "pois_chiche",
+   "name": "Pois chiche",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "haricot_rouge",
+   "name": "Haricot rouge",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "haricot_blanc",
+   "name": "Haricot blanc",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "soja",
+   "name": "Soja",
+   "cat": "Fruits secs et légumineuses",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "basilic",
+   "name": "Basilic",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "persil",
+   "name": "Persil",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "menthe",
+   "name": "Menthe",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "coriandre",
+   "name": "Coriandre",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "thym",
+   "name": "Thym",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "romarin",
+   "name": "Romarin",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "ciboulette",
+   "name": "Ciboulette",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "aneth",
+   "name": "Aneth",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "estragon",
+   "name": "Estragon",
+   "cat": "Herbes fraîches",
+   "source": "Culture",
+   "cut": "Herbes",
+   "life": 24,
+   "kind": "ingredient"
+  },
+  {
+   "id": "grains_de_cafe",
+   "name": "Grains de café",
+   "cat": "Bases de boissons",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "feuilles_de_the",
+   "name": "Feuilles de thé",
+   "cat": "Bases de boissons",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "feves_de_cacao",
+   "name": "Fèves de cacao",
+   "cat": "Bases de boissons",
+   "source": "Culture",
+   "cut": "—",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "canne_a_sucre",
+   "name": "Canne à sucre",
+   "cat": "Bases de boissons",
+   "source": "Culture",
+   "cut": "Long",
+   "life": 720,
+   "kind": "ingredient"
+  },
+  {
+   "id": "bouteille_d_eau",
+   "name": "Bouteille d'eau",
+   "cat": "Bases de boissons",
+   "source": "Boutique",
+   "cut": "—",
+   "life": 0,
+   "kind": "ingredient"
+  }
+ ],
+ "epices": [
+  {
+   "id": "sel",
+   "name": "Sel",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 0,
+   "kind": "epice"
+  },
+  {
+   "id": "poivre_noir",
+   "name": "Poivre noir",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 0,
+   "kind": "epice"
+  },
+  {
+   "id": "sucre",
+   "name": "Sucre",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 0,
+   "kind": "epice"
+  },
+  {
+   "id": "paprika",
+   "name": "Paprika",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "cumin",
+   "name": "Cumin",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "curcuma",
+   "name": "Curcuma",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "cannelle",
+   "name": "Cannelle",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "muscade",
+   "name": "Muscade",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "piment",
+   "name": "Piment",
+   "cat": "Épice",
+   "source": "Culture",
+   "life": 720,
+   "kind": "epice"
+  },
+  {
+   "id": "gingembre",
+   "name": "Gingembre",
+   "cat": "Épice",
+   "source": "Culture",
+   "life": 720,
+   "kind": "epice"
+  },
+  {
+   "id": "vanille",
+   "name": "Vanille",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "safran",
+   "name": "Safran",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "clou_de_girofle",
+   "name": "Clou de girofle",
+   "cat": "Épice",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "laurier",
+   "name": "Laurier",
+   "cat": "Épice",
+   "source": "Cueillette",
+   "life": 720,
+   "kind": "epice"
+  },
+  {
+   "id": "graines_de_moutarde",
+   "name": "Graines de moutarde",
+   "cat": "Épice",
+   "source": "Culture",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "sesame",
+   "name": "Sésame",
+   "cat": "Épice",
+   "source": "Culture",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "levure",
+   "name": "Levure",
+   "cat": "Condiment",
+   "source": "Boutique",
+   "life": 720,
+   "kind": "epice"
+  },
+  {
+   "id": "huile_d_olive",
+   "name": "Huile d'olive",
+   "cat": "Condiment",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "vinaigre",
+   "name": "Vinaigre",
+   "cat": "Condiment",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  },
+  {
+   "id": "sauce_soja",
+   "name": "Sauce soja",
+   "cat": "Condiment",
+   "source": "Boutique",
+   "life": 1440,
+   "kind": "epice"
+  }
+ ],
+ "preparations": [
+  {
+   "id": "farine",
+   "name": "Farine",
+   "ingredients": [
+    "ble"
+   ],
+   "steps": [
+    "Piler",
+    "Tamiser"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "farine_de_mais",
+   "name": "Farine de maïs",
+   "ingredients": [
+    "mais"
+   ],
+   "steps": [
+    "Piler",
+    "Tamiser"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "semoule",
+   "name": "Semoule",
+   "ingredients": [
+    "ble"
+   ],
+   "steps": [
+    "Piler",
+    "Tamiser"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pate_a_pain",
+   "name": "Pâte à pain",
+   "ingredients": [
+    "farine",
+    "bouteille_d_eau",
+    "levure",
+    "sel"
+   ],
+   "steps": [
+    "Mélanger",
+    "Pétrir"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pate_a_pizza",
+   "name": "Pâte à pizza",
+   "ingredients": [
+    "farine",
+    "bouteille_d_eau",
+    "levure",
+    "huile_d_olive",
+    "sel"
+   ],
+   "steps": [
+    "Mélanger",
+    "Pétrir"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pate_brisee",
+   "name": "Pâte brisée",
+   "ingredients": [
+    "farine",
+    "beurre",
+    "sel"
+   ],
+   "steps": [
+    "Mélanger",
+    "Pétrir",
+    "Étaler"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "pate_feuilletee",
+   "name": "Pâte feuilletée",
+   "ingredients": [
+    "farine",
+    "beurre",
+    "sel"
+   ],
+   "steps": [
+    "Pétrir",
+    "Étaler",
+    "Étaler"
+   ],
+   "rank": 2,
+   "kind": "preparation"
+  },
+  {
+   "id": "pate_a_crepe",
+   "name": "Pâte à crêpe",
+   "ingredients": [
+    "farine",
+    "oeuf",
+    "lait",
+    "sucre"
+   ],
+   "steps": [
+    "Fouetter"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pates_fraiches",
+   "name": "Pâtes fraîches",
+   "ingredients": [
+    "farine",
+    "oeuf"
+   ],
+   "steps": [
+    "Pétrir",
+    "Étaler",
+    "Couper"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "tortilla",
+   "name": "Tortilla",
+   "ingredients": [
+    "farine_de_mais",
+    "sel"
+   ],
+   "steps": [
+    "Pétrir",
+    "Façonner",
+    "Saisir"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "pain",
+   "name": "Pain",
+   "ingredients": [
+    "pate_a_pain"
+   ],
+   "steps": [
+    "Façonner",
+    "Four"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pain_burger",
+   "name": "Pain burger",
+   "ingredients": [
+    "pate_a_pain",
+    "oeuf"
+   ],
+   "steps": [
+    "Façonner",
+    "Four"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "pain_de_mie",
+   "name": "Pain de mie",
+   "ingredients": [
+    "pate_a_pain",
+    "lait",
+    "beurre"
+   ],
+   "steps": [
+    "Façonner",
+    "Four"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "chapelure",
+   "name": "Chapelure",
+   "ingredients": [
+    "pain"
+   ],
+   "steps": [
+    "Piler"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "beurre",
+   "name": "Beurre",
+   "ingredients": [
+    "lait"
+   ],
+   "steps": [
+    "Fouetter"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "creme",
+   "name": "Crème",
+   "ingredients": [
+    "lait"
+   ],
+   "steps": [
+    "Mélanger"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "fromage",
+   "name": "Fromage",
+   "ingredients": [
+    "lait",
+    "sel"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger",
+    "Façonner"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "fromage_de_chevre",
+   "name": "Fromage de chèvre",
+   "ingredients": [
+    "lait_de_chevre",
+    "sel"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger",
+    "Façonner"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "yaourt",
+   "name": "Yaourt",
+   "ingredients": [
+    "lait"
+   ],
+   "steps": [
+    "Bouillir"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "lait_de_coco",
+   "name": "Lait de coco",
+   "ingredients": [
+    "noix_de_coco"
+   ],
+   "steps": [
+    "Couper",
+    "Presser"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "bouillon",
+   "name": "Bouillon",
+   "ingredients": [
+    "poulet",
+    "carotte",
+    "oignon",
+    "poireau",
+    "thym",
+    "sel"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "fumet_de_poisson",
+   "name": "Fumet de poisson",
+   "ingredients": [
+    "cabillaud",
+    "oignon",
+    "thym"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "riz_cuit",
+   "name": "Riz cuit",
+   "ingredients": [
+    "riz",
+    "sel"
+   ],
+   "steps": [
+    "Bouillir"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "tofu",
+   "name": "Tofu",
+   "ingredients": [
+    "soja"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir",
+    "Façonner"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "caramel",
+   "name": "Caramel",
+   "ingredients": [
+    "sucre",
+    "beurre",
+    "creme"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "chocolat",
+   "name": "Chocolat",
+   "ingredients": [
+    "feves_de_cacao",
+    "sucre",
+    "lait"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "creme_patissiere",
+   "name": "Crème pâtissière",
+   "ingredients": [
+    "lait",
+    "oeuf",
+    "sucre",
+    "farine",
+    "vanille"
+   ],
+   "steps": [
+    "Fouetter",
+    "Bouillir"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "chantilly",
+   "name": "Chantilly",
+   "ingredients": [
+    "creme",
+    "sucre"
+   ],
+   "steps": [
+    "Fouetter"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "sauce_tomate",
+   "name": "Sauce tomate",
+   "ingredients": [
+    "tomate",
+    "ail",
+    "oignon",
+    "huile_d_olive",
+    "basilic"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "ingredients": [
+    "oeuf",
+    "huile_d_olive",
+    "moutarde",
+    "sel"
+   ],
+   "steps": [
+    "Fouetter",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "ketchup",
+   "name": "Ketchup",
+   "ingredients": [
+    "tomate",
+    "sucre",
+    "vinaigre",
+    "sel"
+   ],
+   "steps": [
+    "Mijoter",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "moutarde",
+   "name": "Moutarde",
+   "ingredients": [
+    "graines_de_moutarde",
+    "vinaigre",
+    "sel"
+   ],
+   "steps": [
+    "Piler",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "vinaigrette",
+   "name": "Vinaigrette",
+   "ingredients": [
+    "huile_d_olive",
+    "vinaigre",
+    "moutarde",
+    "sel"
+   ],
+   "steps": [
+    "Fouetter"
+   ],
+   "rank": 0,
+   "kind": "preparation"
+  },
+  {
+   "id": "bechamel",
+   "name": "Béchamel",
+   "ingredients": [
+    "beurre",
+    "farine",
+    "lait",
+    "muscade"
+   ],
+   "steps": [
+    "Mélanger",
+    "Bouillir"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "pesto",
+   "name": "Pesto",
+   "ingredients": [
+    "basilic",
+    "ail",
+    "amande",
+    "fromage",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Piler",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "sauce_barbecue",
+   "name": "Sauce barbecue",
+   "ingredients": [
+    "ketchup",
+    "miel",
+    "vinaigre",
+    "paprika"
+   ],
+   "steps": [
+    "Mijoter"
+   ],
+   "rank": 1,
+   "kind": "preparation"
+  },
+  {
+   "id": "sauce_curry",
+   "name": "Sauce curry",
+   "ingredients": [
+    "oignon",
+    "curcuma",
+    "cumin",
+    "gingembre",
+    "lait_de_coco"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "kind": "preparation"
+  }
+ ],
+ "plats": [
+  {
+   "id": "salade_verte",
+   "name": "Salade verte",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "laitue",
+    "radis",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 4,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_tomates",
+   "name": "Salade de tomates",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "tomate",
+    "oignon",
+    "basilic",
+    "huile_d_olive",
+    "sel"
+   ],
+   "steps": [
+    "Couper",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 4,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "carottes_rapees",
+   "name": "Carottes râpées",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "carotte",
+    "citron",
+    "persil",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 6,
+   "soif": 2,
+   "buff": "Vision nocturne",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_riz",
+   "name": "Salade de riz",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "riz_cuit",
+    "mais",
+    "tomate",
+    "thon",
+    "poivron",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_lentilles",
+   "name": "Salade de lentilles",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "lentilles",
+    "oignon",
+    "persil",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "bruschetta",
+   "name": "Bruschetta",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "pain",
+    "tomate",
+    "ail",
+    "basilic",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Couper",
+    "Griller",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "oeufs_mimosa",
+   "name": "Œufs mimosa",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "oeuf",
+    "mayonnaise",
+    "persil"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "tzatziki",
+   "name": "Tzatziki",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "yaourt",
+    "concombre",
+    "ail",
+    "menthe",
+    "aneth"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 2,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_nicoise",
+   "name": "Salade niçoise",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "laitue",
+    "tomate",
+    "thon",
+    "oeuf",
+    "haricot_vert",
+    "anchois",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 2,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_cesar",
+   "name": "Salade César",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "laitue",
+    "poulet",
+    "pain",
+    "fromage",
+    "mayonnaise",
+    "ail"
+   ],
+   "steps": [
+    "Saisir",
+    "Couper",
+    "Four",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "taboule",
+   "name": "Taboulé",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "semoule",
+    "tomate",
+    "concombre",
+    "persil",
+    "menthe",
+    "citron",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 14,
+   "soif": 2,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "houmous",
+   "name": "Houmous",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "pois_chiche",
+    "ail",
+    "citron",
+    "sesame",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Bouillir",
+    "Piler",
+    "Presser",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "guacamole",
+   "name": "Guacamole",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "avocat",
+    "citron_vert",
+    "oignon",
+    "tomate",
+    "coriandre",
+    "piment"
+   ],
+   "steps": [
+    "Couper",
+    "Piler",
+    "Presser",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_betterave",
+   "name": "Salade de betterave",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "betterave",
+    "fromage_de_chevre",
+    "noix",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 12,
+   "soif": 2,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_chevre_chaud",
+   "name": "Salade de chèvre chaud",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "laitue",
+    "fromage_de_chevre",
+    "pain",
+    "miel",
+    "noix",
+    "poire",
+    "vinaigrette"
+   ],
+   "steps": [
+    "Couper",
+    "Four",
+    "Mélanger"
+   ],
+   "rank": 2,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Chance I",
+   "kind": "plat"
+  },
+  {
+   "id": "carpaccio_de_boeuf",
+   "name": "Carpaccio de bœuf",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "boeuf",
+    "huile_d_olive",
+    "citron",
+    "fromage",
+    "basilic"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "tartare_de_saumon",
+   "name": "Tartare de saumon",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "saumon",
+    "avocat",
+    "citron_vert",
+    "aneth",
+    "echalote"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "huitres_au_citron",
+   "name": "Huîtres au citron",
+   "cat": "Entrées et salades",
+   "ingredients": [
+    "huitre",
+    "citron",
+    "echalote",
+    "vinaigre"
+   ],
+   "steps": [
+    "Couper",
+    "Presser"
+   ],
+   "rank": 2,
+   "faim": 10,
+   "soif": 2,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "soupe_de_legumes",
+   "name": "Soupe de légumes",
+   "cat": "Soupes",
+   "ingredients": [
+    "carotte",
+    "pomme_de_terre",
+    "poireau",
+    "oignon",
+    "bouillon",
+    "sel"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 14,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "veloute_de_potiron",
+   "name": "Velouté de potiron",
+   "cat": "Soupes",
+   "ingredients": [
+    "potiron",
+    "oignon",
+    "creme",
+    "bouillon",
+    "muscade"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Mélanger",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 14,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "bouillon_de_poulet_aux_pates",
+   "name": "Bouillon de poulet aux pâtes",
+   "cat": "Soupes",
+   "ingredients": [
+    "bouillon",
+    "poulet",
+    "pates_fraiches",
+    "carotte"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 16,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "soupe_a_l_oignon_gratinee",
+   "name": "Soupe à l'oignon gratinée",
+   "cat": "Soupes",
+   "ingredients": [
+    "oignon",
+    "bouillon",
+    "pain",
+    "fromage",
+    "beurre"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 10,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "gaspacho",
+   "name": "Gaspacho",
+   "cat": "Soupes",
+   "ingredients": [
+    "tomate",
+    "concombre",
+    "poivron",
+    "ail",
+    "huile_d_olive",
+    "vinaigre"
+   ],
+   "steps": [
+    "Couper",
+    "Piler",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 10,
+   "soif": 20,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "soupe_de_lentilles_corail",
+   "name": "Soupe de lentilles corail",
+   "cat": "Soupes",
+   "ingredients": [
+    "lentilles",
+    "carotte",
+    "oignon",
+    "cumin",
+    "lait_de_coco"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 12,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "minestrone",
+   "name": "Minestrone",
+   "cat": "Soupes",
+   "ingredients": [
+    "tomate",
+    "courgette",
+    "haricot_blanc",
+    "carotte",
+    "celeri",
+    "pates_fraiches",
+    "basilic"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 14,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "soupe_miso_au_tofu",
+   "name": "Soupe miso au tofu",
+   "cat": "Soupes",
+   "ingredients": [
+    "tofu",
+    "soja",
+    "sauce_soja",
+    "ciboulette",
+    "bouillon"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir"
+   ],
+   "rank": 1,
+   "faim": 12,
+   "soif": 16,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "soupe_de_poisson",
+   "name": "Soupe de poisson",
+   "cat": "Soupes",
+   "ingredients": [
+    "cabillaud",
+    "crevette",
+    "tomate",
+    "fumet_de_poisson",
+    "safran",
+    "ail"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 20,
+   "soif": 14,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "pho_au_boeuf",
+   "name": "Pho au bœuf",
+   "cat": "Soupes",
+   "ingredients": [
+    "boeuf",
+    "bouillon",
+    "pates_fraiches",
+    "gingembre",
+    "coriandre",
+    "menthe",
+    "citron_vert"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Bouillir",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 22,
+   "soif": 18,
+   "buff": "Vitesse II",
+   "kind": "plat"
+  },
+  {
+   "id": "bisque_de_crabe",
+   "name": "Bisque de crabe",
+   "cat": "Soupes",
+   "ingredients": [
+    "crabe",
+    "creme",
+    "tomate",
+    "echalote",
+    "fumet_de_poisson",
+    "paprika"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter",
+    "Mélanger"
+   ],
+   "rank": 3,
+   "faim": 22,
+   "soif": 12,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "steak_frites",
+   "name": "Steak frites",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "pomme_de_terre",
+    "sel",
+    "poivre_noir"
+   ],
+   "steps": [
+    "Couper",
+    "Frire",
+    "Saisir",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "poulet_roti",
+   "name": "Poulet rôti",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "thym",
+    "ail",
+    "beurre",
+    "sel"
+   ],
+   "steps": [
+    "Assaisonner",
+    "Four"
+   ],
+   "rank": 0,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "cote_de_porc_grillee",
+   "name": "Côte de porc grillée",
+   "cat": "Viandes",
+   "ingredients": [
+    "porc",
+    "romarin",
+    "sel"
+   ],
+   "steps": [
+    "Griller",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "brochettes_de_poulet",
+   "name": "Brochettes de poulet",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "poivron",
+    "oignon",
+    "paprika"
+   ],
+   "steps": [
+    "Couper",
+    "Griller"
+   ],
+   "rank": 0,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "hachis_parmentier",
+   "name": "Hachis parmentier",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "pomme_de_terre",
+    "lait",
+    "beurre",
+    "fromage",
+    "oignon"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Piler",
+    "Saisir",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "pot_au_feu",
+   "name": "Pot-au-feu",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "carotte",
+    "navet",
+    "poireau",
+    "pomme_de_terre",
+    "laurier",
+    "clou_de_girofle"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 32,
+   "soif": 8,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "poulet_basquaise",
+   "name": "Poulet basquaise",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "poivron",
+    "tomate",
+    "oignon",
+    "piment"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "poulet_au_miel",
+   "name": "Poulet au miel",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "miel",
+    "sauce_soja",
+    "sesame",
+    "riz_cuit"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Assaisonner"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "poulet_frit",
+   "name": "Poulet frit",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "farine",
+    "oeuf",
+    "chapelure",
+    "paprika"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "porc_au_caramel",
+   "name": "Porc au caramel",
+   "cat": "Viandes",
+   "ingredients": [
+    "porc",
+    "caramel",
+    "sauce_soja",
+    "riz_cuit"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "boulettes_sauce_tomate",
+   "name": "Boulettes sauce tomate",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "chapelure",
+    "oeuf",
+    "sauce_tomate"
+   ],
+   "steps": [
+    "Mélanger",
+    "Façonner",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "chili_con_carne",
+   "name": "Chili con carne",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "haricot_rouge",
+    "tomate",
+    "oignon",
+    "piment",
+    "cumin"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "roti_de_boeuf",
+   "name": "Rôti de bœuf",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "ail",
+    "thym",
+    "poivre_noir"
+   ],
+   "steps": [
+    "Assaisonner",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "boeuf_bourguignon",
+   "name": "Bœuf bourguignon",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "carotte",
+    "oignon",
+    "champignon",
+    "bouillon",
+    "laurier",
+    "thym"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 3,
+   "faim": 34,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "blanquette_de_veau",
+   "name": "Blanquette de veau",
+   "cat": "Viandes",
+   "ingredients": [
+    "veau",
+    "carotte",
+    "champignon",
+    "creme",
+    "bouillon",
+    "laurier"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Mélanger"
+   ],
+   "rank": 3,
+   "faim": 32,
+   "soif": 0,
+   "buff": "Résistance II",
+   "kind": "plat"
+  },
+  {
+   "id": "poulet_au_curry",
+   "name": "Poulet au curry",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "sauce_curry",
+    "riz_cuit"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "cordon_bleu",
+   "name": "Cordon bleu",
+   "cat": "Viandes",
+   "ingredients": [
+    "dinde",
+    "fromage",
+    "porc",
+    "chapelure",
+    "oeuf"
+   ],
+   "steps": [
+    "Étaler",
+    "Façonner",
+    "Frire"
+   ],
+   "rank": 2,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "magret_de_canard",
+   "name": "Magret de canard",
+   "cat": "Viandes",
+   "ingredients": [
+    "canard",
+    "miel",
+    "figue",
+    "sel"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "gigot_de_mouton",
+   "name": "Gigot de mouton",
+   "cat": "Viandes",
+   "ingredients": [
+    "mouton",
+    "ail",
+    "romarin",
+    "pomme_de_terre"
+   ],
+   "steps": [
+    "Couper",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 36,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "navarin_de_mouton",
+   "name": "Navarin de mouton",
+   "cat": "Viandes",
+   "ingredients": [
+    "mouton",
+    "navet",
+    "carotte",
+    "petit_pois",
+    "bouillon"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 32,
+   "soif": 4,
+   "buff": "Résistance II",
+   "kind": "plat"
+  },
+  {
+   "id": "lapin_a_la_moutarde",
+   "name": "Lapin à la moutarde",
+   "cat": "Viandes",
+   "ingredients": [
+    "lapin",
+    "moutarde",
+    "creme",
+    "thym"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Saut II",
+   "kind": "plat"
+  },
+  {
+   "id": "tajine_de_poulet_au_citron",
+   "name": "Tajine de poulet au citron",
+   "cat": "Viandes",
+   "ingredients": [
+    "poulet",
+    "citron",
+    "abricot",
+    "oignon",
+    "safran",
+    "gingembre",
+    "coriandre"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Régénération II",
+   "kind": "plat"
+  },
+  {
+   "id": "dinde_farcie",
+   "name": "Dinde farcie",
+   "cat": "Viandes",
+   "ingredients": [
+    "dinde",
+    "pain",
+    "oignon",
+    "pomme",
+    "thym",
+    "beurre"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 40,
+   "soif": 0,
+   "buff": "Bonus de vie",
+   "kind": "plat"
+  },
+  {
+   "id": "canard_a_l_orange",
+   "name": "Canard à l'orange",
+   "cat": "Viandes",
+   "ingredients": [
+    "canard",
+    "orange",
+    "sucre",
+    "bouillon"
+   ],
+   "steps": [
+    "Presser",
+    "Saisir",
+    "Bouillir",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 34,
+   "soif": 0,
+   "buff": "Chance II",
+   "kind": "plat"
+  },
+  {
+   "id": "civet_de_sanglier",
+   "name": "Civet de sanglier",
+   "cat": "Viandes",
+   "ingredients": [
+    "sanglier",
+    "oignon",
+    "champignon",
+    "bouillon",
+    "laurier",
+    "poivre_noir"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 3,
+   "faim": 36,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "roti_de_cerf_aux_myrtilles",
+   "name": "Rôti de cerf aux myrtilles",
+   "cat": "Viandes",
+   "ingredients": [
+    "cerf",
+    "myrtille",
+    "beurre",
+    "thym"
+   ],
+   "steps": [
+    "Assaisonner",
+    "Four",
+    "Bouillir"
+   ],
+   "rank": 3,
+   "faim": 34,
+   "soif": 0,
+   "buff": "Vision nocturne",
+   "kind": "plat"
+  },
+  {
+   "id": "couscous_royal",
+   "name": "Couscous royal",
+   "cat": "Viandes",
+   "ingredients": [
+    "semoule",
+    "mouton",
+    "poulet",
+    "carotte",
+    "courgette",
+    "navet",
+    "pois_chiche",
+    "cumin"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Mijoter",
+    "Griller"
+   ],
+   "rank": 3,
+   "faim": 42,
+   "soif": 6,
+   "buff": "Bonus de vie",
+   "kind": "plat"
+  },
+  {
+   "id": "cote_de_boeuf_grillee",
+   "name": "Côte de bœuf grillée",
+   "cat": "Viandes",
+   "ingredients": [
+    "boeuf",
+    "sel",
+    "poivre_noir",
+    "romarin",
+    "estragon"
+   ],
+   "steps": [
+    "Griller",
+    "Assaisonner"
+   ],
+   "rank": 3,
+   "faim": 36,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "poisson_pane",
+   "name": "Poisson pané",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "cabillaud",
+    "farine",
+    "oeuf",
+    "chapelure"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Frire"
+   ],
+   "rank": 0,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "saumon_grille",
+   "name": "Saumon grillé",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "saumon",
+    "citron",
+    "aneth"
+   ],
+   "steps": [
+    "Griller",
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "sardines_grillees",
+   "name": "Sardines grillées",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "sardine",
+    "citron",
+    "sel"
+   ],
+   "steps": [
+    "Griller"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "maquereau_au_four",
+   "name": "Maquereau au four",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "maquereau",
+    "tomate",
+    "oignon",
+    "thym"
+   ],
+   "steps": [
+    "Couper",
+    "Four"
+   ],
+   "rank": 0,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "fish_and_chips",
+   "name": "Fish and chips",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "cabillaud",
+    "pomme_de_terre",
+    "farine",
+    "levure"
+   ],
+   "steps": [
+    "Couper",
+    "Fouetter",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "saumon_en_papillote",
+   "name": "Saumon en papillote",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "saumon",
+    "courgette",
+    "asperge",
+    "citron",
+    "aneth"
+   ],
+   "steps": [
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "truite_aux_amandes",
+   "name": "Truite aux amandes",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "truite",
+    "amande",
+    "beurre",
+    "citron"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "moules_marinieres",
+   "name": "Moules marinières",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "moule",
+    "echalote",
+    "persil",
+    "creme"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 4,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "moules_frites",
+   "name": "Moules frites",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "moule",
+    "pomme_de_terre",
+    "echalote",
+    "persil"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 2,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "crevettes_sautees_a_l_ail",
+   "name": "Crevettes sautées à l'ail",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "crevette",
+    "ail",
+    "persil",
+    "beurre"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "calamars_frits",
+   "name": "Calamars frits",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "calamar",
+    "farine",
+    "citron"
+   ],
+   "steps": [
+    "Couper",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "thon_mi_cuit_au_sesame",
+   "name": "Thon mi-cuit au sésame",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "thon",
+    "sesame",
+    "sauce_soja"
+   ],
+   "steps": [
+    "Saisir",
+    "Couper"
+   ],
+   "rank": 2,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Vitesse II",
+   "kind": "plat"
+  },
+  {
+   "id": "brandade_de_morue",
+   "name": "Brandade de morue",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "cabillaud",
+    "pomme_de_terre",
+    "ail",
+    "lait",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Bouillir",
+    "Piler",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Résistance II",
+   "kind": "plat"
+  },
+  {
+   "id": "sushi_au_saumon",
+   "name": "Sushi au saumon",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "riz_cuit",
+    "saumon",
+    "vinaigre",
+    "sucre"
+   ],
+   "steps": [
+    "Mélanger",
+    "Couper",
+    "Façonner"
+   ],
+   "rank": 2,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "ceviche",
+   "name": "Ceviche",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "cabillaud",
+    "citron_vert",
+    "oignon",
+    "coriandre",
+    "piment"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 16,
+   "soif": 2,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "curry_de_crevettes",
+   "name": "Curry de crevettes",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "crevette",
+    "sauce_curry",
+    "riz_cuit"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "paella",
+   "name": "Paella",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "riz",
+    "crevette",
+    "moule",
+    "poulet",
+    "poivron",
+    "safran",
+    "petit_pois"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 3,
+   "faim": 38,
+   "soif": 0,
+   "buff": "Bonus de vie",
+   "kind": "plat"
+  },
+  {
+   "id": "bouillabaisse",
+   "name": "Bouillabaisse",
+   "cat": "Poissons et fruits de mer",
+   "ingredients": [
+    "cabillaud",
+    "moule",
+    "crabe",
+    "crevette",
+    "fumet_de_poisson",
+    "safran",
+    "tomate",
+    "pain"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Griller"
+   ],
+   "rank": 3,
+   "faim": 36,
+   "soif": 12,
+   "buff": "Respiration aquatique",
+   "kind": "plat"
+  },
+  {
+   "id": "pates_au_beurre",
+   "name": "Pâtes au beurre",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "beurre",
+    "sel"
+   ],
+   "steps": [
+    "Bouillir",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "onigiri",
+   "name": "Onigiri",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "riz_cuit",
+    "thon",
+    "sel"
+   ],
+   "steps": [
+    "Façonner"
+   ],
+   "rank": 0,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "porridge",
+   "name": "Porridge",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "avoine",
+    "lait",
+    "miel"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 14,
+   "soif": 2,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "spaghetti_bolognaise",
+   "name": "Spaghetti bolognaise",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "boeuf",
+    "sauce_tomate",
+    "oignon"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter",
+    "Bouillir"
+   ],
+   "rank": 1,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "carbonara",
+   "name": "Carbonara",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "porc",
+    "oeuf",
+    "fromage",
+    "poivre_noir"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "pates_au_pesto",
+   "name": "Pâtes au pesto",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "pesto"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "gratin_de_macaronis",
+   "name": "Gratin de macaronis",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "bechamel",
+    "fromage"
+   ],
+   "steps": [
+    "Bouillir",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "riz_cantonais",
+   "name": "Riz cantonais",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "riz_cuit",
+    "oeuf",
+    "petit_pois",
+    "porc",
+    "oignon",
+    "sauce_soja"
+   ],
+   "steps": [
+    "Couper",
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "riz_au_curry_de_legumes",
+   "name": "Riz au curry de légumes",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "riz_cuit",
+    "sauce_curry",
+    "courgette",
+    "pois_chiche"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "nouilles_sautees_aux_legumes",
+   "name": "Nouilles sautées aux légumes",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "chou",
+    "carotte",
+    "soja",
+    "sauce_soja",
+    "gingembre"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "galette_complete",
+   "name": "Galette complète",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "sarrasin",
+    "oeuf",
+    "fromage",
+    "porc"
+   ],
+   "steps": [
+    "Piler",
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Chance I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_quinoa",
+   "name": "Salade de quinoa",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "quinoa",
+    "avocat",
+    "tomate",
+    "concombre",
+    "citron"
+   ],
+   "steps": [
+    "Bouillir",
+    "Couper",
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 2,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "lasagnes",
+   "name": "Lasagnes",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "boeuf",
+    "sauce_tomate",
+    "bechamel",
+    "fromage"
+   ],
+   "steps": [
+    "Étaler",
+    "Saisir",
+    "Mijoter",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 36,
+   "soif": 0,
+   "buff": "Résistance II",
+   "kind": "plat"
+  },
+  {
+   "id": "raviolis_epinards_fromage",
+   "name": "Raviolis épinards fromage",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "fromage",
+    "epinards"
+   ],
+   "steps": [
+    "Étaler",
+    "Façonner",
+    "Bouillir"
+   ],
+   "rank": 2,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Régénération II",
+   "kind": "plat"
+  },
+  {
+   "id": "gnocchis_au_beurre",
+   "name": "Gnocchis au beurre",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pomme_de_terre",
+    "farine",
+    "oeuf",
+    "beurre",
+    "thym"
+   ],
+   "steps": [
+    "Bouillir",
+    "Piler",
+    "Pétrir",
+    "Façonner",
+    "Saisir"
+   ],
+   "rank": 2,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "risotto_aux_champignons",
+   "name": "Risotto aux champignons",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "riz",
+    "champignon",
+    "bouillon",
+    "fromage",
+    "beurre",
+    "echalote"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter",
+    "Mélanger"
+   ],
+   "rank": 2,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Chance I",
+   "kind": "plat"
+  },
+  {
+   "id": "pad_thai",
+   "name": "Pad thaï",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "crevette",
+    "oeuf",
+    "cacahuete",
+    "citron_vert",
+    "soja"
+   ],
+   "steps": [
+    "Couper",
+    "Piler",
+    "Saisir",
+    "Presser"
+   ],
+   "rank": 2,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "bibimbap",
+   "name": "Bibimbap",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "riz_cuit",
+    "boeuf",
+    "oeuf",
+    "carotte",
+    "epinards",
+    "piment",
+    "sesame"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Assaisonner"
+   ],
+   "rank": 2,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "ramen",
+   "name": "Ramen",
+   "cat": "Pâtes, riz et céréales",
+   "ingredients": [
+    "pates_fraiches",
+    "bouillon",
+    "porc",
+    "oeuf",
+    "ciboulette",
+    "sauce_soja"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Mijoter"
+   ],
+   "rank": 3,
+   "faim": 34,
+   "soif": 10,
+   "buff": "Régénération II",
+   "kind": "plat"
+  },
+  {
+   "id": "sandwich_jambon_beurre",
+   "name": "Sandwich jambon-beurre",
+   "cat": "Street food",
+   "ingredients": [
+    "pain",
+    "porc",
+    "beurre"
+   ],
+   "steps": [
+    "Couper"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "hot_dog",
+   "name": "Hot-dog",
+   "cat": "Street food",
+   "ingredients": [
+    "pain",
+    "porc",
+    "ketchup",
+    "moutarde",
+    "oignon"
+   ],
+   "steps": [
+    "Couper",
+    "Façonner",
+    "Griller"
+   ],
+   "rank": 0,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "pizza_margherita",
+   "name": "Pizza margherita",
+   "cat": "Street food",
+   "ingredients": [
+    "pate_a_pizza",
+    "sauce_tomate",
+    "fromage",
+    "basilic"
+   ],
+   "steps": [
+    "Étaler",
+    "Four"
+   ],
+   "rank": 0,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "wrap_au_poulet",
+   "name": "Wrap au poulet",
+   "cat": "Street food",
+   "ingredients": [
+    "tortilla",
+    "poulet",
+    "laitue",
+    "mayonnaise"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Façonner"
+   ],
+   "rank": 0,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "frites",
+   "name": "Frites",
+   "cat": "Street food",
+   "ingredients": [
+    "pomme_de_terre",
+    "sel"
+   ],
+   "steps": [
+    "Couper",
+    "Frire",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "croque_monsieur",
+   "name": "Croque-monsieur",
+   "cat": "Street food",
+   "ingredients": [
+    "pain_de_mie",
+    "porc",
+    "fromage",
+    "bechamel"
+   ],
+   "steps": [
+    "Façonner",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "burger_classique",
+   "name": "Burger classique",
+   "cat": "Street food",
+   "ingredients": [
+    "pain_burger",
+    "boeuf",
+    "fromage",
+    "laitue",
+    "tomate",
+    "oignon",
+    "ketchup"
+   ],
+   "steps": [
+    "Couper",
+    "Façonner",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "burger_de_poulet_croustillant",
+   "name": "Burger de poulet croustillant",
+   "cat": "Street food",
+   "ingredients": [
+    "pain_burger",
+    "poulet",
+    "chapelure",
+    "oeuf",
+    "laitue",
+    "mayonnaise"
+   ],
+   "steps": [
+    "Couper",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "pizza_reine",
+   "name": "Pizza reine",
+   "cat": "Street food",
+   "ingredients": [
+    "pate_a_pizza",
+    "sauce_tomate",
+    "fromage",
+    "porc",
+    "champignon",
+    "artichaut"
+   ],
+   "steps": [
+    "Étaler",
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "pizza_quatre_fromages",
+   "name": "Pizza quatre fromages",
+   "cat": "Street food",
+   "ingredients": [
+    "pate_a_pizza",
+    "creme",
+    "fromage",
+    "fromage_de_chevre"
+   ],
+   "steps": [
+    "Étaler",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "tacos",
+   "name": "Tacos",
+   "cat": "Street food",
+   "ingredients": [
+    "tortilla",
+    "boeuf",
+    "oignon",
+    "tomate",
+    "coriandre",
+    "piment"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "quesadilla",
+   "name": "Quesadilla",
+   "cat": "Street food",
+   "ingredients": [
+    "tortilla",
+    "fromage",
+    "poulet",
+    "poivron"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "kebab",
+   "name": "Kebab",
+   "cat": "Street food",
+   "ingredients": [
+    "pain",
+    "mouton",
+    "oignon",
+    "tomate",
+    "laitue",
+    "yaourt"
+   ],
+   "steps": [
+    "Couper",
+    "Griller"
+   ],
+   "rank": 1,
+   "faim": 28,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "falafels",
+   "name": "Falafels",
+   "cat": "Street food",
+   "ingredients": [
+    "pois_chiche",
+    "oignon",
+    "persil",
+    "coriandre",
+    "cumin"
+   ],
+   "steps": [
+    "Piler",
+    "Façonner",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "croquettes_de_pomme_de_terre",
+   "name": "Croquettes de pomme de terre",
+   "cat": "Street food",
+   "ingredients": [
+    "pomme_de_terre",
+    "chapelure",
+    "oeuf"
+   ],
+   "steps": [
+    "Bouillir",
+    "Piler",
+    "Façonner",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "cheeseburger_double",
+   "name": "Cheeseburger double",
+   "cat": "Street food",
+   "ingredients": [
+    "pain_burger",
+    "boeuf",
+    "fromage",
+    "oignon",
+    "moutarde",
+    "ketchup"
+   ],
+   "steps": [
+    "Façonner",
+    "Saisir"
+   ],
+   "rank": 2,
+   "faim": 34,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "pizza_calzone",
+   "name": "Pizza calzone",
+   "cat": "Street food",
+   "ingredients": [
+    "pate_a_pizza",
+    "sauce_tomate",
+    "fromage",
+    "porc",
+    "oeuf"
+   ],
+   "steps": [
+    "Étaler",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "burrito",
+   "name": "Burrito",
+   "cat": "Street food",
+   "ingredients": [
+    "tortilla",
+    "riz_cuit",
+    "haricot_rouge",
+    "boeuf",
+    "fromage",
+    "avocat"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Façonner"
+   ],
+   "rank": 2,
+   "faim": 30,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "nems",
+   "name": "Nems",
+   "cat": "Street food",
+   "ingredients": [
+    "porc",
+    "carotte",
+    "chou",
+    "crevette",
+    "farine",
+    "menthe"
+   ],
+   "steps": [
+    "Couper",
+    "Façonner",
+    "Frire"
+   ],
+   "rank": 2,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "gyoza",
+   "name": "Gyoza",
+   "cat": "Street food",
+   "ingredients": [
+    "farine",
+    "porc",
+    "chou",
+    "gingembre",
+    "sauce_soja"
+   ],
+   "steps": [
+    "Pétrir",
+    "Étaler",
+    "Façonner",
+    "Saisir"
+   ],
+   "rank": 2,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "bao_au_porc",
+   "name": "Bao au porc",
+   "cat": "Street food",
+   "ingredients": [
+    "pate_a_pain",
+    "porc",
+    "sauce_soja",
+    "ciboulette"
+   ],
+   "steps": [
+    "Façonner",
+    "Bouillir"
+   ],
+   "rank": 2,
+   "faim": 22,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "puree_de_pommes_de_terre",
+   "name": "Purée de pommes de terre",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "pomme_de_terre",
+    "lait",
+    "beurre",
+    "muscade"
+   ],
+   "steps": [
+    "Bouillir",
+    "Piler",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "legumes_grilles",
+   "name": "Légumes grillés",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "aubergine",
+    "courgette",
+    "poivron",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Couper",
+    "Griller",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "poelee_de_champignons",
+   "name": "Poêlée de champignons",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "champignon",
+    "ail",
+    "persil",
+    "beurre"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Vision nocturne",
+   "kind": "plat"
+  },
+  {
+   "id": "brocolis_a_l_ail",
+   "name": "Brocolis à l'ail",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "brocoli",
+    "ail",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Couper",
+    "Bouillir",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "epinards_a_la_creme",
+   "name": "Épinards à la crème",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "epinards",
+    "creme",
+    "muscade"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "gratin_dauphinois",
+   "name": "Gratin dauphinois",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "pomme_de_terre",
+    "creme",
+    "ail",
+    "muscade"
+   ],
+   "steps": [
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "ratatouille",
+   "name": "Ratatouille",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "aubergine",
+    "courgette",
+    "poivron",
+    "tomate",
+    "oignon",
+    "thym"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 2,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "quiche_lorraine",
+   "name": "Quiche lorraine",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "pate_brisee",
+    "oeuf",
+    "creme",
+    "porc",
+    "fromage"
+   ],
+   "steps": [
+    "Étaler",
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "tarte_aux_legumes",
+   "name": "Tarte aux légumes",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "pate_brisee",
+    "courgette",
+    "tomate",
+    "fromage_de_chevre",
+    "oeuf"
+   ],
+   "steps": [
+    "Étaler",
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "tian_provencal",
+   "name": "Tian provençal",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "courgette",
+    "tomate",
+    "aubergine",
+    "thym",
+    "huile_d_olive"
+   ],
+   "steps": [
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 2,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "curry_de_legumes",
+   "name": "Curry de légumes",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "pois_chiche",
+    "patate_douce",
+    "chou_fleur",
+    "epinards",
+    "sauce_curry"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "dahl_de_lentilles",
+   "name": "Dahl de lentilles",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "lentilles",
+    "tomate",
+    "oignon",
+    "curcuma",
+    "gingembre",
+    "lait_de_coco"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter"
+   ],
+   "rank": 1,
+   "faim": 24,
+   "soif": 4,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "poivrons_farcis",
+   "name": "Poivrons farcis",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "poivron",
+    "riz_cuit",
+    "boeuf",
+    "tomate",
+    "oignon"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 26,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "aubergines_parmigiana",
+   "name": "Aubergines parmigiana",
+   "cat": "Végétarien et accompagnements",
+   "ingredients": [
+    "aubergine",
+    "sauce_tomate",
+    "fromage",
+    "basilic"
+   ],
+   "steps": [
+    "Couper",
+    "Frire",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 24,
+   "soif": 0,
+   "buff": "Résistance II",
+   "kind": "plat"
+  },
+  {
+   "id": "oeuf_au_plat",
+   "name": "Œuf au plat",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "oeuf",
+    "sel"
+   ],
+   "steps": [
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "omelette",
+   "name": "Omelette",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "oeuf",
+    "lait",
+    "ciboulette",
+    "sel"
+   ],
+   "steps": [
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "omelette_aux_champignons",
+   "name": "Omelette aux champignons",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "oeuf",
+    "champignon",
+    "fromage"
+   ],
+   "steps": [
+    "Couper",
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Vision nocturne",
+   "kind": "plat"
+  },
+  {
+   "id": "pancakes",
+   "name": "Pancakes",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "farine",
+    "oeuf",
+    "lait",
+    "sucre",
+    "levure",
+    "miel"
+   ],
+   "steps": [
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "crepes_au_sucre",
+   "name": "Crêpes au sucre",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "pate_a_crepe",
+    "sucre",
+    "beurre"
+   ],
+   "steps": [
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "pain_perdu",
+   "name": "Pain perdu",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "pain",
+    "oeuf",
+    "lait",
+    "sucre",
+    "cannelle"
+   ],
+   "steps": [
+    "Fouetter",
+    "Saisir"
+   ],
+   "rank": 0,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "tartine_beurre_miel",
+   "name": "Tartine beurre-miel",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "pain",
+    "beurre",
+    "miel"
+   ],
+   "steps": [
+    "Couper"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "pop_corn",
+   "name": "Pop-corn",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "mais",
+    "beurre",
+    "sel"
+   ],
+   "steps": [
+    "Saisir",
+    "Assaisonner"
+   ],
+   "rank": 0,
+   "faim": 6,
+   "soif": 0,
+   "buff": "Vision nocturne",
+   "kind": "plat"
+  },
+  {
+   "id": "brochette_de_fruits",
+   "name": "Brochette de fruits",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "fraise",
+    "ananas",
+    "banane",
+    "kiwi",
+    "melon"
+   ],
+   "steps": [
+    "Couper",
+    "Façonner"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 6,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "oeufs_brouilles_au_bacon",
+   "name": "Œufs brouillés au bacon",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "oeuf",
+    "porc",
+    "beurre",
+    "pain"
+   ],
+   "steps": [
+    "Fouetter",
+    "Saisir",
+    "Griller"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "granola_au_yaourt",
+   "name": "Granola au yaourt",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "avoine",
+    "miel",
+    "noisette",
+    "yaourt",
+    "fraise"
+   ],
+   "steps": [
+    "Mélanger",
+    "Four",
+    "Couper"
+   ],
+   "rank": 1,
+   "faim": 14,
+   "soif": 2,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "croissant",
+   "name": "Croissant",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "pate_feuilletee",
+    "beurre",
+    "oeuf"
+   ],
+   "steps": [
+    "Étaler",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "pain_au_chocolat",
+   "name": "Pain au chocolat",
+   "cat": "Petit-déjeuner et snacks",
+   "ingredients": [
+    "pate_feuilletee",
+    "chocolat",
+    "oeuf"
+   ],
+   "steps": [
+    "Étaler",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "riz_au_lait",
+   "name": "Riz au lait",
+   "cat": "Desserts",
+   "ingredients": [
+    "riz",
+    "lait",
+    "sucre",
+    "vanille"
+   ],
+   "steps": [
+    "Mijoter"
+   ],
+   "rank": 0,
+   "faim": 16,
+   "soif": 2,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "cookies",
+   "name": "Cookies",
+   "cat": "Desserts",
+   "ingredients": [
+    "farine",
+    "beurre",
+    "sucre",
+    "oeuf",
+    "chocolat"
+   ],
+   "steps": [
+    "Mélanger",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 0,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Chance I",
+   "kind": "plat"
+  },
+  {
+   "id": "salade_de_fruits",
+   "name": "Salade de fruits",
+   "cat": "Desserts",
+   "ingredients": [
+    "pomme",
+    "orange",
+    "banane",
+    "kiwi",
+    "fraise",
+    "sucre"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 10,
+   "soif": 6,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "compote_de_pommes",
+   "name": "Compote de pommes",
+   "cat": "Desserts",
+   "ingredients": [
+    "pomme",
+    "sucre",
+    "cannelle"
+   ],
+   "steps": [
+    "Couper",
+    "Mijoter",
+    "Piler"
+   ],
+   "rank": 0,
+   "faim": 8,
+   "soif": 2,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "tarte_aux_pommes",
+   "name": "Tarte aux pommes",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_brisee",
+    "pomme",
+    "sucre",
+    "beurre",
+    "cannelle"
+   ],
+   "steps": [
+    "Étaler",
+    "Couper",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Régénération I",
+   "kind": "plat"
+  },
+  {
+   "id": "clafoutis_aux_cerises",
+   "name": "Clafoutis aux cerises",
+   "cat": "Desserts",
+   "ingredients": [
+    "cerise",
+    "oeuf",
+    "lait",
+    "farine",
+    "sucre"
+   ],
+   "steps": [
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "gateau_au_chocolat",
+   "name": "Gâteau au chocolat",
+   "cat": "Desserts",
+   "ingredients": [
+    "chocolat",
+    "beurre",
+    "oeuf",
+    "sucre",
+    "farine"
+   ],
+   "steps": [
+    "Mélanger",
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Absorption I",
+   "kind": "plat"
+  },
+  {
+   "id": "mousse_au_chocolat",
+   "name": "Mousse au chocolat",
+   "cat": "Desserts",
+   "ingredients": [
+    "chocolat",
+    "oeuf",
+    "sucre"
+   ],
+   "steps": [
+    "Fouetter",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Célérité I",
+   "kind": "plat"
+  },
+  {
+   "id": "crepes_chocolat_banane",
+   "name": "Crêpes chocolat-banane",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_a_crepe",
+    "chocolat",
+    "banane"
+   ],
+   "steps": [
+    "Couper",
+    "Saisir"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "gaufres",
+   "name": "Gaufres",
+   "cat": "Desserts",
+   "ingredients": [
+    "farine",
+    "oeuf",
+    "lait",
+    "beurre",
+    "sucre",
+    "levure"
+   ],
+   "steps": [
+    "Fouetter",
+    "Griller"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "churros",
+   "name": "Churros",
+   "cat": "Desserts",
+   "ingredients": [
+    "farine",
+    "sucre",
+    "cannelle",
+    "chocolat"
+   ],
+   "steps": [
+    "Mélanger",
+    "Façonner",
+    "Frire"
+   ],
+   "rank": 1,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "brownie_aux_noix",
+   "name": "Brownie aux noix",
+   "cat": "Desserts",
+   "ingredients": [
+    "chocolat",
+    "beurre",
+    "oeuf",
+    "sucre",
+    "farine",
+    "noix"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Force I",
+   "kind": "plat"
+  },
+  {
+   "id": "crumble_aux_fruits_rouges",
+   "name": "Crumble aux fruits rouges",
+   "cat": "Desserts",
+   "ingredients": [
+    "framboise",
+    "myrtille",
+    "farine",
+    "beurre",
+    "sucre"
+   ],
+   "steps": [
+    "Mélanger",
+    "Four"
+   ],
+   "rank": 1,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Saut I",
+   "kind": "plat"
+  },
+  {
+   "id": "sorbet_citron",
+   "name": "Sorbet citron",
+   "cat": "Desserts",
+   "ingredients": [
+    "citron",
+    "sucre"
+   ],
+   "steps": [
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 4,
+   "soif": 10,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "tarte_au_citron_meringuee",
+   "name": "Tarte au citron meringuée",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_brisee",
+    "citron",
+    "oeuf",
+    "sucre",
+    "beurre"
+   ],
+   "steps": [
+    "Étaler",
+    "Presser",
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Chance I",
+   "kind": "plat"
+  },
+  {
+   "id": "tarte_aux_fraises",
+   "name": "Tarte aux fraises",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_brisee",
+    "fraise",
+    "creme_patissiere"
+   ],
+   "steps": [
+    "Étaler",
+    "Four",
+    "Couper"
+   ],
+   "rank": 2,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Vitesse I",
+   "kind": "plat"
+  },
+  {
+   "id": "tarte_tatin",
+   "name": "Tarte tatin",
+   "cat": "Desserts",
+   "ingredients": [
+    "pomme",
+    "caramel",
+    "pate_feuilletee"
+   ],
+   "steps": [
+    "Couper",
+    "Étaler",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Régénération II",
+   "kind": "plat"
+  },
+  {
+   "id": "fondant_au_chocolat",
+   "name": "Fondant au chocolat",
+   "cat": "Desserts",
+   "ingredients": [
+    "chocolat",
+    "beurre",
+    "oeuf",
+    "sucre",
+    "farine"
+   ],
+   "steps": [
+    "Mélanger",
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Absorption II",
+   "kind": "plat"
+  },
+  {
+   "id": "creme_brulee",
+   "name": "Crème brûlée",
+   "cat": "Desserts",
+   "ingredients": [
+    "creme",
+    "oeuf",
+    "sucre",
+    "vanille"
+   ],
+   "steps": [
+    "Fouetter",
+    "Four",
+    "Griller"
+   ],
+   "rank": 2,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "ile_flottante",
+   "name": "Île flottante",
+   "cat": "Desserts",
+   "ingredients": [
+    "oeuf",
+    "lait",
+    "sucre",
+    "vanille",
+    "caramel"
+   ],
+   "steps": [
+    "Fouetter",
+    "Bouillir"
+   ],
+   "rank": 2,
+   "faim": 12,
+   "soif": 0,
+   "buff": "Saut II",
+   "kind": "plat"
+  },
+  {
+   "id": "cheesecake",
+   "name": "Cheesecake",
+   "cat": "Desserts",
+   "ingredients": [
+    "fromage",
+    "creme",
+    "sucre",
+    "oeuf",
+    "farine",
+    "beurre"
+   ],
+   "steps": [
+    "Piler",
+    "Fouetter",
+    "Four"
+   ],
+   "rank": 2,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Résistance I",
+   "kind": "plat"
+  },
+  {
+   "id": "glace_a_la_vanille",
+   "name": "Glace à la vanille",
+   "cat": "Desserts",
+   "ingredients": [
+    "lait",
+    "creme",
+    "oeuf",
+    "sucre",
+    "vanille"
+   ],
+   "steps": [
+    "Fouetter",
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 2,
+   "faim": 8,
+   "soif": 4,
+   "buff": "Résistance au feu",
+   "kind": "plat"
+  },
+  {
+   "id": "tiramisu",
+   "name": "Tiramisu",
+   "cat": "Desserts",
+   "ingredients": [
+    "grains_de_cafe",
+    "oeuf",
+    "sucre",
+    "fromage",
+    "feves_de_cacao",
+    "farine"
+   ],
+   "steps": [
+    "Fouetter",
+    "Mélanger",
+    "Tamiser"
+   ],
+   "rank": 3,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "macarons_a_la_framboise",
+   "name": "Macarons à la framboise",
+   "cat": "Desserts",
+   "ingredients": [
+    "amande",
+    "sucre",
+    "oeuf",
+    "framboise"
+   ],
+   "steps": [
+    "Tamiser",
+    "Fouetter",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 10,
+   "soif": 0,
+   "buff": "Chance II",
+   "kind": "plat"
+  },
+  {
+   "id": "eclair_au_chocolat",
+   "name": "Éclair au chocolat",
+   "cat": "Desserts",
+   "ingredients": [
+    "farine",
+    "beurre",
+    "oeuf",
+    "creme_patissiere",
+    "chocolat"
+   ],
+   "steps": [
+    "Mélanger",
+    "Façonner",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Célérité II",
+   "kind": "plat"
+  },
+  {
+   "id": "mille_feuille",
+   "name": "Mille-feuille",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_feuilletee",
+    "creme_patissiere",
+    "sucre"
+   ],
+   "steps": [
+    "Étaler",
+    "Four",
+    "Façonner"
+   ],
+   "rank": 3,
+   "faim": 16,
+   "soif": 0,
+   "buff": "Absorption II",
+   "kind": "plat"
+  },
+  {
+   "id": "paris_brest",
+   "name": "Paris-Brest",
+   "cat": "Desserts",
+   "ingredients": [
+    "farine",
+    "beurre",
+    "oeuf",
+    "noisette",
+    "creme"
+   ],
+   "steps": [
+    "Façonner",
+    "Four",
+    "Piler",
+    "Fouetter"
+   ],
+   "rank": 3,
+   "faim": 18,
+   "soif": 0,
+   "buff": "Force II",
+   "kind": "plat"
+  },
+  {
+   "id": "foret_noire",
+   "name": "Forêt-noire",
+   "cat": "Desserts",
+   "ingredients": [
+    "chocolat",
+    "farine",
+    "oeuf",
+    "cerise",
+    "chantilly"
+   ],
+   "steps": [
+    "Fouetter",
+    "Four",
+    "Façonner"
+   ],
+   "rank": 3,
+   "faim": 20,
+   "soif": 0,
+   "buff": "Bonus de vie",
+   "kind": "plat"
+  },
+  {
+   "id": "baklava",
+   "name": "Baklava",
+   "cat": "Desserts",
+   "ingredients": [
+    "pate_feuilletee",
+    "pistache",
+    "miel",
+    "beurre"
+   ],
+   "steps": [
+    "Piler",
+    "Étaler",
+    "Four"
+   ],
+   "rank": 3,
+   "faim": 14,
+   "soif": 0,
+   "buff": "Chance II",
+   "kind": "plat"
+  }
+ ],
+ "boissons": [
+  {
+   "id": "jus_d_orange",
+   "name": "Jus d'orange",
+   "cat": "Boissons",
+   "ingredients": [
+    "orange"
+   ],
+   "steps": [
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 20,
+   "buff": "Vitesse I",
+   "kind": "boisson"
+  },
+  {
+   "id": "jus_de_pomme",
+   "name": "Jus de pomme",
+   "cat": "Boissons",
+   "ingredients": [
+    "pomme"
+   ],
+   "steps": [
+    "Couper",
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 20,
+   "buff": "Régénération I",
+   "kind": "boisson"
+  },
+  {
+   "id": "jus_de_raisin",
+   "name": "Jus de raisin",
+   "cat": "Boissons",
+   "ingredients": [
+    "raisin"
+   ],
+   "steps": [
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 20,
+   "buff": "Chance I",
+   "kind": "boisson"
+  },
+  {
+   "id": "jus_d_ananas",
+   "name": "Jus d'ananas",
+   "cat": "Boissons",
+   "ingredients": [
+    "ananas"
+   ],
+   "steps": [
+    "Couper",
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 20,
+   "buff": "Célérité I",
+   "kind": "boisson"
+  },
+  {
+   "id": "jus_de_pasteque",
+   "name": "Jus de pastèque",
+   "cat": "Boissons",
+   "ingredients": [
+    "pasteque",
+    "menthe"
+   ],
+   "steps": [
+    "Couper",
+    "Presser"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 24,
+   "buff": "Résistance au feu",
+   "kind": "boisson"
+  },
+  {
+   "id": "eau_de_coco",
+   "name": "Eau de coco",
+   "cat": "Boissons",
+   "ingredients": [
+    "noix_de_coco"
+   ],
+   "steps": [
+    "Couper"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 22,
+   "buff": "Vitesse I",
+   "kind": "boisson"
+  },
+  {
+   "id": "citronnade",
+   "name": "Citronnade",
+   "cat": "Boissons",
+   "ingredients": [
+    "citron",
+    "sucre",
+    "menthe"
+   ],
+   "steps": [
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 22,
+   "buff": "Résistance au feu",
+   "kind": "boisson"
+  },
+  {
+   "id": "smoothie_fraise_banane",
+   "name": "Smoothie fraise-banane",
+   "cat": "Boissons",
+   "ingredients": [
+    "fraise",
+    "banane",
+    "yaourt"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 6,
+   "soif": 18,
+   "buff": "Saut I",
+   "kind": "boisson"
+  },
+  {
+   "id": "lait_a_la_fraise",
+   "name": "Lait à la fraise",
+   "cat": "Boissons",
+   "ingredients": [
+    "lait",
+    "fraise",
+    "sucre"
+   ],
+   "steps": [
+    "Piler",
+    "Secouer"
+   ],
+   "rank": 0,
+   "faim": 4,
+   "soif": 16,
+   "buff": "Saut I",
+   "kind": "boisson"
+  },
+  {
+   "id": "lait_chaud_au_miel",
+   "name": "Lait chaud au miel",
+   "cat": "Boissons",
+   "ingredients": [
+    "lait",
+    "miel"
+   ],
+   "steps": [
+    "Bouillir"
+   ],
+   "rank": 0,
+   "faim": 4,
+   "soif": 14,
+   "buff": "Régénération I",
+   "kind": "boisson"
+  },
+  {
+   "id": "chocolat_chaud",
+   "name": "Chocolat chaud",
+   "cat": "Boissons",
+   "ingredients": [
+    "lait",
+    "chocolat",
+    "sucre"
+   ],
+   "steps": [
+    "Bouillir",
+    "Fouetter"
+   ],
+   "rank": 0,
+   "faim": 6,
+   "soif": 18,
+   "buff": "Résistance I",
+   "kind": "boisson"
+  },
+  {
+   "id": "cafe_noir",
+   "name": "Café noir",
+   "cat": "Boissons",
+   "ingredients": [
+    "grains_de_cafe"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir"
+   ],
+   "rank": 0,
+   "faim": 0,
+   "soif": 14,
+   "buff": "Célérité I",
+   "kind": "boisson"
+  },
+  {
+   "id": "cafe_au_lait",
+   "name": "Café au lait",
+   "cat": "Boissons",
+   "ingredients": [
+    "grains_de_cafe",
+    "lait"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir",
+    "Fouetter"
+   ],
+   "rank": 0,
+   "faim": 2,
+   "soif": 16,
+   "buff": "Célérité I",
+   "kind": "boisson"
+  },
+  {
+   "id": "the_vert",
+   "name": "Thé vert",
+   "cat": "Boissons",
+   "ingredients": [
+    "feuilles_de_the"
+   ],
+   "steps": [
+    "Bouillir"
+   ],
+   "rank": 0,
+   "faim": 0,
+   "soif": 18,
+   "buff": "Régénération I",
+   "kind": "boisson"
+  },
+  {
+   "id": "the_a_la_menthe",
+   "name": "Thé à la menthe",
+   "cat": "Boissons",
+   "ingredients": [
+    "feuilles_de_the",
+    "menthe",
+    "sucre"
+   ],
+   "steps": [
+    "Bouillir",
+    "Mélanger"
+   ],
+   "rank": 0,
+   "faim": 0,
+   "soif": 18,
+   "buff": "Vitesse I",
+   "kind": "boisson"
+  },
+  {
+   "id": "jus_multivitamine",
+   "name": "Jus multivitaminé",
+   "cat": "Boissons",
+   "ingredients": [
+    "orange",
+    "mangue",
+    "banane",
+    "citron"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 4,
+   "soif": 24,
+   "buff": "Régénération I",
+   "kind": "boisson"
+  },
+  {
+   "id": "smoothie_mangue_coco",
+   "name": "Smoothie mangue-coco",
+   "cat": "Boissons",
+   "ingredients": [
+    "mangue",
+    "lait_de_coco"
+   ],
+   "steps": [
+    "Couper",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 6,
+   "soif": 18,
+   "buff": "Résistance au feu",
+   "kind": "boisson"
+  },
+  {
+   "id": "smoothie_vert",
+   "name": "Smoothie vert",
+   "cat": "Boissons",
+   "ingredients": [
+    "epinards",
+    "kiwi",
+    "pomme",
+    "menthe"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Mélanger"
+   ],
+   "rank": 1,
+   "faim": 4,
+   "soif": 18,
+   "buff": "Force I",
+   "kind": "boisson"
+  },
+  {
+   "id": "milkshake_vanille",
+   "name": "Milkshake vanille",
+   "cat": "Boissons",
+   "ingredients": [
+    "lait",
+    "creme",
+    "vanille",
+    "sucre"
+   ],
+   "steps": [
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 6,
+   "soif": 16,
+   "buff": "Absorption I",
+   "kind": "boisson"
+  },
+  {
+   "id": "milkshake_chocolat",
+   "name": "Milkshake chocolat",
+   "cat": "Boissons",
+   "ingredients": [
+    "lait",
+    "chocolat",
+    "creme"
+   ],
+   "steps": [
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 6,
+   "soif": 16,
+   "buff": "Absorption I",
+   "kind": "boisson"
+  },
+  {
+   "id": "cappuccino",
+   "name": "Cappuccino",
+   "cat": "Boissons",
+   "ingredients": [
+    "grains_de_cafe",
+    "lait",
+    "feves_de_cacao"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir",
+    "Fouetter"
+   ],
+   "rank": 1,
+   "faim": 2,
+   "soif": 16,
+   "buff": "Célérité I",
+   "kind": "boisson"
+  },
+  {
+   "id": "cafe_glace",
+   "name": "Café glacé",
+   "cat": "Boissons",
+   "ingredients": [
+    "grains_de_cafe",
+    "lait",
+    "sucre"
+   ],
+   "steps": [
+    "Piler",
+    "Bouillir",
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 2,
+   "soif": 18,
+   "buff": "Célérité I",
+   "kind": "boisson"
+  },
+  {
+   "id": "the_glace_a_la_peche",
+   "name": "Thé glacé à la pêche",
+   "cat": "Boissons",
+   "ingredients": [
+    "feuilles_de_the",
+    "peche",
+    "sucre"
+   ],
+   "steps": [
+    "Bouillir",
+    "Presser",
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 0,
+   "soif": 22,
+   "buff": "Résistance au feu",
+   "kind": "boisson"
+  },
+  {
+   "id": "lassi_a_la_mangue",
+   "name": "Lassi à la mangue",
+   "cat": "Boissons",
+   "ingredients": [
+    "yaourt",
+    "mangue",
+    "sucre"
+   ],
+   "steps": [
+    "Couper",
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 6,
+   "soif": 18,
+   "buff": "Résistance au feu",
+   "kind": "boisson"
+  },
+  {
+   "id": "limonade_au_gingembre",
+   "name": "Limonade au gingembre",
+   "cat": "Boissons",
+   "ingredients": [
+    "citron",
+    "gingembre",
+    "sucre"
+   ],
+   "steps": [
+    "Piler",
+    "Presser",
+    "Secouer"
+   ],
+   "rank": 1,
+   "faim": 0,
+   "soif": 22,
+   "buff": "Force I",
+   "kind": "boisson"
+  },
+  {
+   "id": "chai_latte",
+   "name": "Chaï latte",
+   "cat": "Boissons",
+   "ingredients": [
+    "feuilles_de_the",
+    "lait",
+    "cannelle",
+    "gingembre",
+    "clou_de_girofle"
+   ],
+   "steps": [
+    "Piler",
+    "Mijoter"
+   ],
+   "rank": 2,
+   "faim": 2,
+   "soif": 18,
+   "buff": "Résistance I",
+   "kind": "boisson"
+  },
+  {
+   "id": "mojito_sans_alcool",
+   "name": "Mojito sans alcool",
+   "cat": "Boissons",
+   "ingredients": [
+    "citron_vert",
+    "menthe",
+    "sucre",
+    "canne_a_sucre"
+   ],
+   "steps": [
+    "Piler",
+    "Secouer"
+   ],
+   "rank": 2,
+   "faim": 0,
+   "soif": 22,
+   "buff": "Vitesse II",
+   "kind": "boisson"
+  },
+  {
+   "id": "cocktail_exotique",
+   "name": "Cocktail exotique",
+   "cat": "Boissons",
+   "ingredients": [
+    "ananas",
+    "mangue",
+    "noix_de_coco",
+    "citron_vert"
+   ],
+   "steps": [
+    "Couper",
+    "Presser",
+    "Secouer"
+   ],
+   "rank": 3,
+   "faim": 2,
+   "soif": 26,
+   "buff": "Chance II",
+   "kind": "boisson"
+  }
+ ]
+}

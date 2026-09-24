@@ -1,0 +1,1 @@
+{ "parent": "block/orientable", "textures": { "top": "hxrpmetiers:blocks/frigo_top", "front": "hxrpmetiers:blocks/frigo_front", "side": "hxrpmetiers:blocks/frigo_side" } }

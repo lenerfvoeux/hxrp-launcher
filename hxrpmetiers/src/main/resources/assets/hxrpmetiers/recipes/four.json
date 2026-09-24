@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "pattern": ["III", "IFI", "IBI"], "key": {"I": {"item": "minecraft:iron_ingot"}, "F": {"item": "minecraft:furnace"}, "B": {"item": "minecraft:brick_block", "data": 0}}, "result": {"item": "hxrpmetiers:four"}}

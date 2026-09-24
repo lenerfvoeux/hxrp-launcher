@@ -1,0 +1,1 @@
+{ "parent": "block/cube_bottom_top", "textures": { "top": "hxrpmetiers:blocks/poubelle_top", "bottom": "hxrpmetiers:blocks/poubelle_bottom", "side": "hxrpmetiers:blocks/poubelle_side" } }
