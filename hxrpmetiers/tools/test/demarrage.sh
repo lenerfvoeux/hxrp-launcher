@@ -24,8 +24,9 @@ arreter() {
 }
 
 # Lance la tâche ; 0 = prêt, 1 = arrêté tout seul, 2 = trop long.
+# Le serveur de RetroFuturaGradle pose deux questions : mode en ligne (non, serveur de test) et EULA (oui).
 lancer() {
-    ./gradlew "$tache" --no-daemon > "$journal" 2>&1 &
+    printf 'n\ny\n' | ./gradlew "$tache" --no-daemon > "$journal" 2>&1 &
     local pid=$!
     for _ in $(seq 1 240); do
         sleep 5
@@ -43,17 +44,18 @@ lancer() {
 
 lancer
 etat=$?
-if [ $etat = 1 ] && grep -q 'agree to the EULA' "$journal"; then
-    # Serveur de test jetable : on accepte l'EULA de Minecraft et on relance.
-    find . -name eula.txt -not -path './src/*' -exec sed -i 's/eula=false/eula=true/' {} +
-    lancer
-    etat=$?
-fi
 
 echo "---- extrait du journal ($journal)"
 grep -E 'hxrpmetiers|HxRP|Gourmet|Done \(|textures-atlas|successfully loaded' "$journal" | head -40
 
-erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|hxrpmetiers.*(ERROR|Exception|missing)|(ERROR|Exception|Missing|missing).*hxrpmetiers' "$journal" | head -60)
+# Erreurs : modèles ou textures introuvables, plantage, message d'erreur ou exception passant par le code du mod.
+erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|/(ERROR|FATAL)\].*(hxrpmetiers|HxRP)|\[hxrpmetiers\]|at fr\.lenerfvoeux' "$journal" \
+    | grep -v '\[hxrpmetiers\]: Gourmet : [0-9]' | head -60)
+avertissements=$(grep -E '/WARN\].*(hxrpmetiers|HxRP)' "$journal" | head -30)
+if [ -n "$avertissements" ]; then
+    echo "---- avertissements mentionnant le mod"
+    echo "$avertissements"
+fi
 if [ $etat != 0 ]; then
     echo "!! le $mode n'a pas fini de démarrer (code $etat)"
     tail -80 "$journal"
