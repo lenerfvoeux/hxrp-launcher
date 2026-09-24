@@ -60,7 +60,7 @@ jobs:
             !hxrpmetiers/build/libs/*-sources.jar
           if-no-files-found: error
 
-  # Démarre un vrai serveur puis un vrai client Forge avec le jar final, et vérifie le journal.
+  # Démarre un vrai serveur Forge (avec le jar produit ci-dessus) et un vrai client, et vérifie le journal.
   demarrage:
     needs: build
     runs-on: ubuntu-latest
@@ -82,21 +82,24 @@ jobs:
             25
 
       - uses: gradle/actions/setup-gradle@v4
+        if: matrix.mode == 'client'
 
-      - name: Préparer
+      - uses: actions/download-artifact@v4
+        if: matrix.mode == 'serveur'
+        with:
+          name: hxrpmetiers-jar
+          path: hxrpmetiers/livre
+
+      - name: Démarrer un serveur Forge 1.12.2 avec le mod
+        if: matrix.mode == 'serveur'
+        run: bash tools/test/demarrage.sh serveur "$(ls livre/*.jar)"
+
+      - name: Démarrer un client avec le mod
+        if: matrix.mode == 'client'
         run: |
           mkdir -p ~/.gradle && echo 'org.gradle.java.installations.fromEnv=JAVA_HOME_8_X64' >> ~/.gradle/gradle.properties
-          if [ "${{ matrix.mode }}" = client ]; then
-            sudo apt-get update -q && sudo apt-get install -y -q xvfb x11-xserver-utils libgl1-mesa-dri
-          fi
-
-      - name: Démarrer le ${{ matrix.mode }}
-        run: |
-          if [ "${{ matrix.mode }}" = client ]; then
-            xvfb-run -a -s '-screen 0 1280x720x24' bash tools/test/demarrage.sh client
-          else
-            bash tools/test/demarrage.sh serveur
-          fi
+          sudo apt-get update -q && sudo apt-get install -y -q xvfb x11-xserver-utils libgl1-mesa-dri
+          xvfb-run -a -s '-screen 0 1280x720x24' bash tools/test/demarrage.sh client
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -104,6 +107,8 @@ jobs:
           name: journal-${{ matrix.mode }}
           path: |
             hxrpmetiers/build/demarrage-*.log
+            hxrpmetiers/build/serveur-test/logs/*.log
+            hxrpmetiers/build/serveur-test/crash-reports/*
             hxrpmetiers/run/**/logs/*.log
             hxrpmetiers/run/**/crash-reports/*
           if-no-files-found: ignore
