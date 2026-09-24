@@ -36,8 +36,20 @@ jobs:
       - name: Compiler le mod
         run: ./gradlew build --no-daemon --stacktrace -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64
 
-      - name: Contenu de build/libs
-        run: ls -l build/libs
+      - name: Vérifier le jar
+        run: |
+          ls -l build/libs
+          J=$(ls build/libs/*.jar | grep -v -- '-dev\|-sources')
+          unzip -l "$J" > contenu.txt
+          n() { grep -Ec "$1" contenu.txt; }
+          echo "classes $(n '\.class$') · icônes $(n 'textures/items/.*\.png') · blocs $(n 'blockstates/.*\.json') · modèles $(n 'models/.*\.json')"
+          test "$(n 'textures/items/.*\.png')" -ge 360
+          test "$(n 'blockstates/.*\.json')" -eq 14
+          unzip -p "$J" mcmod.info | grep -q '"version": "0.5.0"'
+          # Jar final : les appels à Minecraft doivent être en noms SRG (func_…), et le bytecode en Java 8.
+          unzip -p "$J" fr/lenerfvoeux/hxrp/metiers/block/BlockOriente.class | grep -aq 'func_'
+          test "$(unzip -p "$J" fr/lenerfvoeux/hxrp/metiers/HxrpMetiers.class | od -An -tu1 -j7 -N1 | tr -d ' ')" = 52
+          echo "jar OK : $J"
 
       - uses: actions/upload-artifact@v4
         with:
@@ -47,3 +59,51 @@ jobs:
             !hxrpmetiers/build/libs/*-dev.jar
             !hxrpmetiers/build/libs/*-sources.jar
           if-no-files-found: error
+
+  # Démarre un vrai serveur puis un vrai client Forge avec le jar final, et vérifie le journal.
+  demarrage:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [serveur, client]
+    defaults:
+      run:
+        working-directory: hxrpmetiers
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: |
+            8
+            25
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Préparer
+        run: |
+          mkdir -p ~/.gradle && echo 'org.gradle.java.installations.fromEnv=JAVA_HOME_8_X64' >> ~/.gradle/gradle.properties
+          if [ "${{ matrix.mode }}" = client ]; then
+            sudo apt-get update -q && sudo apt-get install -y -q xvfb x11-xserver-utils libgl1-mesa-dri
+          fi
+
+      - name: Démarrer le ${{ matrix.mode }}
+        run: |
+          if [ "${{ matrix.mode }}" = client ]; then
+            xvfb-run -a -s '-screen 0 1280x720x24' bash tools/test/demarrage.sh client
+          else
+            bash tools/test/demarrage.sh serveur
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: journal-${{ matrix.mode }}
+          path: |
+            hxrpmetiers/build/demarrage-*.log
+            hxrpmetiers/run/**/logs/*.log
+            hxrpmetiers/run/**/crash-reports/*
+          if-no-files-found: ignore
