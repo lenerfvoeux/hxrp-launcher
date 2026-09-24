@@ -30,6 +30,10 @@ Mod Forge 1.12.2 (`modid` `hxrpmetiers`, Java 8) : cuisine, faim/soif et le mét
 ./gradlew runClient      # client de développement
 ```
 
+À chaque push, GitHub Actions (`.github/workflows/hxrpmetiers.yml`) lance le banc d'essai, compile le mod,
+vérifie le jar, puis démarre un vrai serveur Forge et un vrai client avec : le jar est joint à l'exécution
+(artefact `hxrpmetiers-jar`).
+
 Le nom du jar a changé (0.4.0 → 0.5.0) : si le launcher HxRP télécharge ce mod, mettre à jour son manifeste
 (nom, taille, empreinte) en même temps que le jar publié.
 
@@ -43,6 +47,8 @@ Tous les visuels sont générés par des scripts, pour pouvoir les retoucher et 
 | `python3 tools/textures/gen_gui.py` | `textures/gui/carnet.png`, `frigo.png`, `poubelle.png`, `hud.png` |
 | `python3 tools/models/gen_blocks.py` | textures, modèles et états de blocs des stations, du frigo et de la poubelle |
 | `sh tools/test/banc.sh` | banc d'essai des mini-jeux hors Minecraft + images des scènes |
+| `bash tools/test/demarrage.sh serveur <jar>` | installe un vrai serveur Forge 1.12.2, y démarre le mod et vérifie le journal |
+| `xvfb-run bash tools/test/demarrage.sh client` | démarre le client obfusqué avec le mod et vérifie modèles et textures |
 
 Les aperçus (planches d'icônes, rendus des blocs, images des mini-jeux) sont écrits dans `tools/preview/out/`, ignoré par git.
 
