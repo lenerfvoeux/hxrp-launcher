@@ -55,6 +55,11 @@ public final class CommonEvents {
     }
 
     @SubscribeEvent
+    public static void logout(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent e) {
+        fr.lenerfvoeux.hxrp.metiers.cuisine.Seances.oublier(e.player.getUniqueID());
+    }
+
+    @SubscribeEvent
     public static void respawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent e) {
         if (e.player instanceof EntityPlayerMP) Network.sync((EntityPlayerMP) e.player);
     }

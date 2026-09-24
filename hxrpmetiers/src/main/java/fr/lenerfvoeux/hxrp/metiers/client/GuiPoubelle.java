@@ -25,8 +25,8 @@ public class GuiPoubelle extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mx, int my) {
-        fontRenderer.drawString(I18n.format("container.hxrpmetiers.poubelle"), 8, 6, 0x404040);
-        fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 94, 0x404040);
+        fontRenderer.drawString(I18n.format("container.hxrpmetiers.poubelle"), 8, 5, 0xF0C020);
+        fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 93, 0xE0E0E0);
     }
 
     @Override

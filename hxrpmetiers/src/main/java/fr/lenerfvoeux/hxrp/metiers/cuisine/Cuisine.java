@@ -7,6 +7,7 @@ import fr.lenerfvoeux.hxrp.metiers.data.FoodDatabase;
 import fr.lenerfvoeux.hxrp.metiers.data.FoodEntry;
 import fr.lenerfvoeux.hxrp.metiers.data.Fraicheur;
 import fr.lenerfvoeux.hxrp.metiers.item.Qualite;
+import fr.lenerfvoeux.hxrp.metiers.network.MsgRecettes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,32 @@ public final class Cuisine {
             if (ingredientsPresents(p, e)) out.add(e);
         }
         out.sort((a, b) -> a.rank != b.rank ? a.rank - b.rank : a.name.compareToIgnoreCase(b.name));
+        return out;
+    }
+
+    /**
+     * Le carnet du plan de travail : toutes les recettes accessibles au rang du joueur,
+     * celles qu'il peut cuisiner tout de suite d'abord, avec pour les autres ce qui lui manque.
+     */
+    public static List<MsgRecettes.Ligne> carnet(EntityPlayer p) {
+        NutritionData d = Nutrition.get(p);
+        int rang = d == null ? 0 : d.rangGourmet;
+        long now = System.currentTimeMillis();
+        List<MsgRecettes.Ligne> out = new ArrayList<>();
+        for (FoodEntry e : FoodDatabase.ALL.values()) {
+            if (e.steps.isEmpty() || e.rank > rang) continue;
+            MsgRecettes.Ligne l = new MsgRecettes.Ligne();
+            l.id = e.id;
+            for (String id : e.ingredients) if (trouve(p, id, now) < 0) l.manquants.add(id);
+            l.ok = l.manquants.isEmpty();
+            out.add(l);
+        }
+        out.sort((a, b) -> {
+            if (a.ok != b.ok) return a.ok ? -1 : 1;
+            if (a.manquants.size() != b.manquants.size()) return a.manquants.size() - b.manquants.size();
+            FoodEntry x = FoodDatabase.get(a.id), y = FoodDatabase.get(b.id);
+            return x.rank != y.rank ? x.rank - y.rank : x.name.compareToIgnoreCase(y.name);
+        });
         return out;
     }
 
@@ -81,7 +108,7 @@ public final class Cuisine {
         if (r == null) return ItemStack.EMPTY;
         Item item = ModRegistry.FOOD.get(r.id);
         if (item == null) return ItemStack.EMPTY;
-        double note = EnCours.moyenne(enCours) - Fraicheur.penalty(EnCours.fraicheur(enCours));
+        double note = EnCours.moyennePonderee(enCours, r) - Fraicheur.penalty(EnCours.fraicheur(enCours));
         ItemStack out = new ItemStack(item);
         Qualite.set(out, (int) Math.round(Math.max(0, Math.min(100, note))), EnCours.rang(enCours));
         long now = System.currentTimeMillis();

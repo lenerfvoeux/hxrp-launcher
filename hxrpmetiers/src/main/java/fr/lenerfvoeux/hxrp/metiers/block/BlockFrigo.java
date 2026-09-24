@@ -3,14 +3,9 @@ package fr.lenerfvoeux.hxrp.metiers.block;
 import fr.lenerfvoeux.hxrp.metiers.HxrpMetiers;
 import fr.lenerfvoeux.hxrp.metiers.ModRegistry;
 import fr.lenerfvoeux.hxrp.metiers.data.Fraicheur;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
@@ -20,26 +15,15 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockFrigo extends Block {
-    public static final PropertyDirection FACING = BlockHorizontal.FACING;
-
+/** Frigo rétro : 27 emplacements, la nourriture y pourrit 3 fois moins vite. */
+public class BlockFrigo extends BlockOriente {
     public BlockFrigo() {
-        super(Material.IRON);
+        super(Material.IRON, new double[]{0, 0, 0, 16, 16, 16});
         setRegistryName(HxrpMetiers.MODID, "frigo");
         setTranslationKey(HxrpMetiers.MODID + ".frigo");
         setHardness(2.5f);
         setSoundType(SoundType.METAL);
         setCreativeTab(ModRegistry.TAB_INGREDIENTS);
-        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-    }
-
-    @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, FACING); }
-    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3)); }
-    @Override public int getMetaFromState(IBlockState s) { return s.getValue(FACING).getHorizontalIndex(); }
-
-    @Override
-    public IBlockState getStateForPlacement(World w, BlockPos pos, EnumFacing f, float x, float y, float z, int meta, EntityLivingBase placer) {
-        return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     @Override public boolean hasTileEntity(IBlockState s) { return true; }

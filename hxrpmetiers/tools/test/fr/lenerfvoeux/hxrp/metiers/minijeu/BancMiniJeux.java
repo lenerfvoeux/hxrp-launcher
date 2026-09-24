@@ -48,6 +48,7 @@ public final class BancMiniJeux {
                 }
                 System.out.printf("%-12s %-4s %8.1f %8.1f %8.1f   %5.1f s%n", g, rang + "*", notes[0], notes[1], notes[2], dureeParfait / 1000.0);
                 if (notes[0] < 90) err(g + " rang " + rang + " : le joueur parfait n'atteint que " + notes[0]);
+                if (notes[1] > 60) err(g + " rang " + rang + " : cliquer au hasard rapporte " + notes[1]);
                 if (notes[2] > 5) err(g + " rang " + rang + " : ne rien faire rapporte " + notes[2]);
             }
         }
@@ -59,6 +60,10 @@ public final class BancMiniJeux {
         Journal horsGrille = new Journal();
         horsGrille.ajouter(505, MiniJeu.CLIC, 0, 0);
         if (horsGrille.rejouer("Couper", 0, 1, 4, 1000) != null) err("journal hors grille accepté");
+        Journal futur = new Journal();
+        futur.ajouter(900, MiniJeu.CLIC, 0, 0);
+        if (futur.rejouer("Couper", 0, 1, 4, 500) != null) err("entrée postérieure à la fin acceptée");
+        if (new Journal().rejouer("Couper", 0, 1, 4, 10_000_000) != null) err("partie plus longue que sa durée maximale acceptée");
         System.out.println(erreurs == 0 ? "OK : tout est cohérent" : erreurs + " ERREUR(S)");
         if (erreurs > 0) System.exit(1);
     }

@@ -66,6 +66,20 @@ public final class EnCours {
         return sum / l.tagCount();
     }
 
+    /** Moyenne des étapes pondérée par leur importance (la cuisson compte plus que la découpe). */
+    public static double moyennePonderee(ItemStack s, FoodEntry r) {
+        NBTTagCompound t = s.getTagCompound();
+        if (t == null || r == null) return 0;
+        net.minecraft.nbt.NBTTagList l = t.getTagList(NOTES, 6);
+        double somme = 0, poids = 0;
+        for (int i = 0; i < l.tagCount(); i++) {
+            double w = i < r.steps.size() ? fr.lenerfvoeux.hxrp.metiers.minijeu.Jeux.poids(r.steps.get(i)) : 1;
+            somme += l.getDoubleAt(i) * w;
+            poids += w;
+        }
+        return poids <= 0 ? 0 : somme / poids;
+    }
+
     public static double fraicheur(ItemStack s) {
         NBTTagCompound t = s.getTagCompound();
         return t == null ? 1 : t.getDouble(FRAICHEUR);

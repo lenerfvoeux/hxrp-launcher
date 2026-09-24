@@ -25,9 +25,9 @@ public class GuiFrigo extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mx, int my) {
-        fontRenderer.drawString(I18n.format("container.hxrpmetiers.frigo"), 8, 6, 0x1E3A52);
-        fontRenderer.drawString("x3 plus lent", xSize - 8 - fontRenderer.getStringWidth("x3 plus lent"), 6, 0x2E6E9E);
-        fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 94, 0x404040);
+        fontRenderer.drawString(I18n.format("container.hxrpmetiers.frigo"), 8, 5, 0x1E3A52);
+        fontRenderer.drawString("x3 plus lent", xSize - 20 - fontRenderer.getStringWidth("x3 plus lent"), 5, 0x2A5A8A);
+        fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 93, 0x1E3A52);
     }
 
     @Override

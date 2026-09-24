@@ -19,6 +19,7 @@ public final class Network {
         NET.registerMessage(MsgMiniJeu.Handler.class, MsgMiniJeu.class, 2, Side.CLIENT);
         NET.registerMessage(MsgLancer.Handler.class, MsgLancer.class, 3, Side.SERVER);
         NET.registerMessage(MsgResultat.Handler.class, MsgResultat.class, 4, Side.SERVER);
+        NET.registerMessage(MsgDebut.Handler.class, MsgDebut.class, 5, Side.SERVER);
     }
 
     public static void sync(EntityPlayerMP p) {
