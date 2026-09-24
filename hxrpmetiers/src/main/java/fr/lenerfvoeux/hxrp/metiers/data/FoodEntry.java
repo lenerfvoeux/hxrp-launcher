@@ -19,6 +19,11 @@ public class FoodEntry {
     public int faim;
     public int soif;
     public String buff;
+    /** Famille de découpe et palette (peau, chair, accent) pour dessiner l'aliment dans les mini-jeux. */
+    public String famille;
+    public String[] pal;
+    /** Motif de la face coupée : 0 plein, 1 cœur, 2 anneaux, 3 pépins, 4 quartiers, 5 marbré, 6 noyau, 7 alvéoles, 8 feuilles. */
+    public int motif;
 
     public boolean isDish() { return "plat".equals(kind) || "boisson".equals(kind); }
     public boolean isDrink() { return "boisson".equals(kind); }
