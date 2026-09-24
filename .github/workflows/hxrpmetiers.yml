@@ -1,0 +1,48 @@
+name: Mod hxrpmetiers
+
+on:
+  push:
+    paths:
+      - 'hxrpmetiers/**'
+      - '.github/workflows/hxrpmetiers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hxrpmetiers
+    steps:
+      - uses: actions/checkout@v4
+
+      # Java 8 pour compiler le mod (toolchain Azul du build.gradle), Java 21 pour faire tourner Gradle.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: |
+            8
+            21
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Banc d'essai des mini-jeux
+        run: sh tools/test/banc.sh
+
+      - name: Compiler le mod
+        run: ./gradlew build --no-daemon --stacktrace -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64
+
+      - name: Contenu de build/libs
+        run: ls -l build/libs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hxrpmetiers-jar
+          path: |
+            hxrpmetiers/build/libs/*.jar
+            !hxrpmetiers/build/libs/*-dev.jar
+            !hxrpmetiers/build/libs/*-sources.jar
+          if-no-files-found: error
