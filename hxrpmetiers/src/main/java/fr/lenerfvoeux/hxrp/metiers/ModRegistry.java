@@ -31,11 +31,24 @@ public final class ModRegistry {
     public static Block FRIGO, POUBELLE;
     public static final java.util.Map<Station, Block> STATIONS = new java.util.EnumMap<>(Station.class);
     public static Item EN_COURS;
+    // récolte dans le monde
+    public static final Map<String, fr.lenerfvoeux.hxrp.metiers.monde.BlockCulture> CULTURES = new LinkedHashMap<>();
+    public static final Map<String, fr.lenerfvoeux.hxrp.metiers.monde.BlockFeuillage> FEUILLES = new LinkedHashMap<>();
+    public static final Map<String, fr.lenerfvoeux.hxrp.metiers.monde.BlockPousse> POUSSES = new LinkedHashMap<>();
+    public static final Map<String, Item> OBJETS_MONDE = new LinkedHashMap<>();
+    public static Block MINERAI_SEL, RUCHE, MOULES, HUITRES;
 
     public static final CreativeTabs TAB_INGREDIENTS = tab("ingredients", "carotte");
     public static final CreativeTabs TAB_CUISINE = tab("cuisine", "farine");
     public static final CreativeTabs TAB_PLATS = tab("plats", "burger_classique");
     public static final CreativeTabs TAB_BOISSONS = tab("boissons", "jus_d_orange");
+    public static final CreativeTabs TAB_RECOLTE = new CreativeTabs(HxrpMetiers.MODID + ".recolte") {
+        @Override
+        public ItemStack createIcon() {
+            fr.lenerfvoeux.hxrp.metiers.monde.BlockCulture c = CULTURES.get("tomate");
+            return c == null ? ItemStack.EMPTY : new ItemStack(c.graine());
+        }
+    };
 
     private ModRegistry() {}
 
@@ -59,6 +72,7 @@ public final class ModRegistry {
             STATIONS.put(s, b);
             e.getRegistry().register(b);
         }
+        fr.lenerfvoeux.hxrp.metiers.monde.MondeRegistry.blocs(e.getRegistry());
     }
 
     @SubscribeEvent
@@ -79,6 +93,7 @@ public final class ModRegistry {
             e.getRegistry().register(ib);
             ALL_ITEMS.add(ib);
         }
+        fr.lenerfvoeux.hxrp.metiers.monde.MondeRegistry.objets(e.getRegistry());
     }
 
     private static void add(RegistryEvent.Register<Item> e, Item item, FoodEntry f, CreativeTabs tab) {

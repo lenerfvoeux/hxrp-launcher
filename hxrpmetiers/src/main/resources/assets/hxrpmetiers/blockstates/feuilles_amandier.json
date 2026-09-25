@@ -1,0 +1,14 @@
+{
+ "_monde": true,
+ "variants": {
+  "fruit=0": {
+   "model": "hxrpmetiers:monde/arbres/amandier_0"
+  },
+  "fruit=1": {
+   "model": "hxrpmetiers:monde/arbres/amandier_1"
+  },
+  "fruit=2": {
+   "model": "hxrpmetiers:monde/arbres/amandier_2"
+  }
+ }
+}

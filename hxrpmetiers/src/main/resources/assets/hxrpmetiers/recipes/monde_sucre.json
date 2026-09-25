@@ -1,0 +1,12 @@
+{
+ "type": "minecraft:crafting_shapeless",
+ "ingredients": [
+  {
+   "item": "hxrpmetiers:canne_a_sucre"
+  }
+ ],
+ "result": {
+  "item": "hxrpmetiers:sucre",
+  "count": 2
+ }
+}

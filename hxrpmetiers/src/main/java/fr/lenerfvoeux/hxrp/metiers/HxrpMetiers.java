@@ -41,6 +41,7 @@ public class HxrpMetiers {
     public void init(FMLInitializationEvent e) {
         GameRegistry.registerTileEntity(TileFrigo.class, new ResourceLocation(MODID, "frigo"));
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+        GameRegistry.registerWorldGenerator(new fr.lenerfvoeux.hxrp.metiers.monde.GenMonde(), 5);
     }
 
     @Mod.EventHandler

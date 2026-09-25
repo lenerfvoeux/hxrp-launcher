@@ -1,0 +1,11 @@
+{
+ "_monde": true,
+ "variants": {
+  "stage=0": {
+   "model": "hxrpmetiers:monde/arbres/pousse_figuier"
+  },
+  "stage=1": {
+   "model": "hxrpmetiers:monde/arbres/pousse_figuier"
+  }
+ }
+}

@@ -35,6 +35,10 @@ public final class ClientEvents {
     public static void models(ModelRegistryEvent e) {
         for (Item i : ModRegistry.ALL_ITEMS)
             ModelLoader.setCustomModelResourceLocation(i, 0, new ModelResourceLocation(i.getRegistryName(), "inventory"));
+        // feuillages : seul l'état des fruits change le modèle
+        for (net.minecraft.block.Block f : ModRegistry.FEUILLES.values())
+            ModelLoader.setCustomStateMapper(f, new net.minecraft.client.renderer.block.statemap.StateMap.Builder()
+                    .ignore(net.minecraft.block.BlockLeaves.CHECK_DECAY, net.minecraft.block.BlockLeaves.DECAYABLE).build());
     }
 
     /** Remplace la barre de faim vanilla par nos deux jauges (faim et soif, sur 60). */

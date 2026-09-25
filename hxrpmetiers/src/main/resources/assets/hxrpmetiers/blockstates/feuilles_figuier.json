@@ -1,0 +1,14 @@
+{
+ "_monde": true,
+ "variants": {
+  "fruit=0": {
+   "model": "hxrpmetiers:monde/arbres/figuier_0"
+  },
+  "fruit=1": {
+   "model": "hxrpmetiers:monde/arbres/figuier_1"
+  },
+  "fruit=2": {
+   "model": "hxrpmetiers:monde/arbres/figuier_2"
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "type": "minecraft:crafting_shapeless",
+ "ingredients": [
+  {
+   "item": "hxrpmetiers:soja"
+  },
+  {
+   "item": "hxrpmetiers:soja"
+  },
+  {
+   "item": "hxrpmetiers:sel"
+  },
+  {
+   "item": "minecraft:glass_bottle"
+  }
+ ],
+ "result": {
+  "item": "hxrpmetiers:sauce_soja",
+  "count": 1
+ }
+}

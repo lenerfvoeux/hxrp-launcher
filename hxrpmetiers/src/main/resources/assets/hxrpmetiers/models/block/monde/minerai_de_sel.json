@@ -1,0 +1,6 @@
+{
+ "parent": "block/cube_all",
+ "textures": {
+  "all": "hxrpmetiers:blocks/monde/minerai_de_sel"
+ }
+}

@@ -1,0 +1,835 @@
+{
+ "cultures": [
+  {
+   "id": "ble",
+   "forme": "cereale",
+   "climat": "tempere",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "riz",
+   "forme": "riz",
+   "climat": "humide",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "mais",
+   "forme": "mais",
+   "climat": "tempere",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "avoine",
+   "forme": "cereale",
+   "climat": "froid",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "sarrasin",
+   "forme": "sarrasin",
+   "climat": "froid",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "quinoa",
+   "forme": "quinoa",
+   "climat": "chaud",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "carotte",
+   "forme": "racine",
+   "climat": "tempere",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "pomme_de_terre",
+   "forme": "tubercule",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "oignon",
+   "forme": "bulbe",
+   "climat": "tempere",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "echalote",
+   "forme": "bulbe",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "ail",
+   "forme": "bulbe",
+   "climat": "chaud",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "tomate",
+   "forme": "tuteur",
+   "climat": "chaud",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "poivron",
+   "forme": "tuteur",
+   "climat": "chaud",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "courgette",
+   "forme": "courge",
+   "climat": "tempere",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "aubergine",
+   "forme": "tuteur",
+   "climat": "chaud",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "chou",
+   "forme": "pomme",
+   "climat": "froid",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "chou_fleur",
+   "forme": "pomme",
+   "climat": "froid",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "brocoli",
+   "forme": "pomme",
+   "climat": "tempere",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "laitue",
+   "forme": "pomme",
+   "climat": "tempere",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "poireau",
+   "forme": "tige",
+   "climat": "froid",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "concombre",
+   "forme": "courge",
+   "climat": "tempere",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "champignon",
+   "forme": "champignon",
+   "climat": "humide",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "epinards",
+   "forme": "feuilles",
+   "climat": "froid",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "haricot_vert",
+   "forme": "rame",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "petit_pois",
+   "forme": "rame",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "potiron",
+   "forme": "gros_fruit",
+   "climat": "tempere",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "radis",
+   "forme": "racine",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "betterave",
+   "forme": "racine",
+   "climat": "froid",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "patate_douce",
+   "forme": "tubercule",
+   "climat": "tropical",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "navet",
+   "forme": "racine",
+   "climat": "froid",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "celeri",
+   "forme": "tige",
+   "climat": "humide",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "asperge",
+   "forme": "asperge",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "artichaut",
+   "forme": "chardon",
+   "climat": "chaud",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "ananas",
+   "forme": "ananas",
+   "climat": "tropical",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "fraise",
+   "forme": "fraisier",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "framboise",
+   "forme": "baies",
+   "climat": "tempere",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "myrtille",
+   "forme": "baies",
+   "climat": "froid",
+   "min": 2,
+   "max": 5
+  },
+  {
+   "id": "raisin",
+   "forme": "vigne",
+   "climat": "chaud",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "kiwi",
+   "forme": "vigne",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "melon",
+   "forme": "gros_fruit",
+   "climat": "chaud",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "pasteque",
+   "forme": "gros_fruit",
+   "climat": "chaud",
+   "min": 1,
+   "max": 1
+  },
+  {
+   "id": "cacahuete",
+   "forme": "tubercule",
+   "climat": "chaud",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "lentilles",
+   "forme": "gousse",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "pois_chiche",
+   "forme": "gousse",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "haricot_rouge",
+   "forme": "rame",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "haricot_blanc",
+   "forme": "rame",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "soja",
+   "forme": "gousse",
+   "climat": "humide",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "basilic",
+   "forme": "herbe",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "persil",
+   "forme": "herbe",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "menthe",
+   "forme": "herbe",
+   "climat": "humide",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "coriandre",
+   "forme": "herbe",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "thym",
+   "forme": "herbe",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "romarin",
+   "forme": "herbe",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "ciboulette",
+   "forme": "herbe",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "aneth",
+   "forme": "herbe",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "estragon",
+   "forme": "herbe",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "grains_de_cafe",
+   "forme": "baies",
+   "climat": "tropical",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "feuilles_de_the",
+   "forme": "arbuste",
+   "climat": "tropical",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "canne_a_sucre",
+   "forme": "canne",
+   "climat": "tropical",
+   "min": 1,
+   "max": 3
+  },
+  {
+   "id": "poivre_noir",
+   "forme": "vigne",
+   "climat": "tropical",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "piment",
+   "forme": "tuteur",
+   "climat": "chaud",
+   "min": 2,
+   "max": 4
+  },
+  {
+   "id": "gingembre",
+   "forme": "racine",
+   "climat": "tropical",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "curcuma",
+   "forme": "racine",
+   "climat": "tropical",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "vanille",
+   "forme": "vigne",
+   "climat": "tropical",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "safran",
+   "forme": "fleur",
+   "climat": "chaud",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "id": "cumin",
+   "forme": "fleur",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "graines_de_moutarde",
+   "forme": "fleur",
+   "climat": "tempere",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "sesame",
+   "forme": "fleur",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  },
+  {
+   "id": "laurier",
+   "forme": "arbuste",
+   "climat": "chaud",
+   "min": 2,
+   "max": 3
+  }
+ ],
+ "arbres": [
+  {
+   "id": "pommier",
+   "fruit": "pomme",
+   "climat": "tempere",
+   "forme": "rond",
+   "bois": "oak"
+  },
+  {
+   "id": "poirier",
+   "fruit": "poire",
+   "climat": "tempere",
+   "forme": "ovale",
+   "bois": "oak"
+  },
+  {
+   "id": "cerisier",
+   "fruit": "cerise",
+   "climat": "tempere",
+   "forme": "rond",
+   "bois": "birch"
+  },
+  {
+   "id": "noyer",
+   "fruit": "noix",
+   "climat": "tempere",
+   "forme": "large",
+   "bois": "dark_oak"
+  },
+  {
+   "id": "noisetier",
+   "fruit": "noisette",
+   "climat": "tempere",
+   "forme": "buisson",
+   "bois": "oak"
+  },
+  {
+   "id": "pecher",
+   "fruit": "peche",
+   "climat": "chaud",
+   "forme": "rond",
+   "bois": "oak"
+  },
+  {
+   "id": "abricotier",
+   "fruit": "abricot",
+   "climat": "chaud",
+   "forme": "rond",
+   "bois": "oak"
+  },
+  {
+   "id": "figuier",
+   "fruit": "figue",
+   "climat": "chaud",
+   "forme": "large",
+   "bois": "birch"
+  },
+  {
+   "id": "olivier",
+   "fruit": "olives",
+   "climat": "chaud",
+   "forme": "large",
+   "bois": "dark_oak"
+  },
+  {
+   "id": "amandier",
+   "fruit": "amande",
+   "climat": "chaud",
+   "forme": "rond",
+   "bois": "oak"
+  },
+  {
+   "id": "pistachier",
+   "fruit": "pistache",
+   "climat": "chaud",
+   "forme": "buisson",
+   "bois": "acacia"
+  },
+  {
+   "id": "oranger",
+   "fruit": "orange",
+   "climat": "chaud",
+   "forme": "rond",
+   "bois": "oak"
+  },
+  {
+   "id": "citronnier",
+   "fruit": "citron",
+   "climat": "chaud",
+   "forme": "ovale",
+   "bois": "oak"
+  },
+  {
+   "id": "limettier",
+   "fruit": "citron_vert",
+   "climat": "tropical",
+   "forme": "buisson",
+   "bois": "oak"
+  },
+  {
+   "id": "manguier",
+   "fruit": "mangue",
+   "climat": "tropical",
+   "forme": "large",
+   "bois": "jungle"
+  },
+  {
+   "id": "avocatier",
+   "fruit": "avocat",
+   "climat": "tropical",
+   "forme": "ovale",
+   "bois": "jungle"
+  },
+  {
+   "id": "cacaoyer",
+   "fruit": "feves_de_cacao",
+   "climat": "tropical",
+   "forme": "rond",
+   "bois": "jungle"
+  },
+  {
+   "id": "cannelier",
+   "fruit": "cannelle",
+   "climat": "tropical",
+   "forme": "ovale",
+   "bois": "jungle"
+  },
+  {
+   "id": "muscadier",
+   "fruit": "muscade",
+   "climat": "tropical",
+   "forme": "ovale",
+   "bois": "jungle"
+  },
+  {
+   "id": "giroflier",
+   "fruit": "clou_de_girofle",
+   "climat": "tropical",
+   "forme": "ovale",
+   "bois": "jungle"
+  },
+  {
+   "id": "cocotier",
+   "fruit": "noix_de_coco",
+   "climat": "tropical",
+   "forme": "palmier",
+   "bois": "jungle"
+  },
+  {
+   "id": "bananier",
+   "fruit": "banane",
+   "climat": "tropical",
+   "forme": "bananier",
+   "bois": "jungle"
+  }
+ ],
+ "animaux": [
+  {
+   "id": "saumon",
+   "comportement": "poisson",
+   "milieux": [
+    "riviere",
+    "ocean_froid"
+   ],
+   "donne": [
+    "saumon"
+   ]
+  },
+  {
+   "id": "truite",
+   "comportement": "poisson",
+   "milieux": [
+    "riviere"
+   ],
+   "donne": [
+    "truite"
+   ]
+  },
+  {
+   "id": "thon",
+   "comportement": "poisson",
+   "milieux": [
+    "ocean"
+   ],
+   "donne": [
+    "thon"
+   ]
+  },
+  {
+   "id": "cabillaud",
+   "comportement": "poisson",
+   "milieux": [
+    "ocean",
+    "ocean_froid"
+   ],
+   "donne": [
+    "cabillaud"
+   ]
+  },
+  {
+   "id": "sardine",
+   "comportement": "banc",
+   "milieux": [
+    "ocean"
+   ],
+   "donne": [
+    "sardine"
+   ]
+  },
+  {
+   "id": "maquereau",
+   "comportement": "banc",
+   "milieux": [
+    "ocean"
+   ],
+   "donne": [
+    "maquereau"
+   ]
+  },
+  {
+   "id": "anchois",
+   "comportement": "banc",
+   "milieux": [
+    "ocean"
+   ],
+   "donne": [
+    "anchois"
+   ]
+  },
+  {
+   "id": "crevette",
+   "comportement": "fond",
+   "milieux": [
+    "ocean",
+    "plage"
+   ],
+   "donne": [
+    "crevette"
+   ]
+  },
+  {
+   "id": "crabe",
+   "comportement": "crabe",
+   "milieux": [
+    "plage"
+   ],
+   "donne": [
+    "crabe"
+   ]
+  },
+  {
+   "id": "dinde",
+   "comportement": "volaille",
+   "milieux": [
+    "tempere"
+   ],
+   "donne": [
+    "dinde"
+   ]
+  },
+  {
+   "id": "canard",
+   "comportement": "volaille",
+   "milieux": [
+    "humide",
+    "riviere"
+   ],
+   "donne": [
+    "canard"
+   ]
+  },
+  {
+   "id": "cerf",
+   "comportement": "gibier",
+   "milieux": [
+    "tempere",
+    "froid"
+   ],
+   "donne": [
+    "cerf"
+   ]
+  },
+  {
+   "id": "sanglier",
+   "comportement": "sanglier",
+   "milieux": [
+    "tempere"
+   ],
+   "donne": [
+    "sanglier"
+   ]
+  },
+  {
+   "id": "chevre",
+   "comportement": "chevre",
+   "milieux": [
+    "montagne",
+    "chaud"
+   ],
+   "donne": [
+    "lait_de_chevre"
+   ]
+  }
+ ],
+ "vanilla": {
+  "cow": [
+   "boeuf"
+  ],
+  "cow_bebe": [
+   "veau"
+  ],
+  "pig": [
+   "porc"
+  ],
+  "chicken": [
+   "poulet"
+  ],
+  "sheep": [
+   "mouton"
+  ],
+  "rabbit": [
+   "lapin"
+  ],
+  "squid": [
+   "calamar"
+  ]
+ },
+ "blocs": [
+  {
+   "id": "minerai_de_sel",
+   "produit": "sel"
+  },
+  {
+   "id": "ruche_sauvage",
+   "produit": "miel"
+  },
+  {
+   "id": "banc_de_moules",
+   "produit": "moule"
+  },
+  {
+   "id": "banc_d_huitres",
+   "produit": "huitre"
+  }
+ ],
+ "objets": [
+  "olives"
+ ]
+}

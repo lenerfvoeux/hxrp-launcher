@@ -1,0 +1,6 @@
+{
+ "parent": "block/cross",
+ "textures": {
+  "cross": "hxrpmetiers:blocks/monde/arbres/pousse_poirier"
+ }
+}

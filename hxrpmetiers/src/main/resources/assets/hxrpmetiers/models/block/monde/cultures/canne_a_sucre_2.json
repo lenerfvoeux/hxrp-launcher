@@ -1,0 +1,6 @@
+{
+ "parent": "block/crop",
+ "textures": {
+  "crop": "hxrpmetiers:blocks/monde/cultures/canne_a_sucre_2"
+ }
+}

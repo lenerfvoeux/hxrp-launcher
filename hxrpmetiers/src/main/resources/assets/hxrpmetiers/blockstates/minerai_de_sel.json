@@ -1,0 +1,8 @@
+{
+ "_monde": true,
+ "variants": {
+  "normal": {
+   "model": "hxrpmetiers:monde/minerai_de_sel"
+  }
+ }
+}
