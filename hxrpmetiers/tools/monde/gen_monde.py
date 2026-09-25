@@ -64,7 +64,7 @@ def modele_item(nom, texture):
 
 
 def modele_item_bloc(nom, modele):
-    ecrire(os.path.join(A, 'models', 'item', nom + '.json'), {'_monde': True, 'parent': M + ':' + modele})
+    ecrire(os.path.join(A, 'models', 'item', nom + '.json'), {'_monde': True, 'parent': M + ':block/' + modele})
 
 
 def etats(nom, variantes):
