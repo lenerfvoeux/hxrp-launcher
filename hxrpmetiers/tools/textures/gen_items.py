@@ -20,6 +20,7 @@ import ingredients  # noqa: E402,F401
 import preparations  # noqa: E402,F401
 import plats  # noqa: E402,F401
 import boissons  # noqa: E402,F401
+import retouches  # noqa: E402,F401  (redessins, remplacent les versions précédentes)
 
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 ASSETS = os.path.join(ROOT, 'src', 'main', 'resources', 'assets', 'hxrpmetiers')

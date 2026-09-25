@@ -82,17 +82,42 @@ class Img:
 
 
 # ============================================================================ carnet de recettes
+def etoile_9(pleine):
+    """Étoile 9x9 dessinée à la main : dorée et bien contrastée si pleine, pâle si vide."""
+    motif = ["....o....",
+             "...oYo...",
+             "oooYYYooo",
+             "oYYYYYYYo",
+             ".oyyyyyo.",
+             "..oyyyo..",
+             ".oyyoyyo.",
+             ".oyo.oyo.",
+             ".oo...oo."]
+    if pleine:
+        cols = {'o': (138, 62, 6), 'Y': (255, 242, 150), 'y': (255, 190, 32)}
+    else:
+        cols = {'o': (172, 152, 118), 'Y': (240, 230, 206), 'y': (228, 214, 184)}
+    out = np.zeros((9, 9, 4), np.uint8)
+    for y, row in enumerate(motif):
+        for x, ch in enumerate(row):
+            if ch in cols:
+                out[y, x, :3] = cols[ch]
+                out[y, x, 3] = 255
+    return out
+
+
 def carnet():
-    """Carnet ouvert 316x196 en (0,0) ; éléments d'interface à droite (u >= 320)."""
-    im = Img(512, 256)
-    W, H = 316, 196
+    """Carnet ouvert 400x240 en (0,0) ; éléments d'interface sous le livre (v >= 256). Texture 512x512."""
+    im = Img(512, 512)
+    W, H = 400, 240
+    G = W // 2          # reliure
     # couverture en cuir
     im.rect(0, 2, W, H - 2, CONTOUR)
     im.rect(1, 3, W - 2, H - 4, '#6a2a1a')
     im.noise(1, 3, W - 2, H - 4, ['#74301e', '#5e2416', '#7a3622'], 0.35, 1)
     im.rect(2, 4, W - 4, 1, '#8a4a30')
     # pages (légèrement bombées vers la reliure)
-    for (x0, x1, gauche) in ((8, 156, True), (160, 308, False)):
+    for (x0, x1, gauche) in ((8, G - 2, True), (G + 2, W - 8, False)):
         im.rect(x0, 6, x1 - x0, H - 14, '#e4d4ac')
         for x in range(x0, x1):
             d = (x - x0) / (x1 - x0)
@@ -102,68 +127,70 @@ def carnet():
             im.a[8:H - 10, x, :3] = base.astype(np.uint8)
             im.a[8:H - 10, x, 3] = 255
         im.noise(x0 + 2, 9, x1 - x0 - 4, H - 20, ['#ecdcb8', '#e8d8b0', '#f8f0d8'], 0.12, 3 if gauche else 4)
-        # tranche des pages
         for k in range(3):
             im.rect(x0 + (1 if gauche else 0), H - 10 + k, x1 - x0 - 1, 1, ['#d8c8a0', '#c8b890', '#b8a880'][k])
-        # lignes discrètes
-        for y in range(46, H - 26, 18):
+        for y in range(76, H - 26, 18):
             im.rect(x0 + 8, y, x1 - x0 - 16, 1, '#e8d8b4')
     # reliure centrale
-    im.rect(155, 6, 6, H - 12, '#4a1a10')
-    im.rect(157, 6, 2, H - 12, '#7a3a24')
+    im.rect(G - 3, 6, 6, H - 12, '#4a1a10')
+    im.rect(G - 1, 6, 2, H - 12, '#7a3a24')
     # coins en laiton
     for (cx, cy, sx, sy) in ((0, 2, 1, 1), (W - 1, 2, -1, 1), (0, H - 1, 1, -1), (W - 1, H - 1, -1, -1)):
         for i in range(10):
             for j in range(10 - i):
-                x, y = cx + sx * i, cy + sy * j
-                im.px(x, y, OR if i + j < 8 else OL)
+                im.px(cx + sx * i, cy + sy * j, OR if i + j < 8 else OL)
         im.px(cx + sx * 2, cy + sy * 2, HL)
     # marque-page
-    im.rect(286, 0, 8, 22, '#c8302a')
-    im.rect(286, 0, 1, 22, '#e8504a')
-    im.rect(286, 22, 4, 4, '#c8302a')
-    im.rect(290, 22, 4, 2, '#c8302a')
-    # --- éléments d'interface (u >= 320)
-    # onglet actif / inactif 68x14
-    for (v, fill, light) in ((0, '#f4e8c8', '#ffffff'), (16, '#c8b890', '#d8c8a0')):
-        im.rect(320, v, 68, 14, CONTOUR)
-        im.rect(321, v + 1, 66, 13, fill)
-        im.rect(321, v + 1, 66, 1, light)
-    # ligne sélectionnée 140x18 et survolée
-    im.rect(320, 32, 140, 18, '#e8c878')
-    im.rect(320, 32, 140, 1, '#f8e0a0')
-    im.rect(320, 49, 140, 1, '#b8903a')
-    im.rect(320, 52, 140, 18, '#efe0bc')
-    # bouton « cuisiner » 72x20 : normal, survol, désactivé
+    im.rect(W - 30, 0, 8, 22, '#c8302a')
+    im.rect(W - 30, 0, 1, 22, '#e8504a')
+    im.rect(W - 30, 22, 4, 4, '#c8302a')
+    im.rect(W - 26, 22, 4, 2, '#c8302a')
+    # --- éléments d'interface (v >= 256)
+    # onglets 84x14 : actif (0,256), inactif (0,272)
+    for (v, fill, light) in ((256, '#f4e8c8', '#ffffff'), (272, '#c8b890', '#d8c8a0')):
+        im.rect(0, v, 84, 14, CONTOUR)
+        im.rect(1, v + 1, 82, 13, fill)
+        im.rect(1, v + 1, 82, 1, light)
+    # ligne sélectionnée (0,288) et survolée (0,308), 176x18
+    im.rect(0, 288, 176, 18, '#e8c878')
+    im.rect(0, 288, 176, 1, '#f8e0a0')
+    im.rect(0, 305, 176, 1, '#b8903a')
+    im.rect(0, 308, 176, 18, '#efe0bc')
+    # bouton « cuisiner » 72x20 : normal (0,330), survol (0,352), désactivé (0,374)
     for k, (fill, hl, sh) in enumerate(((OR, HL, SH), ('#f8a040', '#ffe0a0', '#c86a20'), ('#9a8a7a', '#b8a898', '#6a5a4a'))):
-        v = 72 + k * 22
-        im.rect(320, v, 72, 20, OL)
-        im.rect(321, v + 1, 70, 18, fill)
-        im.rect(321, v + 1, 70, 1, hl)
-        im.rect(321, v + 1, 1, 18, hl)
-        im.rect(321, v + 18, 70, 1, sh)
-        im.rect(390, v + 1, 1, 18, sh)
-    # coche et croix 9x9
+        v = 330 + k * 22
+        im.rect(0, v, 72, 20, OL)
+        im.rect(1, v + 1, 70, 18, fill)
+        im.rect(1, v + 1, 70, 1, hl)
+        im.rect(1, v + 1, 1, 18, hl)
+        im.rect(1, v + 18, 70, 1, sh)
+        im.rect(70, v + 1, 1, 18, sh)
+    # coche (100,256) et croix (112,256) 9x9
     coche = ["........#", ".......##", "......##.", "#....##..", "##..##...", ".####....", "..##.....", ".........", "........."]
     croix = ["#.......#", "##.....##", ".##...##.", "..##.##..", "...###...", "..##.##..", ".##...##.", "##.....##", "#.......#"]
-    for (u, motif, c) in ((400, coche, '#3a9a2a'), (412, croix, '#c8302a')):
+    for (u, motif, c) in ((100, coche, '#3a9a2a'), (112, croix, '#c8302a')):
         for j, row in enumerate(motif):
             for i, ch in enumerate(row):
                 if ch == '#':
-                    im.px(u + i, 72 + j, c)
-    # étoile pleine et vide 7x7
-    etoile = ["...#...", "..###..", "#######", ".#####.", "..###..", ".##.##.", "##...##"]
-    for (u, c1, c2) in ((424, (255, 243, 160), (255, 201, 58)), (432, (90, 60, 40), (78, 46, 22))):
-        for j, row in enumerate(etoile):
-            for i, ch in enumerate(row):
-                if ch == '#':
-                    im.px(u + i, 72 + j, c1 if j < 2 else c2)
-    # ascenseur 6x? : rail et curseur
-    im.rect(320, 140, 6, 60, '#c8b890')
-    im.rect(321, 141, 4, 58, '#b8a880')
-    im.rect(330, 140, 6, 16, OL)
-    im.rect(331, 141, 4, 14, OR)
-    im.rect(331, 141, 4, 1, HL)
+                    im.px(u + i, 256 + j, c)
+    # étoiles 9x9 : pleine (124,256), vide (136,256)
+    im.a[256:265, 124:133] = etoile_9(True)
+    im.a[256:265, 136:145] = etoile_9(False)
+    # ascenseur : rail 6x144 (160,256), curseur 6x16 (170,256)
+    im.rect(160, 256, 6, 144, '#c8b890')
+    im.rect(161, 257, 4, 142, '#b8a880')
+    im.rect(170, 256, 6, 16, OL)
+    im.rect(171, 257, 4, 14, OR)
+    im.rect(171, 257, 4, 1, HL)
+    # champ de recherche 172x14 (180,256) : creux dans le papier + loupe
+    im.rect(180, 256, 172, 14, '#9a8664')
+    im.rect(181, 257, 171, 13, '#fbf4e0')
+    im.rect(181, 257, 170, 1, '#d8c8a4')
+    loupe = ["..###...", ".#...#..", "#.....#.", "#.....#.", "#.....#.", ".#...#..", "..####..", "......##", ".......#"]
+    for j, row in enumerate(loupe):
+        for i, ch in enumerate(row):
+            if ch == '#':
+                im.px(184 + i, 258 + j, '#7a6450')
     im.save('carnet.png')
 
 

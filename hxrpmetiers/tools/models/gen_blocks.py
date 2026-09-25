@@ -16,6 +16,7 @@ sys.path.insert(0, HERE)
 import stations  # noqa: E402
 import materials  # noqa: E402
 import mc_render  # noqa: E402
+import zfight  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 ASSETS = os.path.join(ROOT, 'src', 'main', 'resources', 'assets', 'hxrpmetiers')
@@ -49,6 +50,10 @@ def main():
                     'facing=west': {'model': 'hxrpmetiers:' + name, 'y': 270}}
         with open(os.path.join(bdir, name + '.json'), 'w') as f:
             json.dump({'variants': variants}, f, indent=1)
+    for name, m in stations.MODELS.items():
+        c = zfight.conflits(m.json())
+        if c:
+            raise SystemExit('Faces superposées (scintillement) dans %s : %s' % (name, c[:5]))
     missing = [t for t in used if not os.path.exists(os.path.join(tdir, t + '.png'))]
     if missing:
         raise SystemExit('Textures manquantes : ' + ', '.join(missing))

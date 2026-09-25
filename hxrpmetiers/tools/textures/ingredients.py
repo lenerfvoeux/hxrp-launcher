@@ -294,22 +294,6 @@ def haricot_vert(c):
     pal('haricot_vert', 'Long', '#4aa032', '#a8e080', '#7ac85a', 3)
 
 
-@item('petit_pois')
-def petit_pois(c):
-    back = capsule(4, 23, 27, 10, 5.2, 3.8)
-    c.shape(back, R('#3a8a2a'), L_cyl(4, 23, 27, 10, 5.2))
-    inner = capsule(6, 21.5, 25, 11, 3.8, 2.8)
-    c.shape(inner, R('#c8e8a0'), L_const(0.75), edge=False)
-    for k in range(5):
-        x, y = 8 + k * 4, 20.5 - k * 2.3
-        m = circle(x, y, 2.3)
-        c.shape(m, R('#6cc03a'), L_sphere(x - 0.8, y - 0.8, 2.3, 2.3), hl=1)
-    lip = capsule(4, 25, 27, 12, 2.2, 1.6) & ~capsule(4, 22.5, 27, 10, 3.8, 2.8)
-    c.shape(lip, R('#4aa032'), L_const(0.6))
-    c.fill(line_mask(27, 10, 30, 6), '#6a8a3a')
-    c.shape(capsule(3, 25, 1, 28, 1), R('#8ab04a'), L_const(0.6))
-    pal('petit_pois', 'Rond', '#6cc03a', '#a8e080', '#3a8a2a', 0)
-
 @item('potiron')
 def potiron(c):
     for (cx, rx) in [(8, 7), (24, 7), (12, 7), (20, 7), (16, 7)]:
@@ -318,18 +302,6 @@ def potiron(c):
     c.shape(capsule(16, 10, 18, 3, 2.2, 1.6), R('#6a7a3a'), L_cyl(16, 10, 18, 3, 2.2))
     c.fill(line_mask(18, 5, 23, 5), '#5a8a2a')
     pal('potiron', 'Rond', '#e8781a', '#f8a848', '#f4e4b0', 3)
-
-
-@item('radis')
-def radis(c):
-    for (cx, cy, s) in [(11, 19, 1.0), (21, 21, 0.9)]:
-        stem(c, [(cx, cy - 5), (cx - 3, 3)], '#6aa04a')
-        leaf(c, cx - 1, cy - 6, cx - 5 + s * 3, 2, 5, '#4a9a3a')
-        m = ellipse(cx, cy, 6 * s, 6 * s)
-        c.shape(m, R('#d8284a'), L_sphere(cx - 2, cy - 2, 6, 6), hl=2)
-        c.shape(ellipse(cx, cy + 5 * s, 3 * s, 1.8), R('#f4ecec'), L_const(0.7), edge=False)
-        c.fill(line_mask(cx, cy + 6, cx + 1, cy + 10), '#f0e0e0')
-    pal('radis', 'Rond', '#d8284a', '#fbf4f4', '#4a9a3a', 0)
 
 
 @item('betterave')
@@ -451,16 +423,6 @@ def orange(c):
     pal('orange', 'Rond', '#f08a14', '#f8a830', '#fbe8b8', 4)
 
 
-@item('citron')
-def citron(c):
-    m = ellipse(16, 17, 12, 8.5) | polygon([(2, 17), (5, 15), (5, 19)]) | polygon([(30, 17), (27, 15), (27, 19)])
-    c.shape(m, R('#f4d824'), L_sphere(13, 14, 12, 9), hl=3)
-    for (x, y) in rng_pts(6, m & ~edge(m), 24):
-        c.fill(rect(x, y, x, y), '#d8b814')
-    leaf(c, 18, 10, 25, 4, 4, '#3a8a2a')
-    pal('citron', 'Rond', '#f4d824', '#f8ec80', '#fbf8d8', 4)
-
-
 @item('citron_vert')
 def citron_vert(c):
     m = circle(12, 15, 9)
@@ -468,19 +430,6 @@ def citron_vert(c):
     c.speckle(m, '#3a8a1a', 0.08, seed=2)
     slice_round(c, 21, 22, 7.5, '#4a9a22', '#b8e05a', motif='citrus')
     pal('citron_vert', 'Rond', '#5aa822', '#b8e05a', '#e8f8c0', 4)
-
-
-@item('fraise')
-def fraise(c):
-    m = polygon([(5, 11), (27, 11), (24, 20), (16, 30), (8, 20)]) | ellipse(16, 13, 11, 5)
-    c.shape(m, R('#e0202a'), L_sphere(13, 14, 12, 12, 0.2), hl=3)
-    for (x, y) in np.argwhere(m & ~edge(m))[:, ::-1]:
-        if (x * 3 + y * 5) % 11 == 0 and y > 12:
-            c.fill(rect(x, y, x, y), '#f8e080')
-    cal = polygon([(8, 10), (12, 8), (16, 5), (20, 8), (24, 10), (20, 11), (16, 13), (12, 11)])
-    c.shape(cal, R('#3a9a2a'), L_const(0.6))
-    c.shape(capsule(16, 7, 17, 2, 1), R('#3a7a22'), L_const(0.5), edge=False)
-    pal('fraise', 'Rond', '#e0202a', '#f86a6a', '#fbe0e0', 3)
 
 
 @item('framboise')
@@ -501,16 +450,6 @@ def myrtille(c):
         c.speckle(m, '#6a70b0', 0.15, seed=x)
         c.shape(polygon([(x - 1.5, y - r + 1), (x, y - r + 3), (x + 1.5, y - r + 1), (x, y - r + 1.5)]), R('#2a2a5a'), L_const(0.4), edge=False)
     pal('myrtille', 'Rond', '#3a3a8a', '#6a4a9a', '#9a9ad0', 0)
-
-
-@item('banane')
-def banane(c):
-    m = arc_band(27, 4, 22, 22, 7, 100, 175)
-    c.shape(m, R('#f4d02a'), L_sphere(14, 16, 18, 18, 0.4), hl=3)
-    c.fill(arc_band(27, 4, 18.5, 18.5, 1, 110, 170) & m & ~edge(m), '#d8b020')
-    c.shape(capsule(26, 26, 29, 25, 1.6), R('#6a5a2a'), L_const(0.5))
-    c.shape(capsule(5, 6, 4, 3, 1.5, 1.2), R('#7a8a3a'), L_const(0.5))
-    pal('banane', 'Long', '#f4d02a', '#f8f0c8', '#6a5a2a', 0)
 
 
 @item('ananas')
@@ -619,19 +558,6 @@ def melon(c):
     pal('melon', 'Rond', '#b8b86a', '#f09a3a', '#f4e0a0', 3)
 
 
-@item('pasteque')
-def pasteque(c):
-    rind = polygon([(1, 12), (31, 12), (16, 30)])
-    c.shape(rind, R('#2a7a2a'), L_const(0.5))
-    c.shape(polygon([(2.5, 12), (29.5, 12), (16, 27.5)]), R('#e8f0c0'), L_const(0.8), edge=False)
-    flesh = polygon([(3.5, 11), (28.5, 11), (16, 26)])
-    c.shape(flesh, R('#e8303a'), L_vert(8, 26, 0.9, 0.5), edge=False, hl=2)
-    for (x, y) in [(10, 14), (16, 13), (22, 14), (13, 18), (19, 18), (16, 22)]:
-        c.fill(rect(x, y, x, y + 1), '#1a1010')
-    c.shape(ellipse(16, 11, 13, 2) & (YY <= 11), R('#f06058'), L_const(0.8))
-    pal('pasteque', 'Rond', '#2a7a2a', '#e8303a', '#1a1010', 3)
-
-
 @item('noix_de_coco')
 def noix_de_coco(c):
     back = circle(19, 13, 9)
@@ -709,31 +635,6 @@ def dinde(c):
     pal('dinde', 'Pavé', '#d8a080', '#f0d0c0', '#f4ecdc', 0)
 
 
-@item('mouton')
-def mouton(c):
-    for k in range(4):
-        x = 9 + k * 5
-        c.shape(capsule(x, 12, x + 3, 2, 1.4), R('#f4ecdc'), L_const(0.8))
-    m = rrect(4, 11, 28, 28, 4)
-    c.shape(m, R('#f4e8dc'), L_vert(11, 28, 0.9, 0.5))
-    raw_meat(c, rrect(6, 15, 26, 26, 3), '#a82a3a', '#f0d0d0', seed=9, marbling=6)
-    for k in range(3):
-        c.fill(line_mask(11 + k * 5, 15, 11 + k * 5, 26), '#8a1a2a')
-    pal('mouton', 'Pavé', '#a82a3a', '#c84a58', '#f4e8dc', 5)
-
-
-@item('lapin')
-def lapin(c):
-    bone = capsule(21, 10, 27, 4, 1.6)
-    c.shape(bone, R('#f4ecdc'), L_const(0.8))
-    m = capsule(9, 21, 21, 11, 6.5, 2.8) | ellipse(10, 21, 7, 6)
-    c.shape(m, R('#e8b0a8'), L_sphere(9, 17, 9, 8, 0.5), hl=2)
-    c.fill(arc_band(10, 21, 5, 4, 1, 200, 330) & m & ~edge(m), '#c8888a')
-    stem(c, [(4, 7), (8, 12)], '#6a8a3a')
-    leaf(c, 5, 8, 2, 4, 3, '#4a8a3a', vein=False)
-    pal('lapin', 'Pavé', '#e8b0a8', '#f0c8c0', '#c8888a', 0)
-
-
 @item('canard')
 def canard(c):
     flesh = polygon([(3, 18), (8, 12), (26, 11), (30, 16), (26, 24), (7, 25)])
@@ -808,13 +709,6 @@ def truite(c):
     pal('truite', 'Poisson', '#5a7a4a', '#f08a78', '#e87a8a', 0)
 
 
-@item('sardine')
-def sardine(c):
-    fish_body(c, 4, 13, 27, 9, 6.5, '#3a5a8a', '#e8ecf0', fin='#6a8aa8', seed=6)
-    fish_body(c, 5, 24, 28, 21, 6.5, '#3a5a8a', '#e8ecf0', fin='#6a8aa8', seed=7)
-    pal('sardine', 'Poisson', '#3a5a8a', '#b86a6a', '#e8ecf0', 0)
-
-
 @item('maquereau')
 def maquereau(c):
     b = fish_body(c, 3, 18, 26, 14, 10, '#2a6a6a', '#e8ecec', fin='#3a7a7a', seed=8)
@@ -822,13 +716,6 @@ def maquereau(c):
         x = 8 + k * 2.6
         c.fill(line_mask(x, 12, x + 1.5, 16.5) & b & ~edge(b), '#102a2a')
     pal('maquereau', 'Poisson', '#2a6a6a', '#c88878', '#e8ecec', 0)
-
-
-@item('anchois')
-def anchois(c):
-    for k, y in enumerate((9, 16, 23)):
-        fish_body(c, 5 + k, y, 26 + k, y - 3, 4.5, '#5a7a9a', '#e8eef4', fin='#7a9ab0', seed=9 + k)
-    pal('anchois', 'Poisson', '#5a7a9a', '#b87a7a', '#e8eef4', 0)
 
 
 @item('crevette')
@@ -850,20 +737,6 @@ def crevette(c):
     pal('crevette', 'Carapace', '#f07a5a', '#f8c8b8', '#c84a2a', 0)
 
 
-@item('calamar')
-def calamar(c):
-    for k in range(5):
-        x = 8 + k * 2
-        c.fill(line_mask(x, 20, x - 3 + k, 30), '#e8b0b8')
-        c.fill(line_mask(x + 1, 20, x - 2 + k, 30), '#d890a0')
-    m = capsule(12, 19, 26, 5, 5.5, 3.5)
-    c.shape(m, R('#f0d0d0'), L_cyl(12, 19, 26, 5, 5.5), hl=2)
-    c.speckle(m, '#c87a9a', 0.12, seed=4)
-    c.shape(polygon([(22, 3), (30, 2), (27, 10)]), R('#e8c0c8'), L_const(0.6))
-    c.fill(rect(14, 16, 14, 16), '#101010')
-    pal('calamar', 'Long', '#f0d0d0', '#fbf4f0', '#c87a9a', 2)
-
-
 @item('moule')
 def moule(c):
     for (cx, cy, rot) in [(12, 16, -1), (20, 18, 1)]:
@@ -874,20 +747,6 @@ def moule(c):
     fl = ellipse(20, 19, 3, 5)
     c.shape(fl, R('#f09a4a'), L_sphere(19, 17, 3, 5), edge=True)
     pal('moule', 'Carapace', '#2a2a4a', '#f09a4a', '#4a4a7a', 0)
-
-
-@item('huitre')
-def huitre(c):
-    m = polygon([(3, 16), (10, 7), (22, 6), (30, 12), (28, 22), (18, 28), (7, 25)])
-    c.shape(m, R('#8a8a7a'), L_sphere(14, 12, 15, 12), hl=1)
-    for k in range(4):
-        c.fill(arc_band(16, 17, 12 - k * 2.5, 9 - k * 2, 1, 0, 360) & m & ~edge(m), '#6a6a5a')
-    inner = ellipse(16, 17, 10, 7)
-    c.shape(inner, R('#e8e4dc'), L_const(0.8), edge=False)
-    fl = ellipse(15, 17, 7, 4.8)
-    c.shape(fl, R('#c8c0b0'), L_sphere(13, 15, 7, 5), edge=True, hl=2)
-    c.fill(arc_band(15, 17, 7, 4.8, 1), '#6a6a6a')
-    pal('huitre', 'Carapace', '#8a8a7a', '#c8c0b0', '#e8e4dc', 0)
 
 
 @item('crabe')
@@ -961,18 +820,6 @@ def amande(c):
         c.shape(m, R('#b8784a'), L_sphere(x - 1, y - 2, 5, 8), hl=1)
         c.speckle(m, '#8a5030', 0.15, seed=int(x))
     pal('amande', 'Rond', '#b8784a', '#f4ead8', '#8a5030', 0)
-
-
-@item('noisette')
-def noisette(c):
-    for (x, y) in [(11, 18), (21, 19)]:
-        m = circle(x, y, 6.5)
-        c.shape(m, R('#9a5a2a'), L_sphere(x - 2, y - 2, 6.5, 6.5), hl=2)
-        c.fill(line_mask(x - 3, y + 3, x + 3, y + 3) & m, '#6a3a1a')
-        cap = ellipse(x, y - 5, 5.5, 3)
-        c.shape(cap, R('#d8c890'), L_const(0.7))
-    leaf(c, 16, 10, 12, 2, 5, '#6a9a3a')
-    pal('noisette', 'Rond', '#9a5a2a', '#f4e8d0', '#6a3a1a', 0)
 
 
 @item('noix')

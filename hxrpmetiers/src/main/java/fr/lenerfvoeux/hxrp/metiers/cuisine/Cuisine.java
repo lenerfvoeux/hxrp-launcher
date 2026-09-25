@@ -33,8 +33,8 @@ public final class Cuisine {
     }
 
     /**
-     * Le carnet du plan de travail : toutes les recettes accessibles au rang du joueur,
-     * celles qu'il peut cuisiner tout de suite d'abord, avec pour les autres ce qui lui manque.
+     * Le carnet du plan de travail : toutes les recettes accessibles au rang du joueur, de 0 à 3 étoiles,
+     * avec pour chacune ce qui lui manque.
      */
     public static List<MsgRecettes.Ligne> carnet(EntityPlayer p) {
         NutritionData d = Nutrition.get(p);
@@ -50,8 +50,6 @@ public final class Cuisine {
             out.add(l);
         }
         out.sort((a, b) -> {
-            if (a.ok != b.ok) return a.ok ? -1 : 1;
-            if (a.manquants.size() != b.manquants.size()) return a.manquants.size() - b.manquants.size();
             FoodEntry x = FoodDatabase.get(a.id), y = FoodDatabase.get(b.id);
             return x.rank != y.rank ? x.rank - y.rank : x.name.compareToIgnoreCase(y.name);
         });
@@ -87,6 +85,7 @@ public final class Cuisine {
         long now = System.currentTimeMillis();
         double pire = 1;
         long expMin = Long.MAX_VALUE;
+        List<Double> preps = new ArrayList<>();
         for (String id : r.ingredients) {
             int slot = trouve(p, id, now);
             if (slot < 0) return ItemStack.EMPTY;
@@ -95,11 +94,23 @@ public final class Cuisine {
                 pire = Math.min(pire, Fraicheur.fraction(s, now));
                 expMin = Math.min(expMin, now + Fraicheur.remaining(s, now));
             }
+            // une préparation faite en cuisine apporte sa propre note au plat
+            FoodEntry e = Fraicheur.entry(s);
+            if (e != null && e.isPreparation() && Qualite.rated(s)) preps.add((double) Qualite.quality(s));
             p.inventory.decrStackSize(slot, 1);
         }
-        int life = expMin == Long.MAX_VALUE ? 48 : (int) Math.max(1, (expMin - now) / Fraicheur.HOUR);
+        int base = dureeDeVie(r);
+        int life = expMin == Long.MAX_VALUE ? base : (int) Math.max(1, Math.min(base, (expMin - now) / Fraicheur.HOUR));
         NutritionData d = Nutrition.get(p);
-        return EnCours.create(r, pire, d == null ? 0 : d.rangGourmet, life);
+        double[] notes = new double[preps.size()];
+        for (int i = 0; i < notes.length; i++) notes[i] = preps.get(i);
+        return EnCours.create(r, pire, d == null ? 0 : d.rangGourmet, life, notes);
+    }
+
+    /** Durée de vie d'un plat ou d'une préparation à la sortie de cuisine (h) : jamais plus que sa durée propre. */
+    static int dureeDeVie(FoodEntry r) {
+        if (r.life > 0) return r.life;
+        return r.isDish() ? fr.lenerfvoeux.hxrp.metiers.ModConfig.peremptionPlatCommandeHeures : 48;
     }
 
     /** Transforme la préparation terminée en plat (ou en préparation intermédiaire). */

@@ -10,7 +10,7 @@ public class FoodEntry {
     public String cat;
     public String source;
     public String cut;
-    /** Durée de vie en heures réelles (0 = ne périme pas). Pour les plats, fixée à la cuisson. */
+    /** Durée de vie en heures réelles (0 = ne périme pas : seulement le miel et l'eau). Pour les plats, fixée à la cuisson. */
     public int life;
     public String kind;
     public List<String> ingredients = Collections.emptyList();
@@ -27,6 +27,7 @@ public class FoodEntry {
 
     public boolean isDish() { return "plat".equals(kind) || "boisson".equals(kind); }
     public boolean isDrink() { return "boisson".equals(kind); }
+    public boolean isPreparation() { return "preparation".equals(kind); }
     public boolean isWaterBottle() { return "bouteille_d_eau".equals(id); }
     public boolean perishable() { return isDish() || life > 0; }
 }

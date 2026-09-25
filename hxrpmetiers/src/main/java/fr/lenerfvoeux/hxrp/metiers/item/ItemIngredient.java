@@ -38,6 +38,14 @@ public class ItemIngredient extends Item implements IFoodItem {
     public void addInformation(ItemStack stack, @Nullable World w, List<String> tip, ITooltipFlag flag) {
         String kind = "preparation".equals(entry.kind) ? "Préparation" : "epice".equals(entry.kind) ? entry.cat : entry.cat;
         tip.add(TextFormatting.GRAY + kind + (entry.source != null ? " · " + entry.source : ""));
+        if (entry.isPreparation()) {
+            if (Qualite.rated(stack)) {
+                Qualite q = Qualite.of(Qualite.quality(stack));
+                tip.add(q.color + q.labelPreparation() + TextFormatting.GRAY + " · " + Qualite.quality(stack) + " % · compte dans la note du plat");
+            } else {
+                tip.add(TextFormatting.DARK_GRAY + "Non notée (pas préparée en cuisine)");
+            }
+        }
         Tooltips.fraicheur(stack, tip);
         if ("preparation".equals(entry.kind) && flag.isAdvanced()) tip.add(TextFormatting.DARK_GRAY + "Étapes : " + String.join(", ", entry.steps));
     }

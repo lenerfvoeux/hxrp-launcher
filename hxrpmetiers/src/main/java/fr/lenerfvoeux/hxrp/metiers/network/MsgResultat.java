@@ -92,7 +92,9 @@ public class MsgResultat implements IMessage {
                 p.setHeldItem(EnumHand.MAIN_HAND, plat);
                 int q = Qualite.quality(plat);
                 Qualite pal = Qualite.of(q);
-                p.sendMessage(new TextComponentString(pal.color + r.name + " terminé · " + pal.label + " · " + q + " %"));
+                int nPreps = EnCours.nombrePreparations(held);
+                p.sendMessage(new TextComponentString(pal.color + r.name + (r.isPreparation() ? " prête · " + pal.labelPreparation() : " terminé · " + pal.label)
+                        + " · " + q + " %" + (nPreps > 0 ? TextFormatting.GRAY + " (dont " + nPreps + " préparation" + (nPreps > 1 ? "s" : "") + " maison)" : "")));
                 NutritionData d = Nutrition.get(p);
                 if (d != null) {
                     int gain = (int) Math.round((5 + r.rank * 5) * (q / 100.0) * (r.steps.size() / 2.0 + 1));

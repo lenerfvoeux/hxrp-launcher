@@ -135,11 +135,42 @@ class Model:
                 self.box([x0, y0, z0], [x1, y1, z1], tex, faces, uv)
 
     def disc(self, cx, cz, r, y0, y1, tex, faces='nsewud', uv='size', a=0.62, b=0.86):
-        """Volume « rond » plein (3 pavés en croix)."""
-        A, B = r * a, r * b
-        self.box([cx - r, y0, cz - A], [cx + r, y1, cz + A], tex, faces, uv)
-        self.box([cx - A, y0, cz - r], [cx + A, y1, cz + r], tex, faces, uv)
-        self.box([cx - B, y0, cz - B], [cx + B, y1, cz + B], tex, faces, uv)
+        """Volume « rond » plein : une croix et quatre coins, en pavés qui ne se chevauchent pas
+        (des faces superposées scintilleraient). UV en coordonnées absolues pour que la matière
+        se raccorde d'un pavé à l'autre ; 'full' étale la texture sur tout le disque."""
+        self.cross(cx, cz, r, r * a, r * b, y0, y1, tex, faces, uv)
+
+    def cross(self, cx, cz, r, A, B, y0, y1, tex, faces='nsewud', uv='size', avant=None):
+        """avant : (texture, uv) de la face nord du pavé avant seulement (façade dessinée)."""
+        pieces = [(cx - r, cz - A, cx + r, cz + A),
+                  (cx - A, cz - r, cx + A, cz - A),
+                  (cx - A, cz + A, cx + A, cz + r)]
+        for sx in (-1, 1):
+            for sz in (-1, 1):
+                x0, x1 = sorted((cx + sx * A, cx + sx * B))
+                z0, z1 = sorted((cz + sz * A, cz + sz * B))
+                pieces.append((x0, z0, x1, z1))
+        L, T, D = cx - r, cz - r, 2 * r
+        for (x0, z0, x1, z1) in pieces:
+            f, t = [x0, y0, z0], [x1, y1, z1]
+            uvs = {}
+            for letter in faces:
+                face = FACE_KEYS[letter]
+                mode = uv.get(letter, uv.get('*', 'size')) if isinstance(uv, dict) else uv
+                if mode == 'full':
+                    X0, X1 = (x0 - L) / D * 16, (x1 - L) / D * 16
+                    Z0, Z1 = (z0 - T) / D * 16, (z1 - T) / D * 16
+                    uvs[letter] = [round(v, 3) for v in {
+                        'north': [16 - X1, 0, 16 - X0, 16], 'south': [X0, 0, X1, 16],
+                        'west': [Z0, 0, Z1, 16], 'east': [16 - Z1, 0, 16 - Z0, 16],
+                        'up': [X0, Z0, X1, Z1], 'down': [X0, 16 - Z1, X1, 16 - Z0]}[face]]
+                else:
+                    uvs[letter] = proj_uv(face, f, t)
+            tx = tex
+            if avant and z0 == cz - r and 'n' in faces:
+                tx = {'n': avant[0], '*': tex}
+                uvs['n'] = avant[1]
+            self.box(f, t, tx, faces, uvs=uvs)
 
     def json(self):
         d = {'parent': 'block/block', 'ambientocclusion': self.ao, 'textures': self.textures, 'elements': self.elements}
@@ -765,7 +796,8 @@ def fourneau():
     m.box([0.5, 16.2, 14.6], [15.5, 17.2, 15], 'acier_sombre', faces='nwe')
     for (cx, cz) in ((4.5, 4.5), (11.5, 4.5), (4.5, 11.5), (11.5, 11.5)):
         m.box([cx - 3, 15, cz - 0.35], [cx + 3, 15.6, cz + 0.35], 'fonte')
-        m.box([cx - 0.35, 15, cz - 3], [cx + 0.35, 15.6, cz + 3], 'fonte')
+        m.box([cx - 0.35, 15, cz - 3], [cx + 0.35, 15.6, cz - 0.35], 'fonte')
+        m.box([cx - 0.35, 15, cz + 0.35], [cx + 0.35, 15.6, cz + 3], 'fonte')
     # poêle (avant gauche vu de face = est) avec son steak
     m.box([8.5, 15.6, 1.5], [14.5, 16.9, 7.5], {'u': 'poele', '*': 'fonte'}, uv={'u': 'proj', '*': 'size'})
     m.box([11, 16.2, -2.6], [12, 16.8, 1.5], 'noir_mat')
@@ -855,7 +887,7 @@ def tamis():
     m.ring(8, 8, 6.2, 2.5, 4.6, 1, 'ceramique_bleue')
     m.sprite(8, 8, 4, 6.3, 7, 'poudre')
     m.ring(8, 8, 7, 5.5, 8.5, 0.8, 'bois_clair')
-    m.box([1.4, 6.3, 1.4], [14.6, 6.3, 14.6], 'tamis', faces='ud', uv='full')
+    m.cross(8, 8, 6.4, 7 * 0.62, 7 * 0.86, 6.3, 6.3, 'tamis', faces='ud', uv='full')   # toile tendue dans le cercle
     m.disc(8, 8, 3.2, 6.3, 7.3, 'farine', faces='nsewu')
     m.disc(8, 8, 1.6, 7.3, 7.9, 'farine', faces='nsewu')
     return m
@@ -875,9 +907,8 @@ def grill():
     m.box([2, 9, 3.5], [14, 10, 12.5], {'u': 'braise'}, faces='u', uv='full', shade=False)
     m.box([1.5, 11.5, 3], [14.5, 11.5, 13], 'grille', faces='ud', uv='full')
     for x in (3, 5.2):
-        m.box([x, 11.5, 4.5], [x + 1.4, 12.8, 11.5], 'saucisse')
-    m.box([8, 11.5, 4.5], [12.8, 12.3, 8.2], {'u': 'steak_grill', '*': 'saucisse'})
-    m.box([8, 11.5, 9.4], [13.2, 12.7, 10.6], 'brochette')
+        m.box([x, 11.5, 4.5], [x + 1.4, 12.8, 11.5], 'saucisse', faces='nsewu')
+    m.box([8, 11.5, 4.5], [12.8, 12.3, 8.2], {'u': 'steak_grill', '*': 'saucisse'}, faces='nsewu')
     o = (8, 12, 13.6)
     m.box([1, 12, 13], [15, 19, 14], 'fonte', rot=('x', 22.5, o))
     m.box([5, 17.5, 14], [11, 18.2, 15], 'chrome', rot=('x', 22.5, o))
@@ -899,7 +930,7 @@ def friteuse():
     m.box([3.5, 8.8, 4], [12.5, 12, 11.5], 'panier', faces='nsewd', uv='size')
     m.box([4, 9.6, 4.5], [12, 11.4, 11], {'u': 'frites_dessus', '*': 'frites_dessus'})
     m.box([7.5, 11.2, -2.4], [8.5, 12.1, 4], 'noir_mat')
-    m.box([7.7, 11.4, 1], [8.3, 11.9, 4], 'chrome')
+    m.box([7.7, 11.4, 1], [8.3, 11.9, 3.9], 'chrome')
     m.box([11, 4.4, 1.4], [13, 6.4, 2], {'n': 'bouton', '*': 'noir_mat'}, uv={'n': 'full', '*': 'size'}, faces='nweud')
     m.box([2, 11, 13.4], [14, 13, 14], 'acier')
     return m
@@ -944,7 +975,7 @@ def presse():
     m.disc(cx, cz, 1.6, 5.2, 5.8, 'orange_peau', faces='nsewu')
     m.box([cx - 0.3, 5.8, cz - 0.3], [cx + 0.3, 6.2, cz + 0.3], 'herbes_feuille')
     # pichet de jus
-    m.box([2, 0.6, 1.5], [7, 7.2, 6], {'u': 'jus_orange', '*': 'pichet'}, uv={'u': 'full', '*': 'full'})
+    m.box([2, 0.6, 1.5], [7, 7.2, 6], {'u': 'jus_orange', '*': 'pichet'}, faces='nsewu', uv={'u': 'full', '*': 'full'})
     m.box([7, 2, 3.3], [8, 2.6, 4.2], 'verre')
     m.box([7, 5.6, 3.3], [8, 6.2, 4.2], 'verre')
     m.box([8, 2, 3.3], [8.6, 6.2, 4.2], 'verre')
@@ -959,7 +990,7 @@ def shaker():
     m.box([1, 0, 1], [15, 0.5, 15], {'u': 'shaker_tapis', '*': 'caoutchouc'}, uv={'u': 'proj', '*': 'size'})
     m.disc(7, 6.5, 2.4, 0.5, 6.6, 'inox_poli')
     m.disc(7, 6.5, 2.1, 6.6, 7.6, 'inox_poli')
-    m.box([4.6, 6.4, 4.1], [9.4, 6.8, 8.9], 'acier_sombre', faces='nswe')
+    m.box([4.5, 6.4, 4.0], [9.5, 6.8, 9.0], 'acier_sombre', faces='nswe')
     m.disc(7, 6.5, 1.5, 7.6, 9.6, 'inox_poli')
     m.box([6.4, 9.6, 5.9], [7.6, 10.6, 7.1], 'inox_poli')
     # verre à cocktail
@@ -968,7 +999,7 @@ def shaker():
     m.disc(11.5, 10.5, 1.4, 3.3, 4, 'verre')
     m.disc(11.5, 10.5, 2, 4, 4.8, 'verre')
     m.disc(11.5, 10.5, 2.6, 4.8, 5.5, {'u': 'cocktail', '*': 'verre'}, uv={'u': 'full', '*': 'size'})
-    m.box([13.4, 4.8, 9.9], [14.1, 6.2, 11.1], 'orange_peau')
+    m.box([13.45, 4.85, 9.9], [14.15, 6.2, 11.1], 'orange_peau')
     m.box([11.2, 5.5, 10.2], [11.4, 8, 10.4], 'bois_clair')
     m.box([10.9, 7, 9.9], [11.7, 7.8, 10.7], 'rouge_email')
     # doseur double (jigger)
@@ -1028,14 +1059,12 @@ def frigo():
 def poubelle():
     m = Model('poubelle', 'hxrpmetiers:blocks/acier', aabb=(2.5, 0, 1.5, 13.5, 15, 13.5))
     m.disc(8, 8, 5.2, 0, 0.8, 'caoutchouc')
-    m.box([3, 0.8, 4], [13, 13, 12], 'poubelle_cote')
-    m.box([4, 0.8, 3], [12, 13, 13], {'n': 'poubelle_face', '*': 'poubelle_cote'})
-    m.box([3.6, 0.8, 3.6], [12.4, 13, 12.4], 'poubelle_cote')
+    m.cross(8, 8, 5, 4, 4.4, 0.8, 13, 'poubelle_cote', avant=('poubelle_face', [0, 0, 8, 12.2]))
     m.disc(8, 8, 5.4, 13, 13.8, 'noir_mat')
     m.disc(8, 8, 4.6, 13.8, 14.6, 'inox_poli')
     m.disc(8, 8, 2.6, 14.6, 15, 'inox_poli')
     m.box([6, 0.2, 1.6], [10, 0.9, 3], 'noir_mat')
-    m.box([6, 13, 12.8], [10, 14, 13.6], 'noir_mat')
+    m.box([6, 13, 12.8], [10, 14, 13.6], 'noir_mat', faces='nsewu')
     return m
 
 

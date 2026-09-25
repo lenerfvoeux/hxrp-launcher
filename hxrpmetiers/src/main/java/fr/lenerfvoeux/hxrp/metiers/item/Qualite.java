@@ -29,6 +29,23 @@ public enum Qualite {
         return EXCEPTION;
     }
 
+    /** Vrai si l'objet a réellement été noté (sorti de cuisine ou donné avec une note). */
+    public static boolean rated(ItemStack s) {
+        NBTTagCompound t = s.getTagCompound();
+        return t != null && t.hasKey(Q);
+    }
+
+    /** Libellé pour une préparation (beurre, pâte, sauce…) plutôt qu'un plat. */
+    public String labelPreparation() {
+        switch (this) {
+            case ETRANGE: return "Préparation étrange";
+            case RATE: return "Préparation ratée";
+            case BON: return "Bonne préparation";
+            case TRES_BON: return "Très bonne préparation";
+            default: return "Préparation d'exception";
+        }
+    }
+
     public static int quality(ItemStack s) {
         NBTTagCompound t = s.getTagCompound();
         return t != null && t.hasKey(Q) ? t.getInteger(Q) : 85;

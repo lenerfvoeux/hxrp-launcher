@@ -842,7 +842,7 @@
    "kind": "ingredient",
    "famille": "Rond",
    "pal": [
-    "#2a7a2a",
+    "#2a7a28",
     "#e8303a",
     "#1a1010"
    ],
@@ -1270,7 +1270,7 @@
    "cat": "Produits animaux",
    "source": "Cueillette",
    "cut": "—",
-   "life": 1440,
+   "life": 0,
    "kind": "ingredient",
    "famille": "Rond",
    "pal": [
@@ -1671,7 +1671,7 @@
    "name": "Sel",
    "cat": "Épice",
    "source": "Boutique",
-   "life": 0,
+   "life": 2880,
    "kind": "epice",
    "famille": "Rond",
    "pal": [
@@ -1686,7 +1686,7 @@
    "name": "Poivre noir",
    "cat": "Épice",
    "source": "Boutique",
-   "life": 0,
+   "life": 2160,
    "kind": "epice",
    "famille": "Rond",
    "pal": [
@@ -1701,7 +1701,7 @@
    "name": "Sucre",
    "cat": "Épice",
    "source": "Boutique",
-   "life": 0,
+   "life": 2160,
    "kind": "epice",
    "famille": "Rond",
    "pal": [
@@ -1971,6 +1971,7 @@
   {
    "id": "farine",
    "name": "Farine",
+   "life": 720,
    "ingredients": [
     "ble"
    ],
@@ -1991,6 +1992,7 @@
   {
    "id": "farine_de_mais",
    "name": "Farine de maïs",
+   "life": 720,
    "ingredients": [
     "mais"
    ],
@@ -2011,6 +2013,7 @@
   {
    "id": "semoule",
    "name": "Semoule",
+   "life": 720,
    "ingredients": [
     "ble"
    ],
@@ -2031,6 +2034,7 @@
   {
    "id": "pate_a_pain",
    "name": "Pâte à pain",
+   "life": 24,
    "ingredients": [
     "farine",
     "bouteille_d_eau",
@@ -2054,6 +2058,7 @@
   {
    "id": "pate_a_pizza",
    "name": "Pâte à pizza",
+   "life": 24,
    "ingredients": [
     "farine",
     "bouteille_d_eau",
@@ -2078,6 +2083,7 @@
   {
    "id": "pate_brisee",
    "name": "Pâte brisée",
+   "life": 48,
    "ingredients": [
     "farine",
     "beurre",
@@ -2101,6 +2107,7 @@
   {
    "id": "pate_feuilletee",
    "name": "Pâte feuilletée",
+   "life": 48,
    "ingredients": [
     "farine",
     "beurre",
@@ -2124,6 +2131,7 @@
   {
    "id": "pate_a_crepe",
    "name": "Pâte à crêpe",
+   "life": 24,
    "ingredients": [
     "farine",
     "oeuf",
@@ -2146,6 +2154,7 @@
   {
    "id": "pates_fraiches",
    "name": "Pâtes fraîches",
+   "life": 48,
    "ingredients": [
     "farine",
     "oeuf"
@@ -2168,6 +2177,7 @@
   {
    "id": "tortilla",
    "name": "Tortilla",
+   "life": 96,
    "ingredients": [
     "farine_de_mais",
     "sel"
@@ -2190,6 +2200,7 @@
   {
    "id": "pain",
    "name": "Pain",
+   "life": 72,
    "ingredients": [
     "pate_a_pain"
    ],
@@ -2210,6 +2221,7 @@
   {
    "id": "pain_burger",
    "name": "Pain burger",
+   "life": 72,
    "ingredients": [
     "pate_a_pain",
     "oeuf"
@@ -2231,6 +2243,7 @@
   {
    "id": "pain_de_mie",
    "name": "Pain de mie",
+   "life": 144,
    "ingredients": [
     "pate_a_pain",
     "lait",
@@ -2253,6 +2266,7 @@
   {
    "id": "chapelure",
    "name": "Chapelure",
+   "life": 720,
    "ingredients": [
     "pain"
    ],
@@ -2272,6 +2286,7 @@
   {
    "id": "beurre",
    "name": "Beurre",
+   "life": 240,
    "ingredients": [
     "lait"
    ],
@@ -2291,6 +2306,7 @@
   {
    "id": "creme",
    "name": "Crème",
+   "life": 96,
    "ingredients": [
     "lait"
    ],
@@ -2310,6 +2326,7 @@
   {
    "id": "fromage",
    "name": "Fromage",
+   "life": 240,
    "ingredients": [
     "lait",
     "sel"
@@ -2332,6 +2349,7 @@
   {
    "id": "fromage_de_chevre",
    "name": "Fromage de chèvre",
+   "life": 144,
    "ingredients": [
     "lait_de_chevre",
     "sel"
@@ -2354,6 +2372,7 @@
   {
    "id": "yaourt",
    "name": "Yaourt",
+   "life": 144,
    "ingredients": [
     "lait"
    ],
@@ -2373,6 +2392,7 @@
   {
    "id": "lait_de_coco",
    "name": "Lait de coco",
+   "life": 72,
    "ingredients": [
     "noix_de_coco"
    ],
@@ -2393,6 +2413,7 @@
   {
    "id": "bouillon",
    "name": "Bouillon",
+   "life": 72,
    "ingredients": [
     "poulet",
     "carotte",
@@ -2418,6 +2439,7 @@
   {
    "id": "fumet_de_poisson",
    "name": "Fumet de poisson",
+   "life": 48,
    "ingredients": [
     "cabillaud",
     "oignon",
@@ -2440,6 +2462,7 @@
   {
    "id": "riz_cuit",
    "name": "Riz cuit",
+   "life": 48,
    "ingredients": [
     "riz",
     "sel"
@@ -2460,6 +2483,7 @@
   {
    "id": "tofu",
    "name": "Tofu",
+   "life": 96,
    "ingredients": [
     "soja"
    ],
@@ -2481,6 +2505,7 @@
   {
    "id": "caramel",
    "name": "Caramel",
+   "life": 720,
    "ingredients": [
     "sucre",
     "beurre",
@@ -2503,6 +2528,7 @@
   {
    "id": "chocolat",
    "name": "Chocolat",
+   "life": 1440,
    "ingredients": [
     "feves_de_cacao",
     "sucre",
@@ -2526,6 +2552,7 @@
   {
    "id": "creme_patissiere",
    "name": "Crème pâtissière",
+   "life": 48,
    "ingredients": [
     "lait",
     "oeuf",
@@ -2550,6 +2577,7 @@
   {
    "id": "chantilly",
    "name": "Chantilly",
+   "life": 24,
    "ingredients": [
     "creme",
     "sucre"
@@ -2570,6 +2598,7 @@
   {
    "id": "sauce_tomate",
    "name": "Sauce tomate",
+   "life": 96,
    "ingredients": [
     "tomate",
     "ail",
@@ -2595,6 +2624,7 @@
   {
    "id": "mayonnaise",
    "name": "Mayonnaise",
+   "life": 72,
    "ingredients": [
     "oeuf",
     "huile_d_olive",
@@ -2618,6 +2648,7 @@
   {
    "id": "ketchup",
    "name": "Ketchup",
+   "life": 720,
    "ingredients": [
     "tomate",
     "sucre",
@@ -2641,6 +2672,7 @@
   {
    "id": "moutarde",
    "name": "Moutarde",
+   "life": 1440,
    "ingredients": [
     "graines_de_moutarde",
     "vinaigre",
@@ -2663,6 +2695,7 @@
   {
    "id": "vinaigrette",
    "name": "Vinaigrette",
+   "life": 240,
    "ingredients": [
     "huile_d_olive",
     "vinaigre",
@@ -2685,6 +2718,7 @@
   {
    "id": "bechamel",
    "name": "Béchamel",
+   "life": 48,
    "ingredients": [
     "beurre",
     "farine",
@@ -2708,6 +2742,7 @@
   {
    "id": "pesto",
    "name": "Pesto",
+   "life": 96,
    "ingredients": [
     "basilic",
     "ail",
@@ -2732,6 +2767,7 @@
   {
    "id": "sauce_barbecue",
    "name": "Sauce barbecue",
+   "life": 720,
    "ingredients": [
     "ketchup",
     "miel",
@@ -2754,6 +2790,7 @@
   {
    "id": "sauce_curry",
    "name": "Sauce curry",
+   "life": 96,
    "ingredients": [
     "oignon",
     "curcuma",

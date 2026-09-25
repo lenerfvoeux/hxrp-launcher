@@ -187,16 +187,6 @@ def glaze(c, mask, color, n=6, seed=2):
 
 
 # ============================================================================ entrées et salades
-@item('salade_verte')
-def salade_verte(c):
-    op = bowl(c, 16, 16, 13, 5, 9, '#b8844a')
-    for (x0, y0, x1, y1) in [(6, 16, 3, 7), (12, 15, 10, 4), (18, 15, 21, 4), (24, 16, 28, 8), (16, 16, 15, 6)]:
-        leaf(c, x0, y0, x1, y1, 7, '#6ac03a')
-    for (x, y) in [(10, 12), (20, 11), (15, 14)]:
-        slice_round(c, x, y, 2.3, '#d8284a', '#fbf4f4', motif='ring')
-    bowl_rim(c, 16, 16, 13, 5, '#b8844a')
-
-
 @item('salade_de_tomates')
 def salade_de_tomates(c):
     plate(c)
@@ -999,17 +989,6 @@ def ceviche(c):
     cubes(c, top, ['#a83a7a'], n=4, seed=5, s=1)
     herbs(c, 12, int(ly) - 3, seed=4, n=3)
     lemon_wedge(c, 25, int(ly) - 3, '#6ab02a')
-
-
-@item('curry_de_crevettes')
-def curry_de_crevettes(c):
-    def top(c, m):
-        for (x, y) in [(10, 13), (16, 12), (21, 14)]:
-            shrimp_small(c, x, y, 0.9)
-        c.fill(arc_band(16, 14, 5, 2, 1, 200, 320) & m, '#f8d080')
-        leaf(c, 14, 14, 17, 16, 2.4, '#3aa02a', vein=False)
-    soup(c, '#f2eee6', '#e8781a', top)
-    rice_mound(c, 25, 25, 5, 3)
 
 
 @item('paella')

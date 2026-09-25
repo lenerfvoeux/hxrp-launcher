@@ -10,7 +10,6 @@
   "braise": "hxrpmetiers:blocks/braise",
   "saucisse": "hxrpmetiers:blocks/saucisse",
   "steak_grill": "hxrpmetiers:blocks/steak_grill",
-  "brochette": "hxrpmetiers:blocks/brochette",
   "chrome": "hxrpmetiers:blocks/chrome",
   "fumee": "hxrpmetiers:blocks/fumee"
  },
@@ -775,15 +774,6 @@
       7.0
      ],
      "texture": "#saucisse"
-    },
-    "down": {
-     "uv": [
-      0,
-      0,
-      1.4,
-      7.0
-     ],
-     "texture": "#saucisse"
     }
    }
   },
@@ -836,15 +826,6 @@
      "texture": "#saucisse"
     },
     "up": {
-     "uv": [
-      0,
-      0,
-      1.4,
-      7.0
-     ],
-     "texture": "#saucisse"
-    },
-    "down": {
      "uv": [
       0,
       0,
@@ -911,83 +892,6 @@
       3.7
      ],
      "texture": "#steak_grill"
-    },
-    "down": {
-     "uv": [
-      0,
-      0,
-      4.8,
-      3.7
-     ],
-     "texture": "#saucisse"
-    }
-   }
-  },
-  {
-   "from": [
-    8,
-    11.5,
-    9.4
-   ],
-   "to": [
-    13.2,
-    12.7,
-    10.6
-   ],
-   "faces": {
-    "north": {
-     "uv": [
-      0,
-      0,
-      5.2,
-      1.2
-     ],
-     "texture": "#brochette"
-    },
-    "south": {
-     "uv": [
-      0,
-      0,
-      5.2,
-      1.2
-     ],
-     "texture": "#brochette"
-    },
-    "east": {
-     "uv": [
-      0,
-      0,
-      1.2,
-      1.2
-     ],
-     "texture": "#brochette"
-    },
-    "west": {
-     "uv": [
-      0,
-      0,
-      1.2,
-      1.2
-     ],
-     "texture": "#brochette"
-    },
-    "up": {
-     "uv": [
-      0,
-      0,
-      5.2,
-      1.2
-     ],
-     "texture": "#brochette"
-    },
-    "down": {
-     "uv": [
-      0,
-      0,
-      5.2,
-      1.2
-     ],
-     "texture": "#brochette"
     }
    }
   },

@@ -57,7 +57,7 @@ public class CommandGourmet extends CommandBase {
                 int n = a.length > 3 ? parseInt(a[3], 1, 64) : 1;
                 ItemStack st = new ItemStack(item, n);
                 FoodEntry e = ((IFoodItem) item).entry();
-                if (e.isDish()) Qualite.set(st, a.length > 4 ? parseInt(a[4], 0, 100) : 85, a.length > 5 ? parseInt(a[5], 0, 3) : 0);
+                if (e.isDish() || e.isPreparation()) Qualite.set(st, a.length > 4 ? parseInt(a[4], 0, 100) : 85, a.length > 5 ? parseInt(a[5], 0, 3) : 0);
                 Fraicheur.stamp(st, System.currentTimeMillis());
                 ItemHandlerHelper.giveItemToPlayer(p, st);
                 ok(s, n + " × " + st.getDisplayName() + " donné(s) à " + p.getName());
