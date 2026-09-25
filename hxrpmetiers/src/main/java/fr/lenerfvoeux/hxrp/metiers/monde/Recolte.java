@@ -29,6 +29,8 @@ public final class Recolte {
         public String id, comportement;
         public List<String> milieux = Collections.emptyList();
         public List<String> donne = Collections.emptyList();
+        /** Couleurs de l'œuf d'apparition. */
+        public int[] oeuf;
     }
 
     public static final class Bloc {

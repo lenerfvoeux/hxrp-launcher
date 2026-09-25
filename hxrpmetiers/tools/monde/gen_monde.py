@@ -18,6 +18,7 @@ sys.path.insert(0, HERE)
 import especes  # noqa: E402
 import plantes  # noqa: E402
 import arbres  # noqa: E402
+import entites  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 A = os.path.join(ROOT, 'src', 'main', 'resources', 'assets', 'hxrpmetiers')
@@ -45,7 +46,7 @@ def png(img, *chemin):
 
 
 def nettoyer():
-    for d in ('textures/blocks/monde', 'textures/items/monde', 'models/block/monde', 'models/item/monde'):
+    for d in ('textures/blocks/monde', 'textures/items/monde', 'models/block/monde', 'models/item/monde', 'textures/entity', 'data/modeles'):
         shutil.rmtree(os.path.join(A, d), ignore_errors=True)
     for p in glob.glob(os.path.join(A, 'blockstates', '*.json')):
         if json.load(open(p)).get('_monde'):
@@ -156,9 +157,19 @@ def main():
         lang.append('item.%s.%s.name=%s' % (M, o, nom))
 
     # ------------------------------------------------------------------ animaux (noms, œufs d'apparition)
+    oeufs = {'saumon': ('#4a5a70', '#f07a50'), 'truite': ('#5a6a3a', '#e88a8a'), 'thon': ('#1a2a5a', '#e8c030'),
+             'cabillaud': ('#7a7a52', '#f0ece0'), 'sardine': ('#2a5a7a', '#eef2f6'), 'maquereau': ('#2a6a6a', '#0a2a2a'),
+             'anchois': ('#4a6e8e', '#dfe8f2'), 'crevette': ('#e89a86', '#f8c8b8'), 'crabe': ('#d8502a', '#f0a080'),
+             'dinde': ('#6a4a30', '#c8281e'), 'canard': ('#2a7a3a', '#8a8478'), 'cerf': ('#9a6a3a', '#d8c8a0'),
+             'sanglier': ('#5a3a26', '#2a1a10'), 'chevre': ('#f0ece4', '#7a6a5a')}
+    modeles = {m.id: m for m in entites.especes()}
     for a, (nom, comp, milieux, donne) in especes.ANIMAUX.items():
         lang.append('entity.%s.%s.name=%s' % (M, a, nom))
-        recolte['animaux'].append({'id': a, 'comportement': comp, 'milieux': milieux, 'donne': donne})
+        m = modeles[a]
+        png(m.texture(), 'entity', a + '.png')
+        ecrire(os.path.join(A, 'data', 'modeles', a + '.json'), m.json())
+        recolte['animaux'].append({'id': a, 'comportement': comp, 'milieux': milieux, 'donne': donne,
+                                   'oeuf': [int(oeufs[a][0][1:], 16), int(oeufs[a][1][1:], 16)]})
 
     # ------------------------------------------------------------------ recettes
     def ing(x):

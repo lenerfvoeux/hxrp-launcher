@@ -23,6 +23,27 @@ Mod Forge 1.12.2 (`modid` `hxrpmetiers`, Java 8) : cuisine, faim/soif et le mét
 - **Interfaces** : carnet de recettes en livre (onglets Réalisables/Toutes, ingrédients manquants, étapes et stations,
   bouton Cuisiner), frigo, poubelle et barres de faim/soif redessinés.
 
+## Récolter les ingrédients dans le monde (0.5.0)
+
+Chaque ingrédient et chaque épice a une source en jeu (décrite dans `tools/monde/especes.py`) :
+
+- **69 cultures** : graines en sachet (trouvées en cassant les hautes herbes, selon le climat du biome),
+  à semer sur de la terre labourée ; trois stades visibles (vient d'être planté, pousse, prêt).
+  Clic droit sur une plante mûre pour récolter sans l'arracher.
+- **22 arbres fruitiers** (pommier, oranger, cocotier, cacaoyer…) générés selon le climat : leurs feuilles
+  fleurissent puis portent des fruits ; **taper** sur un bloc de feuilles mûr fait tomber les fruits
+  sans casser l'arbre. Les feuilles donnent des pousses à replanter.
+- **14 animaux** : saumon, truite, thon, cabillaud, sardine, maquereau, anchois (en bancs), crevette,
+  crabe (plages), dinde, canard, cerf (farouche), sanglier (charge si on l'attaque), chèvre (se trait à la fiole).
+  Les animaux vanilla donnent aussi nos viandes (bœuf, veau, porc, poulet, mouton, lapin, calamar) ;
+  les vaches se traient à la fiole, les poules pondent des œufs.
+- **Blocs** : minerai de sel (couches 20 à 70), ruches sauvages sur les troncs (miel à la fiole),
+  bancs de moules et d'huîtres au bord de la mer.
+- **Artisanat** : sucre, huile d'olive, vinaigre, sauce soja, levure, paprika, bouteille d'eau.
+
+`python3 tools/monde/gen_monde.py` régénère textures, modèles, états de blocs, noms, recettes,
+modèles d'animaux (`data/modeles/*.json`) et `data/recolte.json`.
+
 ## Compiler
 
 ```sh

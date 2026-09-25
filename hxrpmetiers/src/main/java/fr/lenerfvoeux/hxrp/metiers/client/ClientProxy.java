@@ -9,6 +9,17 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class ClientProxy extends CommonProxy {
     @Override
+    public void preInit() {
+        for (java.util.Map.Entry<String, Class<? extends net.minecraft.entity.EntityLiving>> e : fr.lenerfvoeux.hxrp.metiers.entite.ModEntites.CLASSES.entrySet())
+            rendu(e.getValue(), e.getKey());
+    }
+
+    private static <T extends net.minecraft.entity.EntityLiving> void rendu(Class<T> c, String id) {
+        net.minecraftforge.fml.client.registry.RenderingRegistry.registerEntityRenderingHandler(c,
+                rm -> new fr.lenerfvoeux.hxrp.metiers.client.entite.RenduAnimal<T>(rm, id));
+    }
+
+    @Override
     public long now() {
         // Sur le client physique, le serveur intégré tourne aussi ici : même horloge, décalage ~0.
         return System.currentTimeMillis() + ClientData.offset;
