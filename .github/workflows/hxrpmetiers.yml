@@ -44,7 +44,9 @@ jobs:
           n() { grep -Ec "$1" contenu.txt; }
           echo "classes $(n '\.class$') · icônes $(n 'textures/items/.*\.png') · blocs $(n 'blockstates/.*\.json') · modèles $(n 'models/.*\.json')"
           test "$(n 'textures/items/.*\.png')" -ge 360
-          test "$(n 'blockstates/.*\.json')" -eq 14
+          test "$(n 'blockstates/.*\.json')" -ge 131
+          test "$(n 'textures/blocks/monde/cultures/.*\.png')" -ge 207
+          test "$(n 'data/recolte\.json')" -eq 1
           unzip -p "$J" mcmod.info | grep -q '"version": "0.5.0"'
           # Jar final : les appels à Minecraft doivent être en noms SRG (func_…), et le bytecode en Java 8.
           unzip -p "$J" fr/lenerfvoeux/hxrp/metiers/block/BlockOriente.class | grep -aq 'func_'
