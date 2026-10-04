@@ -1,26 +1,35 @@
 {
   "$schema_version": "1.0",
-  "_updated": "2026-09-29",
+  "_updated": "2026-10-04",
   "_notes": "Manifest source de verite pour le launcher hxrp v0.9.0+. Bumper les tag/version/file ici met a jour tous les joueurs au prochain JOUER. Les URLs sont construites auto par le launcher (releaseUrl(tag, file)).",
-
   "mods": {
     "tag": "mods-v1.0",
     "version": "1.0",
     "parts": [
-      { "name": "hxrp_mods_part4_small.zip",          "size": 52428800 },
-      { "name": "hxrp_mods_part3_medium.zip",         "size": 133169152 },
-      { "name": "hxrp_mods_part2_heavy.zip",          "size": 154140672 },
-      { "name": "hxrp_mods_part1_effekseercraft.zip", "size": 217055232 }
+      {
+        "name": "hxrp_mods_part4_small.zip",
+        "size": 52428800
+      },
+      {
+        "name": "hxrp_mods_part3_medium.zip",
+        "size": 133169152
+      },
+      {
+        "name": "hxrp_mods_part2_heavy.zip",
+        "size": 154140672
+      },
+      {
+        "name": "hxrp_mods_part1_effekseercraft.zip",
+        "size": 217055232
+      }
     ]
   },
-
   "dynamx": {
     "tag": "dynamx-v3.2",
     "version": "3.2",
     "file": "hxrp_dynamx.zip",
     "size": 51654630
   },
-
   "hxrp_mod": {
     "tag": "hxrp-mod-v0.5.0",
     "version": "0.5.0",
@@ -31,14 +40,13 @@
       "hunterxrp_mod_client-obf_0.4.2.jar"
     ]
   },
-
   "extras": {
-    "tag": "hxrp-extras-v1.1.0",
-    "version": "1.1.0",
+    "tag": "hxrp-extras-v1.1.1",
+    "version": "1.1.1",
     "mods": [
       {
         "name": "hunterxrp-identity-client-2_5_1.jar",
-        "size": 189440,
+        "size": 184781,
         "oldNames": [
           "hunterxrp-identity-client-2_5_0.jar",
           "hunterxrp-identity-client-2_4_0.jar",
@@ -47,7 +55,7 @@
       },
       {
         "name": "hxrpmetiers-0_5_0.jar",
-        "size": 813056,
+        "size": 1417076,
         "oldNames": [
           "hxrpmetiers-0_3_1.jar",
           "hxrpmetiers-0_3_0.jar",
@@ -55,5 +63,7 @@
         ]
       }
     ]
+  }
+}
   }
 }
