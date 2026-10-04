@@ -584,3 +584,27 @@ entity.hxrpmetiers.cerf.name=Cerf
 entity.hxrpmetiers.sanglier.name=Sanglier
 entity.hxrpmetiers.chevre.name=Chèvre
 # --- fin monde ---
+# --- virus : généré par tools/virus/gen_virus.py ---
+itemGroup.hxrpmetiers.virus=Hunter Virus · Officine
+item.hxrpmetiers.seringue_vide.name=Seringue stérile
+item.hxrpmetiers.seringue_pleine.name=Prise de sang
+item.hxrpmetiers.ordonnance.name=Ordonnance
+item.hxrpmetiers.carnet_de_consultation.name=Carnet de consultation
+item.hxrpmetiers.parchemin_du_second_souffle.name=Parchemin du Second Souffle
+item.hxrpmetiers.preparation_ratee.name=Préparation ratée
+item.hxrpmetiers.preparation_en_cours_officine.name=Préparation en cours
+tile.hxrpmetiers.meuble_a_tiroirs.name=Meuble à tiroirs
+container.hxrpmetiers.meuble=Meuble à tiroirs
+subtitles.hxrpmetiers.virus.toux=Quelqu'un tousse
+subtitles.hxrpmetiers.virus.eternuement=Quelqu'un éternue
+subtitles.hxrpmetiers.virus.sifflement=Sifflement dans les oreilles
+subtitles.hxrpmetiers.virus.murmure=Murmures
+subtitles.hxrpmetiers.virus.battement=Battements de cœur
+subtitles.hxrpmetiers.virus.pilon=Pilon
+subtitles.hxrpmetiers.virus.bouillon=Bouillonnement
+subtitles.hxrpmetiers.virus.verre=Tintement de verre
+subtitles.hxrpmetiers.virus.seringue=Seringue
+subtitles.hxrpmetiers.virus.lame=Lame du hachoir
+subtitles.hxrpmetiers.virus.page=Page tournée
+subtitles.hxrpmetiers.virus.meule=Meule du yagen
+# --- fin virus ---

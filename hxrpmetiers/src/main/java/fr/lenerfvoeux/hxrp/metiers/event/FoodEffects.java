@@ -85,7 +85,7 @@ public final class FoodEffects {
         long now = System.currentTimeMillis();
         Qualite q = Qualite.of(Qualite.quality(s));
         int rank = Qualite.cookRank(s);
-        d.addFaim(e.faim * q.faimMult * Qualite.rankBonus(rank));
+        d.addFaim(e.faim * q.faimMult * Qualite.rankBonus(rank) * fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.facteurNourriture(p));
         d.addSoif(e.soif * q.soifMult);
         Random r = p.getRNG();
         switch (q) {
@@ -106,6 +106,7 @@ public final class FoodEffects {
             default:
                 break;
         }
+        fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.platMange(p, s, e, Qualite.quality(s));
         int h = e.isDrink() ? ModConfig.cooldownBoissonsHeures : ModConfig.cooldownPlatsHeures;
         d.setCooldown(key(s), now + h * Fraicheur.HOUR);
         Network.sync(p);

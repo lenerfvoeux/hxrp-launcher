@@ -1,0 +1,7088 @@
+{
+ "symptomes": [
+  {
+   "id": "fievre",
+   "nom": "Fièvre"
+  },
+  {
+   "id": "frissons",
+   "nom": "Frissons"
+  },
+  {
+   "id": "sueurs",
+   "nom": "Sueurs"
+  },
+  {
+   "id": "toux",
+   "nom": "Toux"
+  },
+  {
+   "id": "eternuements",
+   "nom": "Éternuements, nez qui coule"
+  },
+  {
+   "id": "gorge",
+   "nom": "Mal de gorge, voix"
+  },
+  {
+   "id": "nausee",
+   "nom": "Nausée, vomissements"
+  },
+  {
+   "id": "ventre",
+   "nom": "Maux de ventre"
+  },
+  {
+   "id": "faim",
+   "nom": "Faim anormale"
+  },
+  {
+   "id": "soif",
+   "nom": "Soif anormale"
+  },
+  {
+   "id": "fatigue",
+   "nom": "Fatigue, paupières lourdes"
+  },
+  {
+   "id": "faiblesse",
+   "nom": "Faiblesse"
+  },
+  {
+   "id": "lenteur",
+   "nom": "Lenteur, courbatures"
+  },
+  {
+   "id": "tete",
+   "nom": "Maux de tête"
+  },
+  {
+   "id": "vision",
+   "nom": "Vision floue, yeux"
+  },
+  {
+   "id": "lumiere",
+   "nom": "Sensibilité à la lumière"
+  },
+  {
+   "id": "vertige",
+   "nom": "Vertiges"
+  },
+  {
+   "id": "tremblements",
+   "nom": "Tremblements, mains qui tremblent"
+  },
+  {
+   "id": "crampes",
+   "nom": "Crampes, raideurs"
+  },
+  {
+   "id": "souffle",
+   "nom": "Souffle court"
+  },
+  {
+   "id": "demangeaisons",
+   "nom": "Démangeaisons"
+  },
+  {
+   "id": "eruption",
+   "nom": "Boutons, éruption, plaques"
+  },
+  {
+   "id": "saignements",
+   "nom": "Saignements, bleus"
+  },
+  {
+   "id": "plaie",
+   "nom": "Plaie, morsure, piqûre"
+  },
+  {
+   "id": "jaunisse",
+   "nom": "Jaunisse, teint jaune"
+  },
+  {
+   "id": "paleur",
+   "nom": "Pâleur, anémie"
+  },
+  {
+   "id": "ganglions",
+   "nom": "Ganglions"
+  },
+  {
+   "id": "hallucinations",
+   "nom": "Hallucinations, délire"
+  },
+  {
+   "id": "oreilles",
+   "nom": "Acouphènes"
+  },
+  {
+   "id": "couleurs",
+   "nom": "Couleurs altérées"
+  },
+  {
+   "id": "desorientation",
+   "nom": "Désorientation"
+  },
+  {
+   "id": "paralysie",
+   "nom": "Paralysie, immobilité"
+  },
+  {
+   "id": "insomnie",
+   "nom": "Insomnie"
+  },
+  {
+   "id": "bouche",
+   "nom": "Goût étrange, bouche"
+  }
+ ],
+ "maladies": [
+  {
+   "numero": 1,
+   "id": "fievre_des_marais",
+   "nom": "Fièvre des marais",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vous avez des frissons alors qu'il ne fait pas froid.",
+   "jours": 10,
+   "sang": {
+    "GB": "↑",
+    "FE": "↓",
+    "MR": "bâtonnets verdâtres"
+   },
+   "sang_texte": "GB↑, FE↓ · MR : bâtonnets verdâtres",
+   "stades": [
+    {
+     "message": "Un frisson vous parcourt l'échine, et votre gorge se dessèche.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      },
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "frissons",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous monte au front ; vos jambes traînent.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      },
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous prend sans prévenir.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      },
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "fievre",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vous sentez sans force, la gorge en feu de soif.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      },
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "soif",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes trempé de sueur, et votre vue se brouille.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      },
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "vision",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre gorge reste sèche, quoi que vous buviez.",
+     "effets": [
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "soif"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_de_saule_et_bourrache",
+   "accompagnements": [
+    "sirop_de_thym"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_saule_et_bourrache",
+      "sirop_de_thym"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "decoction_de_saule_et_bourrache"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1
+     ],
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "rester à jeun avant la prise 1",
+   "traitement_texte": "Prise 1 : Décoction + Sirop · Prise 2 (+3 h) : Décoction",
+   "origine": [],
+   "contexte": [
+    "marais"
+   ]
+  },
+  {
+   "numero": 2,
+   "id": "angine_rouge",
+   "nom": "Angine rouge",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre gorge vous brûle quand vous avalez.",
+   "jours": 8,
+   "sang": {
+    "GB": "↑↑",
+    "MR": "chaînettes de grains ronds"
+   },
+   "sang_texte": "GB↑↑ · MR : chaînettes de grains ronds",
+   "stades": [
+    {
+     "message": "Avaler votre salive vous arrache une grimace : la gorge est en feu.",
+     "effets": [],
+     "symptomes": [
+      "gorge"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une quinte de toux vous plie en deux.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux",
+      "gorge"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous alourdit les membres.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur",
+      "gorge"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre voix s'éteint dans un souffle rauque ; vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "gorge",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une toux sèche vous reprend, et vous manquez vite de souffle.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      },
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "toux",
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_de_guimauve_a_la_propolis",
+   "accompagnements": [
+    "gargarisme_de_sauge"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "sirop_de_guimauve_a_la_propolis",
+      "gargarisme_de_sauge"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "sirop_de_guimauve_a_la_propolis",
+      "gargarisme_de_sauge"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "sirop_de_guimauve_a_la_propolis"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "au_chaud"
+    }
+   ],
+   "consigne_texte": "rester au chaud (intérieur ou près d'un feu)",
+   "traitement_texte": "Prise 1 : Sirop + Gargarisme · Prise 2 (+2 h) : Sirop + Gargarisme · Prise 3 (+2 h) : Sirop",
+   "origine": [],
+   "contexte": [
+    "froid"
+   ]
+  },
+  {
+   "numero": 3,
+   "id": "septicemie",
+   "nom": "Septicémie",
+   "rang": 2,
+   "touche_texte": null,
+   "premier_message": "Une chaleur anormale vous monte dans tout le corps.",
+   "jours": 9,
+   "sang": {
+    "GB": "↑↑",
+    "PL": "↓",
+    "TX": "+",
+    "MR": "nuée de grains dorés"
+   },
+   "sang_texte": "GB↑↑, PL↓, TX+ · MR : nuée de grains dorés",
+   "stades": [
+    {
+     "message": "Une fièvre brutale vous empourpre le regard.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous grelottez, les jambes lourdes.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "frissons",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos bras ne répondent presque plus.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le monde tangue autour de vous.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos plaies refusent de se refermer.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre champ de vision se rétrécit en un tunnel noir.",
+     "effets": [
+      {
+       "code": "tunnel",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre cœur bat plus faiblement qu'avant.",
+     "effets": [
+      {
+       "code": "coeur-4",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "injection_de_chaga_et_d_echinacee",
+   "accompagnements": [
+    "cataplasme_d_ail",
+    "pilules_de_reishi"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "injection_de_chaga_et_d_echinacee",
+      "cataplasme_d_ail"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "pilules_de_reishi"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "injection_de_chaga_et_d_echinacee"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "repos"
+    }
+   ],
+   "consigne_texte": "repos complet : ni sprint ni combat pendant toute la cure",
+   "traitement_texte": "Prise 1 : Injection + Cataplasme · Prise 2 (+3 h) : Pilules · Prise 3 (+3 h) : Injection",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 4,
+   "id": "toux_des_mineurs",
+   "nom": "Toux des mineurs",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Une poussière semble coincée au fond de vos poumons.",
+   "jours": 12,
+   "sang": {
+    "GB": "↑",
+    "GR": "↓",
+    "MR": "grains de poussière enrobés"
+   },
+   "sang_texte": "GB↑, GR↓ · MR : grains de poussière enrobés",
+   "stades": [
+    {
+     "message": "Une toux sèche vous râpe la poitrine.",
+     "effets": [],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une quinte de toux vous force à vous arrêter.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous manquez d'air au moindre effort.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle",
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos mains tremblent, vous peinez à viser.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements",
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous crachez une glaire noire ; vos forces s'en vont.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos poumons ne se sont jamais remis de la poussière.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_de_lin_et_de_mousse_des_grottes",
+   "accompagnements": [
+    "eau_florale_de_lavande"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_lavande"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "sirop_de_lin_et_de_mousse_des_grottes"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "eau_florale_de_lavande",
+      "sirop_de_lin_et_de_mousse_des_grottes"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "y_min",
+     "y": 50
+    }
+   ],
+   "consigne_texte": "ne pas descendre sous Y 50",
+   "traitement_texte": "Prise 1 : Eau florale · Prise 2 (+1 h) : Sirop · Prise 3 (+4 h) : Eau florale + Sirop",
+   "origine": [],
+   "contexte": [
+    "grotte"
+   ]
+  },
+  {
+   "numero": 5,
+   "id": "fievre_du_lait",
+   "nom": "Fièvre du lait",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre ventre gargouille et se tord.",
+   "jours": 9,
+   "sang": {
+    "GB": "↑",
+    "SU": "↓"
+   },
+   "sang_texte": "GB↑, SU↓",
+   "stades": [
+    {
+     "message": "Votre ventre est lourd comme une pierre.",
+     "effets": [],
+     "symptomes": [
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous soulève l'estomac.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avez faim sans arrêt, pourtant rien ne passe.",
+     "effets": [
+      {
+       "code": "faim+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim",
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une faiblesse vous gagne les bras.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Rien qu'à l'odeur du lait, votre estomac se retourne.",
+     "effets": [
+      {
+       "code": "lait",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "nausee"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_coquille_et_de_fenouil",
+   "accompagnements": [
+    "infusion_de_menthe"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_coquille_et_de_fenouil"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "infusion_de_menthe"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "infusion_de_menthe"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_entre",
+     "de": 1,
+     "a": 3
+    }
+   ],
+   "consigne_texte": "ne rien manger entre la prise 1 et la prise 3",
+   "traitement_texte": "Prise 1 : Pilules · Prise 2 (+2 h) : Infusion · Prise 3 (+1 h) : Infusion",
+   "origine": [
+    "alimentaire",
+    "lait"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 6,
+   "id": "mal_des_tanneurs",
+   "nom": "Mal des tanneurs",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Votre peau vous démange sans arrêt.",
+   "jours": 14,
+   "sang": {
+    "GB": "↑",
+    "PL": "↑",
+    "MR": "bâtonnets épais à spores"
+   },
+   "sang_texte": "GB↑, PL↑ · MR : bâtonnets épais à spores",
+   "stades": [
+    {
+     "message": "Vous vous grattez les avant-bras jusqu'au sang.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des plaques rouges s'étendent sur votre peau.",
+     "effets": [],
+     "symptomes": [
+      "eruption",
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre s'installe ; vous traînez des pieds.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur",
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Un ulcère s'ouvre et vous lance.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "plaie",
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vous sentez faible et fiévreux.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le mal vous a laissé moins robuste.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_de_bardane_et_millepertuis",
+   "accompagnements": [
+    "decoction_d_ortie"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "onguent_de_bardane_et_millepertuis"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "decoction_d_ortie"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "onguent_de_bardane_et_millepertuis",
+      "decoction_d_ortie"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_mouiller"
+    }
+   ],
+   "consigne_texte": "ne pas se mouiller (ni pluie ni eau)",
+   "traitement_texte": "Prise 1 : Onguent · Prise 2 (+3 h) : Décoction · Prise 3 (+3 h) : Onguent + Décoction",
+   "origine": [],
+   "contexte": [
+    "plaines"
+   ]
+  },
+  {
+   "numero": 7,
+   "id": "bouche_de_pierre",
+   "nom": "Bouche-de-pierre",
+   "rang": 2,
+   "touche_texte": null,
+   "premier_message": "Votre mâchoire se crispe toute seule.",
+   "jours": 10,
+   "sang": {
+    "TX": "+",
+    "MR": "bâtonnets en baguette de tambour"
+   },
+   "sang_texte": "TX+ · MR : bâtonnets en baguette de tambour",
+   "stades": [
+    {
+     "message": "Votre mâchoire se serre malgré vous, vous parlez entre vos dents.",
+     "effets": [],
+     "symptomes": [
+      "crampes",
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une crampe vous noue les mollets.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Un spasme vous cloue les jambes au sol.",
+     "effets": [
+      {
+       "code": "nosaut",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "paralysie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Tout votre corps est secoué de tremblements.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements",
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos muscles se contractent à vous faire mal.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps est raide comme une planche, impossible de courir.",
+     "effets": [
+      {
+       "code": "nosprint",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos muscles ne se sont jamais tout à fait détendus.",
+     "effets": [
+      {
+       "code": "saut-",
+       "mode": "continu"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "lenteur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "injection_de_criniere_de_lion",
+   "accompagnements": [
+    "infusion_de_melisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "injection_de_criniere_de_lion",
+      "infusion_de_melisse"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 3,
+     "items": [
+      "injection_de_criniere_de_lion"
+     ],
+     "dormir_apres": true
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_apres_chaque_prise"
+    }
+   ],
+   "consigne_texte": "dormir dans un lit après chaque prise",
+   "traitement_texte": "Prise 1 : Injection + Infusion, puis dormir dans un lit · Prise 2 (+3 h) : Injection, puis dormir",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 8,
+   "id": "peste_grise",
+   "nom": "Peste grise",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Vous vous sentez soudain vidé de vos forces.",
+   "jours": 9,
+   "sang": {
+    "GB": "↑↑",
+    "PL": "↓",
+    "TX": "+",
+    "MR": "bacilles en épingle grise"
+   },
+   "sang_texte": "GB↑↑, PL↓, TX+ · MR : bacilles en épingle grise",
+   "stades": [
+    {
+     "message": "Vos paupières tombent toutes seules, une fatigue de plomb.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous brûle.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des boules douloureuses gonflent à votre cou ; vous traînez.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "ganglions",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des taches grises marbrent votre peau.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos bras pendent, sans force.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les couleurs du monde se fanent en gris.",
+     "effets": [
+      {
+       "code": "gris",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "couleurs"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le monde se réduit à un tunnel sombre.",
+     "effets": [
+      {
+       "code": "tunnel",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le monde est resté gris, et votre cœur affaibli.",
+     "effets": [
+      {
+       "code": "gris",
+       "mode": "continu"
+      },
+      {
+       "code": "coeur-4",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "couleurs",
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "elixir_du_lotus_de_l_aube",
+   "accompagnements": [
+    "decoction_d_echinacee",
+    "pilules_de_cordyceps"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_d_echinacee",
+      "pilules_de_cordyceps"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_du_lotus_de_l_aube"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "decoction_d_echinacee",
+      "pilules_de_cordyceps"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_du_lotus_de_l_aube"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1,
+      3
+     ],
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "à jeun avant la prise 1 et la prise 3",
+   "traitement_texte": "Prise 1 : Décoction + Pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Décoction + Pilules · Prise 4 (+2 h) : Élixir",
+   "origine": [],
+   "contexte": []
+  },
+  {
+   "numero": 9,
+   "id": "rouille_des_plaies",
+   "nom": "Rouille des plaies",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Une vieille égratignure vous lance et rougit.",
+   "jours": 7,
+   "sang": {
+    "GB": "↑"
+   },
+   "sang_texte": "GB↑",
+   "stades": [
+    {
+     "message": "La vieille plaie est rouge et chaude sous vos doigts.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La plaie suinte un liquide jaunâtre.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une petite fièvre vous gagne.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vous sentez sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos blessures mettent depuis plus longtemps à guérir.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "cataplasme_de_plantain",
+   "accompagnements": [
+    "teinture_de_propolis"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "cataplasme_de_plantain"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "teinture_de_propolis"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "cataplasme_de_plantain"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Cataplasme · Prise 2 (+1 h) : Teinture · Prise 3 (+2 h) : Cataplasme",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 10,
+   "id": "rhume_des_plaines",
+   "nom": "Rhume des plaines",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre nez coule et vous éternuez.",
+   "jours": 6,
+   "sang": {
+    "GB": "↑"
+   },
+   "sang_texte": "GB↑",
+   "stades": [
+    {
+     "message": "Votre nez est bouché, vous respirez par la bouche.",
+     "effets": [],
+     "symptomes": [
+      "eternuements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Un éternuement vous secoue tout entier.",
+     "effets": [
+      {
+       "code": "eternue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "eternuements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières sont lourdes, vous bâillez sans arrêt.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue",
+      "eternuements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Ce rhume vous vide de vos forces.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "eternuements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous éternuez encore, souvent et sans raison.",
+     "effets": [
+      {
+       "code": "eternue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "eternuements"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_de_sureau",
+   "accompagnements": [
+    "infusion_de_camomille_et_thym"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "sirop_de_sureau",
+      "infusion_de_camomille_et_thym"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "sirop_de_sureau",
+      "infusion_de_camomille_et_thym"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "au_chaud"
+    }
+   ],
+   "consigne_texte": "rester au chaud",
+   "traitement_texte": "Prise 1 : Sirop + Infusion · Prise 2 (+2 h) : Sirop + Infusion",
+   "origine": [],
+   "contexte": [
+    "plaines",
+    "froid"
+   ]
+  },
+  {
+   "numero": 11,
+   "id": "grippe_des_hauts_plateaux",
+   "nom": "Grippe des hauts plateaux",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vos jambes sont lourdes, comme après une longue course.",
+   "jours": 10,
+   "sang": {
+    "GB": "↓",
+    "PL": "↓",
+    "MR": "grains en couronne"
+   },
+   "sang_texte": "GB↓, PL↓ · MR : grains en couronne",
+   "stades": [
+    {
+     "message": "Des courbatures vous scient les jambes.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous rougit le regard.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous claquez des dents, les bras sans force.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "frissons",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une toux grasse vous secoue.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous n'avez qu'une envie : vous allonger.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Cette grippe vous a laissé moins résistant.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_de_shiitake_et_d_angelique",
+   "accompagnements": [
+    "sirop_de_thym"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_shiitake_et_d_angelique",
+      "sirop_de_thym"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 3,
+     "items": [
+      "decoction_de_shiitake_et_d_angelique"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1
+     ],
+     "heures": 1
+    },
+    {
+     "type": "dormir_entre",
+     "de": 1,
+     "a": 2
+    }
+   ],
+   "consigne_texte": "à jeun avant la prise 1, et dormir dans un lit entre les deux prises",
+   "traitement_texte": "Prise 1 : Décoction + Sirop, puis dormir dans un lit · Prise 2 (+3 h) : Décoction",
+   "origine": [],
+   "contexte": [
+    "altitude"
+   ]
+  },
+  {
+   "numero": 12,
+   "id": "fievre_a_pustules",
+   "nom": "Fièvre à pustules",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Des petits boutons apparaissent sur vos bras.",
+   "jours": 12,
+   "sang": {
+    "GB": "↓",
+    "PL": "↓"
+   },
+   "sang_texte": "GB↓, PL↓",
+   "stades": [
+    {
+     "message": "De nouveaux petits boutons vous couvrent les bras.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous monte au visage.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les boutons vous démangent à vous en arracher la peau.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "demangeaisons",
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos égratignures ne cicatrisent plus.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vous sentez sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les marques sur votre peau ne partiront plus.",
+     "effets": [
+      {
+       "code": "coeur-1",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_d_aloe_et_de_prele",
+   "accompagnements": [
+    "infusion_de_pissenlit"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "onguent_d_aloe_et_de_prele"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "onguent_d_aloe_et_de_prele"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "onguent_d_aloe_et_de_prele",
+      "infusion_de_pissenlit"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_mouiller"
+    }
+   ],
+   "consigne_texte": "ne pas se mouiller",
+   "traitement_texte": "Prise 1 : Onguent · Prise 2 (+2 h) : Onguent · Prise 3 (+2 h) : Onguent + Infusion",
+   "origine": [],
+   "contexte": []
+  },
+  {
+   "numero": 13,
+   "id": "fievre_jaune_des_jungles",
+   "nom": "Fièvre jaune des jungles",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous transpirez à grosses gouttes, puis vous grelottez.",
+   "jours": 14,
+   "sang": {
+    "GB": "↓",
+    "PL": "↓",
+    "FE": "↑",
+    "MR": "sphères jaunâtres"
+   },
+   "sang_texte": "GB↓, PL↓, FE↑ · MR : sphères jaunâtres",
+   "stades": [
+    {
+     "message": "Vous suez à grosses gouttes, puis vous claquez des dents.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "frissons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une vague de fièvre vous écrase.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre gorge réclame de l'eau sans répit.",
+     "effets": [
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le blanc de vos yeux a jauni ; vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "jaunisse",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous retourne l'estomac.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre nez saigne sans raison.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des vagues de fièvre vous reprennent de temps à autre.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      },
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_pollen_dore",
+   "accompagnements": [
+    "decoction_de_reglisse",
+    "teinture_de_pissenlit"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_reglisse",
+      "teinture_de_pissenlit"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "pilules_de_pollen_dore"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "pilules_de_pollen_dore"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_entre",
+     "de": 1,
+     "a": 2
+    }
+   ],
+   "consigne_texte": "à jeun entre la prise 1 et la prise 2",
+   "traitement_texte": "Prise 1 : Décoction + Teinture · Prise 2 (+2 h) : Pilules · Prise 3 (+3 h) : Pilules",
+   "origine": [],
+   "contexte": [
+    "jungle"
+   ]
+  },
+  {
+   "numero": 14,
+   "id": "oeil_rouge",
+   "nom": "Œil rouge",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vos yeux piquent et pleurent tout seuls.",
+   "jours": 5,
+   "sang": {},
+   "sang_texte": "rien d'anormal",
+   "stades": [
+    {
+     "message": "Vos yeux piquent, vous les frottez sans cesse.",
+     "effets": [],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre vue se trouble de larmes.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos yeux sont collés, vous peinez à les ouvrir.",
+     "effets": [],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La lumière du jour vous éblouit douloureusement.",
+     "effets": [
+      {
+       "code": "lumiere",
+       "mode": "episode",
+       "condition": "jour"
+      }
+     ],
+     "symptomes": [
+      "lumiere",
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre vue se trouble encore, de temps à autre.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "eau_florale_de_camomille",
+   "accompagnements": [
+    "compresse_de_the"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_camomille",
+      "compresse_de_the"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "eau_florale_de_camomille",
+      "compresse_de_the"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "eau_florale_de_camomille",
+      "compresse_de_the"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_l_ombre"
+    }
+   ],
+   "consigne_texte": "rester à l'ombre ou à l'intérieur",
+   "traitement_texte": "Prise 1 : Eau florale + Compresse · Prise 2 (+1 h) : idem · Prise 3 (+1 h) : idem",
+   "origine": [],
+   "contexte": [
+    "desert"
+   ]
+  },
+  {
+   "numero": 15,
+   "id": "fievre_des_ruisseaux",
+   "nom": "Fièvre des ruisseaux",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre ventre se noue d'un coup.",
+   "jours": 6,
+   "sang": {
+    "SU": "↓"
+   },
+   "sang_texte": "SU↓",
+   "stades": [
+    {
+     "message": "Votre ventre se noue, vous vous pliez en deux.",
+     "effets": [],
+     "symptomes": [
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous prend à la gorge.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous mourez de soif.",
+     "effets": [
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre estomac crie famine, vos bras sont mous.",
+     "effets": [
+      {
+       "code": "faim+",
+       "mode": "continu"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faim",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre estomac réclame plus souvent qu'avant.",
+     "effets": [
+      {
+       "code": "faim+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_charbon_de_bambou",
+   "accompagnements": [
+    "eau_de_riz_salee"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_charbon_de_bambou"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "eau_de_riz_salee"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "eau_de_riz_salee"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "sans_nourriture"
+    }
+   ],
+   "consigne_texte": "aucune nourriture pendant toute la cure",
+   "traitement_texte": "Prise 1 : Pilules · Prise 2 (+2 h) : Eau de riz · Prise 3 (+2 h) : Eau de riz",
+   "origine": [
+    "alimentaire",
+    "eau"
+   ],
+   "contexte": [
+    "eau"
+   ]
+  },
+  {
+   "numero": 16,
+   "id": "rougeole_des_steppes",
+   "nom": "Rougeole des steppes",
+   "rang": 1,
+   "touche": {
+    "groupes": [
+     "A+",
+     "A-"
+    ]
+   },
+   "touche_texte": "Groupes A",
+   "premier_message": "Une fièvre vous prend et vos yeux deviennent sensibles.",
+   "jours": 10,
+   "sang": {
+    "GB": "↓",
+    "MR": "cellules géantes à plusieurs noyaux"
+   },
+   "sang_texte": "GB↓ · MR : cellules géantes à plusieurs noyaux",
+   "stades": [
+    {
+     "message": "La fièvre vous brûle le front.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une toux vous secoue.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "De petits points blancs piquettent l'intérieur de vos joues.",
+     "effets": [],
+     "symptomes": [
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une éruption rouge vous couvre ; vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "eruption",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La lumière vous fait cligner des yeux.",
+     "effets": [
+      {
+       "code": "lumiere",
+       "mode": "episode",
+       "condition": "jour"
+      }
+     ],
+     "symptomes": [
+      "lumiere"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La rougeole vous a laissé plus fragile.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "infusion_d_achillee",
+   "accompagnements": [
+    "onguent_de_souci",
+    "sirop_de_propolis"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "infusion_d_achillee",
+      "onguent_de_souci"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 3,
+     "items": [
+      "sirop_de_propolis"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_entre",
+     "de": 1,
+     "a": 2
+    }
+   ],
+   "consigne_texte": "dormir dans un lit entre les deux prises",
+   "traitement_texte": "Prise 1 : Infusion + Onguent · Prise 2 (+3 h) : Sirop",
+   "origine": [],
+   "contexte": [
+    "plaines"
+   ]
+  },
+  {
+   "numero": 17,
+   "id": "langueur_grise",
+   "nom": "Langueur grise",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous bâillez sans cesse, épuisé sans raison.",
+   "jours": 16,
+   "sang": {
+    "GB": "↑",
+    "MR": "cellules en dentelle"
+   },
+   "sang_texte": "GB↑ · MR : cellules en dentelle",
+   "stades": [
+    {
+     "message": "Une fatigue sans fond vous engourdit.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières s'abaissent toutes seules.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Chaque pas vous coûte.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous n'avez plus de force dans les bras.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre cou est gonflé, vous avancez à peine.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "ganglions",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avez faim bien plus souvent qu'avant, sans endurance.",
+     "effets": [
+      {
+       "code": "faim++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_de_ginseng_et_maitake",
+   "accompagnements": [
+    "teinture_de_melisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_ginseng_et_maitake",
+      "teinture_de_melisse"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 4,
+     "items": [
+      "decoction_de_ginseng_et_maitake"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 4,
+     "items": [
+      "decoction_de_ginseng_et_maitake",
+      "teinture_de_melisse"
+     ],
+     "dormir_apres": true
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_apres_chaque_prise"
+    }
+   ],
+   "consigne_texte": "dormir dans un lit après chaque prise",
+   "traitement_texte": "Prise 1 : Décoction + Teinture · Prise 2 (+4 h) : Décoction · Prise 3 (+4 h) : Décoction + Teinture",
+   "origine": [],
+   "contexte": []
+  },
+  {
+   "numero": 18,
+   "id": "fievre_de_meteor",
+   "nom": "Fièvre de Meteor",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Un goût de fer vous emplit la bouche.",
+   "jours": 8,
+   "sang": {
+    "GB": "↓",
+    "GR": "↓",
+    "PL": "↓",
+    "MR": "filaments en crosse"
+   },
+   "sang_texte": "GB↓, GR↓, PL↓ · MR : filaments en crosse",
+   "stades": [
+    {
+     "message": "La fièvre vous empourpre le front.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre tête cogne, votre vue se brouille.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tete",
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des bleus apparaissent sur votre corps sans que vous vous soyez cogné.",
+     "effets": [],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous saignez du nez et des gencives.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos forces vous abandonnent.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos blessures ne se referment presque plus.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "saignements",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Gauche et droite se confondent, vous ne savez plus où aller.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "desorientation"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps cicatrise mal et votre cœur s'est affaibli.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      },
+      {
+       "code": "coeur-4",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "elixir_du_chardon_de_meteor",
+   "accompagnements": [
+    "pilules_de_bourse_a_pasteur",
+    "eau_florale_de_lys_des_nuees"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "elixir_du_chardon_de_meteor",
+      "pilules_de_bourse_a_pasteur"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "eau_florale_de_lys_des_nuees"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "elixir_du_chardon_de_meteor"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_de_viande"
+    },
+    {
+     "type": "distance_max",
+     "blocs": 20
+    }
+   ],
+   "consigne_texte": "pas de viande, et ne pas s'éloigner de plus de 20 blocs entre deux prises",
+   "traitement_texte": "Prise 1 : Élixir + Pilules · Prise 2 (+2 h) : Eau florale · Prise 3 (+3 h) : Élixir",
+   "origine": [],
+   "contexte": [
+    "aride"
+   ]
+  },
+  {
+   "numero": 19,
+   "id": "ver_des_rivieres",
+   "nom": "Ver des rivières",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vous avez faim alors que vous venez de manger.",
+   "jours": 12,
+   "sang": {
+    "GR": "↓",
+    "FE": "↓",
+    "PA": "+"
+   },
+   "sang_texte": "GR↓, FE↓, PA+",
+   "stades": [
+    {
+     "message": "Votre ventre est gonflé et dur.",
+     "effets": [],
+     "symptomes": [
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avez faim, encore faim.",
+     "effets": [
+      {
+       "code": "faim+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une faim dévorante vous tenaille.",
+     "effets": [
+      {
+       "code": "faim++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une faiblesse vous coupe les bras.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "faim"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes pâle et vos jambes traînent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paleur",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le ver est parti, mais votre faim ne vous lâche plus.",
+     "effets": [
+      {
+       "code": "faim+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_gentiane_et_d_ail",
+   "accompagnements": [
+    "decoction_de_fenouil"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_gentiane_et_d_ail"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "decoction_de_fenouil"
+     ]
+    },
+    {
+     "delai": 6,
+     "items": [
+      "pilules_de_gentiane_et_d_ail",
+      "decoction_de_fenouil"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1
+     ],
+     "heures": 1
+    },
+    {
+     "type": "a_jeun_apres",
+     "prises": [
+      1,
+      3
+     ],
+     "heures": 2
+    }
+   ],
+   "consigne_texte": "à jeun avant la prise 1, et rien manger 2 h après chaque prise de pilules",
+   "traitement_texte": "Prise 1 : Pilules · Prise 2 (+2 h) : Décoction · Prise 3 (+6 h) : Pilules + Décoction",
+   "origine": [
+    "alimentaire",
+    "poisson",
+    "eau"
+   ],
+   "contexte": [
+    "eau"
+   ]
+  },
+  {
+   "numero": 20,
+   "id": "gale_des_greniers",
+   "nom": "Gale des greniers",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Ça vous gratte entre les doigts, surtout la nuit.",
+   "jours": 9,
+   "sang": {
+    "GB": "↑",
+    "MR": "sillons d'acariens"
+   },
+   "sang_texte": "GB↑ · MR : sillons d'acariens",
+   "stades": [
+    {
+     "message": "Une démangeaison vous réveille, entre les doigts.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous ne pouvez plus vous empêcher de vous gratter.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vous grattez jusqu'au sang.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "demangeaisons",
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous n'avez pas fermé l'œil, vos paupières pèsent.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue",
+      "insomnie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les nuits, les démangeaisons reviennent vous écorcher.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_de_lavande_au_saindoux",
+   "accompagnements": [
+    "lotion_de_vinaigre_de_riz"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "lotion_de_vinaigre_de_riz"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "onguent_de_lavande_au_saindoux"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "lotion_de_vinaigre_de_riz",
+      "onguent_de_lavande_au_saindoux"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_mouiller"
+    }
+   ],
+   "consigne_texte": "ne pas se mouiller",
+   "traitement_texte": "Prise 1 : Lotion · Prise 2 (+1 h) : Onguent · Prise 3 (+3 h) : Lotion + Onguent",
+   "origine": [],
+   "contexte": [
+    "nuit"
+   ]
+  },
+  {
+   "numero": 21,
+   "id": "fievre_tierce_des_marais",
+   "nom": "Fièvre tierce des marais",
+   "rang": 1,
+   "touche": {
+    "groupes": [
+     "A+",
+     "A-",
+     "B+",
+     "B-",
+     "AB+",
+     "AB-"
+    ]
+   },
+   "touche_texte": "Tous sauf les groupes O",
+   "premier_message": "Une vague de chaleur vous traverse, puis disparaît.",
+   "jours": 14,
+   "sang": {
+    "GR": "↓",
+    "FE": "↓",
+    "PA": "+",
+    "MR": "anneaux dans les globules"
+   },
+   "sang_texte": "GR↓, FE↓, PA+ · MR : anneaux dans les globules",
+   "stades": [
+    {
+     "message": "Un frisson vous parcourt de la tête aux pieds.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "frissons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Un accès de fièvre vous prend, vos jambes ralentissent.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous suez, la gorge sèche comme du sable.",
+     "effets": [
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes pâle et sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paleur",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "L'accès de fièvre vous écrase les jambes.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous entendez des pas derrière vous… il n'y a personne.",
+     "effets": [
+      {
+       "code": "hallu",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "hallucinations"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les accès de fièvre reviennent, réguliers comme une horloge.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_de_mousse_de_numere",
+   "accompagnements": [
+    "decoction_de_saule",
+    "sirop_de_reglisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_de_mousse_de_numere",
+      "decoction_de_saule"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_de_mousse_de_numere",
+      "decoction_de_saule"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_de_mousse_de_numere",
+      "sirop_de_reglisse"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_apres_chaque_prise"
+    },
+    {
+     "type": "pas_mouiller"
+    }
+   ],
+   "consigne_texte": "dormir dans un lit, à l'abri de la pluie",
+   "traitement_texte": "Prise 1 : Teinture + Décoction · Prise 2 (+3 h) : Teinture + Décoction · Prise 3 (+3 h) : Teinture + Sirop",
+   "origine": [],
+   "contexte": [
+    "marais"
+   ]
+  },
+  {
+   "numero": 22,
+   "id": "douve_du_foie",
+   "nom": "Douve du foie",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous avez un goût amer dans la bouche après chaque repas.",
+   "jours": 15,
+   "sang": {
+    "GB": "↑",
+    "SU": "↓",
+    "PA": "+",
+    "MR": "œufs operculés"
+   },
+   "sang_texte": "GB↑, SU↓, PA+ · MR : œufs operculés",
+   "stades": [
+    {
+     "message": "Votre ventre est sensible au moindre geste.",
+     "effets": [],
+     "symptomes": [
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre repas vous remonte, la nausée vous prend.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre teint vire au jaune.",
+     "effets": [],
+     "symptomes": [
+      "jaunisse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos forces vous quittent.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre flanc droit est gonflé ; vous avancez péniblement.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "ventre",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre foie abîmé ne tire plus tout ce que vous mangez.",
+     "effets": [
+      {
+       "code": "nourriture-25",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faim"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_d_artichaut_et_de_pissenlit",
+   "accompagnements": [
+    "pilules_de_gentiane"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_d_artichaut_et_de_pissenlit",
+      "pilules_de_gentiane"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_d_artichaut_et_de_pissenlit"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1
+     ],
+     "heures": 1
+    },
+    {
+     "type": "pas_de_poisson"
+    }
+   ],
+   "consigne_texte": "à jeun avant la prise 1, et pas de poisson jusqu'à la fin de la cure",
+   "traitement_texte": "Prise 1 : Teinture + Pilules · Prise 2 (+3 h) : Teinture",
+   "origine": [
+    "alimentaire",
+    "poisson"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 23,
+   "id": "sangsue_fantome",
+   "nom": "Sangsue-fantôme",
+   "rang": 2,
+   "touche_texte": null,
+   "premier_message": "Vous trouvez une petite plaie que vous ne vous rappelez pas.",
+   "jours": 10,
+   "sang": {
+    "GR": "↓",
+    "FE": "↓",
+    "PA": "+",
+    "MR": "crochets noirs"
+   },
+   "sang_texte": "GR↓, FE↓, PA+ · MR : crochets noirs",
+   "stades": [
+    {
+     "message": "Une petite plaie, nette, que vous ne vous expliquez pas.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une fatigue vous tombe dessus.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes blême ; vos jambes ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paleur",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre sang semble s'être vidé, vos bras sont mous.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paleur",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La tête vous tourne.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos plaies se referment à peine.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "paleur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Il vous manque du sang, pour toujours.",
+     "effets": [
+      {
+       "code": "coeur-4",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "paleur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_de_fer_sang",
+   "accompagnements": [
+    "cataplasme_d_algue_noire"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "cataplasme_d_algue_noire"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "sirop_de_fer_sang"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "sirop_de_fer_sang"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_d_eau"
+    }
+   ],
+   "consigne_texte": "ne pas entrer dans l'eau pendant la cure",
+   "traitement_texte": "Prise 1 : Cataplasme · Prise 2 (+1 h) : Sirop · Prise 3 (+3 h) : Sirop",
+   "origine": [],
+   "contexte": [
+    "eau",
+    "marais"
+   ]
+  },
+  {
+   "numero": 24,
+   "id": "ver_cerebral",
+   "nom": "Ver cérébral",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Une migraine vous serre le crâne comme un étau.",
+   "jours": 18,
+   "sang": {
+    "GB": "↑",
+    "PA": "+",
+    "MR": "kystes blancs"
+   },
+   "sang_texte": "GB↑, PA+ · MR : kystes blancs",
+   "stades": [
+    {
+     "message": "Votre crâne est pris dans un étau.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tete"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le sol se dérobe sous vous.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige",
+      "tete"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une silhouette vous suit du coin de l'œil… puis disparaît.",
+     "effets": [
+      {
+       "code": "hallu",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "hallucinations"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Un sifflement aigu couvre tous les bruits.",
+     "effets": [
+      {
+       "code": "acouphenes",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "oreilles"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous perdez l'équilibre, vos sauts sont maladroits.",
+     "effets": [
+      {
+       "code": "saut-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une crise vous fige sur place.",
+     "effets": [
+      {
+       "code": "immobile3",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paralysie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Gauche et droite s'inversent dans votre tête.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "desorientation"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le sifflement est resté, et parfois tout s'inverse.",
+     "effets": [
+      {
+       "code": "acouphenes",
+       "mode": "continu"
+      },
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "oreilles",
+      "desorientation"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_mousse_des_abysses",
+   "accompagnements": [
+    "decoction_de_ginkgo_et_valeriane",
+    "eau_florale_de_lys_des_nuees"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_mousse_des_abysses",
+      "decoction_de_ginkgo_et_valeriane"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "eau_florale_de_lys_des_nuees"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "pilules_de_mousse_des_abysses",
+      "decoction_de_ginkgo_et_valeriane"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "eau_florale_de_lys_des_nuees"
+     ],
+     "dormir_apres": true
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_d_alcool"
+    }
+   ],
+   "consigne_texte": "pas d'alcool pendant la cure",
+   "traitement_texte": "Prise 1 : Pilules + Décoction · Prise 2 (+2 h) : Eau florale · Prise 3 (+4 h) : Pilules + Décoction · Prise 4 (+2 h) : Eau florale, puis dormir",
+   "origine": [
+    "alimentaire"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 25,
+   "id": "puces_de_la_fievre",
+   "nom": "Puces de la fièvre",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "De petites piqûres rouges couvrent vos chevilles.",
+   "jours": 8,
+   "sang": {
+    "GB": "↑",
+    "MR": "petites bactéries en virgule"
+   },
+   "sang_texte": "GB↑ · MR : petites bactéries en virgule",
+   "stades": [
+    {
+     "message": "Vos chevilles piquées vous démangent.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons",
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous empourpre.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre tête cogne, vous avancez plus lentement.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tete",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une éruption vous couvre ; vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "eruption",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des fièvres passagères vous reprennent sans prévenir.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      },
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "baume_de_romarin_au_polypore",
+   "accompagnements": [
+    "fumigation_de_plumes"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "fumigation_de_plumes"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "baume_de_romarin_au_polypore"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "baume_de_romarin_au_polypore"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Fumigation · Prise 2 (+1 h) : Baume · Prise 3 (+2 h) : Baume",
+   "origine": [],
+   "contexte": [
+    "plaines"
+   ]
+  },
+  {
+   "numero": 26,
+   "id": "pied_de_marais",
+   "nom": "Pied de marais",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vos orteils vous démangent dans vos bottes.",
+   "jours": 10,
+   "sang": {
+    "MR": "filaments en réseau"
+   },
+   "sang_texte": "rien d'anormal · MR : filaments en réseau",
+   "stades": [
+    {
+     "message": "Vos orteils vous démangent atrocement.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La peau de vos pieds pèle par lambeaux.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des crevasses vous font boiter.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Chaque pas vous fait mal, vous ne pouvez pas courir longtemps.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Dans l'eau, vos pieds vous font souffrir.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "continu",
+       "condition": "eau"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "huile_d_ecorce_de_bouleau",
+   "accompagnements": [
+    "poudre_de_sauge"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "huile_d_ecorce_de_bouleau"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "poudre_de_sauge"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "huile_d_ecorce_de_bouleau",
+      "poudre_de_sauge"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_mouiller"
+    }
+   ],
+   "consigne_texte": "ne pas se mouiller",
+   "traitement_texte": "Prise 1 : Huile · Prise 2 (+1 h) : Poudre · Prise 3 (+2 h) : Huile + Poudre",
+   "origine": [],
+   "contexte": [
+    "marais",
+    "eau"
+   ]
+  },
+  {
+   "numero": 27,
+   "id": "teigne_des_bergers",
+   "nom": "Teigne des bergers",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Une tache ronde et rouge est apparue sur votre bras.",
+   "jours": 12,
+   "sang": {
+    "MR": "spores en mosaïque"
+   },
+   "sang_texte": "rien d'anormal · MR : spores en mosaïque",
+   "stades": [
+    {
+     "message": "La tache ronde sur votre bras a grandi.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Ça vous démange sans relâche.",
+     "effets": [],
+     "symptomes": [
+      "demangeaisons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les plaques s'étendent sur votre peau.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos cheveux tombent par poignées.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les plaques sont restées, et vous démangent encore.",
+     "effets": [],
+     "symptomes": [
+      "eruption",
+      "demangeaisons"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_de_vesse_de_loup",
+   "accompagnements": [
+    "vinaigre_de_sauge"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "onguent_de_vesse_de_loup",
+      "vinaigre_de_sauge"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "onguent_de_vesse_de_loup",
+      "vinaigre_de_sauge"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "onguent_de_vesse_de_loup",
+      "vinaigre_de_sauge"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Onguent + Vinaigre · Prise 2 (+2 h) : idem · Prise 3 (+2 h) : idem",
+   "origine": [],
+   "contexte": [
+    "plaines"
+   ]
+  },
+  {
+   "numero": 28,
+   "id": "muguet_blanc",
+   "nom": "Muguet blanc",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vous avez un drôle de goût dans la bouche.",
+   "jours": 7,
+   "sang": {
+    "SU": "↑",
+    "MR": "levures bourgeonnantes"
+   },
+   "sang_texte": "SU↑ · MR : levures bourgeonnantes",
+   "stades": [
+    {
+     "message": "Un goût de moisi vous reste en bouche.",
+     "effets": [],
+     "symptomes": [
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des plaques blanches tapissent votre langue.",
+     "effets": [],
+     "symptomes": [
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Manger vous fait mal ; vous avalez à peine.",
+     "effets": [
+      {
+       "code": "nourriture-25",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "bouche",
+      "faim"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre bouche abîmée ne profite plus vraiment des repas.",
+     "effets": [
+      {
+       "code": "nourriture-15",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "bouche"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "gargarisme_de_citron_et_thym",
+   "accompagnements": [
+    "infusion_de_sauge_au_miel"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "gargarisme_de_citron_et_thym"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "infusion_de_sauge_au_miel"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "gargarisme_de_citron_et_thym"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Gargarisme · Prise 2 (+1 h) : Infusion · Prise 3 (+1 h) : Gargarisme",
+   "origine": [
+    "alimentaire"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 29,
+   "id": "poumon_de_spores",
+   "nom": "Poumon-de-spores",
+   "rang": 2,
+   "touche_texte": null,
+   "premier_message": "Vous respirez comme à travers un tissu humide.",
+   "jours": 14,
+   "sang": {
+    "GB": "↑",
+    "MR": "filaments ramifiés"
+   },
+   "sang_texte": "GB↑ · MR : filaments ramifiés",
+   "stades": [
+    {
+     "message": "Une petite toux vous gratte la gorge.",
+     "effets": [],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une quinte vous arrête net.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous manquez d'air dès que vous courez.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos mains tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Fiévreux, vous vous traînez.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous crachez du sang.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      },
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux",
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos poumons ne vous laissent plus courir.",
+     "effets": [
+      {
+       "code": "nosprint",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_de_reishi",
+   "accompagnements": [
+    "eau_florale_de_thym",
+    "sirop_de_reglisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_reishi",
+      "eau_florale_de_thym"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "sirop_de_reglisse"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "decoction_de_reishi",
+      "eau_florale_de_thym"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_de_grotte"
+    }
+   ],
+   "consigne_texte": "ne pas entrer dans une grotte pendant la cure",
+   "traitement_texte": "Prise 1 : Décoction + Eau florale · Prise 2 (+3 h) : Sirop · Prise 3 (+3 h) : Décoction + Eau florale",
+   "origine": [],
+   "contexte": [
+    "grotte",
+    "foret"
+   ]
+  },
+  {
+   "numero": 30,
+   "id": "ongle_noir",
+   "nom": "Ongle-noir",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Un de vos ongles a noirci sans raison.",
+   "jours": 15,
+   "sang": {
+    "GB": "↑",
+    "MR": "spores noires en chapelet"
+   },
+   "sang_texte": "GB↑ · MR : spores noires en chapelet",
+   "stades": [
+    {
+     "message": "Un de vos ongles est terne et cassant.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos ongles noircissent les uns après les autres.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Tenir un outil vous fait mal.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos mains tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos doigts gonflés vous élancent.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos mains tremblent pour toujours.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_de_coprin",
+   "accompagnements": [
+    "onguent_de_lavande_au_saindoux"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_de_coprin",
+      "onguent_de_lavande_au_saindoux"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "onguent_de_lavande_au_saindoux"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "teinture_de_coprin",
+      "onguent_de_lavande_au_saindoux"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Teinture + Onguent · Prise 2 (+2 h) : Onguent · Prise 3 (+2 h) : Teinture + Onguent",
+   "origine": [],
+   "contexte": [
+    "grotte"
+   ]
+  },
+  {
+   "numero": 31,
+   "id": "lepre_des_racines",
+   "nom": "Lèpre des racines",
+   "rang": 2,
+   "touche": {
+    "groupes": [
+     "O+",
+     "O-"
+    ]
+   },
+   "touche_texte": "Groupes O",
+   "premier_message": "Votre peau durcit par endroits, comme de l'écorce.",
+   "jours": 20,
+   "sang": {
+    "GB": "↑",
+    "FE": "↓",
+    "MR": "filaments ligneux"
+   },
+   "sang_texte": "GB↑, FE↓ · MR : filaments ligneux",
+   "stades": [
+    {
+     "message": "Votre peau durcit par plaques rugueuses.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des taches brunes comme de l'écorce marbrent vos bras.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous ne sentez plus les coups.",
+     "effets": [
+      {
+       "code": "muet",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "paralysie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps raidi ralentit.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos doigts sont raides et tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements",
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La faiblesse vous gagne.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps reste raide, et votre cœur fragile.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "continu"
+      },
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "crampes"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_de_kukuroo",
+   "accompagnements": [
+    "decoction_de_cordyceps"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "onguent_de_kukuroo",
+      "decoction_de_cordyceps"
+     ]
+    },
+    {
+     "delai": 6,
+     "items": [
+      "onguent_de_kukuroo",
+      "decoction_de_cordyceps"
+     ]
+    },
+    {
+     "delai": 6,
+     "items": [
+      "onguent_de_kukuroo",
+      "decoction_de_cordyceps"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "soleil_apres_prise",
+     "minutes": 10
+    }
+   ],
+   "consigne_texte": "rester au soleil 10 min après chaque prise",
+   "traitement_texte": "Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem",
+   "origine": [],
+   "contexte": [
+    "foret",
+    "marais"
+   ]
+  },
+  {
+   "numero": 32,
+   "id": "empoisonnement_aux_champignons",
+   "nom": "Empoisonnement aux champignons",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre estomac se retourne violemment.",
+   "jours": 7,
+   "sang": {
+    "TX": "+"
+   },
+   "sang_texte": "TX+",
+   "stades": [
+    {
+     "message": "Votre estomac se retourne.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous vomissez ; votre ventre crie aussitôt famine.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      },
+      {
+       "code": "faim+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "faim"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La tête vous tourne.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos forces vous abandonnent.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le poison a laissé votre cœur affaibli.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_charbon_d_os",
+   "accompagnements": [
+    "infusion_de_menthe_et_reglisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_charbon_d_os"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "infusion_de_menthe_et_reglisse"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_pendant",
+     "heures": 3
+    }
+   ],
+   "consigne_texte": "à jeun pendant 3 h",
+   "traitement_texte": "Prise 1 : Pilules · Prise 2 (+1 h) : Infusion",
+   "origine": [
+    "alimentaire",
+    "champignon"
+   ],
+   "contexte": [
+    "foret"
+   ]
+  },
+  {
+   "numero": 33,
+   "id": "mal_du_plomb",
+   "nom": "Mal du plomb",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous avez un goût de métal sur la langue.",
+   "jours": 20,
+   "sang": {
+    "GR": "↓",
+    "FE": "↓",
+    "TX": "+",
+    "MR": "grains bleutés dans les globules"
+   },
+   "sang_texte": "GR↓, FE↓, TX+ · MR : grains bleutés dans les globules",
+   "stades": [
+    {
+     "message": "Un goût de métal vous colle à la langue.",
+     "effets": [],
+     "symptomes": [
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre ventre vous fait souffrir.",
+     "effets": [],
+     "symptomes": [
+      "ventre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières sont lourdes de fatigue.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes pâle et sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paleur",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des tremblements vous secouent.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos mains tremblent et vos forces ne sont pas revenues.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "continu"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "tremblements",
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_de_coriandre",
+   "accompagnements": [
+    "decoction_d_ortie",
+    "pilules_de_charbon_de_bambou"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_de_coriandre",
+      "decoction_d_ortie",
+      "pilules_de_charbon_de_bambou"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "teinture_de_coriandre",
+      "decoction_d_ortie",
+      "pilules_de_charbon_de_bambou"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "teinture_de_coriandre",
+      "decoction_d_ortie",
+      "pilules_de_charbon_de_bambou"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_miner_sous",
+     "y": 30
+    }
+   ],
+   "consigne_texte": "ne pas miner sous Y 30 pendant la cure",
+   "traitement_texte": "Prise 1 : les trois ensemble · Prise 2 (+4 h) : les trois · Prise 3 (+4 h) : les trois",
+   "origine": [],
+   "contexte": [
+    "grotte"
+   ]
+  },
+  {
+   "numero": 34,
+   "id": "venin_de_scorpion_des_sables",
+   "nom": "Venin de scorpion des sables",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Une piqûre brûlante vous lance la cheville.",
+   "jours": 7,
+   "sang": {
+    "TX": "+",
+    "MR": "cristaux en étoile"
+   },
+   "sang_texte": "TX+ · MR : cristaux en étoile",
+   "stades": [
+    {
+     "message": "La piqûre à votre cheville vous brûle.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre jambe s'engourdit.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paralysie",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous suez, assoiffé.",
+     "effets": [
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des crampes vous nouent les muscles.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre cœur s'emballe douloureusement.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le venin a laissé votre cœur affaibli.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "antidote_de_defense_de_sanglier",
+   "accompagnements": [
+    "cataplasme_d_aloe"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "antidote_de_defense_de_sanglier",
+      "cataplasme_d_aloe"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "antidote_de_defense_de_sanglier"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "repos"
+    }
+   ],
+   "consigne_texte": "repos : ni sprint ni combat",
+   "traitement_texte": "Prise 1 : Antidote + Cataplasme · Prise 2 (+2 h) : Antidote",
+   "origine": [],
+   "contexte": [
+    "desert"
+   ]
+  },
+  {
+   "numero": 35,
+   "id": "alcool_frelate",
+   "nom": "Alcool frelaté",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Votre tête tourne et votre vue se trouble.",
+   "jours": 7,
+   "sang": {
+    "TX": "+",
+    "SU": "↓"
+   },
+   "sang_texte": "TX+, SU↓",
+   "stades": [
+    {
+     "message": "Une ivresse lourde vous retourne l'estomac.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee",
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre tête cogne.",
+     "effets": [],
+     "symptomes": [
+      "tete"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre vue se trouble.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos bras sont mous.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre vue se trouble encore, de temps en temps.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_d_oreille_de_judas",
+   "accompagnements": [
+    "eau_de_riz_salee"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_de_riz_salee"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "decoction_d_oreille_de_judas"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "decoction_d_oreille_de_judas"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_d_alcool",
+     "heures": 24
+    }
+   ],
+   "consigne_texte": "pas d'alcool pendant 24 h",
+   "traitement_texte": "Prise 1 : Eau de riz · Prise 2 (+1 h) : Décoction · Prise 3 (+2 h) : Décoction",
+   "origine": [
+    "alcool"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 36,
+   "id": "poumon_de_soufre",
+   "nom": "Poumon de soufre",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Votre gorge vous pique comme après une fumée âcre.",
+   "jours": 9,
+   "sang": {
+    "TX": "+",
+    "GB": "↑"
+   },
+   "sang_texte": "TX+, GB↑",
+   "stades": [
+    {
+     "message": "Votre gorge irritée vous brûle.",
+     "effets": [],
+     "symptomes": [
+      "gorge"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous toussez à vous en arracher les poumons.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous manquez d'air en courant.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos yeux brûlent et pleurent.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre souffle est resté court.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_de_pleurote",
+   "accompagnements": [
+    "eau_florale_de_menthe"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_menthe"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "sirop_de_pleurote"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "eau_florale_de_menthe",
+      "sirop_de_pleurote"
+     ]
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1 : Eau florale · Prise 2 (+1 h) : Sirop · Prise 3 (+3 h) : Eau florale + Sirop",
+   "origine": [],
+   "contexte": [
+    "grotte"
+   ]
+  },
+  {
+   "numero": 37,
+   "id": "venin_de_la_vipere_de_kakin",
+   "nom": "Venin de la vipère de Kakin",
+   "rang": 2,
+   "touche_texte": null,
+   "premier_message": "Une morsure noirâtre vous élance le bras.",
+   "jours": 8,
+   "sang": {
+    "PL": "↓",
+    "TX": "+",
+    "MR": "cristaux en aiguilles"
+   },
+   "sang_texte": "PL↓, TX+ · MR : cristaux en aiguilles",
+   "stades": [
+    {
+     "message": "La morsure noire vous élance.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre bras enfle ; vous ralentissez.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "plaie",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des hématomes fleurissent sur votre peau.",
+     "effets": [],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous saignez sans raison.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le venin vous vide de vos forces.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La paralysie vous fige sur place.",
+     "effets": [
+      {
+       "code": "immobile3",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paralysie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le venin a laissé ses traces : vous cicatrisez mal et sautez à peine.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      },
+      {
+       "code": "saut-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "antivenin_de_kakin",
+   "accompagnements": [
+    "pilules_de_bourse_a_pasteur",
+    "breuvage_de_valeriane"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "antivenin_de_kakin",
+      "pilules_de_bourse_a_pasteur"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "breuvage_de_valeriane"
+     ],
+     "dormir_apres": true
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_apres",
+     "prises": [
+      2
+     ]
+    }
+   ],
+   "consigne_texte": "dormir dans un lit après la prise 2",
+   "traitement_texte": "Prise 1 : Antivenin + Pilules · Prise 2 (+2 h) : Breuvage, puis dormir dans un lit",
+   "origine": [],
+   "contexte": [
+    "jungle"
+   ]
+  },
+  {
+   "numero": 38,
+   "id": "mal_de_l_ambre",
+   "nom": "Mal de l'ambre",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Une fatigue dorée et sucrée vous engourdit.",
+   "jours": 12,
+   "sang": {
+    "SU": "↑",
+    "FE": "↑",
+    "TX": "+",
+    "MR": "paillettes d'ambre"
+   },
+   "sang_texte": "SU↑, FE↑, TX+ · MR : paillettes d'ambre",
+   "stades": [
+    {
+     "message": "Une torpeur dorée vous engourdit.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une sueur sucrée vous colle à la peau ; vous avez soif.",
+     "effets": [
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre peau prend une teinte de miel.",
+     "effets": [],
+     "symptomes": [
+      "jaunisse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos pas ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos bras perdent leur force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos membres pèsent comme de l'ambre figé.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Tout ce que vous voyez vire à l'ambre.",
+     "effets": [
+      {
+       "code": "ambre",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "couleurs"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le monde est resté ambré, et vos jambes lentes.",
+     "effets": [
+      {
+       "code": "ambre",
+       "mode": "continu"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "couleurs",
+      "lenteur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "elixir_de_l_aigle_araignee",
+   "accompagnements": [
+    "pilules_de_charbon_d_os"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_charbon_d_os"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_de_l_aigle_araignee"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "pilules_de_charbon_d_os"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_de_l_aigle_araignee"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "sans_nourriture"
+    }
+   ],
+   "consigne_texte": "à jeun pendant toute la cure",
+   "traitement_texte": "Prise 1 : Pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules · Prise 4 (+2 h) : Élixir",
+   "origine": [
+    "alimentaire"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 39,
+   "id": "scorbut",
+   "nom": "Scorbut",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vos gencives saignent quand vous mangez.",
+   "jours": 15,
+   "sang": {
+    "GR": "↓",
+    "PL": "↓"
+   },
+   "sang_texte": "GR↓, PL↓",
+   "stades": [
+    {
+     "message": "Une fatigue tenace vous accompagne.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos gencives saignent dans votre bouche.",
+     "effets": [],
+     "symptomes": [
+      "saignements",
+      "bouche"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des bleus apparaissent et vous font mal.",
+     "effets": [
+      {
+       "code": "degats",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos plaies ne guérissent plus.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "saignements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos blessures guérissent plus lentement qu'avant.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_d_aubepine",
+   "accompagnements": [],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "sirop_d_aubepine"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "sirop_d_aubepine"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "manger_plat",
+     "de": 1,
+     "a": 2,
+     "plat": "fruits_legumes"
+    }
+   ],
+   "consigne_texte": "manger un plat de fruits ou de légumes du Gourmet entre les deux prises",
+   "traitement_texte": "Prise 1 : Sirop · Entre les deux : manger un plat de fruits ou de légumes du Gourmet · Prise 2 (+2 h) : Sirop",
+   "origine": [
+    "carence"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 40,
+   "id": "anemie_de_fer",
+   "nom": "Anémie de fer",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vous êtes pâle et vite essoufflé.",
+   "jours": 14,
+   "sang": {
+    "GR": "↓",
+    "FE": "↓"
+   },
+   "sang_texte": "GR↓, FE↓",
+   "stades": [
+    {
+     "message": "Une fatigue vous tombe dessus.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes d'une pâleur de cire.",
+     "effets": [],
+     "symptomes": [
+      "paleur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes vite à bout de souffle.",
+     "effets": [
+      {
+       "code": "sprint8",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle",
+      "paleur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos jambes ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "paleur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre souffle est resté court.",
+     "effets": [
+      {
+       "code": "sprint8",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "sirop_d_ortie",
+   "accompagnements": [],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "sirop_d_ortie"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "sirop_d_ortie"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "manger_plat",
+     "de": 1,
+     "a": 2,
+     "plat": "viande_rouge"
+    }
+   ],
+   "consigne_texte": "manger un plat de viande rouge du Gourmet entre les deux prises",
+   "traitement_texte": "Prise 1 : Sirop · Entre les deux : manger un plat de viande rouge du Gourmet · Prise 2 (+3 h) : Sirop",
+   "origine": [
+    "carence"
+   ],
+   "contexte": []
+  },
+  {
+   "numero": 41,
+   "id": "coup_de_chaleur",
+   "nom": "Coup de chaleur",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "La tête vous tourne sous ce soleil écrasant.",
+   "jours": 7,
+   "sang": {
+    "SU": "↓"
+   },
+   "sang_texte": "SU↓",
+   "stades": [
+    {
+     "message": "La tête vous tourne sous la chaleur.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une soif terrible vous dessèche.",
+     "effets": [
+      {
+       "code": "soif++",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous prend.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes sans force et vous traînez.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avez soif bien plus vite qu'avant.",
+     "effets": [
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "soif"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "eau_florale_de_menthe_glacee",
+   "accompagnements": [
+    "cataplasme_d_aloe"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_menthe_glacee",
+      "cataplasme_d_aloe"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "eau_florale_de_menthe_glacee"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "ombre_pendant",
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "rester à l'ombre pendant 1 h",
+   "traitement_texte": "Prise 1 : Eau florale + Cataplasme · Prise 2 (+1 h) : Eau florale",
+   "origine": [],
+   "contexte": [
+    "desert",
+    "savane"
+   ]
+  },
+  {
+   "numero": 42,
+   "id": "mal_des_neiges",
+   "nom": "Mal des neiges",
+   "rang": 0,
+   "touche_texte": null,
+   "premier_message": "Vous ne sentez plus vos doigts tant il fait froid.",
+   "jours": 7,
+   "sang": {},
+   "sang_texte": "rien d'anormal",
+   "stades": [
+    {
+     "message": "Un frisson glacé vous traverse.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "frissons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos doigts gourds tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le froid vous ralentit.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières se ferment, vos forces s'en vont.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      },
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le froid vous a laissé un peu moins vigoureux.",
+     "effets": [
+      {
+       "code": "coeur-1",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "decoction_de_bois_de_cerf",
+   "accompagnements": [],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_bois_de_cerf"
+     ]
+    },
+    {
+     "delai": 1,
+     "items": [
+      "decoction_de_bois_de_cerf"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pres_du_feu",
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "rester à côté d'un feu pendant 1 h",
+   "traitement_texte": "Prise 1 : Décoction · Prise 2 (+1 h) : Décoction",
+   "origine": [],
+   "contexte": [
+    "froid"
+   ]
+  },
+  {
+   "numero": 43,
+   "id": "mal_des_montagnes",
+   "nom": "Mal des montagnes",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "L'air vous semble trop mince pour respirer.",
+   "jours": 7,
+   "sang": {
+    "GR": "↑"
+   },
+   "sang_texte": "GR↑",
+   "stades": [
+    {
+     "message": "Votre tête bat la mesure.",
+     "effets": [],
+     "symptomes": [
+      "tete"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous manquez d'air au moindre effort.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une nausée vous prend.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "nausee"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le vertige vous ralentit.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      },
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige",
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "En altitude, vous manquez toujours d'air.",
+     "effets": [
+      {
+       "code": "sprint5",
+       "mode": "continu",
+       "condition": "y100"
+      }
+     ],
+     "symptomes": [
+      "souffle"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_des_cimes",
+   "accompagnements": [
+    "infusion_de_ginkgo"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_des_cimes",
+      "infusion_de_ginkgo"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "pilules_des_cimes"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "y_max",
+     "y": 80
+    }
+   ],
+   "consigne_texte": "descendre sous Y 80 pendant la cure",
+   "traitement_texte": "Prise 1 : Pilules + Infusion · Prise 2 (+2 h) : Pilules",
+   "origine": [],
+   "contexte": [
+    "altitude"
+   ]
+  },
+  {
+   "numero": 44,
+   "id": "insomnie_noire",
+   "nom": "Insomnie noire",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous n'arrivez plus à fermer l'œil.",
+   "jours": 10,
+   "sang": {},
+   "sang_texte": "rien d'anormal",
+   "stades": [
+    {
+     "message": "Vos yeux sont lourds de sommeil perdu.",
+     "effets": [],
+     "symptomes": [
+      "insomnie",
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières tombent toutes seules.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Tout vous irrite, votre vue se brouille.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "insomnie",
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avancez au ralenti.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des ombres bougent dans le coin de votre œil.",
+     "effets": [
+      {
+       "code": "hallu",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "hallucinations"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le sommeil vous fuit encore, par moments.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "pilules_de_coquelicot",
+   "accompagnements": [
+    "decoction_de_valeriane",
+    "infusion_de_camomille_et_lavande"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "decoction_de_valeriane",
+      "infusion_de_camomille_et_lavande"
+     ],
+     "moment": "soir",
+     "dormir_apres": true
+    },
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_coquelicot"
+     ],
+     "moment": "reveil"
+    }
+   ],
+   "consignes": [
+    {
+     "type": "dormir_dans_l_heure",
+     "prises": [
+      1
+     ]
+    }
+   ],
+   "consigne_texte": "dormir dans un lit dans l'heure qui suit la prise 1",
+   "traitement_texte": "Prise 1, le soir : Décoction + Infusion, puis dormir dans un lit dans l'heure · Prise 2, au réveil : Pilules",
+   "origine": [],
+   "contexte": [
+    "nuit"
+   ]
+  },
+  {
+   "numero": 45,
+   "id": "sang_epais",
+   "nom": "Sang épais",
+   "rang": 2,
+   "touche": {
+    "groupes": [
+     "AB+",
+     "AB-"
+    ]
+   },
+   "touche_texte": "Groupes AB",
+   "premier_message": "Vos jambes sont lourdes, comme pleines de plomb.",
+   "jours": 18,
+   "sang": {
+    "GR": "↑",
+    "PL": "↑",
+    "MR": "globules en grappes"
+   },
+   "sang_texte": "GR↑, PL↑ · MR : globules en grappes",
+   "stades": [
+    {
+     "message": "Vos jambes sont lourdes comme du plomb.",
+     "effets": [],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous traînez des pieds.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos doigts froids tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre tête bat lourdement.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tete"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le monde tangue, une nausée vous prend.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      },
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vertige",
+      "nausee"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos forces vous abandonnent.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre sang reste épais : vous êtes plus lent et plus fragile.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "continu"
+      },
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_de_lys_des_nuees",
+   "accompagnements": [
+    "decoction_de_saule"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_de_lys_des_nuees",
+      "decoction_de_saule"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_de_lys_des_nuees",
+      "decoction_de_saule"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_de_lys_des_nuees"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "pas_de_sprint"
+    }
+   ],
+   "consigne_texte": "pas de sprint pendant la cure",
+   "traitement_texte": "Prise 1 : Teinture + Décoction · Prise 2 (+3 h) : idem · Prise 3 (+3 h) : Teinture",
+   "origine": [],
+   "contexte": []
+  },
+  {
+   "numero": 46,
+   "id": "epuisement_d_aura",
+   "nom": "Épuisement d'aura",
+   "rang": 1,
+   "touche_texte": null,
+   "premier_message": "Vous vous sentez creux, comme si votre énergie s'était vidée.",
+   "jours": 8,
+   "sang": {
+    "SU": "↓",
+    "FE": "↓"
+   },
+   "sang_texte": "SU↓, FE↓",
+   "stades": [
+    {
+     "message": "Une lassitude profonde vous habite.",
+     "effets": [],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos coups ont perdu leur force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos paupières s'alourdissent.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps refuse l'effort.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Après le combat, le monde se met à tourner.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode",
+       "condition": "combat"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Après chaque combat, vos forces s'effondrent.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "continu",
+       "condition": "combat"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "bouillon_de_girolle_et_de_ginseng",
+   "accompagnements": [
+    "pilules_de_reishi"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "bouillon_de_girolle_et_de_ginseng"
+     ],
+     "dormir_apres": true
+    },
+    {
+     "delai": 3,
+     "items": [
+      "pilules_de_reishi"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "aucun_combat"
+    }
+   ],
+   "consigne_texte": "aucun combat pendant la cure",
+   "traitement_texte": "Prise 1 : Bouillon, puis dormir dans un lit · Prise 2 (+3 h) : Pilules",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 47,
+   "id": "fievre_des_arenes",
+   "nom": "Fièvre des arènes",
+   "rang": 1,
+   "touche": {
+    "sexe": "homme"
+   },
+   "touche_texte": "Hommes",
+   "premier_message": "Vos muscles vous brûlent après l'effort.",
+   "jours": 10,
+   "sang": {
+    "GB": "↑",
+    "MR": "bâtonnets rouges"
+   },
+   "sang_texte": "GB↑ · MR : bâtonnets rouges",
+   "stades": [
+    {
+     "message": "Une petite fièvre vous échauffe.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos muscles douloureux vous ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous suez, assoiffé.",
+     "effets": [
+      {
+       "code": "soif+",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "sueurs",
+      "soif"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos articulations raides vous empêchent de sauter haut.",
+     "effets": [
+      {
+       "code": "saut-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos genoux ne se sont jamais remis : vous sautez moins haut.",
+     "effets": [
+      {
+       "code": "saut-",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_de_morille",
+   "accompagnements": [
+    "decoction_d_echinacee"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_de_morille",
+      "decoction_d_echinacee"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "teinture_de_morille"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "teinture_de_morille",
+      "decoction_d_echinacee"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "aucun_combat"
+    }
+   ],
+   "consigne_texte": "aucun combat pendant la cure",
+   "traitement_texte": "Prise 1 : Teinture + Décoction · Prise 2 (+2 h) : Teinture · Prise 3 (+4 h) : Teinture + Décoction",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 48,
+   "id": "langueur_de_lune",
+   "nom": "Langueur de lune",
+   "rang": 2,
+   "touche": {
+    "sexe": "femme"
+   },
+   "touche_texte": "Femmes",
+   "premier_message": "Chaque nuit, une étrange lassitude vous envahit.",
+   "jours": 14,
+   "sang": {
+    "GR": "↓",
+    "SU": "↓",
+    "MR": "cellules en croissant"
+   },
+   "sang_texte": "GR↓, SU↓ · MR : cellules en croissant",
+   "stades": [
+    {
+     "message": "La nuit tombée, une fatigue étrange vous envahit.",
+     "effets": [
+      {
+       "code": "paupieres",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Le sommeil vous fuit.",
+     "effets": [],
+     "symptomes": [
+      "insomnie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Sous la lune, le monde tangue.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "vertige"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La nuit, vos jambes ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La nuit, vos forces vous quittent.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La nuit, tout prend une teinte bleutée.",
+     "effets": [
+      {
+       "code": "bleu",
+       "mode": "episode",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "couleurs"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Chaque nuit, vos jambes s'alourdissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "continu",
+       "condition": "nuit"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "eau_florale_de_lune_pale",
+   "accompagnements": [
+    "infusion_de_melisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_lune_pale"
+     ],
+     "moment": "nuit"
+    },
+    {
+     "delai": 2,
+     "items": [
+      "infusion_de_melisse"
+     ]
+    },
+    {
+     "delai": 0,
+     "items": [
+      "eau_florale_de_lune_pale"
+     ],
+     "moment": "reveil"
+    }
+   ],
+   "consignes": [],
+   "consigne_texte": "aucune",
+   "traitement_texte": "Prise 1, la nuit : Eau florale · Prise 2 (+2 h) : Infusion · Prise 3, au réveil : Eau florale",
+   "origine": [],
+   "contexte": [
+    "nuit"
+   ]
+  },
+  {
+   "numero": 49,
+   "id": "fievre_de_kakin",
+   "nom": "Fièvre de Kakin",
+   "rang": 2,
+   "touche": {
+    "groupes": [
+     "A+",
+     "A-",
+     "O+",
+     "O-"
+    ]
+   },
+   "touche_texte": "Groupes A et O",
+   "premier_message": "Une chaleur pourpre vous monte au visage.",
+   "jours": 12,
+   "sang": {
+    "GB": "↑↑",
+    "PL": "↓",
+    "MR": "grains pourpres"
+   },
+   "sang_texte": "GB↑↑, PL↓ · MR : grains pourpres",
+   "stades": [
+    {
+     "message": "La fièvre vous empourpre.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous claquez des dents.",
+     "effets": [
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "frissons"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une toux vous secoue.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une éruption pourpre vous couvre ; vous êtes sans force.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "eruption",
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des courbatures vous ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous délirez : des voix, des ombres…",
+     "effets": [
+      {
+       "code": "hallu",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "hallucinations",
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre de Kakin vous a laissé plus fragile.",
+     "effets": [
+      {
+       "code": "coeur-2",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "teinture_d_amanite_rouge",
+   "accompagnements": [
+    "infusion_de_the_et_menthe",
+    "sirop_de_reglisse"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "teinture_d_amanite_rouge",
+      "infusion_de_the_et_menthe"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "sirop_de_reglisse"
+     ]
+    },
+    {
+     "delai": 3,
+     "items": [
+      "teinture_d_amanite_rouge",
+      "infusion_de_the_et_menthe"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "au_chaud"
+    }
+   ],
+   "consigne_texte": "rester au chaud",
+   "traitement_texte": "Prise 1 : Teinture + Infusion · Prise 2 (+3 h) : Sirop · Prise 3 (+3 h) : Teinture + Infusion",
+   "origine": [],
+   "contexte": [
+    "jungle"
+   ]
+  },
+  {
+   "numero": 50,
+   "id": "petrification_lente",
+   "nom": "Pétrification lente",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Le bout de vos doigts est gris et froid.",
+   "jours": 21,
+   "sang": {
+    "GR": "↓",
+    "FE": "↑",
+    "TX": "+",
+    "MR": "cristaux de pierre"
+   },
+   "sang_texte": "GR↓, FE↑, TX+ · MR : cristaux de pierre",
+   "stades": [
+    {
+     "message": "Le bout de vos doigts est gris et froid comme la pierre.",
+     "effets": [],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos doigts raides tremblent.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "tremblements",
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous avancez lentement.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos bras se raidissent.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos jambes de pierre vous ralentissent.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos jambes refusent de vous soulever.",
+     "effets": [
+      {
+       "code": "nosaut",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "crampes"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vous êtes figé sur place, comme une statue.",
+     "effets": [
+      {
+       "code": "immobile5",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "paralysie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une part de vous est restée pierre.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "continu"
+      },
+      {
+       "code": "nosaut",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "lenteur",
+      "crampes"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "onguent_de_la_baleine",
+   "accompagnements": [
+    "decoction_de_fer_sang_et_pied_bleu"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "onguent_de_la_baleine",
+      "decoction_de_fer_sang_et_pied_bleu"
+     ]
+    },
+    {
+     "delai": 6,
+     "items": [
+      "onguent_de_la_baleine",
+      "decoction_de_fer_sang_et_pied_bleu"
+     ]
+    },
+    {
+     "delai": 6,
+     "items": [
+      "onguent_de_la_baleine",
+      "decoction_de_fer_sang_et_pied_bleu"
+     ],
+     "dormir_apres": true
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1,
+      2,
+      3
+     ],
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "à jeun avant chaque prise",
+   "traitement_texte": "Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem, puis dormir",
+   "origine": [],
+   "contexte": [
+    "grotte"
+   ]
+  },
+  {
+   "numero": 51,
+   "id": "toxine_de_fourmi_chimere",
+   "nom": "Toxine de fourmi-chimère",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Une plaie qui ne guérit pas noircit sur votre peau.",
+   "jours": 10,
+   "sang": {
+    "GB": "↑↑",
+    "TX": "+",
+    "PA": "+",
+    "MR": "cellules mutantes"
+   },
+   "sang_texte": "GB↑↑, TX+, PA+ · MR : cellules mutantes",
+   "stades": [
+    {
+     "message": "La plaie noircit à vue d'œil.",
+     "effets": [],
+     "symptomes": [
+      "plaie"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre vous brûle.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos veines s'assombrissent sous la peau.",
+     "effets": [],
+     "symptomes": [
+      "eruption"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos forces vous quittent.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Vos jambes sont de plomb.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "lenteur"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Des formes rampent à la lisière de votre regard.",
+     "effets": [
+      {
+       "code": "hallu",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "hallucinations"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Gauche et droite s'échangent sans prévenir.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "desorientation"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La toxine a laissé des traces : parfois tout s'inverse, et votre cœur est faible.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      },
+      {
+       "code": "coeur-4",
+       "mode": "continu"
+      }
+     ],
+     "symptomes": [
+      "desorientation",
+      "faiblesse"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "elixir_de_l_arbre_monde",
+   "accompagnements": [
+    "pilules_de_mousse_des_abysses",
+    "pilules_de_bourse_a_pasteur"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "pilules_de_mousse_des_abysses",
+      "pilules_de_bourse_a_pasteur"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_de_l_arbre_monde"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "pilules_de_mousse_des_abysses"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_de_l_arbre_monde"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "repos"
+    }
+   ],
+   "consigne_texte": "repos absolu : ni sprint ni combat",
+   "traitement_texte": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de mousse des abysses · Prise 4 (+2 h) : Élixir",
+   "origine": [],
+   "contexte": [
+    "combat"
+   ]
+  },
+  {
+   "numero": 52,
+   "id": "mal_du_continent_noir",
+   "nom": "Mal du Continent noir",
+   "rang": 3,
+   "touche_texte": null,
+   "premier_message": "Quelque chose d'inconnu s'est glissé en vous.",
+   "jours": 12,
+   "sang": {
+    "GB": "↑↑",
+    "GR": "↓",
+    "PL": "↓",
+    "TX": "+",
+    "PA": "+",
+    "MR": "spores noires inconnues"
+   },
+   "sang_texte": "GB↑↑, GR↓, PL↓, TX+, PA+ · MR : spores noires inconnues",
+   "stades": [
+    {
+     "message": "Un malaise sans nom vous serre la poitrine.",
+     "effets": [],
+     "symptomes": [
+      "fatigue"
+     ],
+     "vie": false
+    },
+    {
+     "message": "La fièvre monte.",
+     "effets": [
+      {
+       "code": "rouge",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "fievre"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Une toux noire vous déchire.",
+     "effets": [
+      {
+       "code": "toux",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "toux"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les bords du monde s'obscurcissent.",
+     "effets": [
+      {
+       "code": "tunnel",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "vision"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Votre corps ne vous obéit presque plus.",
+     "effets": [
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "faiblesse"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les couleurs s'inversent sous vos yeux.",
+     "effets": [
+      {
+       "code": "inverse",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "couleurs"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Gauche et droite se mélangent.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "desorientation"
+     ],
+     "vie": false
+    },
+    {
+     "message": "Les couleurs sont restées fausses, et parfois tout s'inverse.",
+     "effets": [
+      {
+       "code": "inverse",
+       "mode": "continu"
+      },
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      }
+     ],
+     "symptomes": [
+      "couleurs",
+      "desorientation"
+     ],
+     "vie": true
+    }
+   ],
+   "remede": "elixir_noir",
+   "accompagnements": [
+    "eau_florale_de_lys_des_nuees",
+    "elixir_du_lotus_de_l_aube"
+   ],
+   "prises": [
+    {
+     "delai": 0,
+     "items": [
+      "elixir_noir",
+      "eau_florale_de_lys_des_nuees"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_du_lotus_de_l_aube"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "elixir_noir"
+     ]
+    },
+    {
+     "delai": 2,
+     "items": [
+      "elixir_du_lotus_de_l_aube"
+     ]
+    },
+    {
+     "delai": 4,
+     "items": [
+      "elixir_noir"
+     ]
+    }
+   ],
+   "consignes": [
+    {
+     "type": "a_jeun_avant",
+     "prises": [
+      1
+     ],
+     "heures": 1
+    }
+   ],
+   "consigne_texte": "à jeun avant la prise 1",
+   "traitement_texte": "Prise 1 : Élixir noir + Eau florale · Prise 2 (+2 h) : Élixir du lotus · Prise 3 (+4 h) : Élixir noir · Prise 4 (+2 h) : Élixir du lotus · Prise 5 (+4 h) : Élixir noir",
+   "origine": [],
+   "contexte": []
+  }
+ ]
+}

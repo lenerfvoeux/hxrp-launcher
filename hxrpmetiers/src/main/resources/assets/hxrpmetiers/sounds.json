@@ -1,0 +1,92 @@
+{
+ "virus.toux": {
+  "category": "player",
+  "subtitle": "subtitles.hxrpmetiers.virus.toux",
+  "sounds": [
+   "hxrpmetiers:virus/toux1",
+   "hxrpmetiers:virus/toux2"
+  ]
+ },
+ "virus.eternuement": {
+  "category": "player",
+  "subtitle": "subtitles.hxrpmetiers.virus.eternuement",
+  "sounds": [
+   "hxrpmetiers:virus/eternuement"
+  ]
+ },
+ "virus.sifflement": {
+  "category": "master",
+  "subtitle": "subtitles.hxrpmetiers.virus.sifflement",
+  "sounds": [
+   "hxrpmetiers:virus/sifflement"
+  ]
+ },
+ "virus.murmure": {
+  "category": "ambient",
+  "subtitle": "subtitles.hxrpmetiers.virus.murmure",
+  "sounds": [
+   "hxrpmetiers:virus/murmure"
+  ]
+ },
+ "virus.battement": {
+  "category": "player",
+  "subtitle": "subtitles.hxrpmetiers.virus.battement",
+  "sounds": [
+   "hxrpmetiers:virus/battement"
+  ]
+ },
+ "virus.pilon": {
+  "category": "block",
+  "subtitle": "subtitles.hxrpmetiers.virus.pilon",
+  "sounds": [
+   "hxrpmetiers:virus/pilon1",
+   "hxrpmetiers:virus/pilon2"
+  ]
+ },
+ "virus.bouillon": {
+  "category": "block",
+  "subtitle": "subtitles.hxrpmetiers.virus.bouillon",
+  "sounds": [
+   "hxrpmetiers:virus/bouillon1",
+   "hxrpmetiers:virus/bouillon2"
+  ]
+ },
+ "virus.verre": {
+  "category": "block",
+  "subtitle": "subtitles.hxrpmetiers.virus.verre",
+  "sounds": [
+   "hxrpmetiers:virus/verre1",
+   "hxrpmetiers:virus/verre2"
+  ]
+ },
+ "virus.seringue": {
+  "category": "player",
+  "subtitle": "subtitles.hxrpmetiers.virus.seringue",
+  "sounds": [
+   "hxrpmetiers:virus/seringue"
+  ]
+ },
+ "virus.lame": {
+  "category": "block",
+  "subtitle": "subtitles.hxrpmetiers.virus.lame",
+  "sounds": [
+   "hxrpmetiers:virus/lame1",
+   "hxrpmetiers:virus/lame2"
+  ]
+ },
+ "virus.page": {
+  "category": "player",
+  "subtitle": "subtitles.hxrpmetiers.virus.page",
+  "sounds": [
+   "hxrpmetiers:virus/page1",
+   "hxrpmetiers:virus/page2"
+  ]
+ },
+ "virus.meule": {
+  "category": "block",
+  "subtitle": "subtitles.hxrpmetiers.virus.meule",
+  "sounds": [
+   "hxrpmetiers:virus/meule"
+  ]
+ }
+}

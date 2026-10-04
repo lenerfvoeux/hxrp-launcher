@@ -35,7 +35,7 @@ import java.util.List;
  * /gourmet info <joueur>
  */
 public class CommandGourmet extends CommandBase {
-    private static final List<String> SUB = Arrays.asList("donner", "rang", "xp", "faim", "soif", "cooldown", "peremption", "info");
+    private static final List<String> SUB = Arrays.asList("donner", "rang", "faim", "soif", "cooldown", "peremption", "info");
 
     @Override public String getName() { return "gourmet"; }
     @Override public int getRequiredPermissionLevel() { return 2; }
@@ -71,15 +71,6 @@ public class CommandGourmet extends CommandBase {
                 d.dirty = true;
                 Network.sync(p);
                 ok(s, p.getName() + " est maintenant Gourmet " + d.rangGourmet + "★");
-                break;
-            }
-            case "xp": {
-                if (a.length < 3) throw new WrongUsageException("/gourmet xp <joueur> <quantité>");
-                EntityPlayerMP p = getPlayer(server, s, a[1]);
-                NutritionData d = data(p);
-                boolean monte = d.addXp(parseInt(a[2], 0, 100000));
-                Network.sync(p);
-                ok(s, p.getName() + " : " + d.xpGourmet + " XP · Gourmet " + d.rangGourmet + "★" + (monte ? " (rang gagné)" : ""));
                 break;
             }
             case "faim":

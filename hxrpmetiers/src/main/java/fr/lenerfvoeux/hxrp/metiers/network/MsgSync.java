@@ -14,7 +14,7 @@ import java.util.Map;
 /** Serveur -> client : faim, soif, rang, cooldowns et heure du serveur. */
 public class MsgSync implements IMessage {
     public float faim, soif;
-    public int rang, xp;
+    public int rang;
     public long serverTime;
     public Map<String, Long> cooldowns = new HashMap<>();
 
@@ -24,7 +24,6 @@ public class MsgSync implements IMessage {
         faim = (float) d.faim;
         soif = (float) d.soif;
         rang = d.rangGourmet;
-        xp = d.xpGourmet;
         cooldowns.putAll(d.cooldowns);
         this.serverTime = serverTime;
     }
@@ -34,7 +33,6 @@ public class MsgSync implements IMessage {
         faim = b.readFloat();
         soif = b.readFloat();
         rang = b.readByte();
-        xp = b.readInt();
         serverTime = b.readLong();
         int n = b.readShort();
         for (int i = 0; i < n; i++) cooldowns.put(ByteBufUtils.readUTF8String(b), b.readLong());
@@ -45,7 +43,6 @@ public class MsgSync implements IMessage {
         b.writeFloat(faim);
         b.writeFloat(soif);
         b.writeByte(rang);
-        b.writeInt(xp);
         b.writeLong(serverTime);
         b.writeShort(cooldowns.size());
         for (Map.Entry<String, Long> e : cooldowns.entrySet()) {

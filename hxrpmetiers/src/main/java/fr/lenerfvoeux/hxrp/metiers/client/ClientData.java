@@ -9,7 +9,7 @@ import java.util.Map;
 /** Copie côté client de la nutrition du joueur local. */
 public final class ClientData {
     public static float faim = 60, soif = 60;
-    public static int rang, xp;
+    public static int rang;
     public static long offset;      // heure serveur - heure client
     public static long lastSync;    // heure client de la dernière synchro
     public static final Map<String, Long> COOLDOWNS = new HashMap<>();
@@ -20,7 +20,6 @@ public final class ClientData {
         faim = m.faim;
         soif = m.soif;
         rang = m.rang;
-        xp = m.xp;
         lastSync = System.currentTimeMillis();
         offset = m.serverTime - lastSync;
         COOLDOWNS.clear();

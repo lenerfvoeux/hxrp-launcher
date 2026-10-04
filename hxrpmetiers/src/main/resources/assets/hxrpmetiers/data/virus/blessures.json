@@ -1,0 +1,378 @@
+{
+ "blessures": [
+  {
+   "id": "contusions",
+   "nom": "Contusions",
+   "declencheur": "4 coups reçus en 30 s",
+   "soin": "baume_d_arnica",
+   "stades": [
+    {
+     "message": "Des bleus violacés fleurissent sur votre corps.",
+     "effets": []
+    },
+    {
+     "message": "Chaque mouvement réveille vos douleurs.",
+     "effets": [
+      {
+       "code": "lenteur0",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "De gros hématomes vous coupent les forces.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Une côte fêlée vous coupe le souffle : courir est impossible, sauter vous déchire.",
+     "effets": [
+      {
+       "code": "nosprint",
+       "mode": "continu"
+      },
+      {
+       "code": "degats_saut",
+       "mode": "episode"
+      },
+      {
+       "code": "faiblesse2",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Bleus (message)",
+    "Douleurs, lenteur légère",
+    "Hématomes, faiblesse I",
+    "Côtes fêlées : sprint impossible, dégâts en sautant ; puis faiblesse II"
+   ]
+  },
+  {
+   "id": "commotion",
+   "nom": "Commotion",
+   "declencheur": "Coup de 6 dégâts ou plus",
+   "soin": "elixir_de_ginkgo",
+   "stades": [
+    {
+     "message": "Sonné, vous voyez trente-six chandelles.",
+     "effets": [
+      {
+       "code": "vertige",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Un mal de tête vous brouille la vue.",
+     "effets": [
+      {
+       "code": "floue",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "La nausée vous prend, un sifflement vous vrille les oreilles.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      },
+      {
+       "code": "acouphenes",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Par moments, vous ne savez plus où sont la gauche et la droite ; le monde s'éteint un instant.",
+     "effets": [
+      {
+       "code": "desoriente",
+       "mode": "episode"
+      },
+      {
+       "code": "cecite",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Sonné, vertige court",
+    "Maux de tête, vision floue",
+    "Nausée, acouphènes",
+    "Désorientation par moments, cécité courte"
+   ]
+  },
+  {
+   "id": "jambe",
+   "nom": "Jambe blessée",
+   "declencheur": "Chute de 4 blocs ou plus",
+   "soin": "attelle_de_consoude",
+   "stades": [
+    {
+     "message": "Une entorse légère vous fait boitiller.",
+     "effets": [
+      {
+       "code": "lenteur0",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "Votre cheville enflée vous empêche de bien sauter.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      },
+      {
+       "code": "saut-",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "Fracture ! Vous ne pouvez plus courir.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      },
+      {
+       "code": "nosprint",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "Fracture ouverte : impossible de sauter, chaque pas vous coûte du sang.",
+     "effets": [
+      {
+       "code": "nosaut",
+       "mode": "continu"
+      },
+      {
+       "code": "degats_marche",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Entorse légère, lenteur légère",
+    "Entorse, lenteur I, saut réduit",
+    "Fracture : lenteur II, sprint impossible",
+    "Fracture ouverte : saut impossible, dégâts en marchant"
+   ]
+  },
+  {
+   "id": "plaie",
+   "nom": "Plaie",
+   "declencheur": "Lame, griffes, épines, balle",
+   "soin": "pansement_d_achillee",
+   "stades": [
+    {
+     "message": "La coupure saigne un peu.",
+     "effets": [
+      {
+       "code": "saignement",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "La plaie est profonde et saigne encore.",
+     "effets": [
+      {
+       "code": "saignement",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Hémorragie : le sang ne s'arrête plus, vos forces s'en vont.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Hémorragie grave : vous perdez votre sang, le monde se resserre.",
+     "effets": [
+      {
+       "code": "hemorragie",
+       "mode": "episode"
+      },
+      {
+       "code": "tunnel",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Coupure, saignement léger",
+    "Plaie profonde",
+    "Hémorragie, faiblesse I",
+    "Hémorragie grave : perte de vie continue, vision tunnel"
+   ]
+  },
+  {
+   "id": "brulure",
+   "nom": "Brûlure",
+   "declencheur": "Feu, lave, attaques du Phénix",
+   "soin": "onguent_de_souci_et_d_aloe",
+   "stades": [
+    {
+     "message": "Votre peau rougit et vous cuit.",
+     "effets": []
+    },
+    {
+     "message": "Des cloques se forment ; votre corps récupère mal.",
+     "effets": [
+      {
+       "code": "recup-",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "Brûlure profonde : votre corps ne se régénère plus.",
+     "effets": [
+      {
+       "code": "noregen",
+       "mode": "continu"
+      }
+     ]
+    },
+    {
+     "message": "Carbonisation : plus de régénération, plus de force, plus de course.",
+     "effets": [
+      {
+       "code": "faiblesse1",
+       "mode": "episode"
+      },
+      {
+       "code": "nosprint",
+       "mode": "continu"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Rougeur",
+    "Cloques, récupération lente",
+    "Brûlure profonde, plus de régénération",
+    "Carbonisation : pas de régénération, faiblesse, sprint impossible"
+   ]
+  },
+  {
+   "id": "morsure",
+   "nom": "Morsure venimeuse",
+   "declencheur": "Araignées et créatures venimeuses",
+   "soin": "antivenin_de_bardane",
+   "stades": [
+    {
+     "message": "Une piqûre vous lance.",
+     "effets": []
+    },
+    {
+     "message": "La morsure enfle, une nausée vous prend.",
+     "effets": [
+      {
+       "code": "nausee",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Le venin vous empoisonne.",
+     "effets": [
+      {
+       "code": "poison",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Paralysie partielle : vos membres tremblent et vous obéissent à peine.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      },
+      {
+       "code": "tremble",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Piqûre (message)",
+    "Enflure, nausée",
+    "Empoisonnement, dégâts légers",
+    "Paralysie partielle : lenteur II, tremblements"
+   ]
+  },
+  {
+   "id": "gelure",
+   "nom": "Gelure",
+   "declencheur": "Froid ou eau glacée prolongés",
+   "soin": "bandage_de_peau_de_cerf",
+   "stades": [
+    {
+     "message": "Vos doigts sont gourds.",
+     "effets": []
+    },
+    {
+     "message": "Des engelures vous font trembler les mains.",
+     "effets": [
+      {
+       "code": "mains",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "La gelure vous ralentit.",
+     "effets": [
+      {
+       "code": "lenteur1",
+       "mode": "episode"
+      }
+     ]
+    },
+    {
+     "message": "Nécrose : la chair meurt, vous ralentissez et souffrez.",
+     "effets": [
+      {
+       "code": "lenteur2",
+       "mode": "episode"
+      },
+      {
+       "code": "poison",
+       "mode": "episode"
+      }
+     ]
+    }
+   ],
+   "stades_texte": [
+    "Doigts gourds",
+    "Engelures, mains tremblantes",
+    "Gelure, lenteur I",
+    "Nécrose : lenteur II, dégâts légers"
+   ]
+  }
+ ]
+}

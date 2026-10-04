@@ -1,0 +1,741 @@
+{
+ "custom": [
+  {
+   "id": "camomille",
+   "nom": "Camomille",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "souci",
+   "nom": "Souci",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "pissenlit",
+   "nom": "Pissenlit",
+   "categorie": "plante",
+   "source": "Plaines, prairies",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "plantain",
+   "nom": "Plantain",
+   "categorie": "plante",
+   "source": "Partout sur l'herbe",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "lavande",
+   "nom": "Lavande",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "coquelicot",
+   "nom": "Coquelicot",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "bourrache",
+   "nom": "Bourrache",
+   "categorie": "plante",
+   "source": "Plaines fleuries",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "echinacee",
+   "nom": "Échinacée",
+   "categorie": "plante",
+   "source": "Plaines fleuries",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "achillee",
+   "nom": "Achillée",
+   "categorie": "plante",
+   "source": "Prairies, collines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "bourse_a_pasteur",
+   "nom": "Bourse-à-pasteur",
+   "categorie": "plante",
+   "source": "Prairies, bords de chemin",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "arnica",
+   "nom": "Arnica",
+   "categorie": "plante",
+   "source": "Prairies d'altitude",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "gentiane",
+   "nom": "Gentiane",
+   "categorie": "plante",
+   "source": "Prairies d'altitude",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "sauge",
+   "nom": "Sauge",
+   "categorie": "plante",
+   "source": "Savanes, collines sèches",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "fenouil_graines",
+   "nom": "Fenouil (graines)",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "reglisse_racine",
+   "nom": "Réglisse (racine)",
+   "categorie": "plante",
+   "source": "Savanes",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "lin_graines",
+   "nom": "Lin (graines)",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "consoude",
+   "nom": "Consoude",
+   "categorie": "plante",
+   "source": "Bords de rivière, marais",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "guimauve_racine",
+   "nom": "Guimauve (racine)",
+   "categorie": "plante",
+   "source": "Marais",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "prele",
+   "nom": "Prêle",
+   "categorie": "plante",
+   "source": "Marais, bords de rivière",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "melisse",
+   "nom": "Mélisse",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "millepertuis",
+   "nom": "Millepertuis",
+   "categorie": "plante",
+   "source": "Forêts claires",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "ortie",
+   "nom": "Ortie",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "valeriane_racine",
+   "nom": "Valériane (racine)",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "bardane_racine",
+   "nom": "Bardane (racine)",
+   "categorie": "plante",
+   "source": "Lisières de forêt",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "sureau_fleurs",
+   "nom": "Sureau (fleurs)",
+   "categorie": "plante",
+   "source": "Lisières de forêt",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "aubepine_baies",
+   "nom": "Aubépine (baies)",
+   "categorie": "plante",
+   "source": "Haies, lisières",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "angelique_racine",
+   "nom": "Angélique (racine)",
+   "categorie": "plante",
+   "source": "Forêts humides",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "ginkgo_feuilles",
+   "nom": "Ginkgo (feuilles)",
+   "categorie": "plante",
+   "source": "Forêts de bouleaux",
+   "rarete": "peu commune",
+   "perissable": true
+  },
+  {
+   "id": "ecorce_de_bouleau",
+   "nom": "Écorce de bouleau",
+   "categorie": "plante",
+   "source": "Forêts de bouleaux",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "ecorce_de_saule",
+   "nom": "Écorce de saule",
+   "categorie": "plante",
+   "source": "Marais, rivières",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "ginseng_racine",
+   "nom": "Ginseng (racine)",
+   "categorie": "plante",
+   "source": "Taïgas",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "aloe",
+   "nom": "Aloe",
+   "categorie": "plante",
+   "source": "Déserts",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "bambou",
+   "nom": "Bambou",
+   "categorie": "plante",
+   "source": "Jungles",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "mousse_des_grottes",
+   "nom": "Mousse des grottes",
+   "categorie": "plante",
+   "source": "Murs humides des grottes",
+   "rarete": "commune",
+   "perissable": true
+  },
+  {
+   "id": "pleurote",
+   "nom": "Pleurote",
+   "categorie": "champignon",
+   "source": "Troncs morts",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "oreille_de_judas",
+   "nom": "Oreille de Judas",
+   "categorie": "champignon",
+   "source": "Troncs de sureau",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "coprin",
+   "nom": "Coprin",
+   "categorie": "champignon",
+   "source": "Prairies après la pluie",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "vesse_de_loup",
+   "nom": "Vesse-de-loup",
+   "categorie": "champignon",
+   "source": "Prairies",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "girolle",
+   "nom": "Girolle",
+   "categorie": "champignon",
+   "source": "Forêts",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "pied_bleu",
+   "nom": "Pied-bleu",
+   "categorie": "champignon",
+   "source": "Forêts",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "koji",
+   "nom": "Koji",
+   "categorie": "champignon",
+   "source": "Cultivé sur riz cuit dans une jarre",
+   "rarete": "commun",
+   "perissable": true
+  },
+  {
+   "id": "shiitake",
+   "nom": "Shiitake",
+   "categorie": "champignon",
+   "source": "Troncs morts des forêts sombres",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "maitake",
+   "nom": "Maitake",
+   "categorie": "champignon",
+   "source": "Pied des chênes",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "polypore",
+   "nom": "Polypore",
+   "categorie": "champignon",
+   "source": "Troncs de bouleau",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "morille",
+   "nom": "Morille",
+   "categorie": "champignon",
+   "source": "Forêts brûlées, sols cendreux",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "trompette_des_morts",
+   "nom": "Trompette des morts",
+   "categorie": "champignon",
+   "source": "Forêts sombres",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "amanite_rouge",
+   "nom": "Amanite rouge",
+   "categorie": "champignon",
+   "source": "Forêts de conifères (toxique, à doser)",
+   "rarete": "peu commun",
+   "perissable": true
+  },
+  {
+   "id": "criniere_de_lion",
+   "nom": "Crinière de lion",
+   "categorie": "champignon",
+   "source": "Troncs de vieux arbres",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "reishi",
+   "nom": "Reishi",
+   "categorie": "champignon",
+   "source": "Forêts sombres, pied des chênes noirs",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "chaga",
+   "nom": "Chaga",
+   "categorie": "champignon",
+   "source": "Troncs de bouleau, biomes froids",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "cordyceps",
+   "nom": "Cordyceps",
+   "categorie": "champignon",
+   "source": "Taïgas enneigées, sur insectes morts",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "truffe_noire",
+   "nom": "Truffe noire",
+   "categorie": "champignon",
+   "source": "Sous terre près des chênes (creuser)",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "champignon_luminescent",
+   "nom": "Champignon luminescent",
+   "categorie": "champignon",
+   "source": "Grottes profondes",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "bolet_cendre",
+   "nom": "Bolet cendré",
+   "categorie": "champignon",
+   "source": "Montagnes de Kukuroo",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "fleur_de_lune_pale",
+   "nom": "Fleur de lune pâle",
+   "categorie": "rare_hunter",
+   "source": "Plaines, n'éclot que la nuit",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "algue_noire",
+   "nom": "Algue noire",
+   "categorie": "rare_hunter",
+   "source": "Fond des marais",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "baie_de_givre",
+   "nom": "Baie de givre",
+   "categorie": "rare_hunter",
+   "source": "Pics glacés",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "pollen_dore",
+   "nom": "Pollen doré",
+   "categorie": "rare_hunter",
+   "source": "Fleur solitaire des déserts, à l'aube",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "mousse_de_numere",
+   "nom": "Mousse de Numere",
+   "categorie": "rare_hunter",
+   "source": "Marais de Numere",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "baie_de_l_ile_de_la_baleine",
+   "nom": "Baie de l'île de la Baleine",
+   "categorie": "rare_hunter",
+   "source": "Rivages des îles",
+   "rarete": "rare",
+   "perissable": true
+  },
+  {
+   "id": "feuille_de_kukuroo",
+   "nom": "Feuille de Kukuroo",
+   "categorie": "rare_hunter",
+   "source": "Montagnes boisées de Kukuroo",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "uf_d_aigle_araignee",
+   "nom": "Œuf d'aigle-araignée",
+   "categorie": "rare_hunter",
+   "source": "Nids sur falaises et ravins",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "chardon_de_meteor",
+   "nom": "Chardon de Meteor",
+   "categorie": "rare_hunter",
+   "source": "Terres arides",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "lys_des_nuees",
+   "nom": "Lys des nuées",
+   "categorie": "rare_hunter",
+   "source": "Sommets au-dessus de Y 110",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "orchidee_de_kakin",
+   "nom": "Orchidée de Kakin",
+   "categorie": "rare_hunter",
+   "source": "Cœur des jungles, à l'ombre",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "racine_de_fer_sang",
+   "nom": "Racine de fer-sang",
+   "categorie": "rare_hunter",
+   "source": "Grottes sous Y 20",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "mousse_des_abysses",
+   "nom": "Mousse des abysses",
+   "categorie": "rare_hunter",
+   "source": "Grottes sous Y 12, lumineuse",
+   "rarete": "très rare",
+   "perissable": true
+  },
+  {
+   "id": "lotus_de_l_aube",
+   "nom": "Lotus de l'aube",
+   "categorie": "rare_hunter",
+   "source": "Rivières, une fleur par zone, repousse en 3 jours",
+   "rarete": "légendaire",
+   "perissable": true
+  },
+  {
+   "id": "seve_de_l_arbre_monde",
+   "nom": "Sève de l'Arbre-Monde",
+   "categorie": "rare_hunter",
+   "source": "Événement ou lieu placé par les admins",
+   "rarete": "légendaire",
+   "perissable": true
+  },
+  {
+   "id": "plume",
+   "nom": "Plume",
+   "categorie": "animal_ruche",
+   "source": "Poulets, canards, dindes du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "duvet",
+   "nom": "Duvet",
+   "categorie": "animal_ruche",
+   "source": "Canards du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "laine",
+   "nom": "Laine",
+   "categorie": "animal_ruche",
+   "source": "Moutons du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "saindoux",
+   "nom": "Saindoux",
+   "categorie": "animal_ruche",
+   "source": "Porcs du Gourmet",
+   "rarete": "commun",
+   "perissable": false
+  },
+  {
+   "id": "os",
+   "nom": "Os",
+   "categorie": "animal_ruche",
+   "source": "Tous les animaux du Gourmet",
+   "rarete": "commun",
+   "perissable": false
+  },
+  {
+   "id": "coquille_d_uf",
+   "nom": "Coquille d'œuf",
+   "categorie": "animal_ruche",
+   "source": "Œufs du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "ecailles",
+   "nom": "Écailles",
+   "categorie": "animal_ruche",
+   "source": "Poissons du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "peau_de_buf",
+   "nom": "Peau de bœuf",
+   "categorie": "animal_ruche",
+   "source": "Bœufs du Gourmet",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "peau_de_cerf",
+   "nom": "Peau de cerf",
+   "categorie": "animal_ruche",
+   "source": "Cerfs du Gourmet",
+   "rarete": "peu commune",
+   "perissable": false
+  },
+  {
+   "id": "bois_de_cerf",
+   "nom": "Bois de cerf",
+   "categorie": "animal_ruche",
+   "source": "Cerfs du Gourmet",
+   "rarete": "peu commun",
+   "perissable": false
+  },
+  {
+   "id": "defense_de_sanglier",
+   "nom": "Défense de sanglier",
+   "categorie": "animal_ruche",
+   "source": "Sangliers du Gourmet",
+   "rarete": "peu commune",
+   "perissable": false
+  },
+  {
+   "id": "carapace_de_crabe",
+   "nom": "Carapace de crabe",
+   "categorie": "animal_ruche",
+   "source": "Crabes du Gourmet",
+   "rarete": "peu commune",
+   "perissable": false
+  },
+  {
+   "id": "encre_de_calamar",
+   "nom": "Encre de calamar",
+   "categorie": "animal_ruche",
+   "source": "Calamars du Gourmet",
+   "rarete": "peu commune",
+   "perissable": false
+  },
+  {
+   "id": "cire_d_abeille",
+   "nom": "Cire d'abeille",
+   "categorie": "animal_ruche",
+   "source": "Ruches sauvages (forêts)",
+   "rarete": "commune",
+   "perissable": false
+  },
+  {
+   "id": "propolis",
+   "nom": "Propolis",
+   "categorie": "animal_ruche",
+   "source": "Ruches sauvages, en petite quantité",
+   "rarete": "peu commune",
+   "perissable": false
+  }
+ ],
+ "repris_du_gourmet": [
+  "riz",
+  "miel",
+  "ail",
+  "menthe",
+  "thym",
+  "romarin",
+  "coriandre",
+  "citron",
+  "feuilles de thé",
+  "artichaut",
+  "lait",
+  "œuf",
+  "sel",
+  "bouteille d'eau"
+ ],
+ "ingredients_prepares": [
+  {
+   "nom": "Koji (culture)",
+   "fabrication": "Riz (Gourmet) cuit au Chaudron → Jarres avec un koji (12 h)"
+  },
+  {
+   "nom": "Alcool de riz",
+   "fabrication": "Riz + koji + eau → Mortier → Jarres (fermentation 6 h) → Alambic"
+  },
+  {
+   "nom": "Alcool fort",
+   "fabrication": "Alcool de riz → Alambic (2e distillation)"
+  },
+  {
+   "nom": "Vinaigre de riz",
+   "fabrication": "Alcool de riz → Jarres (6 h, ouvertes)"
+  },
+  {
+   "nom": "Huile de lin",
+   "fabrication": "Graines de lin → Yagen → Jarres (décantation 2 h)"
+  },
+  {
+   "nom": "Base d'onguent",
+   "fabrication": "Saindoux + cire d'abeille → Chaudron (fondre) → Table"
+  },
+  {
+   "nom": "Bandes de laine",
+   "fabrication": "Laine → Hachoir → Chaudron (ébullition)"
+  },
+  {
+   "nom": "Charbon de bambou",
+   "fabrication": "Bambou → Hachoir → Chaudron (à sec) → Yagen"
+  },
+  {
+   "nom": "Charbon d'os",
+   "fabrication": "Os → Chaudron (à sec, calcination) → Yagen"
+  }
+ ],
+ "formes_generiques": {
+  "poudre": "Racine/écorce/champignon → Hachoir → Yagen ; fleurs et graines → Yagen",
+  "infusion": "+ eau → Chaudron (douce)",
+  "decoction": "+ eau → Hachoir → Chaudron (forte)",
+  "teinture": "+ alcool de riz ou fort → Jarres",
+  "huile_infusee": "+ huile de lin → Jarres",
+  "eau_florale": "+ eau → Alambic",
+  "sirop": "infusion/décoction + miel → Chaudron (réduction)",
+  "pilules": "poudre + miel → Balance → Mortier → Pilulier",
+  "elixir": "extraits → Balance → Jarres → Alambic"
+ }
+}

@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = HxrpMetiers.MODID, name = "HxRP Metiers", version = HxrpMetiers.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class HxrpMetiers {
     public static final String MODID = "hxrpmetiers";
-    public static final String VERSION = "0.5.0";
+    public static final String VERSION = "0.6.0";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.Instance(MODID)
@@ -33,6 +33,7 @@ public class HxrpMetiers {
     public void preInit(FMLPreInitializationEvent e) {
         FoodDatabase.load();
         Nutrition.register();
+        fr.lenerfvoeux.hxrp.metiers.virus.Virus.preInit(e);
         Network.init();
         proxy.preInit();
     }
@@ -43,10 +44,12 @@ public class HxrpMetiers {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         GameRegistry.registerWorldGenerator(new fr.lenerfvoeux.hxrp.metiers.monde.GenMonde(), 5);
         fr.lenerfvoeux.hxrp.metiers.entite.ModEntites.apparitions();
+        fr.lenerfvoeux.hxrp.metiers.virus.Virus.init();
     }
 
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent e) {
         e.registerServerCommand(new CommandGourmet());
+        e.registerServerCommand(new fr.lenerfvoeux.hxrp.metiers.virus.command.CommandVirus());
     }
 }

@@ -98,6 +98,7 @@ public final class Cuisine {
             FoodEntry e = Fraicheur.entry(s);
             if (e != null && e.isPreparation() && Qualite.rated(s)) preps.add((double) Qualite.quality(s));
             p.inventory.decrStackSize(slot, 1);
+            fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.ingredientConsomme(p, id);
         }
         int base = dureeDeVie(r);
         int life = expMin == Long.MAX_VALUE ? base : (int) Math.max(1, Math.min(base, (expMin - now) / Fraicheur.HOUR));

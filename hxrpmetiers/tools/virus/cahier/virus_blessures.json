@@ -1,0 +1,114 @@
+[
+ {
+  "id": "contusions",
+  "nom": "Contusions",
+  "declencheur": "4 coups reçus en 30 s",
+  "stades": [
+   "Bleus (message)",
+   "Douleurs, lenteur légère",
+   "Hématomes, faiblesse I",
+   "Côtes fêlées : sprint impossible, dégâts en sautant ; puis faiblesse II"
+  ],
+  "soin": {
+   "nom": "Baume d'arnica",
+   "ingredients": "Arnica fraîche + base d'onguent",
+   "chaine": "Hachoir → Mortier → Table"
+  }
+ },
+ {
+  "id": "commotion",
+  "nom": "Commotion",
+  "declencheur": "Coup de 6 dégâts ou plus",
+  "stades": [
+   "Sonné, vertige court",
+   "Maux de tête, vision floue",
+   "Nausée, acouphènes",
+   "Désorientation par moments, cécité courte"
+  ],
+  "soin": {
+   "nom": "Élixir de ginkgo",
+   "ingredients": "Ginkgo + bourrache + eau + miel",
+   "chaine": "Chaudron (infusion) → Balance → Alambic"
+  }
+ },
+ {
+  "id": "jambe",
+  "nom": "Jambe blessée",
+  "declencheur": "Chute de 4 blocs ou plus",
+  "stades": [
+   "Entorse légère, lenteur légère",
+   "Entorse, lenteur I, saut réduit",
+   "Fracture : lenteur II, sprint impossible",
+   "Fracture ouverte : saut impossible, dégâts en marchant"
+  ],
+  "soin": {
+   "nom": "Attelle de consoude",
+   "ingredients": "Consoude + poudre de carapace de crabe + base d'onguent + peau de bœuf + bambou + bandes de laine",
+   "chaine": "Hachoir → Mortier → Table (emplâtre) → Table (attelle)"
+  }
+ },
+ {
+  "id": "plaie",
+  "nom": "Plaie",
+  "declencheur": "Lame, griffes, épines, balle",
+  "stades": [
+   "Coupure, saignement léger",
+   "Plaie profonde",
+   "Hémorragie, faiblesse I",
+   "Hémorragie grave : perte de vie continue, vision tunnel"
+  ],
+  "soin": {
+   "nom": "Pansement d'achillée",
+   "ingredients": "Poudre d'achillée + poudre de bourse-à-pasteur + duvet + bandes de laine",
+   "chaine": "Yagen → Balance → Table"
+  }
+ },
+ {
+  "id": "brulure",
+  "nom": "Brûlure",
+  "declencheur": "Feu, lave, attaques du Phénix",
+  "stades": [
+   "Rougeur",
+   "Cloques, récupération lente",
+   "Brûlure profonde, plus de régénération",
+   "Carbonisation : pas de régénération, faiblesse, sprint impossible"
+  ],
+  "soin": {
+   "nom": "Onguent de souci et d'aloe",
+   "ingredients": "Huile infusée de souci + gel d'aloe + base d'onguent",
+   "chaine": "Jarres → Hachoir → Mortier → Table"
+  }
+ },
+ {
+  "id": "morsure",
+  "nom": "Morsure venimeuse",
+  "declencheur": "Araignées et créatures venimeuses",
+  "stades": [
+   "Piqûre (message)",
+   "Enflure, nausée",
+   "Empoisonnement, dégâts légers",
+   "Paralysie partielle : lenteur II, tremblements"
+  ],
+  "soin": {
+   "nom": "Antivenin de bardane",
+   "ingredients": "Racine de bardane + plantain + charbon d'os + eau",
+   "chaine": "Hachoir → Chaudron (décoction) → Balance"
+  }
+ },
+ {
+  "id": "gelure",
+  "nom": "Gelure",
+  "declencheur": "Froid ou eau glacée prolongés",
+  "stades": [
+   "Doigts gourds",
+   "Engelures, mains tremblantes",
+   "Gelure, lenteur I",
+   "Nécrose : lenteur II, dégâts légers"
+  ],
+  "soin": {
+   "nom": "Bandage de peau de cerf",
+   "ingredients": "Peau de cerf + racine d'angélique + saindoux",
+   "chaine": "Hachoir → Mortier (baume) → Table"
+  }
+ }
+]

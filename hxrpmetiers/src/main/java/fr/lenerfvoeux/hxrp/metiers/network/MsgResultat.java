@@ -2,8 +2,6 @@ package fr.lenerfvoeux.hxrp.metiers.network;
 
 import fr.lenerfvoeux.hxrp.metiers.HxrpMetiers;
 import fr.lenerfvoeux.hxrp.metiers.ModRegistry;
-import fr.lenerfvoeux.hxrp.metiers.capability.Nutrition;
-import fr.lenerfvoeux.hxrp.metiers.capability.NutritionData;
 import fr.lenerfvoeux.hxrp.metiers.cuisine.Cuisine;
 import fr.lenerfvoeux.hxrp.metiers.cuisine.EnCours;
 import fr.lenerfvoeux.hxrp.metiers.cuisine.Seances;
@@ -95,15 +93,6 @@ public class MsgResultat implements IMessage {
                 int nPreps = EnCours.nombrePreparations(held);
                 p.sendMessage(new TextComponentString(pal.color + r.name + (r.isPreparation() ? " prête · " + pal.labelPreparation() : " terminé · " + pal.label)
                         + " · " + q + " %" + (nPreps > 0 ? TextFormatting.GRAY + " (dont " + nPreps + " préparation" + (nPreps > 1 ? "s" : "") + " maison)" : "")));
-                NutritionData d = Nutrition.get(p);
-                if (d != null) {
-                    int gain = (int) Math.round((5 + r.rank * 5) * (q / 100.0) * (r.steps.size() / 2.0 + 1));
-                    boolean monte = d.addXp(gain);
-                    p.sendMessage(new TextComponentString(TextFormatting.DARK_AQUA + "+" + gain + " XP Gourmet"
-                            + TextFormatting.GRAY + " (" + d.xpGourmet + "/" + (d.rangGourmet < 3 ? NutritionData.PALIERS[d.rangGourmet] : d.xpGourmet) + ")"));
-                    if (monte) p.sendMessage(new TextComponentString(TextFormatting.GOLD + "Tu passes Gourmet " + d.rangGourmet + "★ ! Les recettes de ce rang s'ouvrent, et les gestes deviennent plus exigeants."));
-                    Network.sync(p);
-                }
             } else {
                 p.sendMessage(new TextComponentString(TextFormatting.GRAY + "Étape notée " + Math.round(note) + " % · suivante : "
                         + TextFormatting.GOLD + EnCours.geste(held) + TextFormatting.GRAY + " (" + EnCours.station(held).label + ")"));

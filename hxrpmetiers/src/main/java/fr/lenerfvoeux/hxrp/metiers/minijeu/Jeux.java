@@ -40,7 +40,7 @@ public final class Jeux {
             case "frire": return new Frire(rang, graine, param);
             case "presser": return new Presser(rang, graine, param);
             case "assaisonner": return new Assaisonner(rang, graine, param);
-            default: return null;
+            default: return fr.lenerfvoeux.hxrp.metiers.virus.minijeu.JeuxVirus.creer(cle(geste), rang, graine, param);
         }
     }
 

@@ -1,0 +1,1725 @@
+[
+ {
+  "numero": 1,
+  "id": "fievre_des_marais",
+  "nom": "Fièvre des marais",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vous avez des frissons alors qu'il ne fait pas froid.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "frissons, soif accélérée",
+   "fièvre, lenteur I",
+   "nausée par moments",
+   "faiblesse I, soif très accélérée",
+   "sueurs, vision floue par moments",
+   "**à vie** : soif accélérée en permanence"
+  ],
+  "sang": "GB↑, FE↓ · MR : bâtonnets verdâtres",
+  "remede_specifique": {
+   "nom": "Décoction de saule et bourrache",
+   "forme": "fiole",
+   "recette": "écorce de saule + bourrache + eau → Hachoir → Chaudron (fort)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Sirop de thym",
+    "forme": "fiole",
+    "recette": "infusion de thym (Gourmet) + miel → Chaudron (réduction)"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Sirop · Prise 2 (+3 h) : Décoction",
+  "consigne": "rester à jeun avant la prise 1"
+ },
+ {
+  "numero": 2,
+  "id": "angine_rouge",
+  "nom": "Angine rouge",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre gorge vous brûle quand vous avalez.",
+  "jours_avant_dernier_stade": 8,
+  "stades": [
+   "gorge en feu (messages)",
+   "toux (le joueur s'arrête 1 s)",
+   "fièvre, lenteur I",
+   "voix éteinte (messages), faiblesse I",
+   "**à vie** : toux chronique, sprint limité à 5 s"
+  ],
+  "sang": "GB↑↑ · MR : chaînettes de grains ronds",
+  "remede_specifique": {
+   "nom": "Sirop de guimauve à la propolis",
+   "forme": "fiole",
+   "recette": "racine de guimauve → Hachoir → Chaudron (décoction) + teinture de propolis + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Gargarisme de sauge",
+    "forme": "fiole",
+    "recette": "sauge + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Sirop + Gargarisme · Prise 2 (+2 h) : Sirop + Gargarisme · Prise 3 (+2 h) : Sirop",
+  "consigne": "rester au chaud (intérieur ou près d'un feu)"
+ },
+ {
+  "numero": 3,
+  "id": "septicemie",
+  "nom": "Septicémie",
+  "rang": 2,
+  "touche_uniquement": null,
+  "premier_message": "Une chaleur anormale vous monte dans tout le corps.",
+  "jours_avant_dernier_stade": 9,
+  "stades": [
+   "fièvre forte, bords de l'écran rouges",
+   "frissons, lenteur I",
+   "faiblesse II",
+   "vertige (caméra qui tangue)",
+   "récupération lente",
+   "vision tunnel par moments",
+   "**à vie** : −4 cœurs max"
+  ],
+  "sang": "GB↑↑, PL↓, TX+ · MR : nuée de grains dorés",
+  "remede_specifique": {
+   "nom": "Injection de chaga et d'échinacée",
+   "forme": "seringue",
+   "recette": "chaga + racine d'échinacée → Hachoir → Chaudron (décoction) → Balance → Alambic (concentrer)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Cataplasme d'ail",
+    "forme": "onguent",
+    "recette": "ail (Gourmet) + miel → Mortier → Table"
+   },
+   {
+    "nom": "Pilules de reishi",
+    "forme": "pilules",
+    "recette": "poudre de reishi + miel → Balance → Mortier → Pilulier"
+   }
+  ],
+  "traitement": "Prise 1 : Injection + Cataplasme · Prise 2 (+3 h) : Pilules · Prise 3 (+3 h) : Injection",
+  "consigne": "repos complet : ni sprint ni combat pendant toute la cure"
+ },
+ {
+  "numero": 4,
+  "id": "toux_des_mineurs",
+  "nom": "Toux des mineurs",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Une poussière semble coincée au fond de vos poumons.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "toux sèche",
+   "toux qui arrête le joueur 1 s",
+   "souffle court, sprint 5 s",
+   "mains tremblantes (le viseur dérive)",
+   "crachats noirs, faiblesse I",
+   "**à vie** : sprint limité à 5 s"
+  ],
+  "sang": "GB↑, GR↓ · MR : grains de poussière enrobés",
+  "remede_specifique": {
+   "nom": "Sirop de lin et de mousse des grottes",
+   "forme": "fiole",
+   "recette": "graines de lin + mousse des grottes + eau → Chaudron (décoction) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau florale de lavande",
+    "forme": "fiole",
+    "recette": "lavande + eau → Alambic"
+   }
+  ],
+  "traitement": "Prise 1 : Eau florale · Prise 2 (+1 h) : Sirop · Prise 3 (+4 h) : Eau florale + Sirop",
+  "consigne": "ne pas descendre sous Y 50"
+ },
+ {
+  "numero": 5,
+  "id": "fievre_du_lait",
+  "nom": "Fièvre du lait",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre ventre gargouille et se tord.",
+  "jours_avant_dernier_stade": 9,
+  "stades": [
+   "ventre lourd",
+   "nausée",
+   "faim accélérée",
+   "faiblesse I",
+   "**à vie** : boire du lait donne la nausée"
+  ],
+  "sang": "GB↑, SU↓",
+  "remede_specifique": {
+   "nom": "Pilules de coquille et de fenouil",
+   "forme": "pilules",
+   "recette": "coquille d'œuf + graines de fenouil → Yagen → Balance + miel → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de menthe",
+    "forme": "fiole",
+    "recette": "menthe (Gourmet) + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules · Prise 2 (+2 h) : Infusion · Prise 3 (+1 h) : Infusion",
+  "consigne": "ne rien manger entre la prise 1 et la prise 3"
+ },
+ {
+  "numero": 6,
+  "id": "mal_des_tanneurs",
+  "nom": "Mal des tanneurs",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Votre peau vous démange sans arrêt.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "démangeaisons (messages)",
+   "plaques rouges",
+   "fièvre, lenteur I",
+   "ulcères, dégâts légers par moments",
+   "faiblesse I",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "GB↑, PL↑ · MR : bâtonnets épais à spores",
+  "remede_specifique": {
+   "nom": "Onguent de bardane et millepertuis",
+   "forme": "onguent",
+   "recette": "racine de bardane → Hachoir → Yagen + huile infusée de millepertuis + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction d'ortie",
+    "forme": "fiole",
+    "recette": "ortie + eau → Hachoir → Chaudron (fort)"
+   }
+  ],
+  "traitement": "Prise 1 : Onguent · Prise 2 (+3 h) : Décoction · Prise 3 (+3 h) : Onguent + Décoction",
+  "consigne": "ne pas se mouiller (ni pluie ni eau)"
+ },
+ {
+  "numero": 7,
+  "id": "bouche_de_pierre",
+  "nom": "Bouche-de-pierre",
+  "rang": 2,
+  "touche_uniquement": null,
+  "premier_message": "Votre mâchoire se crispe toute seule.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "mâchoire raide (messages)",
+   "crampes, lenteur I",
+   "spasmes, saut impossible par moments",
+   "tremblements (caméra qui tremble)",
+   "contractures, lenteur II",
+   "raideur, sprint impossible",
+   "**à vie** : saut réduit et lenteur I"
+  ],
+  "sang": "TX+ · MR : bâtonnets en baguette de tambour",
+  "remede_specifique": {
+   "nom": "Injection de crinière de lion",
+   "forme": "seringue",
+   "recette": "crinière de lion → Hachoir → Chaudron (décoction) + teinture de valériane → Balance → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de mélisse",
+    "forme": "fiole",
+    "recette": "mélisse + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Injection + Infusion, puis dormir dans un lit · Prise 2 (+3 h) : Injection, puis dormir",
+  "consigne": "dormir dans un lit après chaque prise"
+ },
+ {
+  "numero": 8,
+  "id": "peste_grise",
+  "nom": "Peste grise",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Vous vous sentez soudain vidé de vos forces.",
+  "jours_avant_dernier_stade": 9,
+  "stades": [
+   "fatigue, paupières lourdes (écran qui s'assombrit)",
+   "fièvre",
+   "ganglions, lenteur I",
+   "taches grises sur la peau (messages)",
+   "faiblesse II",
+   "daltonisme (couleurs ternes et grisées)",
+   "vision tunnel",
+   "**à vie** : daltonisme et −4 cœurs max"
+  ],
+  "sang": "GB↑↑, PL↓, TX+ · MR : bacilles en épingle grise",
+  "remede_specifique": {
+   "nom": "Élixir du lotus de l'aube",
+   "forme": "fiole",
+   "recette": "lotus de l'aube + eau → Alambic (eau florale) + miel + alcool fort → Jarres (3 h) → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction d'échinacée",
+    "forme": "fiole",
+    "recette": "racine d'échinacée + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Pilules de cordyceps",
+    "forme": "pilules",
+    "recette": "poudre de cordyceps + miel → Balance → Mortier → Pilulier"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Décoction + Pilules · Prise 4 (+2 h) : Élixir",
+  "consigne": "à jeun avant la prise 1 et la prise 3"
+ },
+ {
+  "numero": 9,
+  "id": "rouille_des_plaies",
+  "nom": "Rouille des plaies",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Une vieille égratignure vous lance et rougit.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "plaie rouge et chaude",
+   "suintement (messages)",
+   "fièvre légère",
+   "faiblesse I",
+   "**à vie** : récupération lente"
+  ],
+  "sang": "GB↑",
+  "remede_specifique": {
+   "nom": "Cataplasme de plantain",
+   "forme": "onguent",
+   "recette": "plantain frais + miel → Mortier → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Teinture de propolis",
+    "forme": "fiole",
+    "recette": "propolis + alcool de riz → Jarres (2 h)"
+   }
+  ],
+  "traitement": "Prise 1 : Cataplasme · Prise 2 (+1 h) : Teinture · Prise 3 (+2 h) : Cataplasme",
+  "consigne": null
+ },
+ {
+  "numero": 10,
+  "id": "rhume_des_plaines",
+  "nom": "Rhume des plaines",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre nez coule et vous éternuez.",
+  "jours_avant_dernier_stade": 6,
+  "stades": [
+   "nez bouché (messages)",
+   "éternuements (le joueur s'arrête 1 s)",
+   "fatigue, paupières lourdes",
+   "faiblesse I",
+   "**à vie** : éternuements fréquents"
+  ],
+  "sang": "GB↑",
+  "remede_specifique": {
+   "nom": "Sirop de sureau",
+   "forme": "fiole",
+   "recette": "fleurs de sureau + eau → Chaudron (infusion) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de camomille et thym",
+    "forme": "fiole",
+    "recette": "camomille + thym (Gourmet) + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Sirop + Infusion · Prise 2 (+2 h) : Sirop + Infusion",
+  "consigne": "rester au chaud"
+ },
+ {
+  "numero": 11,
+  "id": "grippe_des_hauts_plateaux",
+  "nom": "Grippe des hauts plateaux",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vos jambes sont lourdes, comme après une longue course.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "courbatures aux jambes, lenteur I",
+   "fièvre, bords de l'écran rouges",
+   "frissons, faiblesse I",
+   "toux",
+   "alitement, lenteur II",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "GB↓, PL↓ · MR : grains en couronne",
+  "remede_specifique": {
+   "nom": "Décoction de shiitake et d'angélique",
+   "forme": "fiole",
+   "recette": "shiitake + racine d'angélique + eau → Hachoir → Chaudron (fort)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Sirop de thym",
+    "forme": "fiole",
+    "recette": "infusion de thym + miel → Chaudron (réduction)"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Sirop, puis dormir dans un lit · Prise 2 (+3 h) : Décoction",
+  "consigne": "à jeun avant la prise 1, et dormir dans un lit entre les deux prises"
+ },
+ {
+  "numero": 12,
+  "id": "fievre_a_pustules",
+  "nom": "Fièvre à pustules",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Des petits boutons apparaissent sur vos bras.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "boutons (messages)",
+   "fièvre",
+   "démangeaisons, dégâts légers par moments",
+   "récupération lente",
+   "faiblesse I",
+   "**à vie** : marques sur la peau, −1 cœur max"
+  ],
+  "sang": "GB↓, PL↓",
+  "remede_specifique": {
+   "nom": "Onguent d'aloe et de prêle",
+   "forme": "onguent",
+   "recette": "aloe → Hachoir → Mortier (gel) + prêle → Yagen + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de pissenlit",
+    "forme": "fiole",
+    "recette": "pissenlit + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Onguent · Prise 2 (+2 h) : Onguent · Prise 3 (+2 h) : Onguent + Infusion",
+  "consigne": "ne pas se mouiller"
+ },
+ {
+  "numero": 13,
+  "id": "fievre_jaune_des_jungles",
+  "nom": "Fièvre jaune des jungles",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous transpirez à grosses gouttes, puis vous grelottez.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "frissons et sueurs en alternance",
+   "fièvre par vagues, lenteur I pendant les vagues",
+   "soif très accélérée",
+   "jaunisse (messages), faiblesse I",
+   "nausée",
+   "saignements de nez, dégâts légers",
+   "**à vie** : vagues de fièvre (lenteur aléatoire)"
+  ],
+  "sang": "GB↓, PL↓, FE↑ · MR : sphères jaunâtres",
+  "remede_specifique": {
+   "nom": "Pilules de pollen doré",
+   "forme": "pilules",
+   "recette": "pollen doré + miel → Balance → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de réglisse",
+    "forme": "fiole",
+    "recette": "racine de réglisse + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Teinture de pissenlit",
+    "forme": "fiole",
+    "recette": "pissenlit + alcool de riz → Jarres (2 h)"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Teinture · Prise 2 (+2 h) : Pilules · Prise 3 (+3 h) : Pilules",
+  "consigne": "à jeun entre la prise 1 et la prise 2"
+ },
+ {
+  "numero": 14,
+  "id": "il_rouge",
+  "nom": "Œil rouge",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vos yeux piquent et pleurent tout seuls.",
+  "jours_avant_dernier_stade": 5,
+  "stades": [
+   "yeux qui piquent",
+   "vision floue par moments",
+   "yeux collés au réveil (messages)",
+   "sensibilité à la lumière (écran surexposé en plein jour)",
+   "**à vie** : vision floue par moments"
+  ],
+  "sang": "rien d'anormal",
+  "remede_specifique": {
+   "nom": "Eau florale de camomille",
+   "forme": "fiole",
+   "recette": "camomille + eau → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Compresse de thé",
+    "forme": "onguent",
+    "recette": "feuilles de thé (Gourmet) + eau → Chaudron (infusion) + bandes de laine → Table"
+   }
+  ],
+  "traitement": "Prise 1 : Eau florale + Compresse · Prise 2 (+1 h) : idem · Prise 3 (+1 h) : idem",
+  "consigne": "rester à l'ombre ou à l'intérieur"
+ },
+ {
+  "numero": 15,
+  "id": "fievre_des_ruisseaux",
+  "nom": "Fièvre des ruisseaux",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre ventre se noue d'un coup.",
+  "jours_avant_dernier_stade": 6,
+  "stades": [
+   "ventre noué",
+   "nausée",
+   "soif très accélérée",
+   "faim accélérée, faiblesse I",
+   "**à vie** : faim accélérée"
+  ],
+  "sang": "SU↓",
+  "remede_specifique": {
+   "nom": "Pilules de charbon de bambou",
+   "forme": "pilules",
+   "recette": "charbon de bambou + miel → Balance → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau de riz salée",
+    "forme": "fiole",
+    "recette": "riz (Gourmet) + sel (Gourmet) + eau → Chaudron (fort) → filtrer à la Table"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules · Prise 2 (+2 h) : Eau de riz · Prise 3 (+2 h) : Eau de riz",
+  "consigne": "aucune nourriture pendant toute la cure"
+ },
+ {
+  "numero": 16,
+  "id": "rougeole_des_steppes",
+  "nom": "Rougeole des steppes",
+  "rang": 1,
+  "touche_uniquement": "Groupes A",
+  "premier_message": "Une fièvre vous prend et vos yeux deviennent sensibles.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "fièvre",
+   "toux",
+   "points blancs dans la bouche (messages)",
+   "éruption rouge, faiblesse I",
+   "sensibilité à la lumière",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "GB↓ · MR : cellules géantes à plusieurs noyaux",
+  "remede_specifique": {
+   "nom": "Infusion d'achillée",
+   "forme": "fiole",
+   "recette": "achillée + eau → Chaudron (infusion)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Onguent de souci",
+    "forme": "onguent",
+    "recette": "huile infusée de souci + base d'onguent → Table"
+   },
+   {
+    "nom": "Sirop de propolis",
+    "forme": "fiole",
+    "recette": "teinture de propolis + miel → Chaudron (réduction)"
+   }
+  ],
+  "traitement": "Prise 1 : Infusion + Onguent · Prise 2 (+3 h) : Sirop",
+  "consigne": "dormir dans un lit entre les deux prises"
+ },
+ {
+  "numero": 17,
+  "id": "langueur_grise",
+  "nom": "Langueur grise",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous bâillez sans cesse, épuisé sans raison.",
+  "jours_avant_dernier_stade": 16,
+  "stades": [
+   "fatigue",
+   "paupières lourdes",
+   "lenteur I",
+   "faiblesse I",
+   "ganglions, lenteur II",
+   "**à vie** : faim très accélérée (endurance réduite)"
+  ],
+  "sang": "GB↑ · MR : cellules en dentelle",
+  "remede_specifique": {
+   "nom": "Décoction de ginseng et maitake",
+   "forme": "fiole",
+   "recette": "racine de ginseng + maitake + eau → Hachoir → Chaudron (fort)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Teinture de mélisse",
+    "forme": "fiole",
+    "recette": "mélisse + alcool de riz → Jarres (2 h)"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Teinture · Prise 2 (+4 h) : Décoction · Prise 3 (+4 h) : Décoction + Teinture",
+  "consigne": "dormir dans un lit après chaque prise"
+ },
+ {
+  "numero": 18,
+  "id": "fievre_de_meteor",
+  "nom": "Fièvre de Meteor",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Un goût de fer vous emplit la bouche.",
+  "jours_avant_dernier_stade": 8,
+  "stades": [
+   "fièvre",
+   "maux de tête, vision floue",
+   "bleus sur le corps (messages)",
+   "saignements (dégâts légers aléatoires)",
+   "faiblesse II",
+   "récupération lente",
+   "désorientation par moments (gauche et droite inversées)",
+   "**à vie** : récupération lente et −4 cœurs max"
+  ],
+  "sang": "GB↓, GR↓, PL↓ · MR : filaments en crosse",
+  "remede_specifique": {
+   "nom": "Élixir du chardon de Meteor",
+   "forme": "seringue",
+   "recette": "chardon de Meteor → Hachoir → Chaudron (décoction) + sève de l'Arbre-Monde + alcool fort → Jarres (6 h) → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de bourse-à-pasteur",
+    "forme": "pilules",
+    "recette": "bourse-à-pasteur → Yagen → Balance + miel → Mortier → Pilulier"
+   },
+   {
+    "nom": "Eau florale de lys des nuées",
+    "forme": "fiole",
+    "recette": "lys des nuées + eau → Alambic"
+   }
+  ],
+  "traitement": "Prise 1 : Élixir + Pilules · Prise 2 (+2 h) : Eau florale · Prise 3 (+3 h) : Élixir",
+  "consigne": "pas de viande, et ne pas s'éloigner de plus de 20 blocs entre deux prises"
+ },
+ {
+  "numero": 19,
+  "id": "ver_des_rivieres",
+  "nom": "Ver des rivières",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vous avez faim alors que vous venez de manger.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "ventre gonflé",
+   "faim accélérée",
+   "faim très accélérée",
+   "faiblesse I",
+   "anémie, lenteur I",
+   "**à vie** : faim accélérée"
+  ],
+  "sang": "GR↓, FE↓, PA+",
+  "remede_specifique": {
+   "nom": "Pilules de gentiane et d'ail",
+   "forme": "pilules",
+   "recette": "racine de gentiane → Hachoir → Yagen + ail (Gourmet) → Mortier + miel → Balance → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de fenouil",
+    "forme": "fiole",
+    "recette": "graines de fenouil + eau → Chaudron (fort)"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules · Prise 2 (+2 h) : Décoction · Prise 3 (+6 h) : Pilules + Décoction",
+  "consigne": "à jeun avant la prise 1, et rien manger 2 h après chaque prise de pilules"
+ },
+ {
+  "numero": 20,
+  "id": "gale_des_greniers",
+  "nom": "Gale des greniers",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Ça vous gratte entre les doigts, surtout la nuit.",
+  "jours_avant_dernier_stade": 9,
+  "stades": [
+   "démangeaisons la nuit",
+   "démangeaisons constantes (messages)",
+   "dégâts légers en se grattant",
+   "paupières lourdes (manque de sommeil)",
+   "**à vie** : démangeaisons nocturnes, dégâts légers la nuit"
+  ],
+  "sang": "GB↑ · MR : sillons d'acariens",
+  "remede_specifique": {
+   "nom": "Onguent de lavande au saindoux",
+   "forme": "onguent",
+   "recette": "lavande + eau → Alambic (huile essentielle) + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Lotion de vinaigre de riz",
+    "forme": "fiole",
+    "recette": "vinaigre de riz + eau → Mortier"
+   }
+  ],
+  "traitement": "Prise 1 : Lotion · Prise 2 (+1 h) : Onguent · Prise 3 (+3 h) : Lotion + Onguent",
+  "consigne": "ne pas se mouiller"
+ },
+ {
+  "numero": 21,
+  "id": "fievre_tierce_des_marais",
+  "nom": "Fièvre tierce des marais",
+  "rang": 1,
+  "touche_uniquement": "Tous sauf les groupes O",
+  "premier_message": "Une vague de chaleur vous traverse, puis disparaît.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "frissons",
+   "accès de fièvre toutes les 30 min de jeu (lenteur I pendant l'accès)",
+   "sueurs, soif très accélérée",
+   "anémie, faiblesse I",
+   "lenteur II pendant les accès",
+   "hallucinations (bruits et silhouettes fantômes)",
+   "**à vie** : accès de fièvre réguliers"
+  ],
+  "sang": "GR↓, FE↓, PA+ · MR : anneaux dans les globules",
+  "remede_specifique": {
+   "nom": "Teinture de mousse de Numere",
+   "forme": "fiole",
+   "recette": "mousse de Numere + alcool fort → Jarres (4 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de saule",
+    "forme": "fiole",
+    "recette": "écorce de saule + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Sirop de réglisse",
+    "forme": "fiole",
+    "recette": "décoction de réglisse + miel → Chaudron (réduction)"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Décoction · Prise 2 (+3 h) : Teinture + Décoction · Prise 3 (+3 h) : Teinture + Sirop",
+  "consigne": "dormir dans un lit, à l'abri de la pluie"
+ },
+ {
+  "numero": 22,
+  "id": "douve_du_foie",
+  "nom": "Douve du foie",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous avez un goût amer dans la bouche après chaque repas.",
+  "jours_avant_dernier_stade": 15,
+  "stades": [
+   "ventre sensible",
+   "nausée après les repas",
+   "jaunisse (messages)",
+   "faiblesse I",
+   "foie gonflé, lenteur I",
+   "**à vie** : la nourriture nourrit 25 % de moins"
+  ],
+  "sang": "GB↑, SU↓, PA+ · MR : œufs operculés",
+  "remede_specifique": {
+   "nom": "Teinture d'artichaut et de pissenlit",
+   "forme": "fiole",
+   "recette": "artichaut (Gourmet) + pissenlit → Hachoir + alcool de riz → Jarres (3 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de gentiane",
+    "forme": "pilules",
+    "recette": "poudre de gentiane + miel → Balance → Mortier → Pilulier"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Pilules · Prise 2 (+3 h) : Teinture",
+  "consigne": "à jeun avant la prise 1, et pas de poisson jusqu'à la fin de la cure"
+ },
+ {
+  "numero": 23,
+  "id": "sangsue_fantome",
+  "nom": "Sangsue-fantôme",
+  "rang": 2,
+  "touche_uniquement": null,
+  "premier_message": "Vous trouvez une petite plaie que vous ne vous rappelez pas.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "petite plaie invisible (messages)",
+   "fatigue",
+   "pâleur, lenteur I",
+   "anémie, faiblesse I",
+   "vertige",
+   "récupération lente",
+   "**à vie** : −4 cœurs max"
+  ],
+  "sang": "GR↓, FE↓, PA+ · MR : crochets noirs",
+  "remede_specifique": {
+   "nom": "Sirop de fer-sang",
+   "forme": "fiole",
+   "recette": "racine de fer-sang → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Cataplasme d'algue noire",
+    "forme": "onguent",
+    "recette": "algue noire fraîche + miel → Mortier → Table"
+   }
+  ],
+  "traitement": "Prise 1 : Cataplasme · Prise 2 (+1 h) : Sirop · Prise 3 (+3 h) : Sirop",
+  "consigne": "ne pas entrer dans l'eau pendant la cure"
+ },
+ {
+  "numero": 24,
+  "id": "ver_cerebral",
+  "nom": "Ver cérébral",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Une migraine vous serre le crâne comme un étau.",
+  "jours_avant_dernier_stade": 18,
+  "stades": [
+   "maux de tête",
+   "vertige",
+   "hallucinations (bruits, silhouettes)",
+   "acouphènes (sons étouffés et sifflement)",
+   "pertes d'équilibre, saut réduit",
+   "crises : immobile 3 s par moments",
+   "désorientation (gauche et droite inversées) par moments",
+   "**à vie** : désorientation rare et acouphènes"
+  ],
+  "sang": "GB↑, PA+ · MR : kystes blancs",
+  "remede_specifique": {
+   "nom": "Pilules de mousse des abysses",
+   "forme": "pilules",
+   "recette": "mousse des abysses + champignon luminescent → Yagen → Balance + miel → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de ginkgo et valériane",
+    "forme": "fiole",
+    "recette": "ginkgo + racine de valériane + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Eau florale de lys des nuées",
+    "forme": "fiole",
+    "recette": "lys des nuées + eau → Alambic"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules + Décoction · Prise 2 (+2 h) : Eau florale · Prise 3 (+4 h) : Pilules + Décoction · Prise 4 (+2 h) : Eau florale, puis dormir",
+  "consigne": "pas d'alcool pendant la cure"
+ },
+ {
+  "numero": 25,
+  "id": "puces_de_la_fievre",
+  "nom": "Puces de la fièvre",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "De petites piqûres rouges couvrent vos chevilles.",
+  "jours_avant_dernier_stade": 8,
+  "stades": [
+   "piqûres qui grattent",
+   "fièvre",
+   "maux de tête, lenteur I",
+   "éruption, faiblesse I",
+   "**à vie** : fièvres passagères (lenteur aléatoire)"
+  ],
+  "sang": "GB↑ · MR : petites bactéries en virgule",
+  "remede_specifique": {
+   "nom": "Baume de romarin au polypore",
+   "forme": "onguent",
+   "recette": "romarin (Gourmet) + polypore → Yagen + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Fumigation de plumes",
+    "forme": "fumigation",
+    "recette": "plumes + polypore → Chaudron (à sec), le patient respire la fumée"
+   }
+  ],
+  "traitement": "Prise 1 : Fumigation · Prise 2 (+1 h) : Baume · Prise 3 (+2 h) : Baume",
+  "consigne": null
+ },
+ {
+  "numero": 26,
+  "id": "pied_de_marais",
+  "nom": "Pied de marais",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vos orteils vous démangent dans vos bottes.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "orteils qui grattent",
+   "peau qui pèle (messages)",
+   "crevasses, lenteur I",
+   "douleur à la marche, sprint 5 s",
+   "**à vie** : lenteur I dans l'eau"
+  ],
+  "sang": "rien d'anormal · MR : filaments en réseau",
+  "remede_specifique": {
+   "nom": "Huile d'écorce de bouleau",
+   "forme": "onguent",
+   "recette": "écorce de bouleau → Hachoir + huile de lin → Jarres (3 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Poudre de sauge",
+    "forme": "onguent",
+    "recette": "sauge → Yagen → Balance"
+   }
+  ],
+  "traitement": "Prise 1 : Huile · Prise 2 (+1 h) : Poudre · Prise 3 (+2 h) : Huile + Poudre",
+  "consigne": "ne pas se mouiller"
+ },
+ {
+  "numero": 27,
+  "id": "teigne_des_bergers",
+  "nom": "Teigne des bergers",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Une tache ronde et rouge est apparue sur votre bras.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "tache ronde (messages)",
+   "démangeaisons",
+   "plaques qui s'étendent",
+   "cheveux qui tombent (messages)",
+   "**à vie** : plaques permanentes, démangeaisons"
+  ],
+  "sang": "rien d'anormal · MR : spores en mosaïque",
+  "remede_specifique": {
+   "nom": "Onguent de vesse-de-loup",
+   "forme": "onguent",
+   "recette": "vesse-de-loup → Yagen → Balance + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Vinaigre de sauge",
+    "forme": "fiole",
+    "recette": "sauge + vinaigre de riz → Jarres (2 h)"
+   }
+  ],
+  "traitement": "Prise 1 : Onguent + Vinaigre · Prise 2 (+2 h) : idem · Prise 3 (+2 h) : idem",
+  "consigne": null
+ },
+ {
+  "numero": 28,
+  "id": "muguet_blanc",
+  "nom": "Muguet blanc",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vous avez un drôle de goût dans la bouche.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "goût étrange",
+   "plaques blanches dans la bouche (messages)",
+   "douleur en mangeant : la nourriture nourrit moins",
+   "faiblesse I",
+   "**à vie** : la nourriture nourrit 15 % de moins"
+  ],
+  "sang": "SU↑ · MR : levures bourgeonnantes",
+  "remede_specifique": {
+   "nom": "Gargarisme de citron et thym",
+   "forme": "fiole",
+   "recette": "citron (Gourmet) + thym (Gourmet) + eau → Chaudron (infusion)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de sauge au miel",
+    "forme": "fiole",
+    "recette": "sauge + eau + miel → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Gargarisme · Prise 2 (+1 h) : Infusion · Prise 3 (+1 h) : Gargarisme",
+  "consigne": null
+ },
+ {
+  "numero": 29,
+  "id": "poumon_de_spores",
+  "nom": "Poumon-de-spores",
+  "rang": 2,
+  "touche_uniquement": null,
+  "premier_message": "Vous respirez comme à travers un tissu humide.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "toux légère",
+   "toux qui arrête le joueur 1 s",
+   "souffle court, sprint 5 s",
+   "mains tremblantes",
+   "fièvre, faiblesse I",
+   "crachats sanglants, dégâts légers",
+   "**à vie** : sprint impossible"
+  ],
+  "sang": "GB↑ · MR : filaments ramifiés",
+  "remede_specifique": {
+   "nom": "Décoction de reishi",
+   "forme": "fiole",
+   "recette": "reishi + eau → Hachoir → Chaudron (fort, long)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau florale de thym",
+    "forme": "fiole",
+    "recette": "thym (Gourmet) + eau → Alambic"
+   },
+   {
+    "nom": "Sirop de réglisse",
+    "forme": "fiole",
+    "recette": "décoction de réglisse + miel → Chaudron (réduction)"
+   }
+  ],
+  "traitement": "Prise 1 : Décoction + Eau florale · Prise 2 (+3 h) : Sirop · Prise 3 (+3 h) : Décoction + Eau florale",
+  "consigne": "ne pas entrer dans une grotte pendant la cure"
+ },
+ {
+  "numero": 30,
+  "id": "ongle_noir",
+  "nom": "Ongle-noir",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Un de vos ongles a noirci sans raison.",
+  "jours_avant_dernier_stade": 15,
+  "stades": [
+   "ongle terni",
+   "ongles noircis (messages)",
+   "douleur en tenant un outil",
+   "mains tremblantes",
+   "doigts gonflés, dégâts légers en minant",
+   "**à vie** : mains tremblantes"
+  ],
+  "sang": "GB↑ · MR : spores noires en chapelet",
+  "remede_specifique": {
+   "nom": "Teinture de coprin",
+   "forme": "fiole",
+   "recette": "coprin + alcool fort → Jarres (3 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Onguent de lavande au saindoux",
+    "forme": "onguent",
+    "recette": "huile essentielle de lavande + base d'onguent → Table"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Onguent · Prise 2 (+2 h) : Onguent · Prise 3 (+2 h) : Teinture + Onguent",
+  "consigne": null
+ },
+ {
+  "numero": 31,
+  "id": "lepre_des_racines",
+  "nom": "Lèpre des racines",
+  "rang": 2,
+  "touche_uniquement": "Groupes O",
+  "premier_message": "Votre peau durcit par endroits, comme de l'écorce.",
+  "jours_avant_dernier_stade": 20,
+  "stades": [
+   "peau qui durcit (messages)",
+   "taches brunes comme de l'écorce",
+   "perte de sensation : les dégâts ne font plus de son",
+   "raideur, lenteur I",
+   "doigts raides, mains tremblantes",
+   "faiblesse I",
+   "**à vie** : lenteur I et −2 cœurs max"
+  ],
+  "sang": "GB↑, FE↓ · MR : filaments ligneux",
+  "remede_specifique": {
+   "nom": "Onguent de Kukuroo",
+   "forme": "onguent",
+   "recette": "feuille de Kukuroo + bolet cendré → Yagen + huile de lin + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de cordyceps",
+    "forme": "fiole",
+    "recette": "cordyceps + eau → Hachoir → Chaudron (fort)"
+   }
+  ],
+  "traitement": "Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem",
+  "consigne": "rester au soleil 10 min après chaque prise"
+ },
+ {
+  "numero": 32,
+  "id": "empoisonnement_aux_champignons",
+  "nom": "Empoisonnement aux champignons",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre estomac se retourne violemment.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "nausée",
+   "vomissements, faim accélérée",
+   "vertige",
+   "faiblesse II",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "TX+",
+  "remede_specifique": {
+   "nom": "Pilules de charbon d'os",
+   "forme": "pilules",
+   "recette": "charbon d'os + miel → Balance → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de menthe et réglisse",
+    "forme": "fiole",
+    "recette": "menthe (Gourmet) + réglisse + eau → Hachoir → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules · Prise 2 (+1 h) : Infusion",
+  "consigne": "à jeun pendant 3 h"
+ },
+ {
+  "numero": 33,
+  "id": "mal_du_plomb",
+  "nom": "Mal du plomb",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous avez un goût de métal sur la langue.",
+  "jours_avant_dernier_stade": 20,
+  "stades": [
+   "goût de métal (messages)",
+   "maux de ventre",
+   "fatigue, paupières lourdes",
+   "pâleur, faiblesse I",
+   "tremblements (caméra qui tremble)",
+   "**à vie** : mains tremblantes et faiblesse I"
+  ],
+  "sang": "GR↓, FE↓, TX+ · MR : grains bleutés dans les globules",
+  "remede_specifique": {
+   "nom": "Teinture de coriandre",
+   "forme": "fiole",
+   "recette": "coriandre (Gourmet) + alcool de riz → Jarres (3 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction d'ortie",
+    "forme": "fiole",
+    "recette": "ortie + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Pilules de charbon de bambou",
+    "forme": "pilules",
+    "recette": "voir maladie 15"
+   }
+  ],
+  "traitement": "Prise 1 : les trois ensemble · Prise 2 (+4 h) : les trois · Prise 3 (+4 h) : les trois",
+  "consigne": "ne pas miner sous Y 30 pendant la cure"
+ },
+ {
+  "numero": 34,
+  "id": "venin_de_scorpion_des_sables",
+  "nom": "Venin de scorpion des sables",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Une piqûre brûlante vous lance la cheville.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "piqûre brûlante",
+   "engourdissement, lenteur I",
+   "sueurs, soif très accélérée",
+   "crampes, faiblesse I",
+   "cœur qui s'emballe, dégâts légers",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "TX+ · MR : cristaux en étoile",
+  "remede_specifique": {
+   "nom": "Antidote de défense de sanglier",
+   "forme": "fiole",
+   "recette": "défense de sanglier → Yagen → Balance + infusion de mélisse + miel → Chaudron"
+  },
+  "accompagnement": [
+   {
+    "nom": "Cataplasme d'aloe",
+    "forme": "onguent",
+    "recette": "aloe → Hachoir → Mortier → Table"
+   }
+  ],
+  "traitement": "Prise 1 : Antidote + Cataplasme · Prise 2 (+2 h) : Antidote",
+  "consigne": "repos : ni sprint ni combat"
+ },
+ {
+  "numero": 35,
+  "id": "alcool_frelate",
+  "nom": "Alcool frelaté",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Votre tête tourne et votre vue se trouble.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "ivresse lourde, nausée",
+   "maux de tête",
+   "vision floue",
+   "faiblesse I",
+   "**à vie** : vision floue par moments"
+  ],
+  "sang": "TX+, SU↓",
+  "remede_specifique": {
+   "nom": "Décoction d'oreille de Judas",
+   "forme": "fiole",
+   "recette": "oreille de Judas + eau → Hachoir → Chaudron (fort)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau de riz salée",
+    "forme": "fiole",
+    "recette": "voir maladie 15"
+   }
+  ],
+  "traitement": "Prise 1 : Eau de riz · Prise 2 (+1 h) : Décoction · Prise 3 (+2 h) : Décoction",
+  "consigne": "pas d'alcool pendant 24 h"
+ },
+ {
+  "numero": 36,
+  "id": "poumon_de_soufre",
+  "nom": "Poumon de soufre",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Votre gorge vous pique comme après une fumée âcre.",
+  "jours_avant_dernier_stade": 9,
+  "stades": [
+   "gorge irritée",
+   "toux",
+   "souffle court, sprint 5 s",
+   "yeux qui brûlent, vision floue",
+   "**à vie** : sprint limité à 5 s"
+  ],
+  "sang": "TX+, GB↑",
+  "remede_specifique": {
+   "nom": "Sirop de pleurote",
+   "forme": "fiole",
+   "recette": "pleurote + eau → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau florale de menthe",
+    "forme": "fiole",
+    "recette": "menthe (Gourmet) + eau → Alambic"
+   }
+  ],
+  "traitement": "Prise 1 : Eau florale · Prise 2 (+1 h) : Sirop · Prise 3 (+3 h) : Eau florale + Sirop",
+  "consigne": null
+ },
+ {
+  "numero": 37,
+  "id": "venin_de_la_vipere_de_kakin",
+  "nom": "Venin de la vipère de Kakin",
+  "rang": 2,
+  "touche_uniquement": null,
+  "premier_message": "Une morsure noirâtre vous élance le bras.",
+  "jours_avant_dernier_stade": 8,
+  "stades": [
+   "morsure noire",
+   "enflure, lenteur I",
+   "hématomes (messages)",
+   "saignements, dégâts légers",
+   "faiblesse II",
+   "paralysie de 3 s par moments",
+   "**à vie** : récupération lente et saut réduit"
+  ],
+  "sang": "PL↓, TX+ · MR : cristaux en aiguilles",
+  "remede_specifique": {
+   "nom": "Antivenin de Kakin",
+   "forme": "seringue",
+   "recette": "orchidée de Kakin + alcool fort → Jarres (2 h) + poudre de charbon d'os → Balance → Chaudron → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de bourse-à-pasteur",
+    "forme": "pilules",
+    "recette": "voir maladie 18"
+   },
+   {
+    "nom": "Breuvage de valériane",
+    "forme": "fiole",
+    "recette": "racine de valériane + eau → Hachoir → Chaudron (fort) + miel"
+   }
+  ],
+  "traitement": "Prise 1 : Antivenin + Pilules · Prise 2 (+2 h) : Breuvage, puis dormir dans un lit",
+  "consigne": null
+ },
+ {
+  "numero": 38,
+  "id": "mal_de_l_ambre",
+  "nom": "Mal de l'ambre",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Une fatigue dorée et sucrée vous engourdit.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "fatigue étrange (messages)",
+   "sueurs sucrées, soif accélérée",
+   "peau qui jaunit",
+   "lenteur I",
+   "faiblesse I",
+   "membres lourds, lenteur II",
+   "daltonisme (tout vire à l'ambre)",
+   "**à vie** : daltonisme ambré et lenteur I"
+  ],
+  "sang": "SU↑, FE↑, TX+ · MR : paillettes d'ambre",
+  "remede_specifique": {
+   "nom": "Élixir de l'aigle-araignée",
+   "forme": "fiole",
+   "recette": "œuf d'aigle-araignée + truffe noire → Mortier + alcool fort → Jarres (6 h) → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de charbon d'os",
+    "forme": "pilules",
+    "recette": "voir maladie 32"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules · Prise 4 (+2 h) : Élixir",
+  "consigne": "à jeun pendant toute la cure"
+ },
+ {
+  "numero": 39,
+  "id": "scorbut",
+  "nom": "Scorbut",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vos gencives saignent quand vous mangez.",
+  "jours_avant_dernier_stade": 15,
+  "stades": [
+   "fatigue",
+   "gencives qui saignent (messages)",
+   "bleus, dégâts légers par moments",
+   "récupération lente",
+   "faiblesse I",
+   "**à vie** : récupération lente"
+  ],
+  "sang": "GR↓, PL↓",
+  "remede_specifique": {
+   "nom": "Sirop d'aubépine",
+   "forme": "fiole",
+   "recette": "baies d'aubépine + eau → Mortier → Chaudron (infusion) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [],
+  "traitement": "Prise 1 : Sirop · Entre les deux : manger un plat de fruits ou de légumes du Gourmet · Prise 2 (+2 h) : Sirop",
+  "consigne": null
+ },
+ {
+  "numero": 40,
+  "id": "anemie_de_fer",
+  "nom": "Anémie de fer",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vous êtes pâle et vite essoufflé.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "fatigue",
+   "pâleur (messages)",
+   "essoufflement, sprint 8 s",
+   "lenteur I",
+   "**à vie** : sprint limité à 8 s"
+  ],
+  "sang": "GR↓, FE↓",
+  "remede_specifique": {
+   "nom": "Sirop d'ortie",
+   "forme": "fiole",
+   "recette": "ortie + eau → Hachoir → Chaudron (fort) + miel → Chaudron (réduction)"
+  },
+  "accompagnement": [],
+  "traitement": "Prise 1 : Sirop · Entre les deux : manger un plat de viande rouge du Gourmet · Prise 2 (+3 h) : Sirop",
+  "consigne": null
+ },
+ {
+  "numero": 41,
+  "id": "coup_de_chaleur",
+  "nom": "Coup de chaleur",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "La tête vous tourne sous ce soleil écrasant.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "tête qui tourne",
+   "soif très accélérée",
+   "nausée",
+   "faiblesse I, lenteur I",
+   "**à vie** : soif accélérée"
+  ],
+  "sang": "SU↓",
+  "remede_specifique": {
+   "nom": "Eau florale de menthe glacée",
+   "forme": "fiole",
+   "recette": "menthe (Gourmet) + eau → Alambic, puis refroidir à la Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Cataplasme d'aloe",
+    "forme": "onguent",
+    "recette": "voir maladie 34"
+   }
+  ],
+  "traitement": "Prise 1 : Eau florale + Cataplasme · Prise 2 (+1 h) : Eau florale",
+  "consigne": "rester à l'ombre pendant 1 h"
+ },
+ {
+  "numero": 42,
+  "id": "mal_des_neiges",
+  "nom": "Mal des neiges",
+  "rang": 0,
+  "touche_uniquement": null,
+  "premier_message": "Vous ne sentez plus vos doigts tant il fait froid.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "frissons",
+   "doigts gourds, mains tremblantes",
+   "lenteur I",
+   "paupières lourdes, faiblesse I",
+   "**à vie** : −1 cœur max"
+  ],
+  "sang": "rien d'anormal",
+  "remede_specifique": {
+   "nom": "Décoction de bois de cerf",
+   "forme": "fiole",
+   "recette": "bois de cerf → Yagen + eau → Chaudron (fort, long) + miel"
+  },
+  "accompagnement": [],
+  "traitement": "Prise 1 : Décoction · Prise 2 (+1 h) : Décoction",
+  "consigne": "rester à côté d'un feu pendant 1 h"
+ },
+ {
+  "numero": 43,
+  "id": "mal_des_montagnes",
+  "nom": "Mal des montagnes",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "L'air vous semble trop mince pour respirer.",
+  "jours_avant_dernier_stade": 7,
+  "stades": [
+   "maux de tête",
+   "essoufflement, sprint 5 s",
+   "nausée",
+   "vertige, lenteur I",
+   "**à vie** : essoufflement au-dessus de Y 100"
+  ],
+  "sang": "GR↑",
+  "remede_specifique": {
+   "nom": "Pilules des cimes",
+   "forme": "pilules",
+   "recette": "cordyceps + ginkgo → Yagen → Balance + miel → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de ginkgo",
+    "forme": "fiole",
+    "recette": "ginkgo + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1 : Pilules + Infusion · Prise 2 (+2 h) : Pilules",
+  "consigne": "descendre sous Y 80 pendant la cure"
+ },
+ {
+  "numero": 44,
+  "id": "insomnie_noire",
+  "nom": "Insomnie noire",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous n'arrivez plus à fermer l'œil.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "yeux lourds",
+   "paupières lourdes",
+   "irritabilité (messages), vision floue",
+   "lenteur I",
+   "hallucinations",
+   "**à vie** : paupières lourdes par moments"
+  ],
+  "sang": "rien d'anormal",
+  "remede_specifique": {
+   "nom": "Pilules de coquelicot",
+   "forme": "pilules",
+   "recette": "coquelicot → Yagen → Balance + miel → Mortier → Pilulier"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de valériane",
+    "forme": "fiole",
+    "recette": "racine de valériane + eau → Hachoir → Chaudron (fort)"
+   },
+   {
+    "nom": "Infusion de camomille et lavande",
+    "forme": "fiole",
+    "recette": "camomille + lavande + eau → Chaudron (infusion)"
+   }
+  ],
+  "traitement": "Prise 1, le soir : Décoction + Infusion, puis dormir dans un lit dans l'heure · Prise 2, au réveil : Pilules",
+  "consigne": null
+ },
+ {
+  "numero": 45,
+  "id": "sang_epais",
+  "nom": "Sang épais",
+  "rang": 2,
+  "touche_uniquement": "Groupes AB",
+  "premier_message": "Vos jambes sont lourdes, comme pleines de plomb.",
+  "jours_avant_dernier_stade": 18,
+  "stades": [
+   "jambes lourdes",
+   "lenteur I",
+   "doigts froids, mains tremblantes",
+   "maux de tête",
+   "vertige, nausée",
+   "faiblesse II",
+   "**à vie** : lenteur I et −2 cœurs max"
+  ],
+  "sang": "GR↑, PL↑ · MR : globules en grappes",
+  "remede_specifique": {
+   "nom": "Teinture de lys des nuées",
+   "forme": "fiole",
+   "recette": "lys des nuées + ginkgo + alcool fort → Jarres (4 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de saule",
+    "forme": "fiole",
+    "recette": "voir maladie 21"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Décoction · Prise 2 (+3 h) : idem · Prise 3 (+3 h) : Teinture",
+  "consigne": "pas de sprint pendant la cure"
+ },
+ {
+  "numero": 46,
+  "id": "epuisement_d_aura",
+  "nom": "Épuisement d'aura",
+  "rang": 1,
+  "touche_uniquement": null,
+  "premier_message": "Vous vous sentez creux, comme si votre énergie s'était vidée.",
+  "jours_avant_dernier_stade": 8,
+  "stades": [
+   "lassitude",
+   "coups moins puissants",
+   "paupières lourdes",
+   "faiblesse I",
+   "vertige après chaque combat",
+   "**à vie** : faiblesse I après chaque combat"
+  ],
+  "sang": "SU↓, FE↓",
+  "remede_specifique": {
+   "nom": "Bouillon de girolle et de ginseng",
+   "forme": "fiole",
+   "recette": "girolle + racine de ginseng + eau → Hachoir → Chaudron (fort) + miel"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de reishi",
+    "forme": "pilules",
+    "recette": "voir maladie 3"
+   }
+  ],
+  "traitement": "Prise 1 : Bouillon, puis dormir dans un lit · Prise 2 (+3 h) : Pilules",
+  "consigne": "aucun combat pendant la cure"
+ },
+ {
+  "numero": 47,
+  "id": "fievre_des_arenes",
+  "nom": "Fièvre des arènes",
+  "rang": 1,
+  "touche_uniquement": "Hommes",
+  "premier_message": "Vos muscles vous brûlent après l'effort.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "fièvre légère",
+   "muscles douloureux, lenteur I",
+   "sueurs, soif accélérée",
+   "faiblesse I",
+   "articulations raides, saut réduit",
+   "**à vie** : saut réduit"
+  ],
+  "sang": "GB↑ · MR : bâtonnets rouges",
+  "remede_specifique": {
+   "nom": "Teinture de morille",
+   "forme": "fiole",
+   "recette": "morille + alcool de riz → Jarres (3 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction d'échinacée",
+    "forme": "fiole",
+    "recette": "voir maladie 8"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Décoction · Prise 2 (+2 h) : Teinture · Prise 3 (+4 h) : Teinture + Décoction",
+  "consigne": "aucun combat pendant la cure"
+ },
+ {
+  "numero": 48,
+  "id": "langueur_de_lune",
+  "nom": "Langueur de lune",
+  "rang": 2,
+  "touche_uniquement": "Femmes",
+  "premier_message": "Chaque nuit, une étrange lassitude vous envahit.",
+  "jours_avant_dernier_stade": 14,
+  "stades": [
+   "fatigue la nuit",
+   "insomnie (messages)",
+   "vertige la nuit",
+   "lenteur I la nuit",
+   "faiblesse I la nuit",
+   "daltonisme la nuit (couleurs bleutées)",
+   "**à vie** : lenteur I la nuit"
+  ],
+  "sang": "GR↓, SU↓ · MR : cellules en croissant",
+  "remede_specifique": {
+   "nom": "Eau florale de lune pâle",
+   "forme": "fiole",
+   "recette": "fleur de lune pâle + eau → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de mélisse",
+    "forme": "fiole",
+    "recette": "voir maladie 7"
+   }
+  ],
+  "traitement": "Prise 1, **la nuit** : Eau florale · Prise 2 (+2 h) : Infusion · Prise 3, au réveil : Eau florale",
+  "consigne": null
+ },
+ {
+  "numero": 49,
+  "id": "fievre_de_kakin",
+  "nom": "Fièvre de Kakin",
+  "rang": 2,
+  "touche_uniquement": "Groupes A et O",
+  "premier_message": "Une chaleur pourpre vous monte au visage.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "fièvre",
+   "frissons",
+   "toux",
+   "éruption pourpre, faiblesse I",
+   "courbatures, lenteur I",
+   "délire (hallucinations)",
+   "**à vie** : −2 cœurs max"
+  ],
+  "sang": "GB↑↑, PL↓ · MR : grains pourpres",
+  "remede_specifique": {
+   "nom": "Teinture d'amanite rouge",
+   "forme": "fiole",
+   "recette": "amanite rouge séchée → Balance (dose stricte) + alcool fort → Jarres (4 h)"
+  },
+  "accompagnement": [
+   {
+    "nom": "Infusion de thé et menthe",
+    "forme": "fiole",
+    "recette": "feuilles de thé + menthe (Gourmet) + eau → Chaudron (infusion)"
+   },
+   {
+    "nom": "Sirop de réglisse",
+    "forme": "fiole",
+    "recette": "voir maladie 21"
+   }
+  ],
+  "traitement": "Prise 1 : Teinture + Infusion · Prise 2 (+3 h) : Sirop · Prise 3 (+3 h) : Teinture + Infusion",
+  "consigne": "rester au chaud"
+ },
+ {
+  "numero": 50,
+  "id": "petrification_lente",
+  "nom": "Pétrification lente",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Le bout de vos doigts est gris et froid.",
+  "jours_avant_dernier_stade": 21,
+  "stades": [
+   "peau grise par endroits",
+   "doigts raides, mains tremblantes",
+   "lenteur I",
+   "bras raides",
+   "jambes raides, lenteur II",
+   "saut impossible",
+   "immobilité de 5 s par moments",
+   "**à vie** : lenteur II et saut impossible"
+  ],
+  "sang": "GR↓, FE↑, TX+ · MR : cristaux de pierre",
+  "remede_specifique": {
+   "nom": "Onguent de la Baleine",
+   "forme": "onguent",
+   "recette": "baie de l'île de la Baleine + écailles → Yagen + huile de lin + base d'onguent → Table"
+  },
+  "accompagnement": [
+   {
+    "nom": "Décoction de fer-sang et pied-bleu",
+    "forme": "fiole",
+    "recette": "racine de fer-sang + pied-bleu + eau → Hachoir → Chaudron (fort)"
+   }
+  ],
+  "traitement": "Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem, puis dormir",
+  "consigne": "à jeun avant chaque prise"
+ },
+ {
+  "numero": 51,
+  "id": "toxine_de_fourmi_chimere",
+  "nom": "Toxine de fourmi-chimère",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Une plaie qui ne guérit pas noircit sur votre peau.",
+  "jours_avant_dernier_stade": 10,
+  "stades": [
+   "plaie qui noircit",
+   "fièvre",
+   "veines sombres (messages)",
+   "faiblesse I",
+   "lenteur II",
+   "hallucinations",
+   "désorientation par moments",
+   "**à vie** : désorientation rare et −4 cœurs max"
+  ],
+  "sang": "GB↑↑, TX+, PA+ · MR : cellules mutantes",
+  "remede_specifique": {
+   "nom": "Élixir de l'Arbre-Monde",
+   "forme": "seringue",
+   "recette": "sève de l'Arbre-Monde + trompette des morts → Mortier + alcool fort → Jarres (6 h) → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Pilules de mousse des abysses",
+    "forme": "pilules",
+    "recette": "voir maladie 24"
+   },
+   {
+    "nom": "Pilules de bourse-à-pasteur",
+    "forme": "pilules",
+    "recette": "voir maladie 18"
+   }
+  ],
+  "traitement": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de mousse des abysses · Prise 4 (+2 h) : Élixir",
+  "consigne": "repos absolu : ni sprint ni combat"
+ },
+ {
+  "numero": 52,
+  "id": "mal_du_continent_noir",
+  "nom": "Mal du Continent noir",
+  "rang": 3,
+  "touche_uniquement": null,
+  "premier_message": "Quelque chose d'inconnu s'est glissé en vous.",
+  "jours_avant_dernier_stade": 12,
+  "stades": [
+   "malaise étrange",
+   "fièvre",
+   "toux",
+   "vision tunnel",
+   "faiblesse II",
+   "daltonisme (couleurs inversées)",
+   "désorientation par moments",
+   "**à vie** : daltonisme et désorientation rare"
+  ],
+  "sang": "GB↑↑, GR↓, PL↓, TX+, PA+ · MR : spores noires inconnues",
+  "remede_specifique": {
+   "nom": "Élixir noir",
+   "forme": "seringue",
+   "recette": "encre de calamar + baie de givre + carapace de crabe → Yagen → Balance + alcool fort → Jarres (6 h) → Alambic"
+  },
+  "accompagnement": [
+   {
+    "nom": "Eau florale de lys des nuées",
+    "forme": "fiole",
+    "recette": "voir maladie 18"
+   },
+   {
+    "nom": "Élixir du lotus de l'aube",
+    "forme": "fiole",
+    "recette": "voir maladie 8"
+   }
+  ],
+  "traitement": "Prise 1 : Élixir noir + Eau florale · Prise 2 (+2 h) : Élixir du lotus · Prise 3 (+4 h) : Élixir noir · Prise 4 (+2 h) : Élixir du lotus · Prise 5 (+4 h) : Élixir noir",
+  "consigne": "à jeun avant la prise 1"
+ }
+]

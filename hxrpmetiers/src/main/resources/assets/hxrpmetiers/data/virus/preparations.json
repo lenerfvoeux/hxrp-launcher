@@ -1,0 +1,3057 @@
+{
+ "preparations": [
+  {
+   "id": "koji_culture",
+   "nom": "Koji (culture)",
+   "forme": "ingredient",
+   "ingredients": [
+    "riz",
+    "bouteille_d_eau",
+    "koji"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "jarres",
+     "heures": 12
+    }
+   ],
+   "texte": "Riz (Gourmet) cuit au Chaudron → Jarres avec un koji (12 h)",
+   "rang": 0,
+   "produit": "koji",
+   "quantite": 2,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "koji_sauvage",
+   "nom": "Koji sauvage",
+   "forme": "ingredient",
+   "ingredients": [
+    "riz",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "jarres",
+     "heures": 24
+    }
+   ],
+   "texte": "Riz cuit au Chaudron laissé 24 h dans une jarre ouverte : les spores de l'air s'y installent",
+   "rang": 0,
+   "produit": "koji",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "alcool_de_riz",
+   "nom": "Alcool de riz",
+   "forme": "base",
+   "ingredients": [
+    "riz",
+    "koji",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "jarres",
+     "heures": 6
+    },
+    {
+     "machine": "alambic",
+     "mode": "distiller"
+    }
+   ],
+   "texte": "Riz + koji + eau → Mortier → Jarres (fermentation 6 h) → Alambic",
+   "rang": 0,
+   "produit": "alcool_de_riz",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "alcool_fort",
+   "nom": "Alcool fort",
+   "forme": "base",
+   "ingredients": [
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "distiller"
+    }
+   ],
+   "texte": "Alcool de riz → Alambic (2e distillation)",
+   "rang": 0,
+   "produit": "alcool_fort",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "vinaigre_de_riz",
+   "nom": "Vinaigre de riz",
+   "forme": "base",
+   "ingredients": [
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 6,
+     "mode": "ouverte"
+    }
+   ],
+   "texte": "Alcool de riz → Jarres (6 h, ouvertes)",
+   "rang": 0,
+   "produit": "vinaigre_de_riz",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "huile_de_lin",
+   "nom": "Huile de lin",
+   "forme": "base",
+   "ingredients": [
+    "lin_graines"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "jarres",
+     "heures": 2
+    }
+   ],
+   "texte": "Graines de lin → Yagen → Jarres (décantation 2 h)",
+   "rang": 0,
+   "produit": "huile_de_lin",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "base_d_onguent",
+   "nom": "Base d'onguent",
+   "forme": "base",
+   "ingredients": [
+    "saindoux",
+    "cire_d_abeille"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "fondre"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "Saindoux + cire d'abeille → Chaudron (fondre) → Table",
+   "rang": 0,
+   "produit": "base_d_onguent",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "bandes_de_laine",
+   "nom": "Bandes de laine",
+   "forme": "base",
+   "ingredients": [
+    "laine"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "ebullition"
+    }
+   ],
+   "texte": "Laine → Hachoir → Chaudron (ébullition)",
+   "rang": 0,
+   "produit": "bandes_de_laine",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "charbon_de_bambou",
+   "nom": "Charbon de bambou",
+   "forme": "base",
+   "ingredients": [
+    "bambou"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "sec"
+    },
+    {
+     "machine": "yagen"
+    }
+   ],
+   "texte": "Bambou → Hachoir → Chaudron (à sec) → Yagen",
+   "rang": 0,
+   "produit": "charbon_de_bambou",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "charbon_d_os",
+   "nom": "Charbon d'os",
+   "forme": "base",
+   "ingredients": [
+    "os"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "sec"
+    },
+    {
+     "machine": "yagen"
+    }
+   ],
+   "texte": "Os → Chaudron (à sec, calcination) → Yagen",
+   "rang": 0,
+   "produit": "charbon_d_os",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "teinture_de_valeriane",
+   "nom": "Teinture de valériane",
+   "forme": "base",
+   "ingredients": [
+    "valeriane_racine",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "Racine de valériane → Hachoir + alcool de riz → Jarres (3 h)",
+   "rang": 2,
+   "produit": "teinture_de_valeriane",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "huile_essentielle_de_lavande",
+   "nom": "Huile essentielle de lavande",
+   "forme": "base",
+   "ingredients": [
+    "lavande",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "distiller"
+    }
+   ],
+   "texte": "Lavande + eau → Alambic (huile essentielle)",
+   "rang": 0,
+   "produit": "huile_essentielle_de_lavande",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "baume_d_arnica",
+   "nom": "Baume d'arnica",
+   "forme": "onguent",
+   "ingredients": [
+    "arnica",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier",
+     "mode": "baume"
+    },
+    {
+     "machine": "table",
+     "mode": "baume"
+    }
+   ],
+   "texte": "Arnica fraîche + base d'onguent → Hachoir → Mortier → Table",
+   "rang": 0,
+   "produit": "baume_d_arnica",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "contusions"
+  },
+  {
+   "id": "elixir_de_ginkgo",
+   "nom": "Élixir de ginkgo",
+   "forme": "fiole",
+   "ingredients": [
+    "ginkgo_feuilles",
+    "bourrache",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "Ginkgo + bourrache + eau + miel → Chaudron (infusion) → Balance → Alambic",
+   "rang": 0,
+   "produit": "elixir_de_ginkgo",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "commotion"
+  },
+  {
+   "id": "attelle_de_consoude",
+   "nom": "Attelle de consoude",
+   "forme": "attelle",
+   "ingredients": [
+    "consoude",
+    "carapace_de_crabe",
+    "base_d_onguent",
+    "peau_de_boeuf",
+    "bambou",
+    "bandes_de_laine"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "emplatre"
+    },
+    {
+     "machine": "table",
+     "mode": "attelle"
+    }
+   ],
+   "texte": "Consoude + poudre de carapace de crabe + base d'onguent + peau de bœuf + bambou + bandes de laine → Hachoir → Mortier → Table (emplâtre) → Table (attelle)",
+   "rang": 0,
+   "produit": "attelle_de_consoude",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "jambe"
+  },
+  {
+   "id": "pansement_d_achillee",
+   "nom": "Pansement d'achillée",
+   "forme": "bandage",
+   "ingredients": [
+    "achillee",
+    "bourse_a_pasteur",
+    "duvet",
+    "bandes_de_laine"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "table",
+     "mode": "pansement"
+    }
+   ],
+   "texte": "Poudre d'achillée + poudre de bourse-à-pasteur + duvet + bandes de laine → Yagen → Balance → Table",
+   "rang": 0,
+   "produit": "pansement_d_achillee",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "plaie"
+  },
+  {
+   "id": "onguent_de_souci_et_d_aloe",
+   "nom": "Onguent de souci et d'aloe",
+   "forme": "onguent",
+   "ingredients": [
+    "souci",
+    "huile_de_lin",
+    "aloe",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 3
+    },
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier",
+     "mode": "gel"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "Huile infusée de souci + gel d'aloe + base d'onguent → Jarres → Hachoir → Mortier → Table",
+   "rang": 0,
+   "produit": "onguent_de_souci_et_d_aloe",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "brulure"
+  },
+  {
+   "id": "antivenin_de_bardane",
+   "nom": "Antivenin de bardane",
+   "forme": "fiole",
+   "ingredients": [
+    "bardane_racine",
+    "plantain",
+    "charbon_d_os",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "balance"
+    }
+   ],
+   "texte": "Racine de bardane + plantain + charbon d'os + eau → Hachoir → Chaudron (décoction) → Balance",
+   "rang": 0,
+   "produit": "antivenin_de_bardane",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "morsure"
+  },
+  {
+   "id": "bandage_de_peau_de_cerf",
+   "nom": "Bandage de peau de cerf",
+   "forme": "bandage",
+   "ingredients": [
+    "peau_de_cerf",
+    "angelique_racine",
+    "saindoux"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier",
+     "mode": "baume"
+    },
+    {
+     "machine": "table",
+     "mode": "bandage"
+    }
+   ],
+   "texte": "Peau de cerf + racine d'angélique + saindoux → Hachoir → Mortier (baume) → Table",
+   "rang": 0,
+   "produit": "bandage_de_peau_de_cerf",
+   "quantite": 1,
+   "bonus": "soin_express",
+   "soin": "gelure"
+  },
+  {
+   "id": "decoction_de_saule_et_bourrache",
+   "nom": "Décoction de saule et bourrache",
+   "forme": "fiole",
+   "ingredients": [
+    "ecorce_de_saule",
+    "bourrache",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "écorce de saule + bourrache + eau → Hachoir → Chaudron (fort)",
+   "rang": 0,
+   "produit": "decoction_de_saule_et_bourrache",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "sirop_de_thym",
+   "nom": "Sirop de thym",
+   "forme": "fiole",
+   "ingredients": [
+    "thym",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "infusion de thym (Gourmet) + miel → Chaudron (réduction)",
+   "rang": 0,
+   "produit": "sirop_de_thym",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "teinture_de_propolis",
+   "nom": "Teinture de propolis",
+   "forme": "fiole",
+   "ingredients": [
+    "propolis",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 2
+    }
+   ],
+   "texte": "propolis + alcool de riz → Jarres (2 h)",
+   "rang": 0,
+   "produit": "teinture_de_propolis",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "sirop_de_guimauve_a_la_propolis",
+   "nom": "Sirop de guimauve à la propolis",
+   "forme": "fiole",
+   "ingredients": [
+    "guimauve_racine",
+    "bouteille_d_eau",
+    "teinture_de_propolis",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "racine de guimauve → Hachoir → Chaudron (décoction) + teinture de propolis + miel → Chaudron (réduction)",
+   "rang": 0,
+   "produit": "sirop_de_guimauve_a_la_propolis",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "gargarisme_de_sauge",
+   "nom": "Gargarisme de sauge",
+   "forme": "fiole",
+   "ingredients": [
+    "sauge",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "sauge + eau → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "gargarisme_de_sauge",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "injection_de_chaga_et_d_echinacee",
+   "nom": "Injection de chaga et d'échinacée",
+   "forme": "seringue",
+   "ingredients": [
+    "chaga",
+    "echinacee",
+    "bouteille_d_eau",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "chaga + racine d'échinacée → Hachoir → Chaudron (décoction) → Balance → Alambic (concentrer)",
+   "rang": 2,
+   "produit": "injection_de_chaga_et_d_echinacee",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "cataplasme_d_ail",
+   "nom": "Cataplasme d'ail",
+   "forme": "onguent",
+   "ingredients": [
+    "ail",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "cataplasme"
+    }
+   ],
+   "texte": "ail (Gourmet) + miel → Mortier → Table",
+   "rang": 2,
+   "produit": "cataplasme_d_ail",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_de_reishi",
+   "nom": "Pilules de reishi",
+   "forme": "pilules",
+   "ingredients": [
+    "reishi",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "poudre de reishi + miel → Balance → Mortier → Pilulier",
+   "rang": 1,
+   "produit": "pilules_de_reishi",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "sirop_de_lin_et_de_mousse_des_grottes",
+   "nom": "Sirop de lin et de mousse des grottes",
+   "forme": "fiole",
+   "ingredients": [
+    "lin_graines",
+    "mousse_des_grottes",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "graines de lin + mousse des grottes + eau → Chaudron (décoction) + miel → Chaudron (réduction)",
+   "rang": 1,
+   "produit": "sirop_de_lin_et_de_mousse_des_grottes",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "eau_florale_de_lavande",
+   "nom": "Eau florale de lavande",
+   "forme": "fiole",
+   "ingredients": [
+    "lavande",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "lavande + eau → Alambic",
+   "rang": 1,
+   "produit": "eau_florale_de_lavande",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "pilules_de_coquille_et_de_fenouil",
+   "nom": "Pilules de coquille et de fenouil",
+   "forme": "pilules",
+   "ingredients": [
+    "coquille_d_oeuf",
+    "fenouil_graines",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "coquille d'œuf + graines de fenouil → Yagen → Balance + miel → Mortier → Pilulier",
+   "rang": 0,
+   "produit": "pilules_de_coquille_et_de_fenouil",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "infusion_de_menthe",
+   "nom": "Infusion de menthe",
+   "forme": "fiole",
+   "ingredients": [
+    "menthe",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "menthe (Gourmet) + eau → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "infusion_de_menthe",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "onguent_de_bardane_et_millepertuis",
+   "nom": "Onguent de bardane et millepertuis",
+   "forme": "onguent",
+   "ingredients": [
+    "bardane_racine",
+    "millepertuis",
+    "huile_de_lin",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "jarres",
+     "heures": 3
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "racine de bardane → Hachoir → Yagen + huile infusée de millepertuis + base d'onguent → Table",
+   "rang": 1,
+   "produit": "onguent_de_bardane_et_millepertuis",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "decoction_d_ortie",
+   "nom": "Décoction d'ortie",
+   "forme": "fiole",
+   "ingredients": [
+    "ortie",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "ortie + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_d_ortie",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "injection_de_criniere_de_lion",
+   "nom": "Injection de crinière de lion",
+   "forme": "seringue",
+   "ingredients": [
+    "criniere_de_lion",
+    "bouteille_d_eau",
+    "teinture_de_valeriane",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "crinière de lion → Hachoir → Chaudron (décoction) + teinture de valériane → Balance → Alambic",
+   "rang": 2,
+   "produit": "injection_de_criniere_de_lion",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "infusion_de_melisse",
+   "nom": "Infusion de mélisse",
+   "forme": "fiole",
+   "ingredients": [
+    "melisse",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "mélisse + eau → Chaudron (infusion)",
+   "rang": 1,
+   "produit": "infusion_de_melisse",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "elixir_du_lotus_de_l_aube",
+   "nom": "Élixir du lotus de l'aube",
+   "forme": "fiole",
+   "ingredients": [
+    "lotus_de_l_aube",
+    "bouteille_d_eau",
+    "miel",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    },
+    {
+     "machine": "jarres",
+     "heures": 3
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "lotus de l'aube + eau → Alambic (eau florale) + miel + alcool fort → Jarres (3 h) → Alambic",
+   "rang": 3,
+   "produit": "elixir_du_lotus_de_l_aube",
+   "quantite": 1,
+   "bonus": "vigueur"
+  },
+  {
+   "id": "decoction_d_echinacee",
+   "nom": "Décoction d'échinacée",
+   "forme": "fiole",
+   "ingredients": [
+    "echinacee",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine d'échinacée + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_d_echinacee",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_de_cordyceps",
+   "nom": "Pilules de cordyceps",
+   "forme": "pilules",
+   "ingredients": [
+    "cordyceps",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "poudre de cordyceps + miel → Balance → Mortier → Pilulier",
+   "rang": 3,
+   "produit": "pilules_de_cordyceps",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "cataplasme_de_plantain",
+   "nom": "Cataplasme de plantain",
+   "forme": "onguent",
+   "ingredients": [
+    "plantain",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "cataplasme"
+    }
+   ],
+   "texte": "plantain frais + miel → Mortier → Table",
+   "rang": 0,
+   "produit": "cataplasme_de_plantain",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "sirop_de_sureau",
+   "nom": "Sirop de sureau",
+   "forme": "fiole",
+   "ingredients": [
+    "sureau_fleurs",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "fleurs de sureau + eau → Chaudron (infusion) + miel → Chaudron (réduction)",
+   "rang": 0,
+   "produit": "sirop_de_sureau",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "infusion_de_camomille_et_thym",
+   "nom": "Infusion de camomille et thym",
+   "forme": "fiole",
+   "ingredients": [
+    "camomille",
+    "thym",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "camomille + thym (Gourmet) + eau → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "infusion_de_camomille_et_thym",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "decoction_de_shiitake_et_d_angelique",
+   "nom": "Décoction de shiitake et d'angélique",
+   "forme": "fiole",
+   "ingredients": [
+    "shiitake",
+    "angelique_racine",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "shiitake + racine d'angélique + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_de_shiitake_et_d_angelique",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "onguent_d_aloe_et_de_prele",
+   "nom": "Onguent d'aloe et de prêle",
+   "forme": "onguent",
+   "ingredients": [
+    "aloe",
+    "prele",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier",
+     "mode": "gel"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "aloe → Hachoir → Mortier (gel) + prêle → Yagen + base d'onguent → Table",
+   "rang": 1,
+   "produit": "onguent_d_aloe_et_de_prele",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "infusion_de_pissenlit",
+   "nom": "Infusion de pissenlit",
+   "forme": "fiole",
+   "ingredients": [
+    "pissenlit",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "pissenlit + eau → Chaudron (infusion)",
+   "rang": 1,
+   "produit": "infusion_de_pissenlit",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "pilules_de_pollen_dore",
+   "nom": "Pilules de pollen doré",
+   "forme": "pilules",
+   "ingredients": [
+    "pollen_dore",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "pollen doré + miel → Balance → Mortier → Pilulier",
+   "rang": 1,
+   "produit": "pilules_de_pollen_dore",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "decoction_de_reglisse",
+   "nom": "Décoction de réglisse",
+   "forme": "fiole",
+   "ingredients": [
+    "reglisse_racine",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine de réglisse + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_de_reglisse",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "teinture_de_pissenlit",
+   "nom": "Teinture de pissenlit",
+   "forme": "fiole",
+   "ingredients": [
+    "pissenlit",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 2
+    }
+   ],
+   "texte": "pissenlit + alcool de riz → Jarres (2 h)",
+   "rang": 1,
+   "produit": "teinture_de_pissenlit",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "eau_florale_de_camomille",
+   "nom": "Eau florale de camomille",
+   "forme": "fiole",
+   "ingredients": [
+    "camomille",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "camomille + eau → Alambic",
+   "rang": 0,
+   "produit": "eau_florale_de_camomille",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "compresse_de_the",
+   "nom": "Compresse de thé",
+   "forme": "onguent",
+   "ingredients": [
+    "feuilles_de_the",
+    "bouteille_d_eau",
+    "bandes_de_laine"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "table",
+     "mode": "compresse"
+    }
+   ],
+   "texte": "feuilles de thé (Gourmet) + eau → Chaudron (infusion) + bandes de laine → Table",
+   "rang": 0,
+   "produit": "compresse_de_the",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_de_charbon_de_bambou",
+   "nom": "Pilules de charbon de bambou",
+   "forme": "pilules",
+   "ingredients": [
+    "charbon_de_bambou",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "charbon de bambou + miel → Balance → Mortier → Pilulier",
+   "rang": 0,
+   "produit": "pilules_de_charbon_de_bambou",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "eau_de_riz_salee",
+   "nom": "Eau de riz salée",
+   "forme": "fiole",
+   "ingredients": [
+    "riz",
+    "sel",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "table",
+     "mode": "filtrer"
+    }
+   ],
+   "texte": "riz (Gourmet) + sel (Gourmet) + eau → Chaudron (fort) → filtrer à la Table",
+   "rang": 0,
+   "produit": "eau_de_riz_salee",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "infusion_d_achillee",
+   "nom": "Infusion d'achillée",
+   "forme": "fiole",
+   "ingredients": [
+    "achillee",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "achillée + eau → Chaudron (infusion)",
+   "rang": 1,
+   "produit": "infusion_d_achillee",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "onguent_de_souci",
+   "nom": "Onguent de souci",
+   "forme": "onguent",
+   "ingredients": [
+    "souci",
+    "huile_de_lin",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 3
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "huile infusée de souci + base d'onguent → Table",
+   "rang": 1,
+   "produit": "onguent_de_souci",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "sirop_de_propolis",
+   "nom": "Sirop de propolis",
+   "forme": "fiole",
+   "ingredients": [
+    "teinture_de_propolis",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "teinture de propolis + miel → Chaudron (réduction)",
+   "rang": 1,
+   "produit": "sirop_de_propolis",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "decoction_de_ginseng_et_maitake",
+   "nom": "Décoction de ginseng et maitake",
+   "forme": "fiole",
+   "ingredients": [
+    "ginseng_racine",
+    "maitake",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine de ginseng + maitake + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_de_ginseng_et_maitake",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "teinture_de_melisse",
+   "nom": "Teinture de mélisse",
+   "forme": "fiole",
+   "ingredients": [
+    "melisse",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 2
+    }
+   ],
+   "texte": "mélisse + alcool de riz → Jarres (2 h)",
+   "rang": 1,
+   "produit": "teinture_de_melisse",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "elixir_du_chardon_de_meteor",
+   "nom": "Élixir du chardon de Meteor",
+   "forme": "seringue",
+   "ingredients": [
+    "chardon_de_meteor",
+    "bouteille_d_eau",
+    "seve_de_l_arbre_monde",
+    "alcool_fort",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "jarres",
+     "heures": 6
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "chardon de Meteor → Hachoir → Chaudron (décoction) + sève de l'Arbre-Monde + alcool fort → Jarres (6 h) → Alambic",
+   "rang": 3,
+   "produit": "elixir_du_chardon_de_meteor",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "pilules_de_bourse_a_pasteur",
+   "nom": "Pilules de bourse-à-pasteur",
+   "forme": "pilules",
+   "ingredients": [
+    "bourse_a_pasteur",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "bourse-à-pasteur → Yagen → Balance + miel → Mortier → Pilulier",
+   "rang": 2,
+   "produit": "pilules_de_bourse_a_pasteur",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "eau_florale_de_lys_des_nuees",
+   "nom": "Eau florale de lys des nuées",
+   "forme": "fiole",
+   "ingredients": [
+    "lys_des_nuees",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "lys des nuées + eau → Alambic",
+   "rang": 3,
+   "produit": "eau_florale_de_lys_des_nuees",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "pilules_de_gentiane_et_d_ail",
+   "nom": "Pilules de gentiane et d'ail",
+   "forme": "pilules",
+   "ingredients": [
+    "gentiane",
+    "ail",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "racine de gentiane → Hachoir → Yagen + ail (Gourmet) → Mortier + miel → Balance → Pilulier",
+   "rang": 0,
+   "produit": "pilules_de_gentiane_et_d_ail",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "decoction_de_fenouil",
+   "nom": "Décoction de fenouil",
+   "forme": "fiole",
+   "ingredients": [
+    "fenouil_graines",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "graines de fenouil + eau → Chaudron (fort)",
+   "rang": 0,
+   "produit": "decoction_de_fenouil",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "onguent_de_lavande_au_saindoux",
+   "nom": "Onguent de lavande au saindoux",
+   "forme": "onguent",
+   "ingredients": [
+    "huile_essentielle_de_lavande",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "lavande + eau → Alambic (huile essentielle) + base d'onguent → Table",
+   "rang": 0,
+   "produit": "onguent_de_lavande_au_saindoux",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "lotion_de_vinaigre_de_riz",
+   "nom": "Lotion de vinaigre de riz",
+   "forme": "fiole",
+   "ingredients": [
+    "vinaigre_de_riz",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    }
+   ],
+   "texte": "vinaigre de riz + eau → Mortier",
+   "rang": 0,
+   "produit": "lotion_de_vinaigre_de_riz",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "teinture_de_mousse_de_numere",
+   "nom": "Teinture de mousse de Numere",
+   "forme": "fiole",
+   "ingredients": [
+    "mousse_de_numere",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 4
+    }
+   ],
+   "texte": "mousse de Numere + alcool fort → Jarres (4 h)",
+   "rang": 1,
+   "produit": "teinture_de_mousse_de_numere",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "decoction_de_saule",
+   "nom": "Décoction de saule",
+   "forme": "fiole",
+   "ingredients": [
+    "ecorce_de_saule",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "écorce de saule + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_de_saule",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "sirop_de_reglisse",
+   "nom": "Sirop de réglisse",
+   "forme": "fiole",
+   "ingredients": [
+    "decoction_de_reglisse",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "décoction de réglisse + miel → Chaudron (réduction)",
+   "rang": 1,
+   "produit": "sirop_de_reglisse",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "teinture_d_artichaut_et_de_pissenlit",
+   "nom": "Teinture d'artichaut et de pissenlit",
+   "forme": "fiole",
+   "ingredients": [
+    "artichaut",
+    "pissenlit",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "artichaut (Gourmet) + pissenlit → Hachoir + alcool de riz → Jarres (3 h)",
+   "rang": 1,
+   "produit": "teinture_d_artichaut_et_de_pissenlit",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "pilules_de_gentiane",
+   "nom": "Pilules de gentiane",
+   "forme": "pilules",
+   "ingredients": [
+    "gentiane",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "poudre de gentiane + miel → Balance → Mortier → Pilulier",
+   "rang": 1,
+   "produit": "pilules_de_gentiane",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "sirop_de_fer_sang",
+   "nom": "Sirop de fer-sang",
+   "forme": "fiole",
+   "ingredients": [
+    "racine_de_fer_sang",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "racine de fer-sang → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)",
+   "rang": 2,
+   "produit": "sirop_de_fer_sang",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "cataplasme_d_algue_noire",
+   "nom": "Cataplasme d'algue noire",
+   "forme": "onguent",
+   "ingredients": [
+    "algue_noire",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "cataplasme"
+    }
+   ],
+   "texte": "algue noire fraîche + miel → Mortier → Table",
+   "rang": 2,
+   "produit": "cataplasme_d_algue_noire",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_de_mousse_des_abysses",
+   "nom": "Pilules de mousse des abysses",
+   "forme": "pilules",
+   "ingredients": [
+    "mousse_des_abysses",
+    "champignon_luminescent",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "mousse des abysses + champignon luminescent → Yagen → Balance + miel → Mortier → Pilulier",
+   "rang": 3,
+   "produit": "pilules_de_mousse_des_abysses",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "decoction_de_ginkgo_et_valeriane",
+   "nom": "Décoction de ginkgo et valériane",
+   "forme": "fiole",
+   "ingredients": [
+    "ginkgo_feuilles",
+    "valeriane_racine",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "ginkgo + racine de valériane + eau → Hachoir → Chaudron (fort)",
+   "rang": 3,
+   "produit": "decoction_de_ginkgo_et_valeriane",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "baume_de_romarin_au_polypore",
+   "nom": "Baume de romarin au polypore",
+   "forme": "onguent",
+   "ingredients": [
+    "romarin",
+    "polypore",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "table",
+     "mode": "baume"
+    }
+   ],
+   "texte": "romarin (Gourmet) + polypore → Yagen + base d'onguent → Table",
+   "rang": 0,
+   "produit": "baume_de_romarin_au_polypore",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "fumigation_de_plumes",
+   "nom": "Fumigation de plumes",
+   "forme": "fumigation",
+   "ingredients": [
+    "plume",
+    "polypore"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "sec"
+    }
+   ],
+   "texte": "plumes + polypore → Chaudron (à sec), le patient respire la fumée",
+   "rang": 0,
+   "produit": "fumigation_de_plumes",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "huile_d_ecorce_de_bouleau",
+   "nom": "Huile d'écorce de bouleau",
+   "forme": "onguent",
+   "ingredients": [
+    "ecorce_de_bouleau",
+    "huile_de_lin"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "écorce de bouleau → Hachoir + huile de lin → Jarres (3 h)",
+   "rang": 0,
+   "produit": "huile_d_ecorce_de_bouleau",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "poudre_de_sauge",
+   "nom": "Poudre de sauge",
+   "forme": "onguent",
+   "ingredients": [
+    "sauge"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    }
+   ],
+   "texte": "sauge → Yagen → Balance",
+   "rang": 0,
+   "produit": "poudre_de_sauge",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "onguent_de_vesse_de_loup",
+   "nom": "Onguent de vesse-de-loup",
+   "forme": "onguent",
+   "ingredients": [
+    "vesse_de_loup",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "vesse-de-loup → Yagen → Balance + base d'onguent → Table",
+   "rang": 0,
+   "produit": "onguent_de_vesse_de_loup",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "vinaigre_de_sauge",
+   "nom": "Vinaigre de sauge",
+   "forme": "fiole",
+   "ingredients": [
+    "sauge",
+    "vinaigre_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 2
+    }
+   ],
+   "texte": "sauge + vinaigre de riz → Jarres (2 h)",
+   "rang": 0,
+   "produit": "vinaigre_de_sauge",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "gargarisme_de_citron_et_thym",
+   "nom": "Gargarisme de citron et thym",
+   "forme": "fiole",
+   "ingredients": [
+    "citron",
+    "thym",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "citron (Gourmet) + thym (Gourmet) + eau → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "gargarisme_de_citron_et_thym",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "infusion_de_sauge_au_miel",
+   "nom": "Infusion de sauge au miel",
+   "forme": "fiole",
+   "ingredients": [
+    "sauge",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "sauge + eau + miel → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "infusion_de_sauge_au_miel",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "decoction_de_reishi",
+   "nom": "Décoction de reishi",
+   "forme": "fiole",
+   "ingredients": [
+    "reishi",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte_long"
+    }
+   ],
+   "texte": "reishi + eau → Hachoir → Chaudron (fort, long)",
+   "rang": 2,
+   "produit": "decoction_de_reishi",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "eau_florale_de_thym",
+   "nom": "Eau florale de thym",
+   "forme": "fiole",
+   "ingredients": [
+    "thym",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "thym (Gourmet) + eau → Alambic",
+   "rang": 2,
+   "produit": "eau_florale_de_thym",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "teinture_de_coprin",
+   "nom": "Teinture de coprin",
+   "forme": "fiole",
+   "ingredients": [
+    "coprin",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "coprin + alcool fort → Jarres (3 h)",
+   "rang": 1,
+   "produit": "teinture_de_coprin",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "onguent_de_kukuroo",
+   "nom": "Onguent de Kukuroo",
+   "forme": "onguent",
+   "ingredients": [
+    "feuille_de_kukuroo",
+    "bolet_cendre",
+    "huile_de_lin",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "feuille de Kukuroo + bolet cendré → Yagen + huile de lin + base d'onguent → Table",
+   "rang": 2,
+   "produit": "onguent_de_kukuroo",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "decoction_de_cordyceps",
+   "nom": "Décoction de cordyceps",
+   "forme": "fiole",
+   "ingredients": [
+    "cordyceps",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "cordyceps + eau → Hachoir → Chaudron (fort)",
+   "rang": 2,
+   "produit": "decoction_de_cordyceps",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_de_charbon_d_os",
+   "nom": "Pilules de charbon d'os",
+   "forme": "pilules",
+   "ingredients": [
+    "charbon_d_os",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "charbon d'os + miel → Balance → Mortier → Pilulier",
+   "rang": 0,
+   "produit": "pilules_de_charbon_d_os",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "infusion_de_menthe_et_reglisse",
+   "nom": "Infusion de menthe et réglisse",
+   "forme": "fiole",
+   "ingredients": [
+    "menthe",
+    "reglisse_racine",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "menthe (Gourmet) + réglisse + eau → Hachoir → Chaudron (infusion)",
+   "rang": 0,
+   "produit": "infusion_de_menthe_et_reglisse",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "teinture_de_coriandre",
+   "nom": "Teinture de coriandre",
+   "forme": "fiole",
+   "ingredients": [
+    "coriandre",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "coriandre (Gourmet) + alcool de riz → Jarres (3 h)",
+   "rang": 1,
+   "produit": "teinture_de_coriandre",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "antidote_de_defense_de_sanglier",
+   "nom": "Antidote de défense de sanglier",
+   "forme": "fiole",
+   "ingredients": [
+    "defense_de_sanglier",
+    "infusion_de_melisse",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "défense de sanglier → Yagen → Balance + infusion de mélisse + miel → Chaudron",
+   "rang": 1,
+   "produit": "antidote_de_defense_de_sanglier",
+   "quantite": 1,
+   "bonus": "vigueur"
+  },
+  {
+   "id": "cataplasme_d_aloe",
+   "nom": "Cataplasme d'aloe",
+   "forme": "onguent",
+   "ingredients": [
+    "aloe"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "cataplasme"
+    }
+   ],
+   "texte": "aloe → Hachoir → Mortier → Table",
+   "rang": 0,
+   "produit": "cataplasme_d_aloe",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "decoction_d_oreille_de_judas",
+   "nom": "Décoction d'oreille de Judas",
+   "forme": "fiole",
+   "ingredients": [
+    "oreille_de_judas",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "oreille de Judas + eau → Hachoir → Chaudron (fort)",
+   "rang": 0,
+   "produit": "decoction_d_oreille_de_judas",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "sirop_de_pleurote",
+   "nom": "Sirop de pleurote",
+   "forme": "fiole",
+   "ingredients": [
+    "pleurote",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "pleurote + eau → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)",
+   "rang": 1,
+   "produit": "sirop_de_pleurote",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "eau_florale_de_menthe",
+   "nom": "Eau florale de menthe",
+   "forme": "fiole",
+   "ingredients": [
+    "menthe",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "menthe (Gourmet) + eau → Alambic",
+   "rang": 1,
+   "produit": "eau_florale_de_menthe",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "antivenin_de_kakin",
+   "nom": "Antivenin de Kakin",
+   "forme": "seringue",
+   "ingredients": [
+    "orchidee_de_kakin",
+    "alcool_fort",
+    "charbon_d_os",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 2
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "orchidée de Kakin + alcool fort → Jarres (2 h) + poudre de charbon d'os → Balance → Chaudron → Alambic",
+   "rang": 2,
+   "produit": "antivenin_de_kakin",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "breuvage_de_valeriane",
+   "nom": "Breuvage de valériane",
+   "forme": "fiole",
+   "ingredients": [
+    "valeriane_racine",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine de valériane + eau → Hachoir → Chaudron (fort) + miel",
+   "rang": 2,
+   "produit": "breuvage_de_valeriane",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "elixir_de_l_aigle_araignee",
+   "nom": "Élixir de l'aigle-araignée",
+   "forme": "fiole",
+   "ingredients": [
+    "oeuf_d_aigle_araignee",
+    "truffe_noire",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "jarres",
+     "heures": 6
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "œuf d'aigle-araignée + truffe noire → Mortier + alcool fort → Jarres (6 h) → Alambic",
+   "rang": 3,
+   "produit": "elixir_de_l_aigle_araignee",
+   "quantite": 1,
+   "bonus": "vigueur"
+  },
+  {
+   "id": "sirop_d_aubepine",
+   "nom": "Sirop d'aubépine",
+   "forme": "fiole",
+   "ingredients": [
+    "aubepine_baies",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "baies d'aubépine + eau → Mortier → Chaudron (infusion) + miel → Chaudron (réduction)",
+   "rang": 0,
+   "produit": "sirop_d_aubepine",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "sirop_d_ortie",
+   "nom": "Sirop d'ortie",
+   "forme": "fiole",
+   "ingredients": [
+    "ortie",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "reduction"
+    }
+   ],
+   "texte": "ortie + eau → Hachoir → Chaudron (fort) + miel → Chaudron (réduction)",
+   "rang": 0,
+   "produit": "sirop_d_ortie",
+   "quantite": 1,
+   "bonus": "apaisement"
+  },
+  {
+   "id": "eau_florale_de_menthe_glacee",
+   "nom": "Eau florale de menthe glacée",
+   "forme": "fiole",
+   "ingredients": [
+    "menthe",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    },
+    {
+     "machine": "table",
+     "mode": "refroidir"
+    }
+   ],
+   "texte": "menthe (Gourmet) + eau → Alambic, puis refroidir à la Table",
+   "rang": 0,
+   "produit": "eau_florale_de_menthe_glacee",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "decoction_de_bois_de_cerf",
+   "nom": "Décoction de bois de cerf",
+   "forme": "fiole",
+   "ingredients": [
+    "bois_de_cerf",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte_long"
+    }
+   ],
+   "texte": "bois de cerf → Yagen + eau → Chaudron (fort, long) + miel",
+   "rang": 0,
+   "produit": "decoction_de_bois_de_cerf",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pilules_des_cimes",
+   "nom": "Pilules des cimes",
+   "forme": "pilules",
+   "ingredients": [
+    "cordyceps",
+    "ginkgo_feuilles",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "cordyceps + ginkgo → Yagen → Balance + miel → Mortier → Pilulier",
+   "rang": 1,
+   "produit": "pilules_des_cimes",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "infusion_de_ginkgo",
+   "nom": "Infusion de ginkgo",
+   "forme": "fiole",
+   "ingredients": [
+    "ginkgo_feuilles",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "ginkgo + eau → Chaudron (infusion)",
+   "rang": 1,
+   "produit": "infusion_de_ginkgo",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "pilules_de_coquelicot",
+   "nom": "Pilules de coquelicot",
+   "forme": "pilules",
+   "ingredients": [
+    "coquelicot",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "pilulier"
+    }
+   ],
+   "texte": "coquelicot → Yagen → Balance + miel → Mortier → Pilulier",
+   "rang": 1,
+   "produit": "pilules_de_coquelicot",
+   "quantite": 1,
+   "bonus": "convalescence"
+  },
+  {
+   "id": "decoction_de_valeriane",
+   "nom": "Décoction de valériane",
+   "forme": "fiole",
+   "ingredients": [
+    "valeriane_racine",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine de valériane + eau → Hachoir → Chaudron (fort)",
+   "rang": 1,
+   "produit": "decoction_de_valeriane",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "infusion_de_camomille_et_lavande",
+   "nom": "Infusion de camomille et lavande",
+   "forme": "fiole",
+   "ingredients": [
+    "camomille",
+    "lavande",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "camomille + lavande + eau → Chaudron (infusion)",
+   "rang": 1,
+   "produit": "infusion_de_camomille_et_lavande",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "teinture_de_lys_des_nuees",
+   "nom": "Teinture de lys des nuées",
+   "forme": "fiole",
+   "ingredients": [
+    "lys_des_nuees",
+    "ginkgo_feuilles",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 4
+    }
+   ],
+   "texte": "lys des nuées + ginkgo + alcool fort → Jarres (4 h)",
+   "rang": 2,
+   "produit": "teinture_de_lys_des_nuees",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "bouillon_de_girolle_et_de_ginseng",
+   "nom": "Bouillon de girolle et de ginseng",
+   "forme": "fiole",
+   "ingredients": [
+    "girolle",
+    "ginseng_racine",
+    "bouteille_d_eau",
+    "miel"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "girolle + racine de ginseng + eau → Hachoir → Chaudron (fort) + miel",
+   "rang": 1,
+   "produit": "bouillon_de_girolle_et_de_ginseng",
+   "quantite": 1,
+   "bonus": "rassasie"
+  },
+  {
+   "id": "teinture_de_morille",
+   "nom": "Teinture de morille",
+   "forme": "fiole",
+   "ingredients": [
+    "morille",
+    "alcool_de_riz"
+   ],
+   "etapes": [
+    {
+     "machine": "jarres",
+     "heures": 3
+    }
+   ],
+   "texte": "morille + alcool de riz → Jarres (3 h)",
+   "rang": 1,
+   "produit": "teinture_de_morille",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "eau_florale_de_lune_pale",
+   "nom": "Eau florale de lune pâle",
+   "forme": "fiole",
+   "ingredients": [
+    "fleur_de_lune_pale",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "eau_florale"
+    }
+   ],
+   "texte": "fleur de lune pâle + eau → Alambic",
+   "rang": 2,
+   "produit": "eau_florale_de_lune_pale",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "teinture_d_amanite_rouge",
+   "nom": "Teinture d'amanite rouge",
+   "forme": "fiole",
+   "ingredients": [
+    "amanite_rouge",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "sec"
+    },
+    {
+     "machine": "balance",
+     "mode": "stricte"
+    },
+    {
+     "machine": "jarres",
+     "heures": 4
+    }
+   ],
+   "texte": "amanite rouge séchée → Balance (dose stricte) + alcool fort → Jarres (4 h)",
+   "rang": 2,
+   "produit": "teinture_d_amanite_rouge",
+   "quantite": 1,
+   "bonus": "resistance"
+  },
+  {
+   "id": "infusion_de_the_et_menthe",
+   "nom": "Infusion de thé et menthe",
+   "forme": "fiole",
+   "ingredients": [
+    "feuilles_de_the",
+    "menthe",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "douce"
+    }
+   ],
+   "texte": "feuilles de thé + menthe (Gourmet) + eau → Chaudron (infusion)",
+   "rang": 2,
+   "produit": "infusion_de_the_et_menthe",
+   "quantite": 1,
+   "bonus": "rafraichi"
+  },
+  {
+   "id": "onguent_de_la_baleine",
+   "nom": "Onguent de la Baleine",
+   "forme": "onguent",
+   "ingredients": [
+    "baie_de_l_ile_de_la_baleine",
+    "ecailles",
+    "huile_de_lin",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "table",
+     "mode": "onguent"
+    }
+   ],
+   "texte": "baie de l'île de la Baleine + écailles → Yagen + huile de lin + base d'onguent → Table",
+   "rang": 3,
+   "produit": "onguent_de_la_baleine",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "decoction_de_fer_sang_et_pied_bleu",
+   "nom": "Décoction de fer-sang et pied-bleu",
+   "forme": "fiole",
+   "ingredients": [
+    "racine_de_fer_sang",
+    "pied_bleu",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "forte"
+    }
+   ],
+   "texte": "racine de fer-sang + pied-bleu + eau → Hachoir → Chaudron (fort)",
+   "rang": 3,
+   "produit": "decoction_de_fer_sang_et_pied_bleu",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "elixir_de_l_arbre_monde",
+   "nom": "Élixir de l'Arbre-Monde",
+   "forme": "seringue",
+   "ingredients": [
+    "seve_de_l_arbre_monde",
+    "trompette_des_morts",
+    "alcool_fort",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "jarres",
+     "heures": 6
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "sève de l'Arbre-Monde + trompette des morts → Mortier + alcool fort → Jarres (6 h) → Alambic",
+   "rang": 3,
+   "produit": "elixir_de_l_arbre_monde",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "elixir_noir",
+   "nom": "Élixir noir",
+   "forme": "seringue",
+   "ingredients": [
+    "encre_de_calamar",
+    "baie_de_givre",
+    "carapace_de_crabe",
+    "alcool_fort",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "jarres",
+     "heures": 6
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "encre de calamar + baie de givre + carapace de crabe → Yagen → Balance + alcool fort → Jarres (6 h) → Alambic",
+   "rang": 3,
+   "produit": "elixir_noir",
+   "quantite": 1,
+   "bonus": "immunite"
+  },
+  {
+   "id": "poudre_des_trente_quatre_plantes",
+   "nom": "Poudre des trente-quatre plantes",
+   "forme": "base",
+   "ingredients": [
+    "camomille",
+    "souci",
+    "pissenlit",
+    "plantain",
+    "lavande",
+    "coquelicot",
+    "bourrache",
+    "echinacee",
+    "achillee",
+    "bourse_a_pasteur",
+    "arnica",
+    "gentiane",
+    "sauge",
+    "fenouil_graines",
+    "reglisse_racine",
+    "lin_graines",
+    "consoude",
+    "guimauve_racine",
+    "prele",
+    "melisse",
+    "millepertuis",
+    "ortie",
+    "valeriane_racine",
+    "bardane_racine",
+    "sureau_fleurs",
+    "aubepine_baies",
+    "angelique_racine",
+    "ginkgo_feuilles",
+    "ecorce_de_bouleau",
+    "ecorce_de_saule",
+    "ginseng_racine",
+    "aloe",
+    "bambou",
+    "mousse_des_grottes"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "balance"
+    }
+   ],
+   "texte": "Un exemplaire de chacune des 34 plantes → Hachoir → Yagen → Balance",
+   "rang": 3,
+   "produit": "poudre_des_trente_quatre_plantes",
+   "quantite": 1,
+   "bonus": "regeneration",
+   "secret": true
+  },
+  {
+   "id": "teinture_des_vingt_champignons",
+   "nom": "Teinture des vingt champignons",
+   "forme": "base",
+   "ingredients": [
+    "pleurote",
+    "oreille_de_judas",
+    "coprin",
+    "vesse_de_loup",
+    "girolle",
+    "pied_bleu",
+    "koji",
+    "shiitake",
+    "maitake",
+    "polypore",
+    "morille",
+    "trompette_des_morts",
+    "amanite_rouge",
+    "criniere_de_lion",
+    "reishi",
+    "chaga",
+    "cordyceps",
+    "truffe_noire",
+    "champignon_luminescent",
+    "bolet_cendre",
+    "alcool_fort"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "jarres",
+     "heures": 12
+    }
+   ],
+   "texte": "Un exemplaire de chacun des 20 champignons + alcool fort → Hachoir → Jarres (12 h)",
+   "rang": 3,
+   "produit": "teinture_des_vingt_champignons",
+   "quantite": 1,
+   "bonus": "resistance",
+   "secret": true
+  },
+  {
+   "id": "essence_des_quinze_raretes",
+   "nom": "Essence des quinze raretés",
+   "forme": "base",
+   "ingredients": [
+    "fleur_de_lune_pale",
+    "algue_noire",
+    "baie_de_givre",
+    "pollen_dore",
+    "mousse_de_numere",
+    "baie_de_l_ile_de_la_baleine",
+    "feuille_de_kukuroo",
+    "oeuf_d_aigle_araignee",
+    "chardon_de_meteor",
+    "lys_des_nuees",
+    "orchidee_de_kakin",
+    "racine_de_fer_sang",
+    "mousse_des_abysses",
+    "lotus_de_l_aube",
+    "seve_de_l_arbre_monde",
+    "bouteille_d_eau"
+   ],
+   "etapes": [
+    {
+     "machine": "alambic",
+     "mode": "distiller"
+    }
+   ],
+   "texte": "Un exemplaire de chacune des 15 raretés + eau → Alambic",
+   "rang": 3,
+   "produit": "essence_des_quinze_raretes",
+   "quantite": 1,
+   "bonus": "regeneration",
+   "secret": true
+  },
+  {
+   "id": "baume_des_quinze_ressources",
+   "nom": "Baume des quinze ressources",
+   "forme": "base",
+   "ingredients": [
+    "plume",
+    "duvet",
+    "laine",
+    "saindoux",
+    "os",
+    "coquille_d_oeuf",
+    "ecailles",
+    "peau_de_boeuf",
+    "peau_de_cerf",
+    "bois_de_cerf",
+    "defense_de_sanglier",
+    "carapace_de_crabe",
+    "encre_de_calamar",
+    "cire_d_abeille",
+    "propolis",
+    "base_d_onguent"
+   ],
+   "etapes": [
+    {
+     "machine": "yagen"
+    },
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "table",
+     "mode": "baume"
+    }
+   ],
+   "texte": "Un exemplaire de chacune des 15 ressources animales et de ruche + base d'onguent → Yagen → Mortier → Table",
+   "rang": 3,
+   "produit": "baume_des_quinze_ressources",
+   "quantite": 1,
+   "bonus": "regeneration",
+   "secret": true
+  },
+  {
+   "id": "cendre_doree",
+   "nom": "Cendre dorée",
+   "forme": "base",
+   "ingredients": [
+    "hxrpphenix:plume_de_phenix"
+   ],
+   "etapes": [
+    {
+     "machine": "chaudron",
+     "mode": "sec"
+    }
+   ],
+   "texte": "Plume de phénix → Chaudron (à sec)",
+   "rang": 3,
+   "produit": "cendre_doree",
+   "quantite": 1,
+   "bonus": "regeneration",
+   "secret": true
+  },
+  {
+   "id": "remede_du_second_souffle",
+   "nom": "Remède du Second Souffle",
+   "forme": "seringue",
+   "ingredients": [
+    "poudre_des_trente_quatre_plantes",
+    "teinture_des_vingt_champignons",
+    "essence_des_quinze_raretes",
+    "baume_des_quinze_ressources",
+    "cendre_doree",
+    "seringue_vide"
+   ],
+   "etapes": [
+    {
+     "machine": "balance"
+    },
+    {
+     "machine": "jarres",
+     "heures": 24
+    },
+    {
+     "machine": "alambic",
+     "mode": "concentrer"
+    }
+   ],
+   "texte": "Tout réunir : Balance → Jarres (24 h) → Alambic → seringue",
+   "rang": 3,
+   "produit": "remede_du_second_souffle",
+   "quantite": 1,
+   "bonus": "immunite",
+   "secret": true
+  }
+ ]
+}

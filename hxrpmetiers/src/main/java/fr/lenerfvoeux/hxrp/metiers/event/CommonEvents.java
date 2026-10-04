@@ -77,8 +77,8 @@ public final class CommonEvents {
         if (d == null) return;
         boolean exempt = p.capabilities.isCreativeMode || p.isSpectator();
         if (!exempt && p.isEntityAlive()) {
-            d.faim = Math.max(0, d.faim - NutritionData.MAX / (ModConfig.dureeFaimMinutes * 1200.0));
-            d.soif = Math.max(0, d.soif - NutritionData.MAX / (ModConfig.dureeSoifMinutes * 1200.0));
+            d.faim = Math.max(0, d.faim - NutritionData.MAX / (ModConfig.dureeFaimMinutes * 1200.0) * fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.multFaim(p));
+            d.soif = Math.max(0, d.soif - NutritionData.MAX / (ModConfig.dureeSoifMinutes * 1200.0) * fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.multSoif(p));
             if (d.soif <= 0) {
                 p.attackEntityFrom(SOIF, Float.MAX_VALUE);
             }
@@ -172,7 +172,8 @@ public final class CommonEvents {
         EntityPlayerMP p = (EntityPlayerMP) e.getEntityLiving();
         NutritionData d = Nutrition.get(p);
         if (d == null) return;
-        d.addFaim(((ItemFood) s.getItem()).getHealAmount(s) * ModConfig.multiplicateurVanilla);
+        d.addFaim(((ItemFood) s.getItem()).getHealAmount(s) * ModConfig.multiplicateurVanilla * fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.facteurNourriture(p));
+        fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.nourritureVanille(p, s);
         d.setCooldown(FoodEffects.key(s), System.currentTimeMillis() + ModConfig.cooldownAutresHeures * Fraicheur.HOUR);
         Network.sync(p);
     }

@@ -20,6 +20,7 @@ public final class Network {
         NET.registerMessage(MsgLancer.Handler.class, MsgLancer.class, 3, Side.SERVER);
         NET.registerMessage(MsgResultat.Handler.class, MsgResultat.class, 4, Side.SERVER);
         NET.registerMessage(MsgDebut.Handler.class, MsgDebut.class, 5, Side.SERVER);
+        fr.lenerfvoeux.hxrp.metiers.virus.network.ReseauVirus.init(NET);
     }
 
     public static void sync(EntityPlayerMP p) {

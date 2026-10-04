@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/meuble_a_tiroirs"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/meuble_a_tiroirs",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/meuble_a_tiroirs",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/meuble_a_tiroirs",
+   "y": 270
+  }
+ }
+}

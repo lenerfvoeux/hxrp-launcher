@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
-    public static final int FRIGO = 0, POUBELLE = 1;
+    public static final int FRIGO = 0, POUBELLE = 1, MEUBLE = 10;
 
     @Override
     public Object getServerGuiElement(int id, EntityPlayer p, World w, int x, int y, int z) {
@@ -19,6 +19,11 @@ public class GuiHandler implements IGuiHandler {
             return te instanceof TileFrigo ? new ContainerFrigo(p.inventory, (TileFrigo) te) : null;
         }
         if (id == POUBELLE) return new ContainerPoubelle(p.inventory, pos);
+        if (id == MEUBLE) {
+            TileEntity te = w.getTileEntity(pos);
+            return te instanceof fr.lenerfvoeux.hxrp.metiers.virus.block.TileMeuble
+                    ? new fr.lenerfvoeux.hxrp.metiers.virus.block.ContainerMeuble(p.inventory, (fr.lenerfvoeux.hxrp.metiers.virus.block.TileMeuble) te) : null;
+        }
         return null;
     }
 
@@ -30,6 +35,11 @@ public class GuiHandler implements IGuiHandler {
             return te instanceof TileFrigo ? new GuiFrigo(new ContainerFrigo(p.inventory, (TileFrigo) te)) : null;
         }
         if (id == POUBELLE) return new GuiPoubelle(new ContainerPoubelle(p.inventory, pos));
+        if (id == MEUBLE) {
+            TileEntity te = w.getTileEntity(pos);
+            return te instanceof fr.lenerfvoeux.hxrp.metiers.virus.block.TileMeuble
+                    ? new fr.lenerfvoeux.hxrp.metiers.virus.client.GuiMeuble(new fr.lenerfvoeux.hxrp.metiers.virus.block.ContainerMeuble(p.inventory, (fr.lenerfvoeux.hxrp.metiers.virus.block.TileMeuble) te)) : null;
+        }
         return null;
     }
 }

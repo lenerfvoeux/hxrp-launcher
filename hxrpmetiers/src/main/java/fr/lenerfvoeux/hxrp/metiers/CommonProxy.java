@@ -15,4 +15,8 @@ public class CommonProxy {
     /** Cooldown restant (ms) pour un aliment, vu du côté logique demandé. */
     public long clientCooldownLeft(String key) { return 0; }
     public EntityPlayer clientPlayer() { return null; }
+    /** Messages du Hunter Virus pour le client (ignorés côté serveur). */
+    public void messageVirus(net.minecraftforge.fml.common.network.simpleimpl.IMessage msg) {}
+    /** Ouvre la lecture d'une ordonnance, d'un carnet ou d'un parchemin (client). */
+    public void ouvrirLectureVirus(net.minecraft.item.ItemStack s) {}
 }

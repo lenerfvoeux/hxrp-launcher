@@ -29,7 +29,7 @@ import java.util.Random;
 
 /**
  * Ruche sauvage accrochée aux troncs. Elle se remplit de miel avec le temps ;
- * clic droit avec une fiole vide sur une ruche pleine pour récolter du miel.
+ * clic droit avec une fiole vide sur une ruche pleine pour récolter du miel, ou main vide pour la cire et la propolis.
  */
 public class BlockRuche extends Block {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -70,6 +70,15 @@ public class BlockRuche extends Block {
     @Override
     public boolean onBlockActivated(World w, BlockPos pos, IBlockState s, EntityPlayer p, EnumHand hand, EnumFacing f, float hx, float hy, float hz) {
         ItemStack tenu = p.getHeldItem(hand);
+        // main vide : cire d'abeille et un peu de propolis pour l'apothicaire
+        if (tenu.isEmpty() && s.getValue(PLEINE) && hand == EnumHand.MAIN_HAND) {
+            if (!fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI.recolterRuche(p)) return false;
+            if (!w.isRemote) {
+                w.setBlockState(pos, s.withProperty(PLEINE, false), 2);
+                w.playSound(null, pos, SoundEvents.BLOCK_SLIME_BREAK, SoundCategory.BLOCKS, 0.7f, 1.3f);
+            }
+            return true;
+        }
         if (tenu.getItem() != Items.GLASS_BOTTLE || !s.getValue(PLEINE)) return false;
         if (!w.isRemote) {
             if (!p.capabilities.isCreativeMode) tenu.shrink(1);

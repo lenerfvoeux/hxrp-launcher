@@ -1,0 +1,1284 @@
+{
+ "repris_du_gourmet": {
+  "riz": "riz",
+  "miel": "miel",
+  "ail": "ail",
+  "menthe": "menthe",
+  "thym": "thym",
+  "romarin": "romarin",
+  "coriandre": "coriandre",
+  "citron": "citron",
+  "feuilles de thé": "feuilles_de_the",
+  "artichaut": "artichaut",
+  "lait": "lait",
+  "œuf": "oeuf",
+  "sel": "sel",
+  "bouteille d'eau": "bouteille_d_eau"
+ },
+ "ingredients": [
+  {
+   "id": "camomille",
+   "nom": "Camomille",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "souci",
+   "nom": "Souci",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "pissenlit",
+   "nom": "Pissenlit",
+   "categorie": "plante",
+   "source": "Plaines, prairies",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines",
+     "prairies"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "plantain",
+   "nom": "Plantain",
+   "categorie": "plante",
+   "source": "Partout sur l'herbe",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "partout"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "lavande",
+   "nom": "Lavande",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "coquelicot",
+   "nom": "Coquelicot",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 48,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "bourrache",
+   "nom": "Bourrache",
+   "categorie": "plante",
+   "source": "Plaines fleuries",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines",
+     "prairies"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "echinacee",
+   "nom": "Échinacée",
+   "categorie": "plante",
+   "source": "Plaines fleuries",
+   "rarete": "peu commune",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines",
+     "prairies"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "achillee",
+   "nom": "Achillée",
+   "categorie": "plante",
+   "source": "Prairies, collines",
+   "rarete": "commune",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "prairies",
+     "collines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "bourse_a_pasteur",
+   "nom": "Bourse-à-pasteur",
+   "categorie": "plante",
+   "source": "Prairies, bords de chemin",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "prairies",
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "arnica",
+   "nom": "Arnica",
+   "categorie": "plante",
+   "source": "Prairies d'altitude",
+   "rarete": "peu commune",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "montagne",
+     "collines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "gentiane",
+   "nom": "Gentiane",
+   "categorie": "plante",
+   "source": "Prairies d'altitude",
+   "rarete": "peu commune",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "montagne",
+     "collines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "sauge",
+   "nom": "Sauge",
+   "categorie": "plante",
+   "source": "Savanes, collines sèches",
+   "rarete": "commune",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "savane",
+     "collines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "fenouil_graines",
+   "nom": "Fenouil (graines)",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 480,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "reglisse_racine",
+   "nom": "Réglisse (racine)",
+   "categorie": "plante",
+   "source": "Savanes",
+   "rarete": "peu commune",
+   "vie": 480,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "savane"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "lin_graines",
+   "nom": "Lin (graines)",
+   "categorie": "plante",
+   "source": "Plaines",
+   "rarete": "commune",
+   "vie": 480,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "consoude",
+   "nom": "Consoude",
+   "categorie": "plante",
+   "source": "Bords de rivière, marais",
+   "rarete": "peu commune",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "riviere",
+     "marais"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "guimauve_racine",
+   "nom": "Guimauve (racine)",
+   "categorie": "plante",
+   "source": "Marais",
+   "rarete": "peu commune",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "marais"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "prele",
+   "nom": "Prêle",
+   "categorie": "plante",
+   "source": "Marais, bords de rivière",
+   "rarete": "commune",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "marais",
+     "riviere"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "melisse",
+   "nom": "Mélisse",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "millepertuis",
+   "nom": "Millepertuis",
+   "categorie": "plante",
+   "source": "Forêts claires",
+   "rarete": "peu commune",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret_claire",
+     "foret"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "ortie",
+   "nom": "Ortie",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "commune",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "valeriane_racine",
+   "nom": "Valériane (racine)",
+   "categorie": "plante",
+   "source": "Forêts",
+   "rarete": "peu commune",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "bardane_racine",
+   "nom": "Bardane (racine)",
+   "categorie": "plante",
+   "source": "Lisières de forêt",
+   "rarete": "commune",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "lisiere",
+     "foret"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "sureau_fleurs",
+   "nom": "Sureau (fleurs)",
+   "categorie": "plante",
+   "source": "Lisières de forêt",
+   "rarete": "commune",
+   "vie": 48,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "lisiere",
+     "foret"
+    ],
+    "sol": "herbe",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "aubepine_baies",
+   "nom": "Aubépine (baies)",
+   "categorie": "plante",
+   "source": "Haies, lisières",
+   "rarete": "commune",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "lisiere",
+     "plaines"
+    ],
+    "sol": "herbe",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "angelique_racine",
+   "nom": "Angélique (racine)",
+   "categorie": "plante",
+   "source": "Forêts humides",
+   "rarete": "peu commune",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret_humide",
+     "marais"
+    ],
+    "sol": "herbe"
+   }
+  },
+  {
+   "id": "ginkgo_feuilles",
+   "nom": "Ginkgo (feuilles)",
+   "categorie": "plante",
+   "source": "Forêts de bouleaux",
+   "rarete": "peu commune",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret_bouleau"
+    ],
+    "sol": "herbe",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "ecorce_de_bouleau",
+   "nom": "Écorce de bouleau",
+   "categorie": "plante",
+   "source": "Forêts de bouleaux",
+   "rarete": "commune",
+   "vie": 720,
+   "recolte": {
+    "type": "ecorce",
+    "bois": "bouleau"
+   }
+  },
+  {
+   "id": "ecorce_de_saule",
+   "nom": "Écorce de saule",
+   "categorie": "plante",
+   "source": "Marais, rivières",
+   "rarete": "commune",
+   "vie": 720,
+   "recolte": {
+    "type": "ecorce",
+    "bois": "saule"
+   }
+  },
+  {
+   "id": "ginseng_racine",
+   "nom": "Ginseng (racine)",
+   "categorie": "plante",
+   "source": "Taïgas",
+   "rarete": "rare",
+   "vie": 480,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "taiga"
+    ],
+    "sol": "foret"
+   }
+  },
+  {
+   "id": "aloe",
+   "nom": "Aloe",
+   "categorie": "plante",
+   "source": "Déserts",
+   "rarete": "commune",
+   "vie": 168,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "desert"
+    ],
+    "sol": "sable"
+   }
+  },
+  {
+   "id": "bambou",
+   "nom": "Bambou",
+   "categorie": "plante",
+   "source": "Jungles",
+   "rarete": "commune",
+   "vie": 720,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "jungle"
+    ],
+    "sol": "herbe",
+    "haut": true
+   }
+  },
+  {
+   "id": "mousse_des_grottes",
+   "nom": "Mousse des grottes",
+   "categorie": "plante",
+   "source": "Murs humides des grottes",
+   "rarete": "commune",
+   "vie": 120,
+   "recolte": {
+    "type": "sol",
+    "bloc": "pierre_moussue_humide"
+   }
+  },
+  {
+   "id": "pleurote",
+   "nom": "Pleurote",
+   "categorie": "champignon",
+   "source": "Troncs morts",
+   "rarete": "commun",
+   "vie": 48,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "foret",
+     "foret_claire",
+     "lisiere"
+    ],
+    "bois": "chene"
+   }
+  },
+  {
+   "id": "oreille_de_judas",
+   "nom": "Oreille de Judas",
+   "categorie": "champignon",
+   "source": "Troncs de sureau",
+   "rarete": "commun",
+   "vie": 72,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "lisiere",
+     "foret",
+     "marais"
+    ],
+    "bois": "tous"
+   }
+  },
+  {
+   "id": "coprin",
+   "nom": "Coprin",
+   "categorie": "champignon",
+   "source": "Prairies après la pluie",
+   "rarete": "commun",
+   "vie": 24,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "prairies",
+     "plaines"
+    ],
+    "sol": "herbe",
+    "champignon": true,
+    "pluie": true
+   }
+  },
+  {
+   "id": "vesse_de_loup",
+   "nom": "Vesse-de-loup",
+   "categorie": "champignon",
+   "source": "Prairies",
+   "rarete": "commun",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "prairies",
+     "plaines"
+    ],
+    "sol": "herbe",
+    "champignon": true
+   }
+  },
+  {
+   "id": "girolle",
+   "nom": "Girolle",
+   "categorie": "champignon",
+   "source": "Forêts",
+   "rarete": "commun",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "pied_bleu",
+   "nom": "Pied-bleu",
+   "categorie": "champignon",
+   "source": "Forêts",
+   "rarete": "commun",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret",
+     "foret_sombre"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "koji",
+   "nom": "Koji",
+   "categorie": "champignon",
+   "source": "Cultivé sur riz cuit dans une jarre",
+   "rarete": "commun",
+   "vie": 96,
+   "recolte": {
+    "type": "jarres"
+   }
+  },
+  {
+   "id": "shiitake",
+   "nom": "Shiitake",
+   "categorie": "champignon",
+   "source": "Troncs morts des forêts sombres",
+   "rarete": "peu commun",
+   "vie": 72,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "foret_sombre"
+    ],
+    "bois": "chene_noir"
+   }
+  },
+  {
+   "id": "maitake",
+   "nom": "Maitake",
+   "categorie": "champignon",
+   "source": "Pied des chênes",
+   "rarete": "peu commun",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret",
+     "foret_sombre"
+    ],
+    "sol": "foret",
+    "champignon": true,
+    "pres_chene": true
+   }
+  },
+  {
+   "id": "polypore",
+   "nom": "Polypore",
+   "categorie": "champignon",
+   "source": "Troncs de bouleau",
+   "rarete": "peu commun",
+   "vie": 240,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "foret_bouleau"
+    ],
+    "bois": "bouleau"
+   }
+  },
+  {
+   "id": "morille",
+   "nom": "Morille",
+   "categorie": "champignon",
+   "source": "Forêts brûlées, sols cendreux",
+   "rarete": "peu commun",
+   "vie": 48,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret",
+     "savane",
+     "taiga"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "trompette_des_morts",
+   "nom": "Trompette des morts",
+   "categorie": "champignon",
+   "source": "Forêts sombres",
+   "rarete": "peu commun",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret_sombre"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "amanite_rouge",
+   "nom": "Amanite rouge",
+   "categorie": "champignon",
+   "source": "Forêts de conifères (toxique, à doser)",
+   "rarete": "peu commun",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "taiga",
+     "taiga_enneigee"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "criniere_de_lion",
+   "nom": "Crinière de lion",
+   "categorie": "champignon",
+   "source": "Troncs de vieux arbres",
+   "rarete": "rare",
+   "vie": 72,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "foret_sombre",
+     "foret"
+    ],
+    "bois": "chene_noir"
+   }
+  },
+  {
+   "id": "reishi",
+   "nom": "Reishi",
+   "categorie": "champignon",
+   "source": "Forêts sombres, pied des chênes noirs",
+   "rarete": "rare",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "foret_sombre"
+    ],
+    "sol": "foret",
+    "champignon": true,
+    "pres_chene": true
+   }
+  },
+  {
+   "id": "chaga",
+   "nom": "Chaga",
+   "categorie": "champignon",
+   "source": "Troncs de bouleau, biomes froids",
+   "rarete": "rare",
+   "vie": 480,
+   "recolte": {
+    "type": "tronc",
+    "milieux": [
+     "taiga",
+     "taiga_enneigee",
+     "foret_bouleau"
+    ],
+    "bois": "bouleau"
+   }
+  },
+  {
+   "id": "cordyceps",
+   "nom": "Cordyceps",
+   "categorie": "champignon",
+   "source": "Taïgas enneigées, sur insectes morts",
+   "rarete": "rare",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "taiga_enneigee"
+    ],
+    "sol": "neige",
+    "champignon": true
+   }
+  },
+  {
+   "id": "truffe_noire",
+   "nom": "Truffe noire",
+   "categorie": "champignon",
+   "source": "Sous terre près des chênes (creuser)",
+   "rarete": "rare",
+   "vie": 96,
+   "recolte": {
+    "type": "sol",
+    "bloc": "terre_truffiere"
+   }
+  },
+  {
+   "id": "champignon_luminescent",
+   "nom": "Champignon luminescent",
+   "categorie": "champignon",
+   "source": "Grottes profondes",
+   "rarete": "rare",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "grotte_profonde"
+    ],
+    "sol": "pierre",
+    "champignon": true,
+    "lumiere": 7
+   }
+  },
+  {
+   "id": "bolet_cendre",
+   "nom": "Bolet cendré",
+   "categorie": "champignon",
+   "source": "Montagnes de Kukuroo",
+   "rarete": "rare",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "montagne_boisee",
+     "montagne"
+    ],
+    "sol": "foret",
+    "champignon": true
+   }
+  },
+  {
+   "id": "fleur_de_lune_pale",
+   "nom": "Fleur de lune pâle",
+   "categorie": "rare_hunter",
+   "source": "Plaines, n'éclot que la nuit",
+   "rarete": "rare",
+   "vie": 48,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plaines"
+    ],
+    "sol": "herbe",
+    "nuit": true,
+    "lumiere": 5
+   }
+  },
+  {
+   "id": "algue_noire",
+   "nom": "Algue noire",
+   "categorie": "rare_hunter",
+   "source": "Fond des marais",
+   "rarete": "rare",
+   "vie": 72,
+   "recolte": {
+    "type": "sol",
+    "bloc": "vase_a_algue_noire"
+   }
+  },
+  {
+   "id": "baie_de_givre",
+   "nom": "Baie de givre",
+   "categorie": "rare_hunter",
+   "source": "Pics glacés",
+   "rarete": "rare",
+   "vie": 168,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "pics_glaces"
+    ],
+    "sol": "neige",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "pollen_dore",
+   "nom": "Pollen doré",
+   "categorie": "rare_hunter",
+   "source": "Fleur solitaire des déserts, à l'aube",
+   "rarete": "rare",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "desert"
+    ],
+    "sol": "sable",
+    "aube": true
+   }
+  },
+  {
+   "id": "mousse_de_numere",
+   "nom": "Mousse de Numere",
+   "categorie": "rare_hunter",
+   "source": "Marais de Numere",
+   "rarete": "rare",
+   "vie": 96,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "marais"
+    ],
+    "sol": "herbe",
+    "tapis": true
+   }
+  },
+  {
+   "id": "baie_de_l_ile_de_la_baleine",
+   "nom": "Baie de l'île de la Baleine",
+   "categorie": "rare_hunter",
+   "source": "Rivages des îles",
+   "rarete": "rare",
+   "vie": 120,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "plage"
+    ],
+    "sol": "sable",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "feuille_de_kukuroo",
+   "nom": "Feuille de Kukuroo",
+   "categorie": "rare_hunter",
+   "source": "Montagnes boisées de Kukuroo",
+   "rarete": "très rare",
+   "vie": 168,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "montagne_boisee"
+    ],
+    "sol": "foret",
+    "arbuste": true
+   }
+  },
+  {
+   "id": "oeuf_d_aigle_araignee",
+   "nom": "Œuf d'aigle-araignée",
+   "categorie": "rare_hunter",
+   "source": "Nids sur falaises et ravins",
+   "rarete": "très rare",
+   "vie": 96,
+   "recolte": {
+    "type": "nid"
+   }
+  },
+  {
+   "id": "chardon_de_meteor",
+   "nom": "Chardon de Meteor",
+   "categorie": "rare_hunter",
+   "source": "Terres arides",
+   "rarete": "très rare",
+   "vie": 240,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "aride",
+     "savane",
+     "desert"
+    ],
+    "sol": "sable"
+   }
+  },
+  {
+   "id": "lys_des_nuees",
+   "nom": "Lys des nuées",
+   "categorie": "rare_hunter",
+   "source": "Sommets au-dessus de Y 110",
+   "rarete": "très rare",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "montagne",
+     "pics_glaces",
+     "montagne_boisee"
+    ],
+    "sol": "montagne",
+    "ymin": 110
+   }
+  },
+  {
+   "id": "orchidee_de_kakin",
+   "nom": "Orchidée de Kakin",
+   "categorie": "rare_hunter",
+   "source": "Cœur des jungles, à l'ombre",
+   "rarete": "très rare",
+   "vie": 72,
+   "recolte": {
+    "type": "plante",
+    "milieux": [
+     "jungle"
+    ],
+    "sol": "foret",
+    "ombre": true
+   }
+  },
+  {
+   "id": "racine_de_fer_sang",
+   "nom": "Racine de fer-sang",
+   "categorie": "rare_hunter",
+   "source": "Grottes sous Y 20",
+   "rarete": "très rare",
+   "vie": 480,
+   "recolte": {
+    "type": "sol",
+    "bloc": "roche_a_fer_sang"
+   }
+  },
+  {
+   "id": "mousse_des_abysses",
+   "nom": "Mousse des abysses",
+   "categorie": "rare_hunter",
+   "source": "Grottes sous Y 12, lumineuse",
+   "rarete": "très rare",
+   "vie": 168,
+   "recolte": {
+    "type": "sol",
+    "bloc": "roche_des_abysses"
+   }
+  },
+  {
+   "id": "lotus_de_l_aube",
+   "nom": "Lotus de l'aube",
+   "categorie": "rare_hunter",
+   "source": "Rivières, une fleur par zone, repousse en 3 jours",
+   "rarete": "légendaire",
+   "vie": 48,
+   "recolte": {
+    "type": "lotus"
+   }
+  },
+  {
+   "id": "seve_de_l_arbre_monde",
+   "nom": "Sève de l'Arbre-Monde",
+   "categorie": "rare_hunter",
+   "source": "Événement ou lieu placé par les admins",
+   "rarete": "légendaire",
+   "vie": 168,
+   "recolte": {
+    "type": "arbre"
+   }
+  },
+  {
+   "id": "plume",
+   "nom": "Plume",
+   "categorie": "animal_ruche",
+   "source": "Poulets, canards, dindes du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "chicken",
+     "canard",
+     "dinde"
+    ]
+   }
+  },
+  {
+   "id": "duvet",
+   "nom": "Duvet",
+   "categorie": "animal_ruche",
+   "source": "Canards du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "canard"
+    ]
+   }
+  },
+  {
+   "id": "laine",
+   "nom": "Laine",
+   "categorie": "animal_ruche",
+   "source": "Moutons du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "sheep"
+    ]
+   }
+  },
+  {
+   "id": "saindoux",
+   "nom": "Saindoux",
+   "categorie": "animal_ruche",
+   "source": "Porcs du Gourmet",
+   "rarete": "commun",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "pig"
+    ]
+   }
+  },
+  {
+   "id": "os",
+   "nom": "Os",
+   "categorie": "animal_ruche",
+   "source": "Tous les animaux du Gourmet",
+   "rarete": "commun",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "tous"
+    ]
+   }
+  },
+  {
+   "id": "coquille_d_oeuf",
+   "nom": "Coquille d'œuf",
+   "categorie": "animal_ruche",
+   "source": "Œufs du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "oeuf"
+   }
+  },
+  {
+   "id": "ecailles",
+   "nom": "Écailles",
+   "categorie": "animal_ruche",
+   "source": "Poissons du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "poissons"
+    ]
+   }
+  },
+  {
+   "id": "peau_de_boeuf",
+   "nom": "Peau de bœuf",
+   "categorie": "animal_ruche",
+   "source": "Bœufs du Gourmet",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "cow"
+    ]
+   }
+  },
+  {
+   "id": "peau_de_cerf",
+   "nom": "Peau de cerf",
+   "categorie": "animal_ruche",
+   "source": "Cerfs du Gourmet",
+   "rarete": "peu commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "cerf"
+    ]
+   }
+  },
+  {
+   "id": "bois_de_cerf",
+   "nom": "Bois de cerf",
+   "categorie": "animal_ruche",
+   "source": "Cerfs du Gourmet",
+   "rarete": "peu commun",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "cerf"
+    ]
+   }
+  },
+  {
+   "id": "defense_de_sanglier",
+   "nom": "Défense de sanglier",
+   "categorie": "animal_ruche",
+   "source": "Sangliers du Gourmet",
+   "rarete": "peu commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "sanglier"
+    ]
+   }
+  },
+  {
+   "id": "carapace_de_crabe",
+   "nom": "Carapace de crabe",
+   "categorie": "animal_ruche",
+   "source": "Crabes du Gourmet",
+   "rarete": "peu commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "crabe"
+    ]
+   }
+  },
+  {
+   "id": "encre_de_calamar",
+   "nom": "Encre de calamar",
+   "categorie": "animal_ruche",
+   "source": "Calamars du Gourmet",
+   "rarete": "peu commune",
+   "vie": 0,
+   "recolte": {
+    "type": "animal",
+    "de": [
+     "squid"
+    ]
+   }
+  },
+  {
+   "id": "cire_d_abeille",
+   "nom": "Cire d'abeille",
+   "categorie": "animal_ruche",
+   "source": "Ruches sauvages (forêts)",
+   "rarete": "commune",
+   "vie": 0,
+   "recolte": {
+    "type": "ruche"
+   }
+  },
+  {
+   "id": "propolis",
+   "nom": "Propolis",
+   "categorie": "animal_ruche",
+   "source": "Ruches sauvages, en petite quantité",
+   "rarete": "peu commune",
+   "vie": 0,
+   "recolte": {
+    "type": "ruche"
+   }
+  }
+ ]
+}

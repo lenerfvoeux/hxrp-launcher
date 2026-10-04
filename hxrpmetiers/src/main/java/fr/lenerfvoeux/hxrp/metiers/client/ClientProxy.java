@@ -48,4 +48,14 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public EntityPlayer clientPlayer() { return Minecraft.getMinecraft().player; }
+
+    @Override
+    public void messageVirus(net.minecraftforge.fml.common.network.simpleimpl.IMessage msg) {
+        Minecraft.getMinecraft().addScheduledTask(() -> fr.lenerfvoeux.hxrp.metiers.virus.client.ClientVirus.recevoir(msg));
+    }
+
+    @Override
+    public void ouvrirLectureVirus(net.minecraft.item.ItemStack s) {
+        fr.lenerfvoeux.hxrp.metiers.virus.client.jeu.ClientJeux.lire(s);
+    }
 }

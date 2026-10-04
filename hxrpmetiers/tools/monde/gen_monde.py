@@ -185,9 +185,13 @@ def main():
     for fichier in ('fr_fr.lang', 'en_us.lang'):
         p = os.path.join(A, 'lang', fichier)
         txt = open(p, encoding='utf-8').read()
-        if LANG_DEBUT in txt:
-            txt = txt[:txt.index(LANG_DEBUT)].rstrip('\n') + '\n'
-        txt += LANG_DEBUT + '\n' + '\n'.join(lang) + '\n' + LANG_FIN + '\n'
+        bloc = LANG_DEBUT + '\n' + '\n'.join(lang) + '\n' + LANG_FIN + '\n'
+        if LANG_DEBUT in txt and LANG_FIN in txt[txt.index(LANG_DEBUT):]:
+            i = txt.index(LANG_DEBUT)
+            j = txt.index(LANG_FIN, i) + len(LANG_FIN)
+            txt = txt[:i] + bloc.rstrip('\n') + txt[j:]
+        else:
+            txt = txt.rstrip('\n') + '\n' + bloc
         open(p, 'w', encoding='utf-8').write(txt)
 
     ecrire(os.path.join(A, 'data', 'recolte.json'), recolte)
