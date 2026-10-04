@@ -1,0 +1,7 @@
+{
+ "_virus": true,
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "hxrpmetiers:items/virus/decoction_de_reishi"
+ }
+}

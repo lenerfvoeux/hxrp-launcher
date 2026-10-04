@@ -1,0 +1,8 @@
+{
+ "_virus": true,
+ "parent": "block/cube_column",
+ "textures": {
+  "side": "hxrpmetiers:blocks/virus/monde/seve_cote",
+  "end": "hxrpmetiers:blocks/virus/monde/seve_dessus"
+ }
+}

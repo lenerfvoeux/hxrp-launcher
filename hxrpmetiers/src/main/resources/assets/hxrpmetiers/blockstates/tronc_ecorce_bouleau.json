@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "axis=y": {
+   "model": "hxrpmetiers:virus/monde/tronc_ecorce_bouleau"
+  },
+  "axis=z": {
+   "model": "hxrpmetiers:virus/monde/tronc_ecorce_bouleau",
+   "x": 90
+  },
+  "axis=x": {
+   "model": "hxrpmetiers:virus/monde/tronc_ecorce_bouleau",
+   "x": 90,
+   "y": 90
+  },
+  "axis=none": {
+   "model": "hxrpmetiers:virus/monde/tronc_ecorce_bouleau"
+  }
+ }
+}

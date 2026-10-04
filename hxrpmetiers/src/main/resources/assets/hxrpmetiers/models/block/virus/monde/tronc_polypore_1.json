@@ -1,0 +1,148 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/tronc_polypore",
+  "virus_monde_tronc_polypore": "hxrpmetiers:blocks/virus/monde/tronc_polypore"
+ },
+ "elements": [
+  {
+   "from": [
+    4.4,
+    8,
+    0
+   ],
+   "to": [
+    11.6,
+    10.4,
+    4.8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      7.2,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      7.2,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      4.8,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      4.8,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      7.2,
+      4.8
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      7.2,
+      4.8
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    }
+   }
+  },
+  {
+   "from": [
+    5.2,
+    5.5,
+    0
+   ],
+   "to": [
+    10.8,
+    7.9,
+    6.8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      5.6,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      5.6,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      6.8,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      6.8,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      5.6,
+      6.8
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      5.6,
+      6.8
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    }
+   }
+  }
+ ]
+}

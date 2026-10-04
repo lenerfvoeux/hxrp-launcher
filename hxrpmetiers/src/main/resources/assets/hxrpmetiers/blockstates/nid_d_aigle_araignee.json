@@ -1,0 +1,14 @@
+{
+ "_virus": true,
+ "variants": {
+  "oeufs=0": {
+   "model": "hxrpmetiers:virus/monde/nid_0"
+  },
+  "oeufs=1": {
+   "model": "hxrpmetiers:virus/monde/nid_1"
+  },
+  "oeufs=2": {
+   "model": "hxrpmetiers:virus/monde/nid_2"
+  }
+ }
+}

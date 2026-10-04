@@ -1,0 +1,79 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/tronc_chaga",
+  "virus_monde_tronc_chaga": "hxrpmetiers:blocks/virus/monde/tronc_chaga"
+ },
+ "elements": [
+  {
+   "from": [
+    4.5,
+    5.0,
+    0
+   ],
+   "to": [
+    11.5,
+    11.0,
+    4.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_chaga",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_chaga"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_chaga"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_chaga"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      4.0
+     ],
+     "texture": "#virus_monde_tronc_chaga"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      4.0
+     ],
+     "texture": "#virus_monde_tronc_chaga"
+    }
+   }
+  }
+ ]
+}

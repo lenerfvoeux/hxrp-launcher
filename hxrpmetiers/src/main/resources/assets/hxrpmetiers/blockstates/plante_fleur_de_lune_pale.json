@@ -1,0 +1,14 @@
+{
+ "_virus": true,
+ "variants": {
+  "age=0": {
+   "model": "hxrpmetiers:virus/monde/plante_fleur_de_lune_pale_0"
+  },
+  "age=1": {
+   "model": "hxrpmetiers:virus/monde/plante_fleur_de_lune_pale_1"
+  },
+  "age=2": {
+   "model": "hxrpmetiers:virus/monde/plante_fleur_de_lune_pale_2"
+  }
+ }
+}

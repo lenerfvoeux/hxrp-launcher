@@ -1,0 +1,7 @@
+{
+ "_virus": true,
+ "parent": "block/cube_all",
+ "textures": {
+  "all": "hxrpmetiers:blocks/virus/monde/terre_truffiere"
+ }
+}

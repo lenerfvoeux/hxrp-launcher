@@ -1,0 +1,14 @@
+{
+ "_virus": true,
+ "variants": {
+  "age=0": {
+   "model": "hxrpmetiers:virus/monde/plante_ginseng_racine_0"
+  },
+  "age=1": {
+   "model": "hxrpmetiers:virus/monde/plante_ginseng_racine_1"
+  },
+  "age=2": {
+   "model": "hxrpmetiers:virus/monde/plante_ginseng_racine_2"
+  }
+ }
+}

@@ -33,6 +33,9 @@ jobs:
       - name: Banc d'essai des mini-jeux
         run: sh tools/test/banc.sh
 
+      - name: Ressources du Hunter Virus (modèles, textures, noms)
+        run: python3 tools/virus/verifier_ressources.py
+
       - name: Compiler le mod
         run: ./gradlew build --no-daemon --stacktrace -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64
 
@@ -43,8 +46,10 @@ jobs:
           unzip -l "$J" > contenu.txt
           n() { grep -Ec "$1" contenu.txt; }
           echo "classes $(n '\.class$') · icônes $(n 'textures/items/.*\.png') · blocs $(n 'blockstates/.*\.json') · modèles $(n 'models/.*\.json')"
-          test "$(n 'textures/items/.*\.png')" -ge 360
-          test "$(n 'blockstates/.*\.json')" -ge 131
+          test "$(n 'textures/items/.*\.png')" -ge 570
+          test "$(n 'blockstates/.*\.json')" -ge 212
+          test "$(n 'textures/items/virus/.*\.png')" -ge 211
+          test "$(n 'data/virus/.*\.json')" -eq 4
           test "$(n 'textures/blocks/monde/cultures/.*\.png')" -ge 207
           test "$(n 'data/recolte\.json')" -eq 1
           unzip -p "$J" mcmod.info | grep -q '"version": "0.6.0"'

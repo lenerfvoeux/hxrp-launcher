@@ -1,0 +1,8 @@
+{
+ "_virus": true,
+ "parent": "block/cube_column",
+ "textures": {
+  "side": "hxrpmetiers:blocks/virus/monde/tronc_ecorce_saule",
+  "end": "hxrpmetiers:blocks/virus/monde/tronc_ecorce_saule_bout"
+ }
+}

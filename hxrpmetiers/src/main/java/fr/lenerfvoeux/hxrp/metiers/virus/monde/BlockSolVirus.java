@@ -36,7 +36,7 @@ public class BlockSolVirus extends Block {
         super(materiau(d.recolte.bloc), couleur(d.recolte.bloc));
         this.def = d;
         this.id = d.recolte.bloc;
-        this.roche = blockMaterial == Material.ROCK;
+        this.roche = materiau(d.recolte.bloc) == Material.ROCK;
         setRegistryName(HxrpMetiers.MODID, id);
         setTranslationKey(HxrpMetiers.MODID + "." + id);
         setHardness(roche ? 1.8f : 0.7f);

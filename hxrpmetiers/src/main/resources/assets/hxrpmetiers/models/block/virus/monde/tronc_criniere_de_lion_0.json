@@ -1,0 +1,283 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/tronc_criniere_de_lion",
+  "virus_monde_tronc_criniere_de_lion": "hxrpmetiers:blocks/virus/monde/tronc_criniere_de_lion"
+ },
+ "elements": [
+  {
+   "from": [
+    6.0,
+    5,
+    0
+   ],
+   "to": [
+    10.0,
+    8.0,
+    3.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      3.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      3.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      3.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    }
+   }
+  },
+  {
+   "from": [
+    6.25,
+    4.0,
+    1
+   ],
+   "to": [
+    7.25,
+    5,
+    2.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    }
+   }
+  },
+  {
+   "from": [
+    7.5,
+    4.0,
+    1
+   ],
+   "to": [
+    8.5,
+    5,
+    2.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    }
+   }
+  },
+  {
+   "from": [
+    8.75,
+    4.0,
+    1
+   ],
+   "to": [
+    9.75,
+    5,
+    2.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.0
+     ],
+     "texture": "#virus_monde_tronc_criniere_de_lion"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/tronc_polypore",
+  "virus_monde_tronc_polypore": "hxrpmetiers:blocks/virus/monde/tronc_polypore"
+ },
+ "elements": [
+  {
+   "from": [
+    6.0,
+    7.5,
+    0
+   ],
+   "to": [
+    10.0,
+    9.9,
+    2.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      2.0,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      2.0,
+      2.4
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      2.0
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      4.0,
+      2.0
+     ],
+     "texture": "#virus_monde_tronc_polypore"
+    }
+   }
+  }
+ ]
+}

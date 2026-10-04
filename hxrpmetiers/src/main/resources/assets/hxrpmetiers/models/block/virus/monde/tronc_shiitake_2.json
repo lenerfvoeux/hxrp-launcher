@@ -1,0 +1,217 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/tronc_shiitake",
+  "virus_monde_tronc_shiitake": "hxrpmetiers:blocks/virus/monde/tronc_shiitake"
+ },
+ "elements": [
+  {
+   "from": [
+    3.5,
+    8,
+    0
+   ],
+   "to": [
+    12.5,
+    9.2,
+    6.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      9.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      9.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      9.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      9.0,
+      6.0
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    }
+   }
+  },
+  {
+   "from": [
+    4.5,
+    5.5,
+    0
+   ],
+   "to": [
+    11.5,
+    6.7,
+    8.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      8.5,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      8.5,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      8.5
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      7.0,
+      8.5
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    }
+   }
+  },
+  {
+   "from": [
+    5.0,
+    10.5,
+    0
+   ],
+   "to": [
+    11.0,
+    11.7,
+    5.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake",
+     "cullface": "north"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      5.5,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      5.5,
+      1.2
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      5.5
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      6.0,
+      5.5
+     ],
+     "texture": "#virus_monde_tronc_shiitake"
+    }
+   }
+  }
+ ]
+}

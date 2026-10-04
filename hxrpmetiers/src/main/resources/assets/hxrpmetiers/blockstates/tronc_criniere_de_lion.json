@@ -1,0 +1,50 @@
+{
+ "_virus": true,
+ "variants": {
+  "age=0,facing=north": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_0"
+  },
+  "age=0,facing=east": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_0",
+   "y": 90
+  },
+  "age=0,facing=south": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_0",
+   "y": 180
+  },
+  "age=0,facing=west": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_0",
+   "y": 270
+  },
+  "age=1,facing=north": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_1"
+  },
+  "age=1,facing=east": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_1",
+   "y": 90
+  },
+  "age=1,facing=south": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_1",
+   "y": 180
+  },
+  "age=1,facing=west": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_1",
+   "y": 270
+  },
+  "age=2,facing=north": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_2"
+  },
+  "age=2,facing=east": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_2",
+   "y": 90
+  },
+  "age=2,facing=south": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_2",
+   "y": 180
+  },
+  "age=2,facing=west": {
+   "model": "hxrpmetiers:virus/monde/tronc_criniere_de_lion_2",
+   "y": 270
+  }
+ }
+}

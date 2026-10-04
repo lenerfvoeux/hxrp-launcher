@@ -25,6 +25,9 @@ import donnees  # noqa: E402
 import outils  # noqa: E402
 import machines  # noqa: E402
 import interfaces  # noqa: E402
+import ingredients_icones  # noqa: E402
+import preparations_icones  # noqa: E402
+import flore  # noqa: E402
 import sons  # noqa: E402
 import zfight  # noqa: E402
 import mc_render  # noqa: E402
@@ -97,6 +100,103 @@ def planche(images, chemin, echelle=3, cols=10):
     im.save(chemin)
 
 
+def monde(ingredients, lang):
+    """Plantes, champignons de tronc, sols, troncs écorcés, nid, lotus, source de sève : textures, modèles, états, noms."""
+    tdir = os.path.join(A, 'textures', 'blocks', 'virus', 'monde')
+    mdir = os.path.join(A, 'models', 'block', 'virus', 'monde')
+    os.makedirs(tdir, exist_ok=True)
+    T = M + ':blocks/virus/monde/'
+    noms = {i['id']: i['nom'] for i in ingredients}
+    apercu = []
+    for ing in ingredients:
+        id, r = ing['id'], ing['recolte']
+        if r['type'] == 'plante':
+            variantes = {}
+            for s in range(3):
+                im = flore.plante(id, s)
+                im.save(os.path.join(tdir, 'plante_%s_%d.png' % (id, s)))
+                if id in flore.TAPIS:
+                    modele = {MARQUE: True, 'parent': 'block/thin_block', 'ambientocclusion': False,
+                              'textures': {'particle': T + 'plante_%s_%d' % (id, s), 'tapis': T + 'plante_%s_%d' % (id, s)},
+                              'elements': [{'from': [0, 0, 0], 'to': [16, 0.5, 16],
+                                            'faces': {'up': {'uv': [0, 0, 16, 16], 'texture': '#tapis'},
+                                                      'down': {'uv': [0, 0, 16, 16], 'texture': '#tapis', 'cullface': 'down'}}}]}
+                else:
+                    modele = {MARQUE: True, 'parent': 'block/cross', 'textures': {'cross': T + 'plante_%s_%d' % (id, s)}}
+                ecrire(os.path.join(mdir, 'plante_%s_%d.json' % (id, s)), modele)
+                variantes['age=%d' % s] = {'model': M + ':virus/monde/plante_%s_%d' % (id, s)}
+                if s == 2:
+                    apercu.append(('plante_' + id, im))
+            etats('plante_' + id, variantes)
+            lang.append('tile.%s.plante_%s.name=%s (plante)' % (M, id, noms[id]))
+        elif r['type'] == 'tronc':
+            flore.texture_tronc(id).image().save(os.path.join(tdir, 'tronc_%s.png' % id))
+            variantes = {}
+            for age in range(3):
+                mo = flore.modele_tronc(id, age)
+                ecrire(os.path.join(mdir, 'tronc_%s_%d.json' % (id, age)), mo.json())
+                for f, y in (('north', 0), ('east', 90), ('south', 180), ('west', 270)):
+                    v = {'model': M + ':virus/monde/tronc_%s_%d' % (id, age)}
+                    if y:
+                        v['y'] = y
+                    variantes['age=%d,facing=%s' % (age, f)] = v
+            etats('tronc_' + id, variantes)
+            lang.append('tile.%s.tronc_%s.name=%s (sur le tronc)' % (M, id, noms[id]))
+        elif r['type'] == 'sol':
+            bloc = r['bloc']
+            flore.sol(bloc).image().save(os.path.join(tdir, bloc + '.png'))
+            ecrire(os.path.join(mdir, bloc + '.json'), {MARQUE: True, 'parent': 'block/cube_all', 'textures': {'all': T + bloc}})
+            etats(bloc, {'normal': {'model': M + ':virus/monde/' + bloc}})
+            modele_objet_bloc(bloc, 'virus/monde/' + bloc)
+            lang.append('tile.%s.%s.name=%s' % (M, bloc, NOMS_SOLS[bloc]))
+            apercu.append((bloc, flore.sol(bloc).image()))
+    # troncs écorcés
+    for bouleau, nom in ((True, 'bouleau'), (False, 'saule')):
+        id = 'tronc_ecorce_' + nom
+        flore.tronc_ecorce(bouleau).image().save(os.path.join(tdir, id + '.png'))
+        flore.tronc_ecorce(bouleau, bout=True).image().save(os.path.join(tdir, id + '_bout.png'))
+        ecrire(os.path.join(mdir, id + '.json'), {MARQUE: True, 'parent': 'block/cube_column', 'textures': {'side': T + id, 'end': T + id + '_bout'}})
+        mm = M + ':virus/monde/' + id
+        etats(id, {'axis=y': {'model': mm}, 'axis=z': {'model': mm, 'x': 90}, 'axis=x': {'model': mm, 'x': 90, 'y': 90}, 'axis=none': {'model': mm}})
+        lang.append('tile.%s.%s.name=Tronc de %s écorcé' % (M, id, nom))
+    # nid d'aigle-araignée
+    flore.texture_brindilles().image().save(os.path.join(tdir, 'brindilles.png'))
+    flore.texture_oeuf().image().save(os.path.join(tdir, 'oeuf_aigle.png'))
+    variantes = {}
+    for n in range(3):
+        ecrire(os.path.join(mdir, 'nid_%d.json' % n), flore.modele_nid(n).json())
+        variantes['oeufs=%d' % n] = {'model': M + ':virus/monde/nid_%d' % n}
+    etats('nid_d_aigle_araignee', variantes)
+    modele_objet_bloc('nid_d_aigle_araignee', 'virus/monde/nid_2')
+    lang.append("tile.%s.nid_d_aigle_araignee.name=Nid d'aigle-araignée" % M)
+    # lotus de l'aube
+    flore.texture_lotus_feuille().image().save(os.path.join(tdir, 'lotus_feuille.png'))
+    flore.texture_lotus_fleur(True).image().save(os.path.join(tdir, 'lotus_fleur.png'))
+    flore.texture_lotus_fleur(False).image().save(os.path.join(tdir, 'lotus_bouton.png'))
+    for fleuri in (True, False):
+        mo = flore.modele_lotus(fleuri)
+        ecrire(os.path.join(mdir, mo.name + '.json'), mo.json())
+    etats('lotus_de_l_aube_plante', {'fleuri=true': {'model': M + ':virus/monde/lotus_fleuri'},
+                                     'fleuri=false': {'model': M + ':virus/monde/lotus_bouton'}})
+    ic = icone(flore.icone_lotus_plante)
+    ic.save(os.path.join(A, 'textures', 'items', 'virus', 'lotus_de_l_aube_plante.png'))
+    modele_objet('lotus_de_l_aube_plante', 'items/virus/lotus_de_l_aube_plante')
+    lang.append("tile.%s.lotus_de_l_aube_plante.name=Lotus de l'aube (plante)" % M)
+    # source de sève de l'Arbre-Monde
+    flore.seve('cote').image().save(os.path.join(tdir, 'seve_cote.png'))
+    flore.seve('dessus').image().save(os.path.join(tdir, 'seve_dessus.png'))
+    ecrire(os.path.join(mdir, 'source_de_seve.json'), {MARQUE: True, 'parent': 'block/cube_column', 'textures': {'side': T + 'seve_cote', 'end': T + 'seve_dessus'}})
+    etats('source_de_seve', {'normal': {'model': M + ':virus/monde/source_de_seve'}})
+    modele_objet_bloc('source_de_seve', 'virus/monde/source_de_seve')
+    lang.append("tile.%s.source_de_seve.name=Source de sève de l'Arbre-Monde" % M)
+    # planche d'aperçu des plantes mûres et des sols
+    planche(apercu, os.path.join(PREVIEW, 'virus_monde.png'), echelle=2, cols=12)
+
+
+NOMS_SOLS = {'pierre_moussue_humide': 'Pierre moussue humide', 'terre_truffiere': 'Terre truffière',
+             'vase_a_algue_noire': 'Vase à algue noire', 'roche_a_fer_sang': 'Roche à fer-sang', 'roche_des_abysses': 'Roche des abysses'}
+
+
 def main():
     preps, maladies, blessures = donnees.main()
     nettoyer()
@@ -116,6 +216,39 @@ def main():
         lang.append('item.%s.%s.name=%s' % (M, id, noms_outils[id]))
         apercus.append((id, ic))
     planche(apercus, os.path.join(PREVIEW, 'virus_outils.png'))
+
+    # ------------------------------------------------------------------ ingrédients et préparations
+    lang.append('itemGroup.%s.virus_ingredients=Hunter Virus · Ingrédients' % M)
+    lang.append('itemGroup.%s.virus_remedes=Hunter Virus · Remèdes' % M)
+    ingredients = json.load(open(os.path.join(A, 'data', 'virus', 'ingredients.json'), encoding='utf-8'))['ingredients']
+    toutes_preps = json.load(open(os.path.join(A, 'data', 'virus', 'preparations.json'), encoding='utf-8'))['preparations']
+    icones_ing = {}
+    apercus_ing = []
+    for ing in ingredients:
+        ic = icone(ingredients_icones.REG[ing['id']])
+        icones_ing[ing['id']] = ic
+        ic.save(os.path.join(A, 'textures', 'items', 'virus', ing['id'] + '.png'))
+        modele_objet(ing['id'], 'items/virus/' + ing['id'])
+        lang.append('item.%s.%s.name=%s' % (M, ing['id'], ing['nom']))
+        apercus_ing.append((ing['id'], ic))
+    planche(apercus_ing, os.path.join(PREVIEW, 'virus_ingredients.png'), echelle=2, cols=12)
+    couleurs = preparations_icones.Couleurs(toutes_preps, icones_ing, os.path.join(A, 'textures', 'items'))
+    vus = set()
+    apercus_preps = []
+    for pr in toutes_preps:
+        pid = pr.get('produit') or pr['id']
+        if pid in vus or pid in icones_ing or ':' in pid:
+            continue
+        vus.add(pid)
+        ic = icone(lambda c, pr=pr: preparations_icones.dessiner(c, pr, couleurs))
+        ic.save(os.path.join(A, 'textures', 'items', 'virus', pid + '.png'))
+        modele_objet(pid, 'items/virus/' + pid)
+        lang.append('item.%s.%s.name=%s' % (M, pid, pr['nom']))
+        apercus_preps.append((pid, ic))
+    planche(apercus_preps, os.path.join(PREVIEW, 'virus_preparations.png'), echelle=2, cols=12)
+
+    # ------------------------------------------------------------------ le Virus dans le monde
+    monde(ingredients, lang)
 
     # ------------------------------------------------------------------ blocs 3D
     tdir = os.path.join(A, 'textures', 'blocks', 'virus')

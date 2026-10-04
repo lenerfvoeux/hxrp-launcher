@@ -1,0 +1,128 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": false,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/lotus_feuille",
+  "virus_monde_lotus_feuille": "hxrpmetiers:blocks/virus/monde/lotus_feuille",
+  "virus_monde_lotus_fleur": "hxrpmetiers:blocks/virus/monde/lotus_fleur"
+ },
+ "elements": [
+  {
+   "from": [
+    0,
+    0,
+    0
+   ],
+   "to": [
+    16,
+    0.25,
+    16
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_feuille"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_feuille",
+     "cullface": "down"
+    }
+   }
+  },
+  {
+   "from": [
+    3.5,
+    0.25,
+    8
+   ],
+   "to": [
+    12.5,
+    9,
+    8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_fleur"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_fleur"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     0.25,
+     8
+    ],
+    "axis": "y",
+    "angle": 45
+   },
+   "shade": false
+  },
+  {
+   "from": [
+    3.5,
+    0.25,
+    8
+   ],
+   "to": [
+    12.5,
+    9,
+    8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_fleur"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_monde_lotus_fleur"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     0.25,
+     8
+    ],
+    "axis": "y",
+    "angle": -45
+   },
+   "shade": false
+  }
+ ]
+}

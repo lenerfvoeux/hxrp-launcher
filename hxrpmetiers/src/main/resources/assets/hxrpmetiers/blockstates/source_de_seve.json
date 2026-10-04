@@ -1,0 +1,8 @@
+{
+ "_virus": true,
+ "variants": {
+  "normal": {
+   "model": "hxrpmetiers:virus/monde/source_de_seve"
+  }
+ }
+}

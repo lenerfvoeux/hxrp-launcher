@@ -1,0 +1,8 @@
+{
+ "_virus": true,
+ "variants": {
+  "normal": {
+   "model": "hxrpmetiers:virus/monde/vase_a_algue_noire"
+  }
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "_virus": true,
+ "variants": {
+  "fleuri=true": {
+   "model": "hxrpmetiers:virus/monde/lotus_fleuri"
+  },
+  "fleuri=false": {
+   "model": "hxrpmetiers:virus/monde/lotus_bouton"
+  }
+ }
+}

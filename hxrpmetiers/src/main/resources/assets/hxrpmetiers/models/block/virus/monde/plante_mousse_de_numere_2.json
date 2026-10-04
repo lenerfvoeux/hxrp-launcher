@@ -1,0 +1,44 @@
+{
+ "_virus": true,
+ "parent": "block/thin_block",
+ "ambientocclusion": false,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/monde/plante_mousse_de_numere_2",
+  "tapis": "hxrpmetiers:blocks/virus/monde/plante_mousse_de_numere_2"
+ },
+ "elements": [
+  {
+   "from": [
+    0,
+    0,
+    0
+   ],
+   "to": [
+    16,
+    0.5,
+    16
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#tapis"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#tapis",
+     "cullface": "down"
+    }
+   }
+  }
+ ]
+}

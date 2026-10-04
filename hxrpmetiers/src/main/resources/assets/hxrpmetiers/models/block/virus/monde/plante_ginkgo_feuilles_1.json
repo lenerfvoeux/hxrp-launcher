@@ -1,0 +1,7 @@
+{
+ "_virus": true,
+ "parent": "block/cross",
+ "textures": {
+  "cross": "hxrpmetiers:blocks/virus/monde/plante_ginkgo_feuilles_1"
+ }
+}
