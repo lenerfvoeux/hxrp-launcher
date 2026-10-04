@@ -1,0 +1,8 @@
+{
+ "parent": "block/orientable",
+ "textures": {
+  "front": "hxrpmetiers:blocks/monde/ruche_avant_0",
+  "side": "hxrpmetiers:blocks/monde/ruche_cote_0",
+  "top": "hxrpmetiers:blocks/monde/ruche_dessus_0"
+ }
+}

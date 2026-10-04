@@ -1,0 +1,18 @@
+{
+ "type": "minecraft:crafting_shapeless",
+ "ingredients": [
+  {
+   "item": "hxrpmetiers:raisin"
+  },
+  {
+   "item": "hxrpmetiers:raisin"
+  },
+  {
+   "item": "minecraft:glass_bottle"
+  }
+ ],
+ "result": {
+  "item": "hxrpmetiers:vinaigre",
+  "count": 1
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "_monde": true,
+ "variants": {
+  "normal": {
+   "model": "hxrpmetiers:monde/banc_de_moules"
+  }
+ }
+}

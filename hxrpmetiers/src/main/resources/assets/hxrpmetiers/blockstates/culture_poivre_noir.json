@@ -1,0 +1,14 @@
+{
+ "_monde": true,
+ "variants": {
+  "age=0": {
+   "model": "hxrpmetiers:monde/cultures/poivre_noir_0"
+  },
+  "age=1": {
+   "model": "hxrpmetiers:monde/cultures/poivre_noir_1"
+  },
+  "age=2": {
+   "model": "hxrpmetiers:monde/cultures/poivre_noir_2"
+  }
+ }
+}

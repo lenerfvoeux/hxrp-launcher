@@ -1,0 +1,35 @@
+{
+ "_monde": true,
+ "variants": {
+  "facing=north,pleine=false": {
+   "model": "hxrpmetiers:monde/ruche_0"
+  },
+  "facing=north,pleine=true": {
+   "model": "hxrpmetiers:monde/ruche_1"
+  },
+  "facing=east,pleine=false": {
+   "model": "hxrpmetiers:monde/ruche_0",
+   "y": 90
+  },
+  "facing=east,pleine=true": {
+   "model": "hxrpmetiers:monde/ruche_1",
+   "y": 90
+  },
+  "facing=south,pleine=false": {
+   "model": "hxrpmetiers:monde/ruche_0",
+   "y": 180
+  },
+  "facing=south,pleine=true": {
+   "model": "hxrpmetiers:monde/ruche_1",
+   "y": 180
+  },
+  "facing=west,pleine=false": {
+   "model": "hxrpmetiers:monde/ruche_0",
+   "y": 270
+  },
+  "facing=west,pleine=true": {
+   "model": "hxrpmetiers:monde/ruche_1",
+   "y": 270
+  }
+ }
+}

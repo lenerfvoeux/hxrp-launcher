@@ -1,0 +1,22 @@
+{
+ "type": "minecraft:crafting_shapeless",
+ "ingredients": [
+  {
+   "item": "hxrpmetiers:ble"
+  },
+  {
+   "item": "hxrpmetiers:sucre"
+  },
+  {
+   "type": "minecraft:item_nbt",
+   "item": "minecraft:potion",
+   "nbt": {
+    "Potion": "minecraft:water"
+   }
+  }
+ ],
+ "result": {
+  "item": "hxrpmetiers:levure",
+  "count": 2
+ }
+}

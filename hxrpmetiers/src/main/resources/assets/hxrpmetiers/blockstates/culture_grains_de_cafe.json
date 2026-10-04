@@ -1,0 +1,14 @@
+{
+ "_monde": true,
+ "variants": {
+  "age=0": {
+   "model": "hxrpmetiers:monde/cultures/grains_de_cafe_0"
+  },
+  "age=1": {
+   "model": "hxrpmetiers:monde/cultures/grains_de_cafe_1"
+  },
+  "age=2": {
+   "model": "hxrpmetiers:monde/cultures/grains_de_cafe_2"
+  }
+ }
+}

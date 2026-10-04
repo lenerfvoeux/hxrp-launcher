@@ -1,0 +1,24 @@
+{
+ "type": "minecraft:crafting_shapeless",
+ "ingredients": [
+  {
+   "item": "hxrpmetiers:olives"
+  },
+  {
+   "item": "hxrpmetiers:olives"
+  },
+  {
+   "item": "hxrpmetiers:olives"
+  },
+  {
+   "item": "hxrpmetiers:olives"
+  },
+  {
+   "item": "minecraft:glass_bottle"
+  }
+ ],
+ "result": {
+  "item": "hxrpmetiers:huile_d_olive",
+  "count": 1
+ }
+}

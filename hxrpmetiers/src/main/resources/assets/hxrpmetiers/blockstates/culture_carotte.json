@@ -1,0 +1,14 @@
+{
+ "_monde": true,
+ "variants": {
+  "age=0": {
+   "model": "hxrpmetiers:monde/cultures/carotte_0"
+  },
+  "age=1": {
+   "model": "hxrpmetiers:monde/cultures/carotte_1"
+  },
+  "age=2": {
+   "model": "hxrpmetiers:monde/cultures/carotte_2"
+  }
+ }
+}

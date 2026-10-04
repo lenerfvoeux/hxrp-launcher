@@ -1,0 +1,7 @@
+{
+ "_monde": true,
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "hxrpmetiers:items/monde/graines/oignon"
+ }
+}
