@@ -31,7 +31,7 @@ public class ItemSeringue extends Item {
     @Override
     public boolean itemInteractionForEntity(ItemStack s, EntityPlayer p, EntityLivingBase cible, EnumHand hand) {
         if (!(cible instanceof EntityPlayer)) return false;
-        if (!p.world.isRemote) Soins.priseDeSang((EntityPlayerMP) p, (EntityPlayerMP) cible);
+        if (!p.world.isRemote) Soins.priseDeSang((EntityPlayerMP) p, (EntityPlayerMP) cible, hand);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class ItemSeringue extends Item {
     public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand hand) {
         ItemStack s = p.getHeldItem(hand);
         if (!p.isSneaking()) return new ActionResult<>(EnumActionResult.PASS, s);
-        if (!w.isRemote) Soins.priseDeSang((EntityPlayerMP) p, (EntityPlayerMP) p);
+        if (!w.isRemote) Soins.priseDeSang((EntityPlayerMP) p, (EntityPlayerMP) p, hand);
         return new ActionResult<>(EnumActionResult.SUCCESS, s);
     }
 

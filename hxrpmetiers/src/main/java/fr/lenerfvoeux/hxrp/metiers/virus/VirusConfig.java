@@ -75,6 +75,8 @@ public final class VirusConfig {
     @Config.RangeInt(min = 0, max = 100) public static int seuilBonus = 95;
     @Config.Comment("Sous cette note (%), une administration gâche la dose")
     @Config.RangeInt(min = 0, max = 100) public static int seuilAdministration = 50;
+    @Config.Comment("Multiplicateur de la durée de macération dans les jarres (1 = heures réelles des recettes)")
+    @Config.RangeDouble(min = 0, max = 10) public static double macerationFacteur = 1;
     @Config.Comment("Distance maximale (blocs) entre le Virus et son patient pendant un soin")
     @Config.RangeDouble(min = 1, max = 16) public static double distanceSoin = 5;
 

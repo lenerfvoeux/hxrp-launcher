@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/chaudron_sur_brasero"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/chaudron_sur_brasero",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/chaudron_sur_brasero",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/chaudron_sur_brasero",
+   "y": 270
+  }
+ }
+}

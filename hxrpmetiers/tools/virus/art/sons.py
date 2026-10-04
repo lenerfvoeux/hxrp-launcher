@@ -3,6 +3,7 @@ Sons du Hunter Virus, synthétisés (bruit filtré, enveloppes, résonances) pui
 toux, éternuement, sifflement d'acouphènes, murmures d'hallucination, battements, et les gestes de l'officine
 (pilon, bouillon, verre, seringue, lame, page, meule). Écrit aussi sounds.json.
 """
+import hashlib
 import json
 import os
 import subprocess
@@ -10,6 +11,8 @@ import tempfile
 import wave
 
 import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 SR = 44100
 RNG = np.random.RandomState(1234)
@@ -190,7 +193,16 @@ SONS = {
 }
 
 
-def ecrire_ogg(x, chemin):
+def ecrire_ogg(x, chemin, empreintes=None):
+    """Encode en Ogg Vorbis ; si le son n'a pas changé depuis le dernier encodage, garde le fichier existant
+    (l'encodeur n'est pas déterministe : on évite de réécrire des fichiers identiques à l'oreille)."""
+    brut = (np.clip(x, -1, 1) * 32000).astype('<i2').tobytes()
+    h = hashlib.sha1(brut).hexdigest()
+    nom = os.path.basename(chemin)
+    if empreintes is not None and empreintes.get(nom) == h and os.path.exists(chemin):
+        return
+    if empreintes is not None:
+        empreintes[nom] = h
     with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as f:
         tmp = f.name
     try:
@@ -206,13 +218,23 @@ def ecrire_ogg(x, chemin):
 
 def generer(dossier, sounds_json):
     os.makedirs(dossier, exist_ok=True)
+    fichier_empreintes = os.path.join(HERE, 'sons_empreintes.json')
+    empreintes = json.load(open(fichier_empreintes)) if os.path.exists(fichier_empreintes) else {}
     table = {}
+    gardes = set()
     for evt, (cat, fichiers) in SONS.items():
         lst = []
         for nom, fn in fichiers:
-            ecrire_ogg(fn(), os.path.join(dossier, nom + '.ogg'))
+            ecrire_ogg(fn(), os.path.join(dossier, nom + '.ogg'), empreintes)
+            gardes.add(nom + '.ogg')
             lst.append('hxrpmetiers:virus/' + nom)
         table[evt] = {'category': cat, 'subtitle': 'subtitles.hxrpmetiers.' + evt, 'sounds': lst}
+    for f in os.listdir(dossier):
+        if f.endswith('.ogg') and f not in gardes:
+            os.remove(os.path.join(dossier, f))
+    with open(fichier_empreintes, 'w') as f:
+        json.dump({k: v for k, v in sorted(empreintes.items()) if k in gardes}, f, indent=1)
+        f.write('\n')
     existant = {}
     if os.path.exists(sounds_json):
         existant = {k: v for k, v in json.load(open(sounds_json, encoding='utf-8')).items() if not k.startswith('virus.')}

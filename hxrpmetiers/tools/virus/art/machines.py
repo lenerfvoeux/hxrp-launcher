@@ -103,5 +103,8 @@ def meuble():
     return m
 
 
+import officine  # noqa: E402,F401  (les machines de l'officine)
+
+
 def save_textures(out_dir):
     matieres.save_all(out_dir)

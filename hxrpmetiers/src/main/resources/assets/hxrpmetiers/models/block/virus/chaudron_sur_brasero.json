@@ -1,0 +1,2268 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/fonte_v",
+  "virus_fonte_v": "hxrpmetiers:blocks/virus/fonte_v",
+  "virus_fonte_rouille": "hxrpmetiers:blocks/virus/fonte_rouille",
+  "virus_braises_v": "hxrpmetiers:blocks/virus/braises_v",
+  "virus_flamme_v": "hxrpmetiers:blocks/virus/flamme_v",
+  "virus_decoction": "hxrpmetiers:blocks/virus/decoction",
+  "virus_vapeur_v": "hxrpmetiers:blocks/virus/vapeur_v"
+ },
+ "elements": [
+  {
+   "from": [
+    2.4,
+    0,
+    3.4
+   ],
+   "to": [
+    3.6,
+    3.5,
+    4.6
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v",
+     "cullface": "down"
+    }
+   }
+  },
+  {
+   "from": [
+    12.4,
+    0,
+    3.4
+   ],
+   "to": [
+    13.6,
+    3.5,
+    4.6
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v",
+     "cullface": "down"
+    }
+   }
+  },
+  {
+   "from": [
+    7.4,
+    0,
+    12.9
+   ],
+   "to": [
+    8.6,
+    3.5,
+    14.1
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      3.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      1.2,
+      1.2
+     ],
+     "texture": "#virus_fonte_v",
+     "cullface": "down"
+    }
+   }
+  },
+  {
+   "from": [
+    3.97,
+    3,
+    2.0
+   ],
+   "to": [
+    12.03,
+    4.6,
+    3.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.0
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    3.97,
+    3,
+    14.0
+   ],
+   "to": [
+    12.03,
+    4.6,
+    15.0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.0
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    1.5,
+    3,
+    4.47
+   ],
+   "to": [
+    2.5,
+    4.6,
+    12.53
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      8.06
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    13.5,
+    3,
+    4.47
+   ],
+   "to": [
+    14.5,
+    4.6,
+    12.53
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      8.06,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.0,
+      8.06
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    2.41,
+    3,
+    2.91
+   ],
+   "to": [
+    3.97,
+    4.6,
+    4.47
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.56
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    2.41,
+    3,
+    12.53
+   ],
+   "to": [
+    3.97,
+    4.6,
+    14.09
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.56
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    12.03,
+    3,
+    2.91
+   ],
+   "to": [
+    13.59,
+    4.6,
+    4.47
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.56
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    12.03,
+    3,
+    12.53
+   ],
+   "to": [
+    13.59,
+    4.6,
+    14.09
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.6
+     ],
+     "texture": "#virus_fonte_rouille"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.56,
+      1.56
+     ],
+     "texture": "#virus_fonte_rouille"
+    }
+   }
+  },
+  {
+   "from": [
+    2.4,
+    3,
+    5.028
+   ],
+   "to": [
+    13.6,
+    4,
+    11.972
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      0.0,
+      3.04,
+      16.0,
+      12.96
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.528,
+    3,
+    2.9
+   ],
+   "to": [
+    11.472,
+    4,
+    5.028
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      3.04,
+      0.0,
+      12.96,
+      3.04
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.528,
+    3,
+    11.972
+   ],
+   "to": [
+    11.472,
+    4,
+    14.1
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      3.04,
+      12.96,
+      12.96,
+      16.0
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.184,
+    3,
+    3.684
+   ],
+   "to": [
+    4.528,
+    4,
+    5.028
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      1.12,
+      1.12,
+      3.04,
+      3.04
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.184,
+    3,
+    11.972
+   ],
+   "to": [
+    4.528,
+    4,
+    13.316
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      1.12,
+      12.96,
+      3.04,
+      14.88
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.472,
+    3,
+    3.684
+   ],
+   "to": [
+    12.816,
+    4,
+    5.028
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      12.96,
+      1.12,
+      14.88,
+      3.04
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.472,
+    3,
+    11.972
+   ],
+   "to": [
+    12.816,
+    4,
+    13.316
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      12.96,
+      12.96,
+      14.88,
+      14.88
+     ],
+     "texture": "#virus_braises_v"
+    }
+   }
+  },
+  {
+   "from": [
+    5.0,
+    4,
+    8.5
+   ],
+   "to": [
+    11.0,
+    6.5,
+    8.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_v"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     4,
+     8.5
+    ],
+    "axis": "y",
+    "angle": 45
+   },
+   "shade": false
+  },
+  {
+   "from": [
+    5.0,
+    4,
+    8.5
+   ],
+   "to": [
+    11.0,
+    6.5,
+    8.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_v"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     4,
+     8.5
+    ],
+    "axis": "y",
+    "angle": -45
+   },
+   "shade": false
+  },
+  {
+   "from": [
+    3,
+    5,
+    5.4
+   ],
+   "to": [
+    13,
+    11,
+    11.6
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3,
+      5,
+      13,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      3,
+      5,
+      13,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      4.4,
+      5,
+      10.6,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      5.4,
+      5,
+      11.6,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      3,
+      5.4,
+      13,
+      11.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      3,
+      4.4,
+      13,
+      10.6
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.9,
+    5,
+    3.5
+   ],
+   "to": [
+    11.1,
+    11,
+    5.4
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      4.9,
+      5,
+      11.1,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      4.9,
+      5,
+      11.1,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      10.6,
+      5,
+      12.5,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      3.5,
+      5,
+      5.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      4.9,
+      3.5,
+      11.1,
+      5.4
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      4.9,
+      10.6,
+      11.1,
+      12.5
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.9,
+    5,
+    11.6
+   ],
+   "to": [
+    11.1,
+    11,
+    13.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      4.9,
+      5,
+      11.1,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      4.9,
+      5,
+      11.1,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      2.5,
+      5,
+      4.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      11.6,
+      5,
+      13.5,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      4.9,
+      11.6,
+      11.1,
+      13.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      4.9,
+      2.5,
+      11.1,
+      4.4
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.7,
+    5,
+    4.2
+   ],
+   "to": [
+    4.9,
+    11,
+    5.4
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      11.1,
+      5,
+      12.3,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      3.7,
+      5,
+      4.9,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      10.6,
+      5,
+      11.8,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      4.2,
+      5,
+      5.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      3.7,
+      4.2,
+      4.9,
+      5.4
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      3.7,
+      10.6,
+      4.9,
+      11.8
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.7,
+    5,
+    11.6
+   ],
+   "to": [
+    4.9,
+    11,
+    12.8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      11.1,
+      5,
+      12.3,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      3.7,
+      5,
+      4.9,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      3.2,
+      5,
+      4.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      11.6,
+      5,
+      12.8,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      3.7,
+      11.6,
+      4.9,
+      12.8
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      3.7,
+      3.2,
+      4.9,
+      4.4
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.1,
+    5,
+    4.2
+   ],
+   "to": [
+    12.3,
+    11,
+    5.4
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.7,
+      5,
+      4.9,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      11.1,
+      5,
+      12.3,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      10.6,
+      5,
+      11.8,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      4.2,
+      5,
+      5.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      11.1,
+      4.2,
+      12.3,
+      5.4
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      11.1,
+      10.6,
+      12.3,
+      11.8
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.1,
+    5,
+    11.6
+   ],
+   "to": [
+    12.3,
+    11,
+    12.8
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.7,
+      5,
+      4.9,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      11.1,
+      5,
+      12.3,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      3.2,
+      5,
+      4.4,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      11.6,
+      5,
+      12.8,
+      11
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      11.1,
+      11.6,
+      12.3,
+      12.8
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      11.1,
+      3.2,
+      12.3,
+      4.4
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.528,
+    11,
+    2.9
+   ],
+   "to": [
+    11.472,
+    12.6,
+    3.7
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      0.8
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    4.528,
+    11,
+    13.3
+   ],
+   "to": [
+    11.472,
+    12.6,
+    14.1
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      0.8
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    2.4,
+    11,
+    5.028
+   ],
+   "to": [
+    3.2,
+    12.6,
+    11.972
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      6.944
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    12.8,
+    11,
+    5.028
+   ],
+   "to": [
+    13.6,
+    12.6,
+    11.972
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      6.944,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      6.944
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.184,
+    11,
+    3.684
+   ],
+   "to": [
+    4.528,
+    12.6,
+    5.028
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.344
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.184,
+    11,
+    11.972
+   ],
+   "to": [
+    4.528,
+    12.6,
+    13.316
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.344
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.472,
+    11,
+    3.684
+   ],
+   "to": [
+    12.816,
+    12.6,
+    5.028
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.344
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.472,
+    11,
+    11.972
+   ],
+   "to": [
+    12.816,
+    12.6,
+    13.316
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.6
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      1.344,
+      1.344
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    3.4,
+    11,
+    5.648
+   ],
+   "to": [
+    12.6,
+    12,
+    11.352
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      0.0,
+      3.04,
+      16.0,
+      12.96
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    5.148,
+    11,
+    3.9
+   ],
+   "to": [
+    10.852,
+    12,
+    5.648
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      3.04,
+      0.0,
+      12.96,
+      3.04
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    5.148,
+    11,
+    11.352
+   ],
+   "to": [
+    10.852,
+    12,
+    13.1
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      3.04,
+      12.96,
+      12.96,
+      16.0
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    4.044,
+    11,
+    4.544
+   ],
+   "to": [
+    5.148,
+    12,
+    5.648
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      1.12,
+      1.12,
+      3.04,
+      3.04
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    4.044,
+    11,
+    11.352
+   ],
+   "to": [
+    5.148,
+    12,
+    12.456
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      1.12,
+      12.96,
+      3.04,
+      14.88
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    10.852,
+    11,
+    4.544
+   ],
+   "to": [
+    11.956,
+    12,
+    5.648
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      12.96,
+      1.12,
+      14.88,
+      3.04
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    10.852,
+    11,
+    11.352
+   ],
+   "to": [
+    11.956,
+    12,
+    12.456
+   ],
+   "faces": {
+    "up": {
+     "uv": [
+      12.96,
+      12.96,
+      14.88,
+      14.88
+     ],
+     "texture": "#virus_decoction"
+    }
+   }
+  },
+  {
+   "from": [
+    1.6,
+    10.5,
+    8
+   ],
+   "to": [
+    2.4,
+    12,
+    9
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    13.6,
+    10.5,
+    8
+   ],
+   "to": [
+    14.4,
+    12,
+    9
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      1,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      1,
+      1.5
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1
+     ],
+     "texture": "#virus_fonte_v"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      1
+     ],
+     "texture": "#virus_fonte_v"
+    }
+   }
+  },
+  {
+   "from": [
+    5.0,
+    12.6,
+    8.5
+   ],
+   "to": [
+    11.0,
+    16,
+    8.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_vapeur_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_vapeur_v"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     12.6,
+     8.5
+    ],
+    "axis": "y",
+    "angle": 45
+   },
+   "shade": false
+  },
+  {
+   "from": [
+    5.0,
+    12.6,
+    8.5
+   ],
+   "to": [
+    11.0,
+    16,
+    8.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_vapeur_v"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_vapeur_v"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     12.6,
+     8.5
+    ],
+    "axis": "y",
+    "angle": -45
+   },
+   "shade": false
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north,scellees=0": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_0"
+  },
+  "facing=east,scellees=0": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_0",
+   "y": 90
+  },
+  "facing=south,scellees=0": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_0",
+   "y": 180
+  },
+  "facing=west,scellees=0": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_0",
+   "y": 270
+  },
+  "facing=north,scellees=1": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_1"
+  },
+  "facing=east,scellees=1": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_1",
+   "y": 90
+  },
+  "facing=south,scellees=1": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_1",
+   "y": 180
+  },
+  "facing=west,scellees=1": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_1",
+   "y": 270
+  },
+  "facing=north,scellees=2": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_2"
+  },
+  "facing=east,scellees=2": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_2",
+   "y": 90
+  },
+  "facing=south,scellees=2": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_2",
+   "y": 180
+  },
+  "facing=west,scellees=2": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_2",
+   "y": 270
+  },
+  "facing=north,scellees=3": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_3"
+  },
+  "facing=east,scellees=3": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_3",
+   "y": 90
+  },
+  "facing=south,scellees=3": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_3",
+   "y": 180
+  },
+  "facing=west,scellees=3": {
+   "model": "hxrpmetiers:virus/jarres_de_maceration_3",
+   "y": 270
+  }
+ }
+}

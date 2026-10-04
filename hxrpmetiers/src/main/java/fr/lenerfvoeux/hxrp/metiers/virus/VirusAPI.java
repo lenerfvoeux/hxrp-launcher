@@ -109,6 +109,30 @@ public final class VirusAPI {
         boolean rouge = n.contains("beef") || n.contains("mutton") || n.contains("venison");
         boolean viande = rouge || poisson || ((ItemFood) s.getItem()).isWolfsFavoriteMeat();
         Traitements.repas(p, d, viande, rouge, poisson, false, false);
+        for (String a : new String[]{"beer", "wine", "sake", "vodka", "rum", "whisky", "alcohol", "liquor", "mead", "cider", "biere", "vin_", "alcool"})
+            if (n.contains(a)) {
+                alcoolBu(p, 85, false);
+                break;
+            }
+    }
+
+    /**
+     * Le joueur vient de boire de l'alcool (officine du Virus, ou boisson d'un autre mod) : consigne « pas d'alcool »,
+     * un peu d'ivresse, et un alcool mal fait peut rendre malade (alcool frelaté).
+     */
+    public static void alcoolBu(EntityPlayerMP p, int qualite, boolean fort) {
+        SanteData d = Sante.get(p);
+        if (d == null) return;
+        Traitements.alcool(p, d);
+        p.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * (fort ? 30 : 15), 0));
+        if (fort) p.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 20, 0));
+        int chance = qualite < 85 ? 30 : qualite < 95 ? 10 : 0;
+        if (chance > 0 && !d.malade() && System.currentTimeMillis() >= d.immuniteFin && RNG.nextInt(100) < chance) {
+            java.util.Set<String> o = new java.util.HashSet<>();
+            o.add("alcool");
+            fr.lenerfvoeux.hxrp.metiers.virus.donnees.Defs.Maladie m = Maladies.tirer(p, d, o);
+            if (m != null) Maladies.contracter(p, d, m, 0, false);
+        }
     }
 
     /** Un ingrédient du Gourmet vient d'être consommé par la cuisine : l'œuf laisse sa coquille. */

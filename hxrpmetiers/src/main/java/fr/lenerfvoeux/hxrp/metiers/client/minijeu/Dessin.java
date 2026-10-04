@@ -83,7 +83,7 @@ public final class Dessin {
         return 0xFF000000 | (int) Math.round((r + m) * 255) << 16 | (int) Math.round((g + m) * 255) << 8 | (int) Math.round((b + m) * 255);
     }
 
-    static int bande(int[] r, double L, int x, int y) {
+    public static int bande(int[] r, double L, int x, int y) {
         L += (BAYER[y & 3][x & 3] / 16.0 - 0.5) * 0.07;
         int i = L < 0.2 ? 0 : L < 0.42 ? 1 : L < 0.66 ? 2 : L < 0.86 ? 3 : 4;
         return r[i];

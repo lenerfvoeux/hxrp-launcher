@@ -1,5 +1,6 @@
 package fr.lenerfvoeux.hxrp.metiers.virus.item;
 
+import fr.lenerfvoeux.hxrp.metiers.virus.VirusAPI;
 import fr.lenerfvoeux.hxrp.metiers.virus.VirusConfig;
 import fr.lenerfvoeux.hxrp.metiers.virus.client.ClientVirus;
 import fr.lenerfvoeux.hxrp.metiers.virus.donnees.Defs;
@@ -9,6 +10,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -39,6 +41,30 @@ public class ItemPreparation extends Item {
         return DonneesVirus.recettePour(id);
     }
 
+    /** Les alcools de l'officine se boivent aussi (et comptent comme de l'alcool pour les consignes). */
+    public boolean alcool() {
+        return "alcool_de_riz".equals(id) || "alcool_fort".equals(id);
+    }
+
+    @Override
+    public EnumAction getItemUseAction(ItemStack s) {
+        return alcool() ? EnumAction.DRINK : EnumAction.NONE;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack s) {
+        return alcool() ? 32 : 0;
+    }
+
+    @Override
+    public ItemStack onItemUseFinish(ItemStack s, World w, EntityLivingBase e) {
+        if (!alcool() || !(e instanceof EntityPlayerMP)) return s;
+        EntityPlayerMP p = (EntityPlayerMP) e;
+        VirusAPI.alcoolBu(p, Qualites.note(s), "alcool_fort".equals(id));
+        if (!p.capabilities.isCreativeMode) s.shrink(1);
+        return s;
+    }
+
     @Override
     public boolean itemInteractionForEntity(ItemStack s, EntityPlayer p, EntityLivingBase cible, EnumHand hand) {
         Defs.Preparation d = def();
@@ -51,6 +77,10 @@ public class ItemPreparation extends Item {
     public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand hand) {
         ItemStack s = p.getHeldItem(hand);
         Defs.Preparation d = def();
+        if (alcool() && !p.isSneaking()) {
+            p.setActiveHand(hand);
+            return new ActionResult<>(EnumActionResult.SUCCESS, s);
+        }
         if (d == null || !d.administrable() || !p.isSneaking()) return new ActionResult<>(EnumActionResult.PASS, s);
         if (!w.isRemote) Soins.administrer((EntityPlayerMP) p, (EntityPlayerMP) p, hand);
         return new ActionResult<>(EnumActionResult.SUCCESS, s);
@@ -78,7 +108,7 @@ public class ItemPreparation extends Item {
         if (d.administrable()) {
             tip.add(TextFormatting.DARK_GRAY + administration(d.forme));
             if (ClientVirus.rangVirus < 0) tip.add(TextFormatting.DARK_GRAY + "Seul un Hunter Virus sait l'administrer");
-        } else tip.add(TextFormatting.DARK_GRAY + "Sert à l'officine");
+        } else tip.add(TextFormatting.DARK_GRAY + (alcool() ? "Sert à l'officine · se boit (clic droit maintenu)" : "Sert à l'officine"));
         if (flag.isAdvanced()) tip.add(TextFormatting.DARK_GRAY + d.texte);
     }
 

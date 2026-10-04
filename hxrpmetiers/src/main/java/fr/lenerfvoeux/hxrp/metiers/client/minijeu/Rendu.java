@@ -12,15 +12,30 @@ public final class Rendu {
     public static final int INTRO = 0, JEU = 1, FIN = 2;
     public static final int GX = 10, GY = 28, GL = 132;
 
+    /** Une scène de mini-jeu (celles du Gourmet, ou celles d'un autre métier). */
+    public interface Scene {
+        void dessiner(Toile t, MiniJeu j, double tms, int mx, int my, int etat);
+
+        /** Où afficher les retours qui n'ont pas de position propre. */
+        int[] ancre(MiniJeu j);
+    }
+
     private Rendu() {}
 
     public static void image(Toile t, MiniJeu j, Contexte c, double tms, int etat, int mx, int my, double note) {
+        image(t, j, c, tms, etat, mx, my, note, new Scene() {
+            @Override public void dessiner(Toile t2, MiniJeu j2, double tms2, int mx2, int my2, int etat2) { Scenes.dessiner(t2, j2, c, tms2, mx2, my2, etat2); }
+            @Override public int[] ancre(MiniJeu j2) { return Scenes.ancreRetour(j2); }
+        });
+    }
+
+    public static void image(Toile t, MiniJeu j, Contexte c, double tms, int etat, int mx, int my, double note, Scene scene) {
         t.vider();
-        Scenes.dessiner(t, j, c, tms, mx, my, etat);
+        scene.dessiner(t, j, tms, mx, my, etat);
         boolean dansVert = j.valeur >= j.zoneLo && j.valeur <= j.zoneHi;
         Dessin.jauge(t, GX, GY, GL, j.valeur, j.zoneLo, j.zoneHi, j.rouge, j.trait, dansVert && ((int) (tms / 120)) % 2 == 0 && etat == JEU);
         hud(t, j, c, etat);
-        if (etat == JEU || etat == FIN) retours(t, j, tms);
+        if (etat == JEU || etat == FIN) retours(t, j, tms, scene.ancre(j));
         if (etat == INTRO) intro(t, j, c);
         if (etat == FIN) fin(t, j, note);
     }
@@ -40,8 +55,7 @@ public final class Rendu {
         Police.droite(t, cpt, xr, 26, Dessin.CREME, Dessin.CONTOUR, 1);
     }
 
-    private static void retours(Toile t, MiniJeu j, double tms) {
-        int[] ancre = Scenes.ancreRetour(j);
+    private static void retours(Toile t, MiniJeu j, double tms, int[] ancre) {
         for (MiniJeu.Retour r : j.retours) {
             double age = (tms - r.t) / 850.0;
             if (age < 0 || age > 1) continue;

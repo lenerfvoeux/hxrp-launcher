@@ -19,4 +19,6 @@ public class CommonProxy {
     public void messageVirus(net.minecraftforge.fml.common.network.simpleimpl.IMessage msg) {}
     /** Ouvre la lecture d'une ordonnance, d'un carnet ou d'un parchemin (client). */
     public void ouvrirLectureVirus(net.minecraft.item.ItemStack s) {}
+    /** Ouvre le Grimoire des maladies (client). */
+    public void ouvrirGrimoire() {}
 }

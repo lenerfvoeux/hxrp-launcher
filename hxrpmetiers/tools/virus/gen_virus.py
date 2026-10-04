@@ -46,7 +46,7 @@ def ecrire(chemin, obj):
 
 
 def nettoyer():
-    for d in ('textures/items/virus', 'textures/blocks/virus', 'models/block/virus', 'textures/gui/virus', 'sounds/virus'):
+    for d in ('textures/items/virus', 'textures/blocks/virus', 'models/block/virus', 'textures/gui/virus'):
         shutil.rmtree(os.path.join(A, d), ignore_errors=True)
     for d in ('blockstates', 'models/item'):
         for p in glob.glob(os.path.join(A, d, '*.json')):
@@ -121,7 +121,12 @@ def main():
     tdir = os.path.join(A, 'textures', 'blocks', 'virus')
     machines.save_textures(tdir)
     mdir = os.path.join(A, 'models', 'block', 'virus')
-    noms_blocs = {'meuble_a_tiroirs': 'Meuble à tiroirs'}
+    noms_blocs = {'meuble_a_tiroirs': 'Meuble à tiroirs', 'yagen': 'Yagen', 'hachoir_a_levier': 'Hachoir à levier',
+                  'chaudron_sur_brasero': 'Chaudron sur brasero', 'alambic_de_cuivre': 'Alambic de cuivre',
+                  'jarres_de_maceration': 'Jarres de macération', 'balance_d_apothicaire': "Balance d'apothicaire",
+                  'mortier_d_apothicaire': 'Mortier et pilon', 'pilulier': 'Pilulier en bois',
+                  'table_de_preparation': 'Table de préparation laquée', 'microscope_d_analyse': "Microscope d'analyse",
+                  'grimoire_des_maladies': 'Grimoire des maladies', 'presentoir_de_l_apothicaire': "Présentoir de l'apothicaire"}
     for b in machines.BUILDERS:
         b()
     utilisees = set()
@@ -133,12 +138,25 @@ def main():
         ecrire(os.path.join(mdir, nom + '.json'), j)
         for v in m.textures.values():
             utilisees.add(v.split('/')[-1])
+        if nom.startswith('jarres_de_maceration_'):
+            continue
         disp = None
         if m.gui_scale != 0.625 or m.gui_dy:
             disp = {'gui': {'rotation': [30, 225, 0], 'translation': [0, m.gui_dy, 0], 'scale': [m.gui_scale] * 3}}
         modele_objet_bloc(nom, 'virus/' + nom, disp)
         etats(nom, orientations('virus/' + nom))
         lang.append('tile.%s.%s.name=%s' % (M, nom, noms_blocs[nom]))
+    # jarres : le nombre de jarres scellées se voit (0 à 3)
+    variantes = {}
+    for n in range(4):
+        for f, y in (('north', 0), ('east', 90), ('south', 180), ('west', 270)):
+            v = {'model': M + ':virus/jarres_de_maceration_%d' % n}
+            if y:
+                v['y'] = y
+            variantes['facing=%s,scellees=%d' % (f, n)] = v
+    etats('jarres_de_maceration', variantes)
+    modele_objet_bloc('jarres_de_maceration', 'virus/jarres_de_maceration_1')
+    lang.append('tile.%s.jarres_de_maceration.name=%s' % (M, noms_blocs['jarres_de_maceration']))
     manquantes = [t for t in utilisees if not os.path.exists(os.path.join(tdir, t + '.png'))]
     if manquantes:
         raise SystemExit('Textures manquantes : ' + ', '.join(manquantes))

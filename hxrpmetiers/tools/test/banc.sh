@@ -9,7 +9,11 @@ javac -encoding UTF-8 -source 8 -target 8 -Xlint:-options -d build/banc \
   src/main/java/fr/lenerfvoeux/hxrp/metiers/virus/minijeu/*.java \
   src/main/java/fr/lenerfvoeux/hxrp/metiers/data/FoodEntry.java \
   $(ls src/main/java/fr/lenerfvoeux/hxrp/metiers/client/minijeu/*.java | grep -v ToileGL) \
+  src/main/java/fr/lenerfvoeux/hxrp/metiers/virus/client/jeu/ContexteVirus.java \
+  src/main/java/fr/lenerfvoeux/hxrp/metiers/virus/client/jeu/Scenes*.java \
   tools/test/fr/lenerfvoeux/hxrp/metiers/minijeu/*.java \
   tools/test/fr/lenerfvoeux/hxrp/metiers/client/minijeu/*.java
 java -Dfile.encoding=UTF-8 -cp build/banc fr.lenerfvoeux.hxrp.metiers.minijeu.BancMiniJeux
+java -Dfile.encoding=UTF-8 -cp build/banc fr.lenerfvoeux.hxrp.metiers.minijeu.BancMiniJeuxVirus
 java -Dfile.encoding=UTF-8 -cp build/banc fr.lenerfvoeux.hxrp.metiers.client.minijeu.ApercuMiniJeux "$@"
+java -Dfile.encoding=UTF-8 -Djava.awt.headless=true -cp build/banc fr.lenerfvoeux.hxrp.metiers.client.minijeu.ApercuMiniJeuxVirus

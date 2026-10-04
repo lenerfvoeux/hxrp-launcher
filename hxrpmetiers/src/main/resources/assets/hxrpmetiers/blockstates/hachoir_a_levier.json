@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/hachoir_a_levier"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/hachoir_a_levier",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/hachoir_a_levier",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/hachoir_a_levier",
+   "y": 270
+  }
+ }
+}

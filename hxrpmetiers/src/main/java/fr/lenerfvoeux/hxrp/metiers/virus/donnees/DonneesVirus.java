@@ -221,6 +221,11 @@ public final class DonneesVirus {
     public static Defs.Blessure blessure(String id) { return id == null ? null : BLESSURES.get(id); }
     public static Defs.Ingredient ingredient(String id) { return id == null ? null : INGREDIENTS.get(id); }
 
+    public static boolean estSymptome(String id) {
+        for (Defs.Symptome s : SYMPTOMES) if (s.id.equals(id)) return true;
+        return false;
+    }
+
     public static String nomSymptome(String id) {
         for (Defs.Symptome s : SYMPTOMES) if (s.id.equals(id)) return s.nom;
         return id;

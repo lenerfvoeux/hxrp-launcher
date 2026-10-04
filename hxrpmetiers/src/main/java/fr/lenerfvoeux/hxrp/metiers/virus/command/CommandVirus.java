@@ -48,18 +48,20 @@ import java.util.Locale;
  * /virus donner &lt;joueur&gt; &lt;objet&gt; [quantité] [qualité]
  * /virus traitement &lt;joueur&gt; [annuler|avancer]
  * /virus avie &lt;joueur&gt; [retirer]
+ * /virus jarres                       (termine les macérations des jarres à 8 blocs)
+ * /virus prise &lt;joueur&gt;               (autorise une nouvelle prise de sang tout de suite)
  * /virus recharger
  * </pre>
  */
 public class CommandVirus extends CommandBase {
-    private static final List<String> SUB = Arrays.asList("rang", "maladie", "blessure", "sang", "immunite", "parchemin", "donner", "traitement", "avie", "recharger");
+    private static final List<String> SUB = Arrays.asList("rang", "maladie", "blessure", "sang", "immunite", "parchemin", "donner", "traitement", "avie", "jarres", "prise", "recharger");
 
     @Override public String getName() { return "virus"; }
     @Override public int getRequiredPermissionLevel() { return 2; }
 
     @Override
     public String getUsage(ICommandSender s) {
-        return "/virus <rang|maladie|blessure|sang|immunite|parchemin|donner|traitement|avie|recharger> ...";
+        return "/virus <rang|maladie|blessure|sang|immunite|parchemin|donner|traitement|avie|jarres|prise|recharger> ...";
     }
 
     @Override
@@ -177,6 +179,26 @@ public class CommandVirus extends CommandBase {
                 }
                 break;
             }
+            case "jarres": {
+                BlockPos c = s.getPosition();
+                int n = 0;
+                for (BlockPos q : BlockPos.getAllInBoxMutable(c.add(-8, -4, -8), c.add(8, 4, 8))) {
+                    net.minecraft.tileentity.TileEntity te = s.getEntityWorld().getTileEntity(q);
+                    if (te instanceof fr.lenerfvoeux.hxrp.metiers.virus.block.TileJarres) n += ((fr.lenerfvoeux.hxrp.metiers.virus.block.TileJarres) te).finir();
+                }
+                ok(s, n + " macération(s) terminée(s) : les jarres sont prêtes à être ouvertes");
+                break;
+            }
+            case "prise": {
+                if (a.length < 2) throw new WrongUsageException("/virus prise <joueur>");
+                EntityPlayerMP p = getPlayer(server, s, a[1]);
+                SanteData d = Sante.get(p);
+                if (d == null) throw new CommandException("Pas de données de santé pour " + p.getName());
+                d.dernierePriseDeSang = 0;
+                d.dirty = true;
+                ok(s, p.getName() + " peut de nouveau subir une prise de sang");
+                break;
+            }
             case "recharger": {
                 DonneesVirus.chargerConfig(Loader.instance().getConfigDir());
                 for (EntityPlayerMP p : server.getPlayerList().getPlayers()) Network.NET.sendTo(new MsgDonneesVirus(), p);
@@ -259,7 +281,7 @@ public class CommandVirus extends CommandBase {
             if (a.length == 4 && a[1].equals("donner")) return getListOfStringsMatchingLastWord(a, DonneesVirus.MALADIES.keySet());
             return Collections.emptyList();
         }
-        if (sub.equals("recharger")) return Collections.emptyList();
+        if (sub.equals("recharger") || sub.equals("jarres")) return Collections.emptyList();
         if (a.length == 2) return getListOfStringsMatchingLastWord(a, server.getOnlinePlayerNames());
         if (a.length == 3) {
             switch (sub) {

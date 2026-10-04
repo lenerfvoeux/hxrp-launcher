@@ -58,4 +58,9 @@ public class ClientProxy extends CommonProxy {
     public void ouvrirLectureVirus(net.minecraft.item.ItemStack s) {
         fr.lenerfvoeux.hxrp.metiers.virus.client.jeu.ClientJeux.lire(s);
     }
+
+    @Override
+    public void ouvrirGrimoire() {
+        fr.lenerfvoeux.hxrp.metiers.virus.client.jeu.ClientJeux.grimoire();
+    }
 }

@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/table_de_preparation"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/table_de_preparation",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/table_de_preparation",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/table_de_preparation",
+   "y": 270
+  }
+ }
+}

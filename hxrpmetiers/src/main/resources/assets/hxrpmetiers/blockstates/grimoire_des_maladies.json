@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/grimoire_des_maladies"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/grimoire_des_maladies",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/grimoire_des_maladies",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/grimoire_des_maladies",
+   "y": 270
+  }
+ }
+}

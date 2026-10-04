@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/microscope_d_analyse"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/microscope_d_analyse",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/microscope_d_analyse",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/microscope_d_analyse",
+   "y": 270
+  }
+ }
+}

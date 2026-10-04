@@ -1,0 +1,1063 @@
+{
+ "parent": "block/block",
+ "ambientocclusion": true,
+ "textures": {
+  "particle": "hxrpmetiers:blocks/virus/cuir_rouge",
+  "virus_laque_sombre": "hxrpmetiers:blocks/virus/laque_sombre",
+  "virus_laque": "hxrpmetiers:blocks/virus/laque",
+  "virus_cuir_rouge": "hxrpmetiers:blocks/virus/cuir_rouge",
+  "virus_page": "hxrpmetiers:blocks/virus/page",
+  "virus_corde_rouge": "hxrpmetiers:blocks/virus/corde_rouge",
+  "virus_laiton_v": "hxrpmetiers:blocks/virus/laiton_v",
+  "virus_bougie": "hxrpmetiers:blocks/virus/bougie",
+  "virus_flamme_bougie": "hxrpmetiers:blocks/virus/flamme_bougie"
+ },
+ "elements": [
+  {
+   "from": [
+    3,
+    0,
+    4
+   ],
+   "to": [
+    13,
+    1,
+    12
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      10,
+      1
+     ],
+     "texture": "#virus_laque_sombre"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      10,
+      1
+     ],
+     "texture": "#virus_laque_sombre"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      8,
+      1
+     ],
+     "texture": "#virus_laque_sombre"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      8,
+      1
+     ],
+     "texture": "#virus_laque_sombre"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      10,
+      8
+     ],
+     "texture": "#virus_laque_sombre"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      10,
+      8
+     ],
+     "texture": "#virus_laque_sombre",
+     "cullface": "down"
+    }
+   }
+  },
+  {
+   "from": [
+    7,
+    1,
+    7
+   ],
+   "to": [
+    9,
+    9.5,
+    9
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      2,
+      8.5
+     ],
+     "texture": "#virus_laque"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      2,
+      8.5
+     ],
+     "texture": "#virus_laque"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      2,
+      8.5
+     ],
+     "texture": "#virus_laque"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      2,
+      8.5
+     ],
+     "texture": "#virus_laque"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      2,
+      2
+     ],
+     "texture": "#virus_laque"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      2,
+      2
+     ],
+     "texture": "#virus_laque"
+    }
+   }
+  },
+  {
+   "from": [
+    2,
+    9.5,
+    5
+   ],
+   "to": [
+    14,
+    10.5,
+    12
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      12,
+      1.0
+     ],
+     "texture": "#virus_laque"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      12,
+      1.0
+     ],
+     "texture": "#virus_laque"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      7,
+      1.0
+     ],
+     "texture": "#virus_laque"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      7,
+      1.0
+     ],
+     "texture": "#virus_laque"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      12,
+      7
+     ],
+     "texture": "#virus_laque"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      12,
+      7
+     ],
+     "texture": "#virus_laque"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     10,
+     8.5
+    ],
+    "axis": "x",
+    "angle": 22.5
+   }
+  },
+  {
+   "from": [
+    2.5,
+    10.5,
+    5.3
+   ],
+   "to": [
+    13.5,
+    11,
+    11.7
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      11.0,
+      0.5
+     ],
+     "texture": "#virus_cuir_rouge"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      11.0,
+      0.5
+     ],
+     "texture": "#virus_cuir_rouge"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      6.4,
+      0.5
+     ],
+     "texture": "#virus_cuir_rouge"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      6.4,
+      0.5
+     ],
+     "texture": "#virus_cuir_rouge"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      11.0,
+      6.4
+     ],
+     "texture": "#virus_cuir_rouge"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      11.0,
+      6.4
+     ],
+     "texture": "#virus_cuir_rouge"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     10,
+     8.5
+    ],
+    "axis": "x",
+    "angle": 22.5
+   }
+  },
+  {
+   "from": [
+    3,
+    11,
+    5.6
+   ],
+   "to": [
+    13,
+    11.6,
+    11.4
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_page"
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     10,
+     8.5
+    ],
+    "axis": "x",
+    "angle": 22.5
+   }
+  },
+  {
+   "from": [
+    7.8,
+    7.5,
+    4.2
+   ],
+   "to": [
+    8.3,
+    10.5,
+    4.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.5,
+      3.0
+     ],
+     "texture": "#virus_corde_rouge"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.5,
+      3.0
+     ],
+     "texture": "#virus_corde_rouge"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      0.3,
+      3.0
+     ],
+     "texture": "#virus_corde_rouge"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      0.3,
+      3.0
+     ],
+     "texture": "#virus_corde_rouge"
+    }
+   }
+  },
+  {
+   "from": [
+    10.3,
+    1,
+    8.756
+   ],
+   "to": [
+    12.7,
+    1.4,
+    10.244
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.3,
+      14.6,
+      5.7,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      10.3,
+      14.6,
+      12.7,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      5.756,
+      14.6,
+      7.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      8.756,
+      14.6,
+      10.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      10.3,
+      8.756,
+      12.7,
+      10.244
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      10.3,
+      5.756,
+      12.7,
+      7.244
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    10.756,
+    1,
+    8.3
+   ],
+   "to": [
+    12.244,
+    1.4,
+    8.756
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.756,
+      14.6,
+      5.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      10.756,
+      14.6,
+      12.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      7.244,
+      14.6,
+      7.7,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      8.3,
+      14.6,
+      8.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      10.756,
+      8.3,
+      12.244,
+      8.756
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      10.756,
+      7.244,
+      12.244,
+      7.7
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    10.756,
+    1,
+    10.244
+   ],
+   "to": [
+    12.244,
+    1.4,
+    10.7
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.756,
+      14.6,
+      5.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      10.756,
+      14.6,
+      12.244,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      5.3,
+      14.6,
+      5.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      10.244,
+      14.6,
+      10.7,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      10.756,
+      10.244,
+      12.244,
+      10.7
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      10.756,
+      5.3,
+      12.244,
+      5.756
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    10.468,
+    1,
+    8.468
+   ],
+   "to": [
+    10.756,
+    1.4,
+    8.756
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      5.244,
+      14.6,
+      5.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      10.468,
+      14.6,
+      10.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      7.244,
+      14.6,
+      7.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      8.468,
+      14.6,
+      8.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      10.468,
+      8.468,
+      10.756,
+      8.756
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      10.468,
+      7.244,
+      10.756,
+      7.532
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    10.468,
+    1,
+    10.244
+   ],
+   "to": [
+    10.756,
+    1.4,
+    10.532
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      5.244,
+      14.6,
+      5.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      10.468,
+      14.6,
+      10.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      5.468,
+      14.6,
+      5.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      10.244,
+      14.6,
+      10.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      10.468,
+      10.244,
+      10.756,
+      10.532
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      10.468,
+      5.468,
+      10.756,
+      5.756
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    12.244,
+    1,
+    8.468
+   ],
+   "to": [
+    12.532,
+    1.4,
+    8.756
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.468,
+      14.6,
+      3.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      12.244,
+      14.6,
+      12.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      7.244,
+      14.6,
+      7.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      8.468,
+      14.6,
+      8.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      12.244,
+      8.468,
+      12.532,
+      8.756
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      12.244,
+      7.244,
+      12.532,
+      7.532
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    12.244,
+    1,
+    10.244
+   ],
+   "to": [
+    12.532,
+    1.4,
+    10.532
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      3.468,
+      14.6,
+      3.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "south": {
+     "uv": [
+      12.244,
+      14.6,
+      12.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "east": {
+     "uv": [
+      5.468,
+      14.6,
+      5.756,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "west": {
+     "uv": [
+      10.244,
+      14.6,
+      10.532,
+      15
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "up": {
+     "uv": [
+      12.244,
+      10.244,
+      12.532,
+      10.532
+     ],
+     "texture": "#virus_laiton_v"
+    },
+    "down": {
+     "uv": [
+      12.244,
+      5.468,
+      12.532,
+      5.756
+     ],
+     "texture": "#virus_laiton_v"
+    }
+   }
+  },
+  {
+   "from": [
+    11.1,
+    1.4,
+    9.1
+   ],
+   "to": [
+    11.9,
+    4,
+    9.9
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      2.6
+     ],
+     "texture": "#virus_bougie"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      2.6
+     ],
+     "texture": "#virus_bougie"
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      2.6
+     ],
+     "texture": "#virus_bougie"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      2.6
+     ],
+     "texture": "#virus_bougie"
+    },
+    "up": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      0.8
+     ],
+     "texture": "#virus_bougie"
+    },
+    "down": {
+     "uv": [
+      0,
+      0,
+      0.8,
+      0.8
+     ],
+     "texture": "#virus_bougie"
+    }
+   }
+  },
+  {
+   "from": [
+    10.7,
+    4,
+    9.5
+   ],
+   "to": [
+    12.3,
+    5.6,
+    9.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_bougie"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_bougie"
+    }
+   },
+   "rotation": {
+    "origin": [
+     11.5,
+     4,
+     9.5
+    ],
+    "axis": "y",
+    "angle": 45
+   },
+   "shade": false
+  },
+  {
+   "from": [
+    10.7,
+    4,
+    9.5
+   ],
+   "to": [
+    12.3,
+    5.6,
+    9.5
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_bougie"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#virus_flamme_bougie"
+    }
+   },
+   "rotation": {
+    "origin": [
+     11.5,
+     4,
+     9.5
+    ],
+    "axis": "y",
+    "angle": -45
+   },
+   "shade": false
+  }
+ ]
+}

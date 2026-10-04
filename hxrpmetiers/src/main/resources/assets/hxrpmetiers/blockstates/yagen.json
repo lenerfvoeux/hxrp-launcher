@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/yagen"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/yagen",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/yagen",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/yagen",
+   "y": 270
+  }
+ }
+}

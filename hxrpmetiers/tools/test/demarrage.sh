@@ -70,7 +70,7 @@ grep -E 'hxrpmetiers|HxRP|Gourmet|Done \(|textures-atlas|successfully loaded|Sto
 
 # Erreurs : modèles ou textures introuvables, plantage, message d'erreur ou exception passant par le code du mod.
 erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|/(ERROR|FATAL)\].*(hxrpmetiers|HxRP)|\[hxrpmetiers\]|at fr\.lenerfvoeux' "$journal" \
-    | grep -v '\[hxrpmetiers\]: Gourmet : [0-9]' | head -60)
+    | grep -Ev '\[hxrpmetiers\]: (Gourmet|Virus) : [0-9]' | head -60)
 avertissements=$(grep -E '/WARN\].*(hxrpmetiers|HxRP)' "$journal" | head -30)
 if [ -n "$avertissements" ]; then
     echo "---- avertissements mentionnant le mod"

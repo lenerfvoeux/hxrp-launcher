@@ -1,0 +1,20 @@
+{
+ "_virus": true,
+ "variants": {
+  "facing=north": {
+   "model": "hxrpmetiers:virus/balance_d_apothicaire"
+  },
+  "facing=east": {
+   "model": "hxrpmetiers:virus/balance_d_apothicaire",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "hxrpmetiers:virus/balance_d_apothicaire",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "hxrpmetiers:virus/balance_d_apothicaire",
+   "y": 270
+  }
+ }
+}

@@ -5,14 +5,14 @@ package fr.lenerfvoeux.hxrp.metiers.virus.donnees;
  * boîte du modèle 3D (1/16 de bloc, face avant au nord) et lumière émise.
  */
 public enum Machine {
-    YAGEN("yagen", "yagen", "Yagen", "yagen", 0, 1, 0, 3, 16, 7, 13),
-    HACHOIR("hachoir", "hachoir_a_levier", "Hachoir à levier", "hachoir", 0, 1, 0, 1, 15, 13, 15),
-    CHAUDRON("chaudron", "chaudron_sur_brasero", "Chaudron sur brasero", "chaudron", 9, 1, 0, 1, 15, 15, 15),
-    ALAMBIC("alambic", "alambic_de_cuivre", "Alambic de cuivre", "alambic", 6, 0, 0, 1, 16, 16, 15),
-    JARRES("jarres", "jarres_de_maceration", "Jarres de macération", "jarres", 0, 1, 0, 1, 15, 14, 15),
-    BALANCE("balance", "balance_d_apothicaire", "Balance d'apothicaire", "balance", 0, 1, 0, 3, 15, 14, 13),
-    MORTIER("mortier", "mortier_d_apothicaire", "Mortier et pilon", "pilon", 0, 3, 0, 3, 13, 12, 13),
-    PILULIER("pilulier", "pilulier", "Pilulier en bois", "pilulier", 0, 1, 0, 3, 15, 6, 13),
+    YAGEN("yagen", "yagen", "Yagen", "yagen", 0, 1, 0, 0.5, 15, 13, 15.5),
+    HACHOIR("hachoir", "hachoir_a_levier", "Hachoir à levier", "hachoir", 0, 1, 0, 4, 15, 11, 12),
+    CHAUDRON("chaudron", "chaudron_sur_brasero", "Chaudron sur brasero", "chaudron", 9, 1, 0, 1.5, 15, 13, 15),
+    ALAMBIC("alambic", "alambic_de_cuivre", "Alambic de cuivre", "alambic", 6, 1, 0, 1, 15.5, 13, 12.5),
+    JARRES("jarres", "jarres_de_maceration", "Jarres de macération", "jarres", 0, 1, 0, 1.5, 15, 10.5, 14.5),
+    BALANCE("balance", "balance_d_apothicaire", "Balance d'apothicaire", "balance", 0, 2, 0, 5, 14, 14.5, 11),
+    MORTIER("mortier", "mortier_d_apothicaire", "Mortier et pilon", "pilon", 0, 3, 0, 3, 13, 11, 13),
+    PILULIER("pilulier", "pilulier", "Pilulier en bois", "pilulier", 0, 1, 0, 1.2, 15, 3, 14.8),
     TABLE("table", "table_de_preparation", "Table de préparation laquée", "table", 0, 0, 0, 0, 16, 16, 16);
 
     public final String id, bloc, label, jeu;
