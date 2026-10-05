@@ -14,8 +14,8 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
  * l'oiseau ou l'œuf de cendres est affiché selon l'état.
  */
 public class ModelePhenix extends AnimatedGeoModel<EntityPhenix> {
-    private static final ResourceLocation MODELE = new ResourceLocation(HxrpPhenix.MODID, "geo/phenix.geo.json");
-    private static final ResourceLocation ANIMATIONS = new ResourceLocation(HxrpPhenix.MODID, "animations/phenix.animation.json");
+    static final ResourceLocation MODELE = new ResourceLocation(HxrpPhenix.MODID, "geo/phenix.geo.json");
+    static final ResourceLocation ANIMATIONS = new ResourceLocation(HxrpPhenix.MODID, "animations/phenix.animation.json");
     private static final ResourceLocation[] TEXTURES = new ResourceLocation[4];
 
     static {

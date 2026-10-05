@@ -61,7 +61,7 @@ else
         # scénario sans joueur : le Phénix tourne au-dessus de son arène, lance une tempête de feu,
         # se pose, meurt une première fois (œuf de cendres), renaît, puis on le retire
         c() { echo "$1" >&3; sleep "$2"; }
-        c 'phenix invoquer 0 4 0' 8
+        c 'phenix invoquer' 8
         c 'phenix info' 2
         c 'phenix attaque tempete' 14
         c 'phenix attaque perche' 10
@@ -75,7 +75,7 @@ else
         c 'phenix attaque boule' 3
         c 'kill @e[type=hxrpphenix:phenix]' 2
         c 'kill @e[type=hxrpphenix:phenix]' 4
-        c 'phenix invoquer 5 4 5' 3
+        c 'phenix invoquer' 3
         c 'phenix retirer' 2
         c 'phenix info' 2
     fi
@@ -87,7 +87,8 @@ else
 fi
 
 echo "---- extrait du journal ($journal)"
-grep -E 'hxrpphenix|Phénix|phénix|GeckoLib|geckolib|Done \(|textures-atlas|successfully loaded|Stopping server|Œuf|œuf' "$journal" | head -60
+grep -E 'hxrpphenix|Phénix|phénix|GeckoLib|geckolib|Done \(|textures-atlas|successfully loaded|Stopping server|Œuf|œuf' "$journal" \
+    | grep -Ev $'^\tat |STDERR' | head -60
 
 erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|/(ERROR|FATAL)\].*(hxrpphenix|HxRP|GeckoLib|geckolib)|Error loading (model|animation) file|Could not load animation|at fr\.lenerfvoeux|at software\.bernie' "$journal" | head -60)
 avertissements=$(grep -E '/WARN\].*(hxrpphenix|HxRP|Phénix)' "$journal" | head -30)
@@ -102,6 +103,10 @@ if [ $etat != 0 ]; then
 fi
 if ! grep -q 'nix : pr' "$journal"; then
     echo "!! le mod Phénix ne s'est pas initialisé"
+    exit 1
+fi
+if [ "$mode" = client ] && ! grep -q 'animations GeckoLib charg' "$journal"; then
+    echo "!! GeckoLib n'a pas lu le modèle et les animations du Phénix"
     exit 1
 fi
 if [ "$mode" = serveur ] && ls "$PWD/build/serveur-test/mods" | grep -q hxrpmetiers; then

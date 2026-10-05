@@ -50,6 +50,8 @@ public class CommandPhenix extends CommandBase {
     @Override
     public void execute(MinecraftServer serveur, ICommandSender s, String[] a) throws CommandException {
         if (a.length == 0) throw new WrongUsageException(getUsage(s));
+        // sans joueur connecté, Minecraft cesse de faire vivre les entités au bout de 15 s : une commande les réveille
+        for (WorldServer w : serveur.worlds) w.resetUpdateEntityTick();
         switch (a[0]) {
             case "invoquer": {
                 World w = s.getEntityWorld();
@@ -63,7 +65,9 @@ public class CommandPhenix extends CommandBase {
                     float y = e.rotationYaw * (float) Math.PI / 180F;
                     p = new Vec3d(e.posX - Math.sin(y) * 6, e.posY, e.posZ + Math.cos(y) * 6);
                 } else {
-                    throw new WrongUsageException("Depuis la console : /phenix invoquer <x> <y> <z>");
+                    // depuis la console, sans coordonnées : au point d'apparition du monde
+                    BlockPos sol = w.getTopSolidOrLiquidBlock(w.getSpawnPoint());
+                    p = new Vec3d(sol.getX() + 0.5, sol.getY(), sol.getZ() + 0.5);
                 }
                 if (!w.isBlockLoaded(new BlockPos(p))) throw new CommandException("Ce lieu n'est pas chargé.");
                 Entity e = s.getCommandSenderEntity();

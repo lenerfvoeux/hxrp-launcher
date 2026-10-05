@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
 
 /**
  * Le Phénix de feu de HxRP : un boss volant animé avec GeckoLib, qu'on n'invoque qu'avec un œuf de phénix
@@ -28,11 +27,6 @@ public class HxrpPhenix {
     @SidedProxy(clientSide = "fr.lenerfvoeux.hxrp.phenix.client.ClientProxy", serverSide = "fr.lenerfvoeux.hxrp.phenix.CommonProxy")
     public static CommonProxy proxy;
 
-    public HxrpPhenix() {
-        // GeckoLib : à appeler dans le constructeur du mod (charge modèles et animations côté client ; rien sur un serveur)
-        GeckoLib.initialize();
-    }
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         proxy.preInit();
@@ -40,6 +34,7 @@ public class HxrpPhenix {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
+        proxy.init();
         LOG.info("Phénix : prêt (dépendance au Hunter Virus : {})", Feu.virusPresent() ? "oui" : "non");
     }
 

@@ -45,7 +45,7 @@ Le jar va côté **client et serveur**. Il ne dépend pas de `hxrpmetiers`, mais
 
 | Commande | Effet |
 |---|---|
-| `/phenix invoquer [x y z]` | fait éclore un Phénix (devant soi, ou aux coordonnées — obligatoire depuis la console) |
+| `/phenix invoquer [x y z]` | fait éclore un Phénix (devant soi, aux coordonnées, ou — depuis la console — au point d'apparition du monde) |
 | `/phenix attaque <boule\|souffle\|pluie\|plongee\|tempete\|perche>` | le Phénix le plus proche lance cette attaque tout de suite (mise en scène d'événement) |
 | `/phenix info` | liste les Phénix chargés : PV, état, position |
 | `/phenix retirer [rayon]` | retire les Phénix (et leurs projectiles), partout ou dans le rayon |
