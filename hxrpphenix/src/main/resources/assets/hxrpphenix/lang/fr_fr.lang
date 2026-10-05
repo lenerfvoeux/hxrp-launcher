@@ -1,0 +1,28 @@
+# HxRP Phénix
+itemGroup.hxrpphenix=HxRP — Phénix
+item.hxrpphenix.plume_de_phenix.name=Plume de phénix
+item.hxrpphenix.oeuf_de_phenix.name=Œuf de phénix
+entity.hxrpphenix.phenix.name=Phénix de feu
+entity.hxrpphenix.boule_de_feu.name=Boule de feu du Phénix
+entity.hxrpphenix.plume_ardente.name=Plume enflammée
+entity.hxrpphenix.plume_objet.name=Plume de phénix
+
+death.attack.phenix=%1$s a été réduit en cendres par %2$s
+death.attack.phenix.item=%1$s a été réduit en cendres par %2$s
+death.attack.phenix_seul=%1$s a été réduit en cendres par le Phénix de feu
+death.attack.phenix_renvoi=%1$s a été frappé par sa propre boule de feu, renvoyée par %2$s
+death.attack.phenix_renvoi.item=%1$s a été frappé par sa propre boule de feu, renvoyée par %2$s
+
+subtitles.hxrpphenix.cri=Le Phénix crie
+subtitles.hxrpphenix.cri_court=Le Phénix glatit
+subtitles.hxrpphenix.ailes=Battements d'ailes enflammées
+subtitles.hxrpphenix.souffle=Souffle ardent
+subtitles.hxrpphenix.boule=Boule de feu lancée
+subtitles.hxrpphenix.impact=Flammes qui éclatent
+subtitles.hxrpphenix.plongee=Le Phénix plonge
+subtitles.hxrpphenix.onde=Onde de choc
+subtitles.hxrpphenix.tempete=Tempête de feu
+subtitles.hxrpphenix.oeuf=L'œuf de cendres palpite
+subtitles.hxrpphenix.craquement=L'œuf se fêle
+subtitles.hxrpphenix.renaissance=Le Phénix renaît
+subtitles.hxrpphenix.mort=Le Phénix s'éteint

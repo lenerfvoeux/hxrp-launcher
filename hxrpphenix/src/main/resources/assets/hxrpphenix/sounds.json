@@ -1,0 +1,93 @@
+{
+ "cri": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.cri",
+  "sounds": [
+   "hxrpphenix:cri"
+  ]
+ },
+ "cri_court": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.cri_court",
+  "sounds": [
+   "hxrpphenix:cri_court"
+  ]
+ },
+ "ailes": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.ailes",
+  "sounds": [
+   "hxrpphenix:ailes"
+  ]
+ },
+ "souffle": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.souffle",
+  "sounds": [
+   "hxrpphenix:souffle"
+  ]
+ },
+ "boule": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.boule",
+  "sounds": [
+   "hxrpphenix:boule"
+  ]
+ },
+ "impact": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.impact",
+  "sounds": [
+   "hxrpphenix:impact"
+  ]
+ },
+ "plongee": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.plongee",
+  "sounds": [
+   "hxrpphenix:plongee"
+  ]
+ },
+ "onde": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.onde",
+  "sounds": [
+   "hxrpphenix:onde"
+  ]
+ },
+ "tempete": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.tempete",
+  "sounds": [
+   "hxrpphenix:tempete"
+  ]
+ },
+ "oeuf": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.oeuf",
+  "sounds": [
+   "hxrpphenix:oeuf"
+  ]
+ },
+ "craquement": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.craquement",
+  "sounds": [
+   "hxrpphenix:craquement"
+  ]
+ },
+ "renaissance": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.renaissance",
+  "sounds": [
+   "hxrpphenix:renaissance"
+  ]
+ },
+ "mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.mort",
+  "sounds": [
+   "hxrpphenix:mort"
+  ]
+ }
+}
