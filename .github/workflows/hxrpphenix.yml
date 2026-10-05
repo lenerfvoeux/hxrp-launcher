@@ -84,7 +84,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mode: [serveur, client]
+        mode: [serveur, serveur-virus, client]
     defaults:
       run:
         working-directory: hxrpphenix
@@ -99,10 +99,10 @@ jobs:
             25
 
       - uses: gradle/actions/setup-gradle@v4
-        if: matrix.mode == 'client'
+        if: matrix.mode != 'serveur'
 
       - uses: actions/download-artifact@v4
-        if: matrix.mode == 'serveur'
+        if: matrix.mode != 'client'
         with:
           name: hxrpphenix-jar
           path: hxrpphenix/livre
@@ -110,6 +110,13 @@ jobs:
       - name: Démarrer un serveur Forge 1.12.2 avec le Phénix
         if: matrix.mode == 'serveur'
         run: bash tools/test/demarrage.sh serveur "$(ls livre/hxrpphenix-*.jar)" "$(ls livre/geckolib-*.jar)"
+
+      - name: Démarrer un serveur avec le Phénix et le Hunter Virus (hxrpmetiers compilé ici)
+        if: matrix.mode == 'serveur-virus'
+        run: |
+          (cd ../hxrpmetiers && ./gradlew build --no-daemon -q -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64)
+          bash tools/test/demarrage.sh serveur "$(ls livre/hxrpphenix-*.jar)" "$(ls livre/geckolib-*.jar)" \
+            "$(ls ../hxrpmetiers/build/libs/hxrpmetiers-*.jar | grep -v -- '-dev\|-sources')"
 
       - name: Démarrer un client avec le Phénix
         if: matrix.mode == 'client'

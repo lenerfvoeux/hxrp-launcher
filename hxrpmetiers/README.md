@@ -1,6 +1,68 @@
-# HxRP Métiers — Gourmet (0.5.0)
+# HxRP Métiers — Gourmet et Hunter Virus (0.6.0)
 
-Mod Forge 1.12.2 (`modid` `hxrpmetiers`, Java 8) : cuisine, faim/soif et le métier de Gourmet du serveur HxRP.
+Mod Forge 1.12.2 (`modid` `hxrpmetiers`, Java 8, jar côté client **et** serveur) : cuisine, faim/soif et le métier
+de Gourmet, et depuis 0.6.0 le métier de **Hunter Virus** (apothicaire : blessures, maladies, officine, diagnostic).
+Le boss Phénix de feu est un mod séparé : voir `../hxrpphenix`.
+
+## Hunter Virus (0.6.0)
+
+Le Hunter Virus est le seul à pouvoir soigner (lui-même compris). Rangs 0★ à 3★ donnés par commande ;
+**l'XP du Gourmet est retirée** (gain par plat, commande et affichages).
+
+- **Santé des joueurs** (données persistantes côté serveur, effacées à la mort) : groupe sanguin tiré à la première
+  connexion (8 groupes, 12,5 % chacun), sexe lu dans le mod Identity (`hunterxhunter`, par réflexion ; absent = aucune
+  maladie réservée à un sexe), maladie et stade en temps réel même déconnecté, effets à vie, immunité de 24 h après guérison.
+- **7 blessures à 4 stades** (contusions, commotion, jambe, plaie, brûlure, morsure, gelure) déclenchées par les chutes,
+  coups, combats, feu, froid… avec leurs effets (ralentissements, vision trouble, saignements…), soignées par les 7 soins.
+- **52 maladies** (`config/hxrpmetiers/virus/*.json`, modifiables sans recompiler) : apparition au hasard (3 à 5 jours en
+  moyenne), après un plat raté, étrange ou périmé du Gourmet, ou par commande ; 5 à 8 stades ; effets en surcouches 2D
+  (teinte, vignette, flou, tremblements de caméra — aucun shader). On n'en meurt jamais : le dernier stade laisse des
+  effets à vie. Mourir efface tout (blessures, maladie, effets à vie, immunité, traitement), sauf le groupe sanguin.
+- **Officine** : 9 machines posables façon *Carnets de l'apothicaire* (yagen, hachoir à levier, chaudron sur brasero,
+  alambic de cuivre, jarres de macération, balance d'apothicaire, mortier et pilon, pilulier, table de préparation laquée),
+  microscope d'analyse, Grimoire des maladies sur son lutrin, présentoir, meuble à tiroirs. Chaque machine a son mini-jeu
+  (même moteur que le Gourmet : graine tirée par le serveur, partie rejouée et notée par le serveur) ; seuil de réussite 80 %,
+  qualité et étoiles selon la note et le rang. Formulaire de l'officine : recettes visibles selon le rang, ingrédients
+  manquants, étapes et machines.
+- **Récolte** : les **84 ingrédients** ont une source en jeu — 52 plantes et champignons au sol (trois stades, replantables),
+  champignons de tronc, sols, troncs écorcés, nids, lotus, sève, butins d'animaux — et les **119 préparations** ont
+  leur icône (couleur tirée des ingrédients, bouchon selon le rang).
+- **Diagnostic** : seringue (prise de sang, mini-jeu), microscope (lecture du sang), écoute des symptômes, carnet de
+  consultation à cocher, Grimoire (sommaire, index des symptômes et du sang).
+- **Traitement** : remède spécifique en plusieurs prises (fenêtre de ± 30 min), **ordonnance** remise au patient avec un HUD
+  qui rappelle la prochaine prise ; **consignes vérifiées par le serveur** (à jeun, repos, dormir, au chaud, à l'ombre,
+  pas d'alcool, altitude, grotte, eau, Nether, distance, plat précis du Gourmet, prise de nuit…) : une prise oubliée ou une
+  consigne non tenue fait échouer le traitement ; puis convalescence selon le rang du Virus, guérison et immunité.
+- **Remède du Second Souffle** (secret, Virus 3★) : recette sur un **parchemin** qui s'ouvre comme une page du Grimoire ;
+  un exemplaire de chacun des 84 ingrédients et une **plume de phénix** (`hxrpphenix:plume_de_phenix`) ; efface tous les
+  effets à vie. Le Phénix de feu fait aussi monter la Brûlure à chaque coup de feu (`VirusAPI.brulure`).
+
+### Commandes du Virus (permission 2)
+
+| Commande | Effet |
+| --- | --- |
+| `/virus rang <joueur> <0-3\|aucun>` | fait du joueur un Hunter Virus de ce rang (ou le retire) |
+| `/virus maladie donner <joueur> <maladie> [stade]` · `soigner <joueur>` · `info <joueur>` | maladies |
+| `/virus blessure <joueur> <type> <0-4\|aucune>` | pose ou retire une blessure |
+| `/virus sang <joueur>` | groupe sanguin |
+| `/virus immunite <joueur> <on\|off>` | immunité |
+| `/virus traitement <joueur> [annuler\|avancer]` | voir, annuler ou avancer à la prise suivante |
+| `/virus avie <joueur> [retirer]` | effets à vie |
+| `/virus parchemin <joueur>` | parchemin du Second Souffle |
+| `/virus donner <joueur> <objet> [quantité] [qualité]` | n'importe quel objet du Virus (ingrédient, préparation…) |
+| `/virus jarres` | termine les macérations des jarres à moins de 8 blocs |
+| `/virus prise <joueur>` | autorise une nouvelle prise de sang tout de suite |
+| `/virus recharger` | relit les JSON de `config/hxrpmetiers/virus/` |
+
+### Tester en jeu
+
+1. `/virus rang <soi> 3`, `/virus donner <soi> …` pour les ingrédients (ou les récolter), poser les machines et la table.
+2. Ouvrir le formulaire à la table de préparation, lancer une préparation, jouer les mini-jeux machine par machine
+   (`/virus jarres` pour ne pas attendre les macérations).
+3. Sur un autre joueur : `/virus blessure <joueur> plaie 2`, le soigner avec le bon soin (mini-jeu d'administration).
+4. `/virus maladie donner <joueur> <maladie>`, prise de sang à la seringue, analyse au microscope, cocher le carnet,
+   chercher dans le Grimoire, préparer le remède, l'administrer et suivre l'ordonnance (`/virus traitement … avancer`).
+5. `/virus parchemin <soi>` pour lire le Second Souffle (3★ seulement).
 
 ## Ce qui a changé depuis 0.4.0
 
@@ -47,7 +109,7 @@ modèles d'animaux (`data/modeles/*.json`) et `data/recolte.json`.
 ## Compiler
 
 ```sh
-./gradlew build          # produit build/libs/hxrpmetiers-0.5.0.jar
+./gradlew build          # produit build/libs/hxrpmetiers-0.6.0.jar
 ./gradlew runClient      # client de développement
 ```
 
@@ -55,8 +117,9 @@ modèles d'animaux (`data/modeles/*.json`) et `data/recolte.json`.
 vérifie le jar, puis démarre un vrai serveur Forge et un vrai client avec : le jar est joint à l'exécution
 (artefact `hxrpmetiers-jar`).
 
-Le nom du jar a changé (0.4.0 → 0.5.0) : si le launcher HxRP télécharge ce mod, mettre à jour son manifeste
-(nom, taille, empreinte) en même temps que le jar publié.
+Le nom du jar change à chaque version (0.5.0 → 0.6.0) : le launcher HxRP télécharge ce mod depuis la release
+`hxrp-extras-v…` décrite dans `manifest.json` ; publier le nouveau jar dans une release puis mettre à jour le manifeste
+(nom, taille, ancien nom dans `oldNames`) en même temps.
 
 ## Outils (Python 3 + Pillow + NumPy)
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Démarre Minecraft avec le Phénix (et GeckoLib) et vérifie le journal.
 #
-#   tools/test/demarrage.sh serveur build/libs/hxrpphenix-X.jar geckolib.jar
+#   tools/test/demarrage.sh serveur build/libs/hxrpphenix-X.jar geckolib.jar [autres jars…]
 #       vrai serveur dédié Forge 1.12.2 ; dans la console : invocation, tempête de feu, perchoir,
 #       mise à mort (œuf de cendres), renaissance, retrait. Java 8 : $JAVA8 ou $JAVA_HOME_8_X64.
+#       Avec le jar de hxrpmetiers en plus, vérifie aussi que le Phénix trouve la Brûlure du Hunter Virus.
 #   tools/test/demarrage.sh client
 #       client obfusqué de RetroFuturaGradle (runObfClient, GeckoLib inclus) ; il faut un écran (xvfb-run).
 set -u
@@ -40,12 +41,14 @@ if [ "$mode" = client ]; then
 else
     jar=$(readlink -f "${2:?chemin du jar du mod}")
     gecko=$(readlink -f "${3:?chemin du jar de GeckoLib}")
+    autres=()
+    for a in "${@:4}"; do autres+=("$(readlink -f "$a")"); done
     java8=${JAVA8:-${JAVA_HOME_8_X64:?Java 8 requis}/bin/java}
     srv=$PWD/build/serveur-test
     rm -rf "$srv" && mkdir -p "$srv/mods" && cd "$srv"
     curl -fsSL -o installer.jar "https://maven.minecraftforge.net/net/minecraftforge/forge/$FORGE/forge-$FORGE-installer.jar"
     "$java8" -jar installer.jar --installServer > installation.log 2>&1 || { tail -30 installation.log; exit 1; }
-    cp "$jar" "$gecko" mods/
+    cp "$jar" "$gecko" "${autres[@]}" mods/
     echo 'eula=true' > eula.txt   # serveur de test jetable
     printf 'online-mode=false\nlevel-type=FLAT\nspawn-animals=false\nspawn-monsters=false\n' > server.properties
     mkfifo console
@@ -100,6 +103,10 @@ fi
 if ! grep -q 'nix : pr' "$journal"; then
     echo "!! le mod Phénix ne s'est pas initialisé"
     exit 1
+fi
+if [ "$mode" = serveur ] && ls "$PWD/build/serveur-test/mods" | grep -q hxrpmetiers; then
+    grep -q 'Hunter Virus : oui' "$journal" || { echo "!! le Phénix ne trouve pas VirusAPI.brulure"; exit 1; }
+    grep -q 'Virus : [0-9]' "$journal" || { echo "!! le Hunter Virus n'a pas chargé ses données"; exit 1; }
 fi
 if [ "$mode" = serveur ]; then
     for attendu in 'feu s.+veille' 'nix de feu : [0-9]+ / [0-9]+ PV' 'uf de cendres' 'de ses cendres' 'nix retir'; do
