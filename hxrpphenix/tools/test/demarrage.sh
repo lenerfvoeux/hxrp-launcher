@@ -63,7 +63,8 @@ else
         c() { echo "$1" >&3; sleep "$2"; }
         c 'phenix invoquer' 8
         c 'phenix info' 2
-        c 'phenix attaque tempete' 14
+        c 'phenix attaque tempete' 5
+        c 'phenix info' 9
         c 'phenix attaque perche' 10
         c 'phenix info' 2
         c 'kill @e[type=hxrpphenix:phenix]' 3
@@ -114,7 +115,7 @@ if [ "$mode" = serveur ] && ls "$PWD/build/serveur-test/mods" | grep -q hxrpmeti
     grep -q 'Virus : [0-9]' "$journal" || { echo "!! le Hunter Virus n'a pas chargé ses données"; exit 1; }
 fi
 if [ "$mode" = serveur ]; then
-    for attendu in 'feu s.+veille' 'nix de feu : [0-9]+ / [0-9]+ PV' 'uf de cendres' 'de ses cendres' 'nix retir'; do
+    for attendu in 'feu s.+veille' 'nix de feu : [0-9]+ / [0-9]+ PV' 'PV, tempete' 'uf de cendres' 'de ses cendres' 'lance : souffle' 'nix retir'; do
         grep -Eq "$attendu" "$journal" || { echo "!! scénario : « $attendu » n'apparaît pas dans le journal"; tail -60 "$journal"; exit 1; }
     done
 fi

@@ -91,8 +91,8 @@ public class CommandPhenix extends CommandBase {
             }
             case "attaque": {
                 if (a.length < 2 || !ATTAQUES.contains(a[1])) throw new WrongUsageException("/phenix attaque <boule|souffle|pluie|plongee|tempete|perche>");
-                EntityPhenix p = lePlusProche(s);
-                if (p == null) throw new CommandException("Aucun Phénix à moins de 128 blocs.");
+                EntityPhenix p = lePlusProche(serveur, s);
+                if (p == null) throw new CommandException(s instanceof MinecraftServer ? "Aucun Phénix chargé." : "Aucun Phénix à moins de 128 blocs.");
                 int[] etats = {EntityPhenix.BOULE, EntityPhenix.SOUFFLE, EntityPhenix.PLUIE, EntityPhenix.PLONGEE, EntityPhenix.TEMPETE, EntityPhenix.PERCHE};
                 if (!p.forcer(etats[ATTAQUES.indexOf(a[1])])) throw new CommandException("Le Phénix ne peut pas attaquer maintenant (œuf, renaissance ou mort).");
                 notifyCommandListener(s, this, "Le Phénix lance : %s", a[1]);
@@ -127,16 +127,22 @@ public class CommandPhenix extends CommandBase {
         }
     }
 
+    /** Le Phénix le plus proche de l'expéditeur (à moins de 128 blocs) ; depuis la console, le plus proche du point d'apparition. */
     @Nullable
-    private static EntityPhenix lePlusProche(ICommandSender s) {
+    private static EntityPhenix lePlusProche(MinecraftServer serveur, ICommandSender s) {
+        boolean console = s instanceof MinecraftServer;
         EntityPhenix mieux = null;
-        double md = 128 * 128;
-        for (Entity e : s.getEntityWorld().loadedEntityList) {
-            if (!(e instanceof EntityPhenix) || !e.isEntityAlive()) continue;
-            double d = e.getDistanceSq(s.getPosition());
-            if (d < md) {
-                md = d;
-                mieux = (EntityPhenix) e;
+        double md = console ? Double.MAX_VALUE : 128 * 128;
+        for (WorldServer w : serveur.worlds) {
+            if (!console && w != s.getEntityWorld()) continue;
+            BlockPos ref = console ? w.getSpawnPoint() : s.getPosition();
+            for (Entity e : w.loadedEntityList) {
+                if (!(e instanceof EntityPhenix) || !e.isEntityAlive()) continue;
+                double d = e.getDistanceSq(ref);
+                if (d < md) {
+                    md = d;
+                    mieux = (EntityPhenix) e;
+                }
             }
         }
         return mieux;
