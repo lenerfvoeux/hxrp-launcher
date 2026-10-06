@@ -41,8 +41,8 @@
     ]
   },
   "extras": {
-    "tag": "hxrp-extras-v1.4.0",
-    "version": "1.4.0",
+    "tag": "hxrp-extras-v1.5.0",
+    "version": "1.5.0",
     "mods": [
       {
         "name": "hunterxrp-identity-client-2_5_1.jar",
@@ -50,16 +50,25 @@
         "oldNames": [
           "hunterxrp-identity-client-2_5_0.jar",
           "hunterxrp-identity-client-2_4_0.jar",
-          "hunterxrp-identity-client-2_3_0.jar",
-          "hxrpmetiers-0_6_0.jar",
+          "hunterxrp-identity-client-2_3_0.jar"
+        ]
+      },
+      {
+        "name": "hxrpmetiers-0_6_0.jar",
+        "size": 2671939,
+        "oldNames": [
           "hxrpmetiers-0_5_0.jar",
           "hxrpmetiers-0_3_1.jar",
           "hxrpmetiers-0_3_0.jar",
           "hxrpmetiers-0_2_0.jar",
           "hxrpvirus-0.1.0.jar",
-          "hxrpvirus-0.1.1.jar",
-          "hxrpphenix-1_0_0.jar"
+          "hxrpvirus-0.1.1.jar"
         ]
+      },
+      {
+        "name": "hxrpphenix-1_0_0.jar",
+        "size": 430265,
+        "oldNames": []
       },
       {
         "name": "geckolib-forge-1.12.2-3.0.31.jar",
