@@ -51,17 +51,18 @@ import java.util.Locale;
  * /virus jarres                       (termine les macérations des jarres à 8 blocs)
  * /virus prise &lt;joueur&gt;               (autorise une nouvelle prise de sang tout de suite)
  * /virus recharger
+ * /virus verifier                     (joue chaque récolte au clic droit avec un joueur fictif, puis range tout)
  * </pre>
  */
 public class CommandVirus extends CommandBase {
-    private static final List<String> SUB = Arrays.asList("rang", "maladie", "blessure", "sang", "immunite", "parchemin", "donner", "traitement", "avie", "jarres", "prise", "recharger");
+    private static final List<String> SUB = Arrays.asList("rang", "maladie", "blessure", "sang", "immunite", "parchemin", "donner", "traitement", "avie", "jarres", "prise", "recharger", "verifier");
 
     @Override public String getName() { return "virus"; }
     @Override public int getRequiredPermissionLevel() { return 2; }
 
     @Override
     public String getUsage(ICommandSender s) {
-        return "/virus <rang|maladie|blessure|sang|immunite|parchemin|donner|traitement|avie|jarres|prise|recharger> ...";
+        return "/virus <rang|maladie|blessure|sang|immunite|parchemin|donner|traitement|avie|jarres|prise|recharger|verifier> ...";
     }
 
     @Override
@@ -203,6 +204,12 @@ public class CommandVirus extends CommandBase {
                 DonneesVirus.chargerConfig(Loader.instance().getConfigDir());
                 for (EntityPlayerMP p : server.getPlayerList().getPlayers()) Network.NET.sendTo(new MsgDonneesVirus(), p);
                 ok(s, "Données du Virus rechargées : " + DonneesVirus.PREPARATIONS.size() + " préparations, " + DonneesVirus.MALADIES.size() + " maladies");
+                break;
+            }
+            case "verifier": {
+                String echec = EssaiRecolte.lancer(server.getWorld(0), s);
+                if (echec != null) throw new CommandException("Vérification de la récolte : " + echec);
+                ok(s, "Vérification de la récolte : OK");
                 break;
             }
             default:

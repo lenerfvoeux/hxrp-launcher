@@ -1,8 +1,11 @@
 {
  "_monde": true,
  "variants": {
-  "normal": {
+  "vide=false": {
    "model": "hxrpmetiers:monde/banc_de_moules"
+  },
+  "vide=true": {
+   "model": "hxrpmetiers:monde/banc_de_moules_vide"
   }
  }
 }

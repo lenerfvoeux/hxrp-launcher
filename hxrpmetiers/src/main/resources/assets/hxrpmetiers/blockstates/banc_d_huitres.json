@@ -1,8 +1,11 @@
 {
  "_monde": true,
  "variants": {
-  "normal": {
+  "vide=false": {
    "model": "hxrpmetiers:monde/banc_d_huitres"
+  },
+  "vide=true": {
+   "model": "hxrpmetiers:monde/banc_d_huitres_vide"
   }
  }
 }

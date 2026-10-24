@@ -4,9 +4,6 @@ import fr.lenerfvoeux.hxrp.metiers.HxrpMetiers;
 import fr.lenerfvoeux.hxrp.metiers.ModConfig;
 import fr.lenerfvoeux.hxrp.metiers.ModRegistry;
 import fr.lenerfvoeux.hxrp.metiers.monde.BlockCulture;
-import fr.lenerfvoeux.hxrp.metiers.monde.BlockFeuillage;
-import fr.lenerfvoeux.hxrp.metiers.monde.Climat;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -17,7 +14,6 @@ import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -30,17 +26,14 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
  * Récolte liée aux animaux vanilla et au monde : viandes en plus des butins vanilla, traite des vaches,
- * œufs des poules, graines trouvées dans les hautes herbes, fruits qu'on fait tomber des arbres.
+ * œufs des poules, potagers protégés du piétinement. Les hautes herbes ne donnent plus de graines (v0.7).
  */
 @Mod.EventBusSubscriber(modid = HxrpMetiers.MODID)
 public final class RecolteEvents {
@@ -118,30 +111,9 @@ public final class RecolteEvents {
         d.setInteger(PONTE, reste);
     }
 
-    /** Casser des hautes herbes peut donner les graines d'une culture du climat local. */
+    /** Sauter sur la terre labourée n'abîme pas les cultures (elles sont incassables). */
     @SubscribeEvent
-    public static void herbes(BlockEvent.HarvestDropsEvent e) {
-        IBlockState s = e.getState();
-        if (e.getWorld().isRemote || e.isSilkTouching() || (s.getBlock() != Blocks.TALLGRASS && s.getBlock() != Blocks.DOUBLE_PLANT)) return;
-        Random r = e.getWorld().rand;
-        if (r.nextInt(ModConfig.grainesDansLHerbe) != 0) return;
-        String climat = Climat.de(e.getWorld().getBiome(e.getPos()));
-        List<BlockCulture> ok = new ArrayList<>();
-        for (BlockCulture c : ModRegistry.CULTURES.values()) if (c.def.climat.equals(climat)) ok.add(c);
-        if (ok.isEmpty()) for (BlockCulture c : ModRegistry.CULTURES.values()) if (c.def.climat.equals(Climat.TEMPERE)) ok.add(c);
-        if (ok.isEmpty()) return;
-        e.getDrops().add(new ItemStack(ok.get(r.nextInt(ok.size())).graine()));
-    }
-
-    /** Taper sur des feuilles chargées de fruits mûrs fait tomber les fruits au lieu de casser le feuillage. */
-    @SubscribeEvent
-    public static void cueillir(PlayerInteractEvent.LeftClickBlock e) {
-        IBlockState s = e.getWorld().getBlockState(e.getPos());
-        if (!(s.getBlock() instanceof BlockFeuillage) || s.getValue(BlockFeuillage.FRUIT) != 2) return;
-        if (e.getEntityPlayer().capabilities.isCreativeMode) return;
-        ((BlockFeuillage) s.getBlock()).recolter(e.getWorld(), e.getPos(), s, e.getEntityPlayer());
-        e.setCanceled(true);
-        e.setUseBlock(Event.Result.DENY);
-        e.setUseItem(Event.Result.DENY);
+    public static void pietiner(BlockEvent.FarmlandTrampleEvent e) {
+        if (e.getWorld().getBlockState(e.getPos().up()).getBlock() instanceof BlockCulture) e.setCanceled(true);
     }
 }

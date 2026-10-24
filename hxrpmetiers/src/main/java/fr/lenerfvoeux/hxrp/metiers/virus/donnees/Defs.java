@@ -66,7 +66,7 @@ public final class Defs {
 
         public boolean administrable() {
             switch (forme == null ? "" : forme) {
-                case "fiole": case "seringue": case "pilules": case "onguent": case "bandage": case "attelle": case "fumigation": return true;
+                case "fiole": case "seringue": case "pilules": case "onguent": case "bandage": case "attelle": return true;
                 default: return false;
             }
         }

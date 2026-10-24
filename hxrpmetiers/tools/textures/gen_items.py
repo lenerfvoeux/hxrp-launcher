@@ -21,6 +21,8 @@ import preparations  # noqa: E402,F401
 import plats  # noqa: E402,F401
 import boissons  # noqa: E402,F401
 import retouches  # noqa: E402,F401  (redessins, remplacent les versions précédentes)
+sys.path.insert(0, os.path.join(HERE, '..', 'surcharges'))
+import surcharges  # noqa: E402  (textures retouchées à la main, prioritaires)
 
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 ASSETS = os.path.join(ROOT, 'src', 'main', 'resources', 'assets', 'hxrpmetiers')
@@ -30,10 +32,12 @@ PREVIEW = os.path.join(ROOT, 'tools', 'preview', 'out')
 
 
 def render(id):
+    # le dessin tourne toujours : il déclare aussi la palette du mini-jeu (parts.PAL)
     c = Canvas()
     parts.REG[id](c)
     c.outline()
-    return c.image()
+    fournie = surcharges.image('textures/items/' + id + '.png')
+    return c.image() if fournie is None else fournie
 
 
 def sheet(ids, path, scale=3, cols=12, names=None):
@@ -70,6 +74,7 @@ def main(argv):
     os.makedirs(OUT, exist_ok=True)
     for i in all_ids:
         render(i).save(os.path.join(OUT, i + '.png'))
+    surcharges.verifier_inutilisees('textures/items')
     for g in groups:
         sheet([e['id'] for e in food[g]], os.path.join(PREVIEW, 'items_' + g + '.png'), names=names)
     # palettes des mini-jeux (découpe, poêle, grill…)

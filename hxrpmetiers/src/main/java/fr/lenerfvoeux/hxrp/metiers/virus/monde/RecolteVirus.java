@@ -2,6 +2,7 @@ package fr.lenerfvoeux.hxrp.metiers.virus.monde;
 
 import fr.lenerfvoeux.hxrp.metiers.HxrpMetiers;
 import fr.lenerfvoeux.hxrp.metiers.ModRegistry;
+import fr.lenerfvoeux.hxrp.metiers.monde.Recharge;
 import fr.lenerfvoeux.hxrp.metiers.virus.item.Objets;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
@@ -13,8 +14,10 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +33,7 @@ import java.util.Random;
 
 /**
  * Récoltes du Virus hors des plantes : butins ajoutés aux animaux du Gourmet et vanilla (plumes, peaux, os…),
- * écorce prélevée à la hache sur les troncs, œuf cassé pour sa coquille.
+ * écorce prélevée à la main sur les troncs, œuf cassé pour sa coquille.
  */
 @Mod.EventBusSubscriber(modid = HxrpMetiers.MODID)
 public final class RecolteVirus {
@@ -77,11 +80,13 @@ public final class RecolteVirus {
     }
 
     // ================================================================== écorce, œuf
-    /** Clic droit à la hache sur un tronc de bouleau, ou de chêne au bord de l'eau (saule) : écorce. */
+    /**
+     * Clic droit main nue sur un tronc de bouleau, ou de chêne au bord de l'eau (saule) : 1 à 2 écorces. Le tronc
+     * montre le bois nu, puis l'écorce repousse en temps réel (voir BlockTroncEcorce).
+     */
     @SubscribeEvent
     public static void ecorce(PlayerInteractEvent.RightClickBlock e) {
-        ItemStack hache = e.getItemStack();
-        if (!(hache.getItem() instanceof ItemAxe)) return;
+        if (e.getHand() != EnumHand.MAIN_HAND || !e.getItemStack().isEmpty()) return;
         World w = e.getWorld();
         BlockPos pos = e.getPos();
         IBlockState s = w.getBlockState(pos);
@@ -94,12 +99,13 @@ public final class RecolteVirus {
         Item ecorce = Objets.item(bouleau ? "ecorce_de_bouleau" : "ecorce_de_saule");
         if (nu == null || ecorce == null) return;
         e.setCanceled(true);
+        e.setCancellationResult(EnumActionResult.SUCCESS);
         e.getEntityPlayer().swingArm(e.getHand());
         if (w.isRemote) return;
-        w.setBlockState(pos, nu.getDefaultState().withProperty(BlockLog.LOG_AXIS, s.getValue(BlockLog.LOG_AXIS)), 3);
-        ItemHandlerHelper.giveItemToPlayer(e.getEntityPlayer(), new ItemStack(ecorce, 1 + w.rand.nextInt(2)));
-        hache.damageItem(1, e.getEntityPlayer());
-        w.playSound(null, pos, SoundEvents.BLOCK_WOOD_HIT, SoundCategory.BLOCKS, 1f, 0.8f);
+        IBlockState vide = nu.getDefaultState().withProperty(BlockLog.LOG_AXIS, s.getValue(BlockLog.LOG_AXIS));
+        Recharge.donner(e.getEntityPlayer(), new ItemStack(ecorce, 1 + w.rand.nextInt(2)));
+        Recharge.eclatsFace(w, pos, e.getFace() == null ? EnumFacing.UP : e.getFace(), s, SoundEvents.BLOCK_WOOD_HIT, 1f, 0.8f);
+        Recharge.vider(w, pos, vide, nu.duree(vide));
     }
 
     /** Un chêne de marais ou de rivière compte pour un saule. */

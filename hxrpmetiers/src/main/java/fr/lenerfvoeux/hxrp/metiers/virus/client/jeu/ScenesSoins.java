@@ -12,64 +12,42 @@ import static fr.lenerfvoeux.hxrp.metiers.virus.client.jeu.ScenesVirus.*;
 final class ScenesSoins {
     private ScenesSoins() {}
 
-    // ================================================================== GORGÉES / FUMIGATION
+    // ================================================================== GORGÉES
     static void gorgees(Toile t, JeuxVirus.Gorgees j, ContexteVirus c, double tms) {
         tete(t, 252, 92);
         int[] lq = rampe(c.couleur);
         double der = j.fait > 0 ? j.tGorgee[j.fait - 1] : -10000;
         double boit = bosse(tms - der, 600);
-        if (j.fumee) {
-            // coupelle de fumigation : herbes qui fument vers le visage
-            Toile s = sprite();
-            int[] cu = Dessin.rampe(CUIVRE);
-            Dessin.ellipseV(s, 170, 132, 26, 7, cu, 0.9, 0.4);
-            s.rect(150, 132, 40, 10, cu[1]);
-            s.ellipse(170, 142, 20, 4, cu[0]);
-            poser(t, s);
-            for (int k = 0; k < 10; k++) {
-                int h = hash(k * 41L);
-                t.rect(152 + Math.floorMod(h, 36), 129 + Math.floorMod(h >> 5, 4), 3, 2, lq[1 + Math.floorMod(h >> 3, 3)]);
-            }
-            double vers = clamp(0.3 + j.valeur * 0.7);
-            for (int k = 0; k < 9; k++) {
-                double q = ((tms / 1400.0) + k / 9.0) % 1;
-                double x = 170 + q * (226 - 170) * vers + Math.sin(q * 6 + k) * 5;
-                double y = 124 - q * (124 - 96) * (0.4 + vers * 0.6);
-                volute(t, x, y, 4 + q * 5, Toile.melange(0xFFE8E4DC, c.couleur, 0.25), (1 - q) * 0.8);
-            }
-            if (boit > 0) for (int k = 0; k < 4; k++) volute(t, 232 - k * 4, 94 + k, 3, 0xFFF0F0F0, boit * 0.8);
-        } else {
-            // la main tient la fiole par le fond, le goulot vers la bouche ; plus la flèche monte, plus elle s'incline
-            double inc = -0.55 + j.valeur * 0.75 + boit * 0.25;
-            double fx = 200, fy = 100;
-            double ca = Math.cos(inc), sa = Math.sin(inc);
-            Toile s = sprite();
-            // corps de la fiole (de -16 au fond à +6 à l'épaule), col jusqu'à +16
-            double[][] corps = {{-16, -7}, {4, -7}, {8, -3}, {16, -3}, {16, 3}, {8, 3}, {4, 7}, {-16, 7}};
-            double[] xs = new double[corps.length], ys = new double[corps.length];
-            for (int k = 0; k < corps.length; k++) {
-                xs[k] = fx + corps[k][0] * ca - corps[k][1] * sa;
-                ys[k] = fy + corps[k][0] * sa + corps[k][1] * ca;
-            }
-            s.polygone(xs, ys, 0xFFD8ECF4);
-            double niveau = 1 - j.fait / 3.0;
-            if (niveau > 0) {
-                double fin = -15 + 18 * niveau;
-                double[][] liq = {{-15, -6}, {fin, -6}, {fin, 6}, {-15, 6}};
-                double[] lx = new double[4], ly = new double[4];
-                for (int k = 0; k < 4; k++) {
-                    lx[k] = fx + liq[k][0] * ca - liq[k][1] * sa;
-                    ly[k] = fy + liq[k][0] * sa + liq[k][1] * ca;
-                }
-                s.polygone(lx, ly, lq[2]);
-            }
-            double bx = fx + 17 * ca, by = fy + 17 * sa;
-            s.disque(bx, by, 2.5, 0xFFB07A44);
-            poser(t, s);
-            t.trait(fx - 12 * ca + 4 * sa, fy - 12 * sa - 4 * ca, fx + 2 * ca + 4 * sa, fy + 2 * sa - 4 * ca, 1, 0xAAFFFFFF);
-            main(t, fx - 14 * ca, fy - 14 * sa + 6);
-            if (boit > 0.2 && niveau > 0) for (int k = 0; k < 5; k++) t.rect((int) (bx + 2 + k * 1.5), (int) (by + k), 2, 2, lq[3]);
+        // la main tient la fiole par le fond, le goulot vers la bouche ; plus la flèche monte, plus elle s'incline
+        double inc = -0.55 + j.valeur * 0.75 + boit * 0.25;
+        double fx = 200, fy = 100;
+        double ca = Math.cos(inc), sa = Math.sin(inc);
+        Toile s = sprite();
+        // corps de la fiole (de -16 au fond à +6 à l'épaule), col jusqu'à +16
+        double[][] corps = {{-16, -7}, {4, -7}, {8, -3}, {16, -3}, {16, 3}, {8, 3}, {4, 7}, {-16, 7}};
+        double[] xs = new double[corps.length], ys = new double[corps.length];
+        for (int k = 0; k < corps.length; k++) {
+            xs[k] = fx + corps[k][0] * ca - corps[k][1] * sa;
+            ys[k] = fy + corps[k][0] * sa + corps[k][1] * ca;
         }
+        s.polygone(xs, ys, 0xFFD8ECF4);
+        double niveau = 1 - j.fait / 3.0;
+        if (niveau > 0) {
+            double fin = -15 + 18 * niveau;
+            double[][] liq = {{-15, -6}, {fin, -6}, {fin, 6}, {-15, 6}};
+            double[] lx = new double[4], ly = new double[4];
+            for (int k = 0; k < 4; k++) {
+                lx[k] = fx + liq[k][0] * ca - liq[k][1] * sa;
+                ly[k] = fy + liq[k][0] * sa + liq[k][1] * ca;
+            }
+            s.polygone(lx, ly, lq[2]);
+        }
+        double bx = fx + 17 * ca, by = fy + 17 * sa;
+        s.disque(bx, by, 2.5, 0xFFB07A44);
+        poser(t, s);
+        t.trait(fx - 12 * ca + 4 * sa, fy - 12 * sa - 4 * ca, fx + 2 * ca + 4 * sa, fy + 2 * sa - 4 * ca, 1, 0xAAFFFFFF);
+        main(t, fx - 14 * ca, fy - 14 * sa + 6);
+        if (boit > 0.2 && niveau > 0) for (int k = 0; k < 5; k++) t.rect((int) (bx + 2 + k * 1.5), (int) (by + k), 2, 2, lq[3]);
         int[] res = new int[3];
         for (int k = 0; k < 3; k++) res[k] = k < j.fait ? j.qualite[k] : -1;
         pastilles(t, res, 3, j.fait, 186, 174);

@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -27,7 +26,6 @@ public class GenVirus implements IWorldGenerator {
     /** Chance par chunk d'une touffe, selon la rareté : commune, peu commune, rare, très rare, légendaire. */
     private static final double[] TOUFFE = {1 / 6.0, 1 / 12.0, 1 / 25.0, 1 / 50.0, 1 / 120.0};
     private static final int[] TAILLE = {5, 4, 2, 1, 1};
-    private WorldGenMinable ferSang;
 
     public static void enregistrer() {
         GameRegistry.registerWorldGenerator(new GenVirus(), 20);
@@ -43,7 +41,6 @@ public class GenVirus implements IWorldGenerator {
         for (BlockPlanteVirus p : Cueillette.PLANTES.values()) plantes(w, r, x0, z0, milieux, p);
         for (BlockChampiTronc t : Cueillette.TRONCS.values()) troncs(w, r, x0, z0, milieux, t);
         sols(w, r, x0, z0, milieux);
-        if (milieux.contains("montagne") && chance(r, 1 / 10.0)) nid(w, r, x0, z0);
         if (milieux.contains("riviere") && chance(r, 1 / 30.0)) lotus(w, r, x0, z0);
     }
 
@@ -54,11 +51,6 @@ public class GenVirus implements IWorldGenerator {
     private static boolean dans(Set<String> milieux, Defs.Ingredient d) {
         for (String m : d.recolte.milieux) if (milieux.contains(m)) return true;
         return false;
-    }
-
-    private static int ageAuHasard(java.util.Random r) {
-        int k = r.nextInt(10);
-        return k < 6 ? 2 : k < 8 ? 1 : 0;
     }
 
     // ================================================================== plantes et champignons au sol
@@ -75,7 +67,7 @@ public class GenVirus implements IWorldGenerator {
         for (int k = 0, poses = 0; k < n * 4 && poses < n; k++) {
             BlockPos pos = w.getTopSolidOrLiquidBlock(new BlockPos(cx + r.nextInt(7) - 3, 0, cz + r.nextInt(7) - 3));
             if (!place(w, pos, d)) continue;
-            w.setBlockState(pos, p.getDefaultState().withProperty(BlockPlanteVirus.AGE, ageAuHasard(r)), 2);
+            w.setBlockState(pos, p.getDefaultState(), 2);
             poses++;
         }
     }
@@ -102,7 +94,7 @@ public class GenVirus implements IWorldGenerator {
         for (int k = 0; k < 24; k++) {
             BlockPos pos = new BlockPos(x0 + r.nextInt(16), 6 + r.nextInt(24), z0 + r.nextInt(16));
             if (!w.isAirBlock(pos) || w.canSeeSky(pos) || !Cueillette.solOk(p.def, w.getBlockState(pos.down()))) continue;
-            w.setBlockState(pos, p.getDefaultState().withProperty(BlockPlanteVirus.AGE, ageAuHasard(r)), 2);
+            w.setBlockState(pos, p.getDefaultState(), 2);
             if (r.nextBoolean()) return;
         }
     }
@@ -122,8 +114,7 @@ public class GenVirus implements IWorldGenerator {
                 EnumFacing f = EnumFacing.Plane.HORIZONTAL.random(r);
                 BlockPos ici = log.offset(f);
                 if (w.isAirBlock(ici) && ici.getY() - w.getTopSolidOrLiquidBlock(ici).getY() < 4) {
-                    w.setBlockState(ici, t.getDefaultState().withProperty(BlockChampiTronc.FACING, f.getOpposite())
-                            .withProperty(BlockChampiTronc.AGE, ageAuHasard(r)), 2);
+                    w.setBlockState(ici, t.getDefaultState().withProperty(BlockChampiTronc.FACING, f.getOpposite()), 2);
                     poses++;
                 }
                 break;
@@ -134,26 +125,31 @@ public class GenVirus implements IWorldGenerator {
     // ================================================================== sols
     private void sols(World w, java.util.Random r, int x0, int z0, Set<String> milieux) {
         BlockSolVirus truffe = Cueillette.SOLS.get("terre_truffiere"), mousse = Cueillette.SOLS.get("pierre_moussue_humide"),
-                vase = Cueillette.SOLS.get("vase_a_algue_noire"), fer = Cueillette.SOLS.get("roche_a_fer_sang"),
-                abysses = Cueillette.SOLS.get("roche_des_abysses");
+                vase = Cueillette.SOLS.get("vase_a_algue_noire");
         if (truffe != null && (milieux.contains("foret") || milieux.contains("foret_sombre")) && chance(r, 1 / 6.0)) truffes(w, r, x0, z0, truffe);
         if (mousse != null && chance(r, 1 / 2.0)) paroi(w, r, x0, z0, mousse, 20, 60, 3);
-        if (abysses != null && chance(r, 1 / 3.0)) paroi(w, r, x0, z0, abysses, 3, 12, 2);
         if (vase != null && milieux.contains("marais") && chance(r, 1 / 3.0)) vase(w, r, x0, z0, vase);
-        if (fer != null && chance(r, 1 / 2.0)) {
-            if (ferSang == null) ferSang = new WorldGenMinable(fer.getDefaultState(), 4);
-            ferSang.generate(w, r, new BlockPos(x0 + r.nextInt(16), 5 + r.nextInt(15), z0 + r.nextInt(16)));
-        }
     }
 
-    /** Truffes : un ou deux blocs de terre truffière sous l'herbe, au pied d'un chêne. */
+    /**
+     * Truffes : une ou deux plaques de terre truffière à la place de l'herbe, au pied d'un chêne. Elles affleurent :
+     * rien ne se casse sur le serveur, on doit pouvoir les fouiller au clic droit.
+     */
     private void truffes(World w, java.util.Random r, int x0, int z0, BlockSolVirus truffe) {
         for (int k = 0; k < 16; k++) {
             BlockPos sol = w.getTopSolidOrLiquidBlock(new BlockPos(x0 + 2 + r.nextInt(12), 0, z0 + 2 + r.nextInt(12))).down();
             if (w.getBlockState(sol).getBlock() != Blocks.GRASS || !presDUnChene(w, sol.up())) continue;
-            for (int i = 0; i < 1 + r.nextInt(2); i++) {
-                BlockPos t = sol.down(1 + r.nextInt(2)).add(r.nextInt(3) - 1, 0, r.nextInt(3) - 1);
-                if (Cueillette.terre(w.getBlockState(t))) w.setBlockState(t, truffe.getDefaultState(), 2);
+            int n = 1 + r.nextInt(2);
+            for (int i = 0; i < 6 && n > 0; i++) {
+                BlockPos t = i == 0 ? sol : sol.add(r.nextInt(3) - 1, 0, r.nextInt(3) - 1);
+                if (w.getBlockState(t).getBlock() != Blocks.GRASS) continue;
+                BlockPos dessus = t.up();
+                if (!w.isAirBlock(dessus)) {
+                    if (!w.getBlockState(dessus).getBlock().isReplaceable(w, dessus)) continue;
+                    w.setBlockState(dessus, Blocks.AIR.getDefaultState(), 2);
+                }
+                w.setBlockState(t, truffe.getDefaultState(), 2);
+                n--;
             }
             return;
         }
@@ -193,23 +189,7 @@ public class GenVirus implements IWorldGenerator {
         }
     }
 
-    // ================================================================== nid, lotus
-    /** Nid d'aigle-araignée : au bord d'une falaise, en hauteur, au-dessus d'un à-pic. */
-    private void nid(World w, java.util.Random r, int x0, int z0) {
-        if (Cueillette.NID == null) return;
-        for (int k = 0; k < 20; k++) {
-            BlockPos pos = w.getTopSolidOrLiquidBlock(new BlockPos(x0 + 2 + r.nextInt(12), 0, z0 + 2 + r.nextInt(12)));
-            if (pos.getY() < 85 || !w.isAirBlock(pos) || !w.getBlockState(pos.down()).isSideSolid(w, pos.down(), EnumFacing.UP)) continue;
-            for (EnumFacing f : EnumFacing.Plane.HORIZONTAL) {
-                BlockPos bord = pos.offset(f, 2);
-                if (pos.getY() - w.getTopSolidOrLiquidBlock(bord).getY() >= 7) {
-                    w.setBlockState(pos, Cueillette.NID.getDefaultState().withProperty(BlockNid.OEUFS, 1 + r.nextInt(2)), 2);
-                    return;
-                }
-            }
-        }
-    }
-
+    // ================================================================== lotus
     /** Lotus de l'aube : une fleur, sur l'eau calme d'une rivière. */
     private void lotus(World w, java.util.Random r, int x0, int z0) {
         if (Cueillette.LOTUS == null) return;

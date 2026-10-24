@@ -3234,7 +3234,7 @@
      "vie": true
     }
    ],
-   "remede": "sirop_de_fer_sang",
+   "remede": "sirop_de_gentiane_et_de_bardane",
    "accompagnements": [
     "cataplasme_d_algue_noire"
    ],
@@ -3248,13 +3248,13 @@
     {
      "delai": 1,
      "items": [
-      "sirop_de_fer_sang"
+      "sirop_de_gentiane_et_de_bardane"
      ]
     },
     {
      "delai": 3,
      "items": [
-      "sirop_de_fer_sang"
+      "sirop_de_gentiane_et_de_bardane"
      ]
     }
    ],
@@ -3397,7 +3397,7 @@
      "vie": true
     }
    ],
-   "remede": "pilules_de_mousse_des_abysses",
+   "remede": "pilules_de_champignon_luminescent",
    "accompagnements": [
     "decoction_de_ginkgo_et_valeriane",
     "eau_florale_de_lys_des_nuees"
@@ -3406,7 +3406,7 @@
     {
      "delai": 0,
      "items": [
-      "pilules_de_mousse_des_abysses",
+      "pilules_de_champignon_luminescent",
       "decoction_de_ginkgo_et_valeriane"
      ]
     },
@@ -3419,7 +3419,7 @@
     {
      "delai": 4,
      "items": [
-      "pilules_de_mousse_des_abysses",
+      "pilules_de_champignon_luminescent",
       "decoction_de_ginkgo_et_valeriane"
      ]
     },
@@ -3526,18 +3526,10 @@
     }
    ],
    "remede": "baume_de_romarin_au_polypore",
-   "accompagnements": [
-    "fumigation_de_plumes"
-   ],
+   "accompagnements": [],
    "prises": [
     {
      "delai": 0,
-     "items": [
-      "fumigation_de_plumes"
-     ]
-    },
-    {
-     "delai": 1,
      "items": [
       "baume_de_romarin_au_polypore"
      ]
@@ -3551,7 +3543,7 @@
    ],
    "consignes": [],
    "consigne_texte": "aucune",
-   "traitement_texte": "Prise 1 : Fumigation · Prise 2 (+1 h) : Baume · Prise 3 (+2 h) : Baume",
+   "traitement_texte": "Prise 1 : Baume · Prise 2 (+2 h) : Baume",
    "origine": [],
    "contexte": [
     "plaines"
@@ -5134,7 +5126,7 @@
      "vie": true
     }
    ],
-   "remede": "elixir_de_l_aigle_araignee",
+   "remede": "elixir_de_truffe_noire",
    "accompagnements": [
     "pilules_de_charbon_d_os"
    ],
@@ -5148,7 +5140,7 @@
     {
      "delai": 2,
      "items": [
-      "elixir_de_l_aigle_araignee"
+      "elixir_de_truffe_noire"
      ]
     },
     {
@@ -5160,7 +5152,7 @@
     {
      "delai": 2,
      "items": [
-      "elixir_de_l_aigle_araignee"
+      "elixir_de_truffe_noire"
      ]
     }
    ],
@@ -6705,28 +6697,28 @@
    ],
    "remede": "onguent_de_la_baleine",
    "accompagnements": [
-    "decoction_de_fer_sang_et_pied_bleu"
+    "decoction_de_pied_bleu_et_de_chaga"
    ],
    "prises": [
     {
      "delai": 0,
      "items": [
       "onguent_de_la_baleine",
-      "decoction_de_fer_sang_et_pied_bleu"
+      "decoction_de_pied_bleu_et_de_chaga"
      ]
     },
     {
      "delai": 6,
      "items": [
       "onguent_de_la_baleine",
-      "decoction_de_fer_sang_et_pied_bleu"
+      "decoction_de_pied_bleu_et_de_chaga"
      ]
     },
     {
      "delai": 6,
      "items": [
       "onguent_de_la_baleine",
-      "decoction_de_fer_sang_et_pied_bleu"
+      "decoction_de_pied_bleu_et_de_chaga"
      ],
      "dormir_apres": true
     }
@@ -6867,14 +6859,14 @@
    ],
    "remede": "elixir_de_l_arbre_monde",
    "accompagnements": [
-    "pilules_de_mousse_des_abysses",
+    "pilules_de_champignon_luminescent",
     "pilules_de_bourse_a_pasteur"
    ],
    "prises": [
     {
      "delai": 0,
      "items": [
-      "pilules_de_mousse_des_abysses",
+      "pilules_de_champignon_luminescent",
       "pilules_de_bourse_a_pasteur"
      ]
     },
@@ -6887,7 +6879,7 @@
     {
      "delai": 4,
      "items": [
-      "pilules_de_mousse_des_abysses"
+      "pilules_de_champignon_luminescent"
      ]
     },
     {
@@ -6903,7 +6895,7 @@
     }
    ],
    "consigne_texte": "repos absolu : ni sprint ni combat",
-   "traitement_texte": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de mousse des abysses · Prise 4 (+2 h) : Élixir",
+   "traitement_texte": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de champignon luminescent · Prise 4 (+2 h) : Élixir",
    "origine": [],
    "contexte": [
     "combat"

@@ -1,23 +1,16 @@
 package fr.lenerfvoeux.hxrp.metiers.virus.monde;
 
+import fr.lenerfvoeux.hxrp.metiers.monde.Recharge;
 import fr.lenerfvoeux.hxrp.metiers.virus.VirusConfig;
 import fr.lenerfvoeux.hxrp.metiers.virus.donnees.Defs;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStone;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -27,7 +20,8 @@ import java.util.Random;
 
 /**
  * Les règles de la récolte du Virus : sur quel sol pousse chaque plante, sur quel bois chaque champignon,
- * quand on peut cueillir (nuit, aube), combien on récolte, et comment on replante.
+ * quand on peut cueillir (nuit, aube), combien on récolte et en combien de temps le bloc se recharge.
+ * Les ingrédients ne se replantent pas (v0.7) : ils ne viennent que des blocs du monde.
  */
 public final class Cueillette {
     /** Blocs de plante et de tronc par identifiant d'ingrédient (remplis à l'enregistrement). */
@@ -35,7 +29,6 @@ public final class Cueillette {
     public static final Map<String, BlockChampiTronc> TRONCS = new LinkedHashMap<>();
     public static final Map<String, BlockSolVirus> SOLS = new LinkedHashMap<>();
     public static BlockTroncEcorce ECORCE_BOULEAU, ECORCE_SAULE;
-    public static BlockNid NID;
     public static BlockLotus LOTUS;
     public static BlockSourceSeve SEVE;
 
@@ -55,16 +48,15 @@ public final class Cueillette {
         return niveau(d) <= 1;
     }
 
-    /** Chance de passer au stade suivant à chaque tick aléatoire (environ toutes les 68 s) : les raretés poussent lentement. */
-    public static double chancePousse(Defs.Ingredient d) {
-        double[] c = {1 / 6.0, 1 / 9.0, 1 / 14.0, 1 / 22.0, 1 / 30.0};
-        return Math.min(1, c[niveau(d)] * VirusConfig.poussePlantes);
+    /** Durée (ms) de la recharge d'un bloc récolté, selon la rareté de son ingrédient. */
+    public static long duree(Defs.Ingredient d) {
+        int[] m = VirusConfig.rechargeMinutes;
+        int min = m == null || m.length == 0 ? 60 : m[Math.min(m.length - 1, niveau(d))];
+        return Math.max(1, min) * Recharge.MINUTE;
     }
 
-    public static int quantite(Defs.Ingredient d, Random r, int fortune) {
-        int n = niveau(d) <= 1 ? 1 + r.nextInt(2) : 1;
-        if (fortune > 0 && niveau(d) <= 2) n += r.nextInt(fortune + 1);
-        return n;
+    public static int quantite(Defs.Ingredient d, Random r) {
+        return niveau(d) <= 1 ? 1 + r.nextInt(2) : 1;
     }
 
     /** Raison pour laquelle on ne peut pas cueillir maintenant (fleur de nuit, pollen de l'aube), ou null. */
@@ -88,30 +80,6 @@ public final class Cueillette {
             case "montagne": return terre || pierre || b == Blocks.SNOW;
             case "foret": return terre;
             default: return terre && b != Blocks.MYCELIUM || (d.recolte.champignon && b == Blocks.MYCELIUM);
-        }
-    }
-
-    public static String libelleSol(Defs.Ingredient d) {
-        switch (d.recolte.type) {
-            case "tronc": return "le flanc d'un tronc de " + bois(d.recolte.bois);
-            default: break;
-        }
-        switch (d.recolte.sol == null ? "herbe" : d.recolte.sol) {
-            case "sable": return "du sable";
-            case "neige": return "la neige ou l'herbe";
-            case "pierre": return "la pierre";
-            case "montagne": return "l'herbe ou la roche";
-            case "foret": return "la terre ou l'herbe";
-            default: return "l'herbe ou la terre";
-        }
-    }
-
-    private static String bois(String b) {
-        switch (b == null ? "" : b) {
-            case "chene": return "chêne";
-            case "bouleau": return "bouleau";
-            case "chene_noir": return "chêne noir";
-            default: return "n'importe quel arbre";
         }
     }
 
@@ -143,49 +111,6 @@ public final class Cueillette {
 
     public static boolean pierre(IBlockState s) {
         return s.getBlock() == Blocks.STONE && s.getValue(BlockStone.VARIANT) == BlockStone.EnumType.STONE;
-    }
-
-    public static boolean terre(IBlockState s) {
-        return s.getBlock() == Blocks.DIRT && s.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT;
-    }
-
-    // ================================================================== replanter
-    public static boolean replantable(Defs.Ingredient d) {
-        return PLANTES.containsKey(d.id) || TRONCS.containsKey(d.id);
-    }
-
-    /** Clic droit avec l'ingrédient : on repose la plante sur le bon sol, ou le champignon sur le bon tronc. */
-    public static boolean replanter(EntityPlayer p, World w, BlockPos pos, EnumHand hand, EnumFacing face, Defs.Ingredient d) {
-        ItemStack s = p.getHeldItem(hand);
-        BlockPlanteVirus plante = PLANTES.get(d.id);
-        if (plante != null) {
-            if (face != EnumFacing.UP) return false;
-            BlockPos ici = pos.up();
-            if (!w.isAirBlock(ici) || !p.canPlayerEdit(ici, face, s) || !solOk(d, w.getBlockState(pos))) return false;
-            if (!w.isRemote) {
-                w.setBlockState(ici, plante.getDefaultState(), 3);
-                w.playSound(null, ici, d.recolte.champignon ? SoundEvents_CLOTH() : SoundType.PLANT.getPlaceSound(), SoundCategory.BLOCKS, 0.8f, 0.9f);
-                if (!p.capabilities.isCreativeMode) s.shrink(1);
-            }
-            return true;
-        }
-        BlockChampiTronc tronc = TRONCS.get(d.id);
-        if (tronc != null) {
-            if (!face.getAxis().isHorizontal() || !boisOk(d.recolte.bois, w.getBlockState(pos))) return false;
-            BlockPos ici = pos.offset(face);
-            if (!w.isAirBlock(ici) || !p.canPlayerEdit(ici, face, s)) return false;
-            if (!w.isRemote) {
-                w.setBlockState(ici, tronc.getDefaultState().withProperty(BlockChampiTronc.FACING, face.getOpposite()), 3);
-                w.playSound(null, ici, SoundEvents_CLOTH(), SoundCategory.BLOCKS, 0.8f, 0.9f);
-                if (!p.capabilities.isCreativeMode) s.shrink(1);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private static net.minecraft.util.SoundEvent SoundEvents_CLOTH() {
-        return SoundType.CLOTH.getPlaceSound();
     }
 
     /** Le bloc posé par la génération est-il de la bonne matière pour une plante (pas d'eau, pas de feuilles) ? */

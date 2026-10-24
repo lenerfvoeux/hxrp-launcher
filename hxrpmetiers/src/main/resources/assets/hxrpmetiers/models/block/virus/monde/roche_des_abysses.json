@@ -1,7 +1,0 @@
-{
- "_virus": true,
- "parent": "block/cube_all",
- "textures": {
-  "all": "hxrpmetiers:blocks/virus/monde/roche_des_abysses"
- }
-}

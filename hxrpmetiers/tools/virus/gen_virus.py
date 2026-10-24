@@ -21,6 +21,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, 'art'))
 sys.path.insert(0, os.path.join(HERE, '..', 'textures'))
 sys.path.insert(0, os.path.join(HERE, '..', 'models'))
+sys.path.insert(0, os.path.join(HERE, '..', 'surcharges'))
 import donnees  # noqa: E402
 import outils  # noqa: E402
 import machines  # noqa: E402
@@ -32,6 +33,7 @@ import sons  # noqa: E402
 import zfight  # noqa: E402
 import mc_render  # noqa: E402
 from pix import Canvas  # noqa: E402
+import surcharges  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 A = os.path.join(ROOT, 'src', 'main', 'resources', 'assets', 'hxrpmetiers')
@@ -67,8 +69,17 @@ def icone(fn):
     return c.image()
 
 
-def modele_objet(id, texture):
-    ecrire(os.path.join(A, 'models', 'item', id + '.json'), {MARQUE: True, 'parent': 'item/generated', 'textures': {'layer0': M + ':' + texture}})
+def sauver_icone(id, ic):
+    """Écrit l'icône d'un objet ; une texture retouchée dans tools/surcharges/ prime sur le dessin généré."""
+    ic = surcharges.image('textures/items/virus/' + id + '.png') or ic
+    p = os.path.join(A, 'textures', 'items', 'virus', id + '.png')
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    ic.save(p)
+    return ic
+
+
+def modele_objet(id, texture, parent='item/generated'):
+    ecrire(os.path.join(A, 'models', 'item', id + '.json'), {MARQUE: True, 'parent': parent, 'textures': {'layer0': M + ':' + texture}})
 
 
 def modele_objet_bloc(id, modele, display=None):
@@ -101,7 +112,7 @@ def planche(images, chemin, echelle=3, cols=10):
 
 
 def monde(ingredients, lang):
-    """Plantes, champignons de tronc, sols, troncs écorcés, nid, lotus, source de sève : textures, modèles, états, noms."""
+    """Plantes, champignons de tronc, sols, troncs écorcés, lotus, source de sève : textures, modèles, états, noms."""
     tdir = os.path.join(A, 'textures', 'blocks', 'virus', 'monde')
     mdir = os.path.join(A, 'models', 'block', 'virus', 'monde')
     os.makedirs(tdir, exist_ok=True)
@@ -128,6 +139,7 @@ def monde(ingredients, lang):
                 if s == 2:
                     apercu.append(('plante_' + id, im))
             etats('plante_' + id, variantes)
+            modele_objet('plante_' + id, 'blocks/virus/monde/plante_%s_2' % id)
             lang.append('tile.%s.plante_%s.name=%s (plante)' % (M, id, noms[id]))
         elif r['type'] == 'tronc':
             flore.texture_tronc(id).image().save(os.path.join(tdir, 'tronc_%s.png' % id))
@@ -141,15 +153,18 @@ def monde(ingredients, lang):
                         v['y'] = y
                     variantes['age=%d,facing=%s' % (age, f)] = v
             etats('tronc_' + id, variantes)
+            modele_objet('tronc_' + id, 'items/virus/' + id)
             lang.append('tile.%s.tronc_%s.name=%s (sur le tronc)' % (M, id, noms[id]))
         elif r['type'] == 'sol':
+            # plein, puis fouillé ou gratté (v0.7 : récolté au clic droit, il se recharge)
             bloc = r['bloc']
-            flore.sol(bloc).image().save(os.path.join(tdir, bloc + '.png'))
-            ecrire(os.path.join(mdir, bloc + '.json'), {MARQUE: True, 'parent': 'block/cube_all', 'textures': {'all': T + bloc}})
-            etats(bloc, {'normal': {'model': M + ':virus/monde/' + bloc}})
+            for nom, vide in ((bloc, False), (bloc + '_vide', True)):
+                flore.sol(bloc, vide).image().save(os.path.join(tdir, nom + '.png'))
+                ecrire(os.path.join(mdir, nom + '.json'), {MARQUE: True, 'parent': 'block/cube_all', 'textures': {'all': T + nom}})
+                apercu.append((nom, flore.sol(bloc, vide).image()))
+            etats(bloc, {'vide=false': {'model': M + ':virus/monde/' + bloc}, 'vide=true': {'model': M + ':virus/monde/' + bloc + '_vide'}})
             modele_objet_bloc(bloc, 'virus/monde/' + bloc)
             lang.append('tile.%s.%s.name=%s' % (M, bloc, NOMS_SOLS[bloc]))
-            apercu.append((bloc, flore.sol(bloc).image()))
     # troncs écorcés
     for bouleau, nom in ((True, 'bouleau'), (False, 'saule')):
         id = 'tronc_ecorce_' + nom
@@ -159,16 +174,6 @@ def monde(ingredients, lang):
         mm = M + ':virus/monde/' + id
         etats(id, {'axis=y': {'model': mm}, 'axis=z': {'model': mm, 'x': 90}, 'axis=x': {'model': mm, 'x': 90, 'y': 90}, 'axis=none': {'model': mm}})
         lang.append('tile.%s.%s.name=Tronc de %s écorcé' % (M, id, nom))
-    # nid d'aigle-araignée
-    flore.texture_brindilles().image().save(os.path.join(tdir, 'brindilles.png'))
-    flore.texture_oeuf().image().save(os.path.join(tdir, 'oeuf_aigle.png'))
-    variantes = {}
-    for n in range(3):
-        ecrire(os.path.join(mdir, 'nid_%d.json' % n), flore.modele_nid(n).json())
-        variantes['oeufs=%d' % n] = {'model': M + ':virus/monde/nid_%d' % n}
-    etats('nid_d_aigle_araignee', variantes)
-    modele_objet_bloc('nid_d_aigle_araignee', 'virus/monde/nid_2')
-    lang.append("tile.%s.nid_d_aigle_araignee.name=Nid d'aigle-araignée" % M)
     # lotus de l'aube
     flore.texture_lotus_feuille().image().save(os.path.join(tdir, 'lotus_feuille.png'))
     flore.texture_lotus_fleur(True).image().save(os.path.join(tdir, 'lotus_fleur.png'))
@@ -178,15 +183,17 @@ def monde(ingredients, lang):
         ecrire(os.path.join(mdir, mo.name + '.json'), mo.json())
     etats('lotus_de_l_aube_plante', {'fleuri=true': {'model': M + ':virus/monde/lotus_fleuri'},
                                      'fleuri=false': {'model': M + ':virus/monde/lotus_bouton'}})
-    ic = icone(flore.icone_lotus_plante)
-    ic.save(os.path.join(A, 'textures', 'items', 'virus', 'lotus_de_l_aube_plante.png'))
+    sauver_icone('lotus_de_l_aube_plante', icone(flore.icone_lotus_plante))
     modele_objet('lotus_de_l_aube_plante', 'items/virus/lotus_de_l_aube_plante')
     lang.append("tile.%s.lotus_de_l_aube_plante.name=Lotus de l'aube (plante)" % M)
     # source de sève de l'Arbre-Monde
-    flore.seve('cote').image().save(os.path.join(tdir, 'seve_cote.png'))
-    flore.seve('dessus').image().save(os.path.join(tdir, 'seve_dessus.png'))
-    ecrire(os.path.join(mdir, 'source_de_seve.json'), {MARQUE: True, 'parent': 'block/cube_column', 'textures': {'side': T + 'seve_cote', 'end': T + 'seve_dessus'}})
-    etats('source_de_seve', {'normal': {'model': M + ':virus/monde/source_de_seve'}})
+    # source qui coule, puis tarie après une récolte
+    for suffixe, tarie in (('', False), ('_tarie', True)):
+        flore.seve('cote', tarie).image().save(os.path.join(tdir, 'seve_cote%s.png' % suffixe))
+        flore.seve('dessus', tarie).image().save(os.path.join(tdir, 'seve_dessus%s.png' % suffixe))
+        ecrire(os.path.join(mdir, 'source_de_seve%s.json' % suffixe), {MARQUE: True, 'parent': 'block/cube_column',
+                                                                         'textures': {'side': T + 'seve_cote' + suffixe, 'end': T + 'seve_dessus' + suffixe}})
+    etats('source_de_seve', {'tarie=false': {'model': M + ':virus/monde/source_de_seve'}, 'tarie=true': {'model': M + ':virus/monde/source_de_seve_tarie'}})
     modele_objet_bloc('source_de_seve', 'virus/monde/source_de_seve')
     lang.append("tile.%s.source_de_seve.name=Source de sève de l'Arbre-Monde" % M)
     # planche d'aperçu des plantes mûres et des sols
@@ -194,13 +201,20 @@ def monde(ingredients, lang):
 
 
 NOMS_SOLS = {'pierre_moussue_humide': 'Pierre moussue humide', 'terre_truffiere': 'Terre truffière',
-             'vase_a_algue_noire': 'Vase à algue noire', 'roche_a_fer_sang': 'Roche à fer-sang', 'roche_des_abysses': 'Roche des abysses'}
+             'vase_a_algue_noire': 'Vase à algue noire'}
+
+# Noms anglais fournis pour les objets ajoutés ou renommés en v0.7 (les autres gardent leur nom français dans en_us.lang)
+NOMS_ANGLAIS = {'sirop_de_gentiane_et_de_bardane': 'Gentian and burdock syrup', 'pilules_de_champignon_luminescent': 'Luminous mushroom pills',
+                'elixir_de_truffe_noire': 'Black truffle elixir', 'decoction_de_pied_bleu_et_de_chaga': 'Blewit and chaga decoction',
+                'essence_des_dix_raretes': 'Essence of the ten rarities', 'lingot_d_osteacier': 'Bonesteel ingot',
+                'pioche_de_prospecteur': "Prospector's pickaxe"}
 
 
 def main():
     preps, maladies, blessures = donnees.main()
     nettoyer()
-    lang = ['itemGroup.%s.virus=Hunter Virus · Officine' % M]
+    lang = ['itemGroup.%s.%s=Virus · %s' % (M, o, nom) for o, nom in (('virus', 'Officine'), ('virus_cueillette', 'Cueillette'),
+            ('virus_ressources', 'Ressources'), ('virus_preparations', 'Préparations'), ('virus_remedes', 'Remèdes'), ('virus_monde', 'Blocs du monde'))]
 
     # ------------------------------------------------------------------ objets de l'apothicaire
     noms_outils = {'seringue_vide': 'Seringue stérile', 'seringue_pleine': 'Prise de sang', 'ordonnance': 'Ordonnance',
@@ -208,26 +222,21 @@ def main():
                    'preparation_ratee': 'Préparation ratée', 'preparation_en_cours_officine': 'Préparation en cours'}
     apercus = []
     for id, fn in outils.REG.items():
-        ic = icone(fn)
-        p = os.path.join(A, 'textures', 'items', 'virus', id + '.png')
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        ic.save(p)
+        ic = sauver_icone(id, icone(fn))
         modele_objet(id, 'items/virus/' + id)
         lang.append('item.%s.%s.name=%s' % (M, id, noms_outils[id]))
         apercus.append((id, ic))
     planche(apercus, os.path.join(PREVIEW, 'virus_outils.png'))
 
     # ------------------------------------------------------------------ ingrédients et préparations
-    lang.append('itemGroup.%s.virus_ingredients=Hunter Virus · Ingrédients' % M)
-    lang.append('itemGroup.%s.virus_remedes=Hunter Virus · Remèdes' % M)
     ingredients = json.load(open(os.path.join(A, 'data', 'virus', 'ingredients.json'), encoding='utf-8'))['ingredients']
     toutes_preps = json.load(open(os.path.join(A, 'data', 'virus', 'preparations.json'), encoding='utf-8'))['preparations']
     icones_ing = {}
     apercus_ing = []
     for ing in ingredients:
         ic = icone(ingredients_icones.REG[ing['id']])
-        icones_ing[ing['id']] = ic
-        ic.save(os.path.join(A, 'textures', 'items', 'virus', ing['id'] + '.png'))
+        icones_ing[ing['id']] = ic  # couleurs des préparations : d'après le dessin généré
+        ic = sauver_icone(ing['id'], ic)
         modele_objet(ing['id'], 'items/virus/' + ing['id'])
         lang.append('item.%s.%s.name=%s' % (M, ing['id'], ing['nom']))
         apercus_ing.append((ing['id'], ic))
@@ -240,9 +249,8 @@ def main():
         if pid in vus or pid in icones_ing or ':' in pid:
             continue
         vus.add(pid)
-        ic = icone(lambda c, pr=pr: preparations_icones.dessiner(c, pr, couleurs))
-        ic.save(os.path.join(A, 'textures', 'items', 'virus', pid + '.png'))
-        modele_objet(pid, 'items/virus/' + pid)
+        ic = sauver_icone(pid, icone(lambda c, pr=pr: preparations_icones.dessiner(c, pr, couleurs)))
+        modele_objet(pid, 'items/virus/' + pid, 'item/handheld' if pr['forme'] == 'outil' else 'item/generated')
         lang.append('item.%s.%s.name=%s' % (M, pid, pr['nom']))
         apercus_preps.append((pid, ic))
     planche(apercus_preps, os.path.join(PREVIEW, 'virus_preparations.png'), echelle=2, cols=12)
@@ -324,7 +332,8 @@ def main():
     for fichier in ('fr_fr.lang', 'en_us.lang'):
         p = os.path.join(A, 'lang', fichier)
         txt = open(p, encoding='utf-8').read()
-        bloc = LANG_DEBUT + '\n' + '\n'.join(lang) + '\n' + LANG_FIN + '\n'
+        lignes = lang if fichier == 'fr_fr.lang' else [anglais(l) for l in lang]
+        bloc = LANG_DEBUT + '\n' + '\n'.join(lignes) + '\n' + LANG_FIN + '\n'
         if LANG_DEBUT in txt and LANG_FIN in txt[txt.index(LANG_DEBUT):]:
             i = txt.index(LANG_DEBUT)
             j = txt.index(LANG_FIN, i) + len(LANG_FIN)
@@ -332,7 +341,14 @@ def main():
         else:
             txt = txt.rstrip('\n') + '\n' + bloc
         open(p, 'w', encoding='utf-8').write(txt)
+    surcharges.verifier_inutilisees('textures/items/virus')
     print('%d objets, %d blocs 3D, %d noms' % (len(outils.REG), len(machines.MODELS), len(lang)))
+
+
+def anglais(ligne):
+    cle, _, nom = ligne.partition('=')
+    id = cle[len('item.%s.' % M):-len('.name')] if cle.startswith('item.%s.' % M) and cle.endswith('.name') else None
+    return cle + '=' + NOMS_ANGLAIS[id] if id in NOMS_ANGLAIS else ligne
 
 
 if __name__ == '__main__':

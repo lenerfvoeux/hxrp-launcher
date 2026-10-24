@@ -266,7 +266,7 @@ public class GuiGrimoire extends GuiScreen {
         e.blanc();
         e.texte("Effet : efface toutes les séquelles à vie que les maladies ont laissées dans le corps du patient.", ENCRE);
         e.blanc();
-        e.texte("Ingrédients : un exemplaire de chacun des 84 ingrédients de l'officine, et une plume de phénix.", ENCRE);
+        e.texte("Ingrédients : un exemplaire de chacun des " + DonneesVirus.INGREDIENTS.size() + " ingrédients de l'officine, et une plume de phénix.", ENCRE);
         e.blanc();
         e.texte("Seuil : 80 %. Ratée, tout est perdu, plume comprise.", ROUGE);
         if (pages.size() % 2 == 1) e.nouvelle();
@@ -275,7 +275,7 @@ public class GuiGrimoire extends GuiScreen {
             e.texte(TextFormatting.ITALIC + "Les lignes se brouillent. Seul un Virus 3★ sait les lire.", ROUGE);
             e.blanc();
         }
-        String[] ordre = {"poudre_des_trente_quatre_plantes", "teinture_des_vingt_champignons", "essence_des_quinze_raretes",
+        String[] ordre = {"poudre_des_trente_quatre_plantes", "teinture_des_vingt_champignons", "essence_des_dix_raretes",
                 "baume_des_quinze_ressources", "cendre_doree", "remede_du_second_souffle"};
         int k = 1;
         for (String id : ordre) {

@@ -1,7 +1,0 @@
-{
- "_virus": true,
- "parent": "block/cross",
- "textures": {
-  "cross": "hxrpmetiers:blocks/virus/monde/plante_baie_de_l_ile_de_la_baleine_0"
- }
-}

@@ -1,8 +1,11 @@
 {
  "_virus": true,
  "variants": {
-  "normal": {
+  "vide=false": {
    "model": "hxrpmetiers:virus/monde/pierre_moussue_humide"
+  },
+  "vide=true": {
+   "model": "hxrpmetiers:virus/monde/pierre_moussue_humide_vide"
   }
  }
 }

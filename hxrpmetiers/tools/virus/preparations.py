@@ -11,9 +11,10 @@ des charges (« ingrédient + ingrédient → Machine → Machine »).
   jarres     nombre d'heures d'attente réelle (1 à 24), « o » = jarre ouverte (vinaigre)
   balance    normal | stricte (dose stricte : dépasser la masse gâche tout)
   table      onguent | baume | cataplasme | compresse | filtrer | refroidir | emplatre | attelle | pansement | bandage
+             | assembler (outil : même mini-jeu, on ligature au lieu d'étaler)
 
-Formes : fiole, seringue, pilules, onguent, bandage, attelle, fumigation (administrées par un Virus),
-base (ingrédient préparé), ingredient (le koji, qui est aussi un ingrédient récolté).
+Formes : fiole, seringue, pilules, onguent, bandage, attelle (administrées par un Virus),
+base (ingrédient préparé), ingredient (koji, lingot d'ostéacier), outil (pioche de prospecteur).
 « eau » = bouteille d'eau du Gourmet ; « seringue_vide » = seringue du meuble à tiroirs.
 """
 
@@ -181,20 +182,19 @@ P('teinture_d_artichaut_et_de_pissenlit', "Teinture d'artichaut et de pissenlit"
 P('pilules_de_gentiane', 'Pilules de gentiane', 'pilules', 'gentiane miel', 'hachoir > yagen > balance > mortier > pilulier',
   'poudre de gentiane + miel → Balance → Mortier → Pilulier')
 # 23 Sangsue-fantôme
-P('sirop_de_fer_sang', 'Sirop de fer-sang', 'fiole', 'racine_de_fer_sang eau miel', 'hachoir > chaudron:forte > chaudron:reduction',
-  'racine de fer-sang → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)')
+P('sirop_de_gentiane_et_de_bardane', 'Sirop de gentiane et de bardane', 'fiole', 'gentiane bardane_racine eau miel',
+  'hachoir > chaudron:forte > chaudron:reduction',
+  'racine de gentiane + racine de bardane + eau → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)')
 P('cataplasme_d_algue_noire', "Cataplasme d'algue noire", 'onguent', 'algue_noire miel', 'mortier > table:cataplasme',
   'algue noire fraîche + miel → Mortier → Table')
 # 24 Ver cérébral
-P('pilules_de_mousse_des_abysses', 'Pilules de mousse des abysses', 'pilules', 'mousse_des_abysses champignon_luminescent miel',
-  'yagen > balance > mortier > pilulier', 'mousse des abysses + champignon luminescent → Yagen → Balance + miel → Mortier → Pilulier')
+P('pilules_de_champignon_luminescent', 'Pilules de champignon luminescent', 'pilules', 'champignon_luminescent lys_des_nuees miel',
+  'yagen > balance > mortier > pilulier', 'champignon luminescent + lys des nuées → Yagen → Balance + miel → Mortier → Pilulier')
 P('decoction_de_ginkgo_et_valeriane', 'Décoction de ginkgo et valériane', 'fiole', 'ginkgo_feuilles valeriane_racine eau', 'hachoir > chaudron:forte',
   'ginkgo + racine de valériane + eau → Hachoir → Chaudron (fort)')
 # 25 Puces de la fièvre
 P('baume_de_romarin_au_polypore', 'Baume de romarin au polypore', 'onguent', 'romarin polypore base_d_onguent', 'yagen > table:baume',
   "romarin (Gourmet) + polypore → Yagen + base d'onguent → Table")
-P('fumigation_de_plumes', 'Fumigation de plumes', 'fumigation', 'plume polypore', 'chaudron:sec',
-  'plumes + polypore → Chaudron (à sec), le patient respire la fumée')
 # 26 Pied de marais
 P('huile_d_ecorce_de_bouleau', "Huile d'écorce de bouleau", 'onguent', 'ecorce_de_bouleau huile_de_lin', 'hachoir > jarres:3',
   'écorce de bouleau → Hachoir + huile de lin → Jarres (3 h)')
@@ -213,8 +213,8 @@ P('eau_florale_de_thym', 'Eau florale de thym', 'fiole', 'thym eau', 'alambic:ea
 # 30 Ongle-noir
 P('teinture_de_coprin', 'Teinture de coprin', 'fiole', 'coprin alcool_fort', 'jarres:3', 'coprin + alcool fort → Jarres (3 h)')
 # 31 Lèpre des racines
-P('onguent_de_kukuroo', 'Onguent de Kukuroo', 'onguent', 'feuille_de_kukuroo bolet_cendre huile_de_lin base_d_onguent', 'yagen > table:onguent',
-  "feuille de Kukuroo + bolet cendré → Yagen + huile de lin + base d'onguent → Table")
+P('onguent_de_kukuroo', 'Onguent de Kukuroo', 'onguent', 'bolet_cendre consoude huile_de_lin base_d_onguent', 'yagen > table:onguent',
+  "bolet cendré + consoude → Yagen + huile de lin + base d'onguent → Table")
 P('decoction_de_cordyceps', 'Décoction de cordyceps', 'fiole', 'cordyceps eau', 'hachoir > chaudron:forte', 'cordyceps + eau → Hachoir → Chaudron (fort)')
 # 32 Empoisonnement aux champignons
 P('pilules_de_charbon_d_os', "Pilules de charbon d'os", 'pilules', 'charbon_d_os miel', 'balance > mortier > pilulier',
@@ -241,8 +241,8 @@ P('antivenin_de_kakin', 'Antivenin de Kakin', 'seringue', 'orchidee_de_kakin alc
 P('breuvage_de_valeriane', 'Breuvage de valériane', 'fiole', 'valeriane_racine eau miel', 'hachoir > chaudron:forte',
   'racine de valériane + eau → Hachoir → Chaudron (fort) + miel')
 # 38 Mal de l'ambre
-P('elixir_de_l_aigle_araignee', "Élixir de l'aigle-araignée", 'fiole', 'oeuf_d_aigle_araignee truffe_noire alcool_fort',
-  'mortier > jarres:6 > alambic:concentrer', "œuf d'aigle-araignée + truffe noire → Mortier + alcool fort → Jarres (6 h) → Alambic")
+P('elixir_de_truffe_noire', 'Élixir de truffe noire', 'fiole', 'truffe_noire chardon_de_meteor alcool_fort',
+  'mortier > jarres:6 > alambic:concentrer', 'truffe noire + chardon de Meteor → Mortier + alcool fort → Jarres (6 h) → Alambic')
 # 39 Scorbut
 P('sirop_d_aubepine', "Sirop d'aubépine", 'fiole', 'aubepine_baies eau miel', 'mortier > chaudron:douce > chaudron:reduction',
   "baies d'aubépine + eau → Mortier → Chaudron (infusion) + miel → Chaudron (réduction)")
@@ -283,10 +283,10 @@ P('teinture_d_amanite_rouge', "Teinture d'amanite rouge", 'fiole', 'amanite_roug
 P('infusion_de_the_et_menthe', 'Infusion de thé et menthe', 'fiole', 'feuilles_de_the menthe eau', 'chaudron:douce',
   'feuilles de thé + menthe (Gourmet) + eau → Chaudron (infusion)')
 # 50 Pétrification lente
-P('onguent_de_la_baleine', 'Onguent de la Baleine', 'onguent', 'baie_de_l_ile_de_la_baleine ecailles huile_de_lin base_d_onguent',
-  'yagen > table:onguent', "baie de l'île de la Baleine + écailles → Yagen + huile de lin + base d'onguent → Table")
-P('decoction_de_fer_sang_et_pied_bleu', 'Décoction de fer-sang et pied-bleu', 'fiole', 'racine_de_fer_sang pied_bleu eau',
-  'hachoir > chaudron:forte', 'racine de fer-sang + pied-bleu + eau → Hachoir → Chaudron (fort)')
+P('onguent_de_la_baleine', 'Onguent de la Baleine', 'onguent', 'ecailles algue_noire huile_de_lin base_d_onguent',
+  'yagen > table:onguent', "écailles + algue noire → Yagen + huile de lin + base d'onguent → Table")
+P('decoction_de_pied_bleu_et_de_chaga', 'Décoction de pied-bleu et de chaga', 'fiole', 'pied_bleu chaga eau',
+  'hachoir > chaudron:forte', 'pied-bleu + chaga + eau → Hachoir → Chaudron (fort)')
 # 51 Toxine de fourmi-chimère
 P('elixir_de_l_arbre_monde', "Élixir de l'Arbre-Monde", 'seringue', 'seve_de_l_arbre_monde trompette_des_morts alcool_fort seringue_vide',
   'mortier > jarres:6 > alambic:concentrer', "sève de l'Arbre-Monde + trompette des morts → Mortier + alcool fort → Jarres (6 h) → Alambic")
@@ -295,17 +295,25 @@ P('elixir_noir', 'Élixir noir', 'seringue', 'encre_de_calamar baie_de_givre car
   'yagen > balance > jarres:6 > alambic:concentrer',
   'encre de calamar + baie de givre + carapace de crabe → Yagen → Balance + alcool fort → Jarres (6 h) → Alambic')
 
+# ============================================================================ Ostéacier et pioche de prospecteur (v0.7)
+P('lingot_d_osteacier', "Lingot d'ostéacier", 'ingredient', 'charbon_d_os charbon_d_os charbon_de_bambou carapace_de_crabe ecailles',
+  'mortier > chaudron:fondre > table:refroidir',
+  "2 charbons d'os + charbon de bambou + carapace de crabe + écailles → Mortier → Chaudron (fondre) → Table (refroidir)")
+P('pioche_de_prospecteur', 'Pioche de prospecteur', 'outil',
+  'lingot_d_osteacier lingot_d_osteacier lingot_d_osteacier bambou bambou ecorce_de_bouleau propolis', 'hachoir > table:assembler',
+  "3 lingots d'ostéacier + 2 bambous + écorce de bouleau + propolis → Hachoir (tailler le manche) → Table (assembler)")
+
 # ============================================================================ Remède du Second Souffle (secret)
 SECRET = {'secret': True}
 P('poudre_des_trente_quatre_plantes', 'Poudre des trente-quatre plantes', 'base', 'TOUTES_LES_PLANTES', 'hachoir > yagen > balance',
   'Un exemplaire de chacune des 34 plantes → Hachoir → Yagen → Balance', **SECRET)
 P('teinture_des_vingt_champignons', 'Teinture des vingt champignons', 'base', 'TOUS_LES_CHAMPIGNONS alcool_fort', 'hachoir > jarres:12',
   'Un exemplaire de chacun des 20 champignons + alcool fort → Hachoir → Jarres (12 h)', **SECRET)
-P('essence_des_quinze_raretes', 'Essence des quinze raretés', 'base', 'TOUTES_LES_RARETES eau', 'alambic:distiller',
-  'Un exemplaire de chacune des 15 raretés + eau → Alambic', **SECRET)
+P('essence_des_dix_raretes', 'Essence des dix raretés', 'base', 'TOUTES_LES_RARETES eau', 'alambic:distiller',
+  'Un exemplaire de chacune des 10 raretés + eau → Alambic', **SECRET)
 P('baume_des_quinze_ressources', 'Baume des quinze ressources', 'base', 'TOUTES_LES_RESSOURCES base_d_onguent', 'yagen > mortier > table:baume',
   "Un exemplaire de chacune des 15 ressources animales et de ruche + base d'onguent → Yagen → Mortier → Table", **SECRET)
 P('cendre_doree', 'Cendre dorée', 'base', 'hxrpphenix:plume_de_phenix', 'chaudron:sec', 'Plume de phénix → Chaudron (à sec)', **SECRET)
 P('remede_du_second_souffle', 'Remède du Second Souffle', 'seringue',
-  'poudre_des_trente_quatre_plantes teinture_des_vingt_champignons essence_des_quinze_raretes baume_des_quinze_ressources cendre_doree seringue_vide',
+  'poudre_des_trente_quatre_plantes teinture_des_vingt_champignons essence_des_dix_raretes baume_des_quinze_ressources cendre_doree seringue_vide',
   'balance > jarres:24 > alambic:concentrer', 'Tout réunir : Balance → Jarres (24 h) → Alambic → seringue', rang=3, **SECRET)

@@ -198,12 +198,22 @@ def pierre(seed=1):
     return c
 
 
-def minerai_de_sel():
+def minerai_de_sel(epuise=False):
+    """Pierre à cristaux de sel ; épuisé : les mêmes veines, vidées (creux gris éclairés par le bas, poussière)."""
     c = pierre(3)
     for (x, y, r) in [(7, 8, 3), (22, 6, 2.5), (15, 17, 3.5), (6, 24, 2.5), (25, 23, 3)]:
         m = polygon([(x - r, y), (x, y - r * 1.2), (x + r, y), (x, y + r * 1.1)])
-        c.shape(m, ['#b8bcc4', '#d8dce2', '#eef0f4', '#ffffff'], L_sphere(x - 1, y - 1, r, r), edge=True, hl=1)
-        c.fill(rect(int(x) - 1, int(y) - 1, int(x) - 1, int(y) - 1), '#ffffff')
+        if epuise:
+            c.shape(m, ['#26282c', '#323438', '#404246', '#54565a'], L_sphere(x + 1.5, y + 1.5, r, r), edge=True, hl=0)
+            c.fill(arc_band(x, y + 0.5, r * 0.9, r * 1.0, 1, 20, 160) & m, '#7a7c80')
+        else:
+            c.shape(m, ['#b8bcc4', '#d8dce2', '#eef0f4', '#ffffff'], L_sphere(x - 1, y - 1, r, r), edge=True, hl=1)
+            c.fill(rect(int(x) - 1, int(y) - 1, int(x) - 1, int(y) - 1), '#ffffff')
+    if epuise:
+        rs = rnd('sel_epuise')
+        for _ in range(10):
+            x, y = rs.randint(0, 31), rs.randint(0, 31)
+            c.fill(rect(x, y, x, y), '#a8aaae')
     return c.image()
 
 
@@ -234,8 +244,9 @@ def ruche(face, pleine):
     return c.image()
 
 
-def coquillages(kind):
-    """Dessus d'un banc de moules ou d'huîtres posé sur le sable/fond (texture vue de dessus)."""
+def coquillages(kind, vide=False):
+    """Dessus d'un banc de moules ou d'huîtres posé sur le sable/fond (texture vue de dessus).
+    Vide : coquilles ouvertes, nacre à nu, sans chair."""
     c = Canvas()
     rs = rnd(kind)
     for y in range(32):
@@ -246,10 +257,27 @@ def coquillages(kind):
     pts = [(6, 6), (17, 5), (26, 8), (10, 15), (22, 16), (5, 24), (15, 25), (26, 26)]
     for (x, y) in pts:
         a = rs.uniform(0, math.pi)
-        if kind == 'moule':
+        if kind == 'moule' and vide:
+            # deux valves ouvertes en V depuis la charnière, nacre bleutée à l'intérieur
+            for da in (-0.6, 0.6):
+                ux, uy = math.cos(a + da), math.sin(a + da)
+                m = capsule(x, y, x + ux * 5, y + uy * 5, 1.4, 2.3)
+                c.shape(m, R('#22223a', light=1.3), L_const(0.5), hl=0)
+                c.fill(m & ~edge(m), '#6c80a4')
+                c.fill(line_mask(x + ux * 1.5, y + uy * 1.5, x + ux * 4, y + uy * 4) & m & ~edge(m), '#a4b4cc')
+        elif kind == 'moule':
             m = capsule(x - math.cos(a) * 3, y - math.sin(a) * 3, x + math.cos(a) * 3, y + math.sin(a) * 3, 2.4, 1.4)
             c.shape(m, R('#2a2a4a', light=1.4), L_sphere(x - 1, y - 1, 3, 3), hl=1)
             c.fill(line_mask(x - math.cos(a) * 2, y - math.sin(a) * 2, x + math.cos(a) * 2, y + math.sin(a) * 2) & m & ~edge(m), '#4a4a7a')
+        elif vide:
+            # huître ouverte : la valve creuse, nacre blanche vide, et le couvercle rabattu à côté
+            ux, uy = math.cos(a), math.sin(a)
+            lid = ellipse(x + ux * 3.2, y + uy * 3.2, 2.6, 2.2)
+            c.shape(lid, R('#7a7262'), L_sphere(x + ux * 3, y + uy * 3, 2.6, 2.2), hl=0)
+            m = ellipse(x - ux, y - uy, 3.4, 2.8)
+            c.shape(m, R('#8c8472'), L_const(0.6), hl=0)
+            inner = ellipse(x - ux, y - uy, 2.4, 1.9)
+            c.shape(inner, ['#a49c94', '#bcb4ac', '#ccc4bc', '#dcd6ce'], L_sphere(x - ux + 1, y - uy + 1, 2.4, 1.9), edge=False, hl=0)
         else:
             m = ellipse(x, y, 3.6, 3)
             c.shape(m, R('#8c8472'), L_sphere(x - 1, y - 1, 3.6, 3), hl=0)

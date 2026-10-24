@@ -120,8 +120,9 @@ public class ItemPreparation extends Item {
             case "onguent": return "Onguent";
             case "bandage": return "Bandage";
             case "attelle": return "Attelle";
-            case "fumigation": return "Fumigation";
             case "base": return "Ingrédient préparé";
+            case "ingredient": return "Ingrédient";
+            case "outil": return "Outil";
             default: return f == null ? "" : f.substring(0, 1).toUpperCase(Locale.ROOT) + f.substring(1);
         }
     }
@@ -133,7 +134,6 @@ public class ItemPreparation extends Item {
             case "pilules": return "Clic droit sur le patient : à avaler";
             case "onguent": return "Clic droit sur le patient : étaler en trois passages";
             case "bandage": case "attelle": return "Clic droit sur le patient : serrer en trois passages";
-            case "fumigation": return "Clic droit sur le patient : lui faire respirer la fumée";
             default: return "";
         }
     }

@@ -473,30 +473,6 @@
    "perissable": true
   },
   {
-   "id": "baie_de_l_ile_de_la_baleine",
-   "nom": "Baie de l'île de la Baleine",
-   "categorie": "rare_hunter",
-   "source": "Rivages des îles",
-   "rarete": "rare",
-   "perissable": true
-  },
-  {
-   "id": "feuille_de_kukuroo",
-   "nom": "Feuille de Kukuroo",
-   "categorie": "rare_hunter",
-   "source": "Montagnes boisées de Kukuroo",
-   "rarete": "très rare",
-   "perissable": true
-  },
-  {
-   "id": "uf_d_aigle_araignee",
-   "nom": "Œuf d'aigle-araignée",
-   "categorie": "rare_hunter",
-   "source": "Nids sur falaises et ravins",
-   "rarete": "très rare",
-   "perissable": true
-  },
-  {
    "id": "chardon_de_meteor",
    "nom": "Chardon de Meteor",
    "categorie": "rare_hunter",
@@ -517,22 +493,6 @@
    "nom": "Orchidée de Kakin",
    "categorie": "rare_hunter",
    "source": "Cœur des jungles, à l'ombre",
-   "rarete": "très rare",
-   "perissable": true
-  },
-  {
-   "id": "racine_de_fer_sang",
-   "nom": "Racine de fer-sang",
-   "categorie": "rare_hunter",
-   "source": "Grottes sous Y 20",
-   "rarete": "très rare",
-   "perissable": true
-  },
-  {
-   "id": "mousse_des_abysses",
-   "nom": "Mousse des abysses",
-   "categorie": "rare_hunter",
-   "source": "Grottes sous Y 12, lumineuse",
    "rarete": "très rare",
    "perissable": true
   },

@@ -1686,11 +1686,12 @@
    "bonus": "convalescence"
   },
   {
-   "id": "sirop_de_fer_sang",
-   "nom": "Sirop de fer-sang",
+   "id": "sirop_de_gentiane_et_de_bardane",
+   "nom": "Sirop de gentiane et de bardane",
    "forme": "fiole",
    "ingredients": [
-    "racine_de_fer_sang",
+    "gentiane",
+    "bardane_racine",
     "bouteille_d_eau",
     "miel"
    ],
@@ -1707,9 +1708,9 @@
      "mode": "reduction"
     }
    ],
-   "texte": "racine de fer-sang → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)",
+   "texte": "racine de gentiane + racine de bardane + eau → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)",
    "rang": 2,
-   "produit": "sirop_de_fer_sang",
+   "produit": "sirop_de_gentiane_et_de_bardane",
    "quantite": 1,
    "bonus": "apaisement"
   },
@@ -1737,12 +1738,12 @@
    "bonus": "regeneration"
   },
   {
-   "id": "pilules_de_mousse_des_abysses",
-   "nom": "Pilules de mousse des abysses",
+   "id": "pilules_de_champignon_luminescent",
+   "nom": "Pilules de champignon luminescent",
    "forme": "pilules",
    "ingredients": [
-    "mousse_des_abysses",
     "champignon_luminescent",
+    "lys_des_nuees",
     "miel"
    ],
    "etapes": [
@@ -1759,9 +1760,9 @@
      "machine": "pilulier"
     }
    ],
-   "texte": "mousse des abysses + champignon luminescent → Yagen → Balance + miel → Mortier → Pilulier",
+   "texte": "champignon luminescent + lys des nuées → Yagen → Balance + miel → Mortier → Pilulier",
    "rang": 3,
-   "produit": "pilules_de_mousse_des_abysses",
+   "produit": "pilules_de_champignon_luminescent",
    "quantite": 1,
    "bonus": "convalescence"
   },
@@ -1812,26 +1813,6 @@
    "produit": "baume_de_romarin_au_polypore",
    "quantite": 1,
    "bonus": "regeneration"
-  },
-  {
-   "id": "fumigation_de_plumes",
-   "nom": "Fumigation de plumes",
-   "forme": "fumigation",
-   "ingredients": [
-    "plume",
-    "polypore"
-   ],
-   "etapes": [
-    {
-     "machine": "chaudron",
-     "mode": "sec"
-    }
-   ],
-   "texte": "plumes + polypore → Chaudron (à sec), le patient respire la fumée",
-   "rang": 0,
-   "produit": "fumigation_de_plumes",
-   "quantite": 1,
-   "bonus": "apaisement"
   },
   {
    "id": "huile_d_ecorce_de_bouleau",
@@ -2033,8 +2014,8 @@
    "nom": "Onguent de Kukuroo",
    "forme": "onguent",
    "ingredients": [
-    "feuille_de_kukuroo",
     "bolet_cendre",
+    "consoude",
     "huile_de_lin",
     "base_d_onguent"
    ],
@@ -2047,7 +2028,7 @@
      "mode": "onguent"
     }
    ],
-   "texte": "feuille de Kukuroo + bolet cendré → Yagen + huile de lin + base d'onguent → Table",
+   "texte": "bolet cendré + consoude → Yagen + huile de lin + base d'onguent → Table",
    "rang": 2,
    "produit": "onguent_de_kukuroo",
    "quantite": 1,
@@ -2326,12 +2307,12 @@
    "bonus": "regeneration"
   },
   {
-   "id": "elixir_de_l_aigle_araignee",
-   "nom": "Élixir de l'aigle-araignée",
+   "id": "elixir_de_truffe_noire",
+   "nom": "Élixir de truffe noire",
    "forme": "fiole",
    "ingredients": [
-    "oeuf_d_aigle_araignee",
     "truffe_noire",
+    "chardon_de_meteor",
     "alcool_fort"
    ],
    "etapes": [
@@ -2347,9 +2328,9 @@
      "mode": "concentrer"
     }
    ],
-   "texte": "œuf d'aigle-araignée + truffe noire → Mortier + alcool fort → Jarres (6 h) → Alambic",
+   "texte": "truffe noire + chardon de Meteor → Mortier + alcool fort → Jarres (6 h) → Alambic",
    "rang": 3,
-   "produit": "elixir_de_l_aigle_araignee",
+   "produit": "elixir_de_truffe_noire",
    "quantite": 1,
    "bonus": "vigueur"
   },
@@ -2718,8 +2699,8 @@
    "nom": "Onguent de la Baleine",
    "forme": "onguent",
    "ingredients": [
-    "baie_de_l_ile_de_la_baleine",
     "ecailles",
+    "algue_noire",
     "huile_de_lin",
     "base_d_onguent"
    ],
@@ -2732,19 +2713,19 @@
      "mode": "onguent"
     }
    ],
-   "texte": "baie de l'île de la Baleine + écailles → Yagen + huile de lin + base d'onguent → Table",
+   "texte": "écailles + algue noire → Yagen + huile de lin + base d'onguent → Table",
    "rang": 3,
    "produit": "onguent_de_la_baleine",
    "quantite": 1,
    "bonus": "regeneration"
   },
   {
-   "id": "decoction_de_fer_sang_et_pied_bleu",
-   "nom": "Décoction de fer-sang et pied-bleu",
+   "id": "decoction_de_pied_bleu_et_de_chaga",
+   "nom": "Décoction de pied-bleu et de chaga",
    "forme": "fiole",
    "ingredients": [
-    "racine_de_fer_sang",
     "pied_bleu",
+    "chaga",
     "bouteille_d_eau"
    ],
    "etapes": [
@@ -2756,9 +2737,9 @@
      "mode": "forte"
     }
    ],
-   "texte": "racine de fer-sang + pied-bleu + eau → Hachoir → Chaudron (fort)",
+   "texte": "pied-bleu + chaga + eau → Hachoir → Chaudron (fort)",
    "rang": 3,
-   "produit": "decoction_de_fer_sang_et_pied_bleu",
+   "produit": "decoction_de_pied_bleu_et_de_chaga",
    "quantite": 1,
    "bonus": "regeneration"
   },
@@ -2823,6 +2804,64 @@
    "produit": "elixir_noir",
    "quantite": 1,
    "bonus": "immunite"
+  },
+  {
+   "id": "lingot_d_osteacier",
+   "nom": "Lingot d'ostéacier",
+   "forme": "ingredient",
+   "ingredients": [
+    "charbon_d_os",
+    "charbon_d_os",
+    "charbon_de_bambou",
+    "carapace_de_crabe",
+    "ecailles"
+   ],
+   "etapes": [
+    {
+     "machine": "mortier"
+    },
+    {
+     "machine": "chaudron",
+     "mode": "fondre"
+    },
+    {
+     "machine": "table",
+     "mode": "refroidir"
+    }
+   ],
+   "texte": "2 charbons d'os + charbon de bambou + carapace de crabe + écailles → Mortier → Chaudron (fondre) → Table (refroidir)",
+   "rang": 0,
+   "produit": "lingot_d_osteacier",
+   "quantite": 1,
+   "bonus": "regeneration"
+  },
+  {
+   "id": "pioche_de_prospecteur",
+   "nom": "Pioche de prospecteur",
+   "forme": "outil",
+   "ingredients": [
+    "lingot_d_osteacier",
+    "lingot_d_osteacier",
+    "lingot_d_osteacier",
+    "bambou",
+    "bambou",
+    "ecorce_de_bouleau",
+    "propolis"
+   ],
+   "etapes": [
+    {
+     "machine": "hachoir"
+    },
+    {
+     "machine": "table",
+     "mode": "assembler"
+    }
+   ],
+   "texte": "3 lingots d'ostéacier + 2 bambous + écorce de bouleau + propolis → Hachoir (tailler le manche) → Table (assembler)",
+   "rang": 0,
+   "produit": "pioche_de_prospecteur",
+   "quantite": 1,
+   "bonus": "regeneration"
   },
   {
    "id": "poudre_des_trente_quatre_plantes",
@@ -2926,8 +2965,8 @@
    "secret": true
   },
   {
-   "id": "essence_des_quinze_raretes",
-   "nom": "Essence des quinze raretés",
+   "id": "essence_des_dix_raretes",
+   "nom": "Essence des dix raretés",
    "forme": "base",
    "ingredients": [
     "fleur_de_lune_pale",
@@ -2935,14 +2974,9 @@
     "baie_de_givre",
     "pollen_dore",
     "mousse_de_numere",
-    "baie_de_l_ile_de_la_baleine",
-    "feuille_de_kukuroo",
-    "oeuf_d_aigle_araignee",
     "chardon_de_meteor",
     "lys_des_nuees",
     "orchidee_de_kakin",
-    "racine_de_fer_sang",
-    "mousse_des_abysses",
     "lotus_de_l_aube",
     "seve_de_l_arbre_monde",
     "bouteille_d_eau"
@@ -2953,9 +2987,9 @@
      "mode": "distiller"
     }
    ],
-   "texte": "Un exemplaire de chacune des 15 raretés + eau → Alambic",
+   "texte": "Un exemplaire de chacune des 10 raretés + eau → Alambic",
    "rang": 3,
-   "produit": "essence_des_quinze_raretes",
+   "produit": "essence_des_dix_raretes",
    "quantite": 1,
    "bonus": "regeneration",
    "secret": true
@@ -3028,7 +3062,7 @@
    "ingredients": [
     "poudre_des_trente_quatre_plantes",
     "teinture_des_vingt_champignons",
-    "essence_des_quinze_raretes",
+    "essence_des_dix_raretes",
     "baume_des_quinze_ressources",
     "cendre_doree",
     "seringue_vide"

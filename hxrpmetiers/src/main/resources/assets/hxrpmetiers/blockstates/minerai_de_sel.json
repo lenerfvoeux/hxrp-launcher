@@ -1,8 +1,11 @@
 {
  "_monde": true,
  "variants": {
-  "normal": {
+  "epuise=false": {
    "model": "hxrpmetiers:monde/minerai_de_sel"
+  },
+  "epuise=true": {
+   "model": "hxrpmetiers:monde/minerai_de_sel_epuise"
   }
  }
 }

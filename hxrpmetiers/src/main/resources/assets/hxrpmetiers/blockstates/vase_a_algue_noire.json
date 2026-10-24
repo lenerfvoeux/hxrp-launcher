@@ -1,8 +1,11 @@
 {
  "_virus": true,
  "variants": {
-  "normal": {
+  "vide=false": {
    "model": "hxrpmetiers:virus/monde/vase_a_algue_noire"
+  },
+  "vide=true": {
+   "model": "hxrpmetiers:virus/monde/vase_a_algue_noire_vide"
   }
  }
 }

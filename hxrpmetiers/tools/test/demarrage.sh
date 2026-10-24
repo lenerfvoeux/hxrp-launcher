@@ -58,6 +58,8 @@ else
     attendre 'Done \(' $pid
     etat=$?
     sleep 10
+    # v0.7 : chaque récolte au clic droit, jouée par un joueur fictif (voir EssaiRecolte)
+    [ $etat = 0 ] && { echo 'virus verifier' >&3; sleep 8; }
     echo stop >&3
     exec 3>&-
     for _ in $(seq 1 30); do kill -0 $pid 2>/dev/null || break; sleep 2; done
@@ -89,5 +91,9 @@ if [ -n "$erreurs" ]; then
     echo "!! erreurs au chargement :"
     echo "$erreurs"
     exit 1
+fi
+if [ "$mode" = serveur ]; then
+    grep -E 'récolte|✘' "$journal" | head -40
+    grep -q 'Vérification de la récolte : OK' "$journal" || { echo "!! la vérification de la récolte a échoué"; exit 1; }
 fi
 echo "OK : $mode démarré avec le mod, aucune erreur"

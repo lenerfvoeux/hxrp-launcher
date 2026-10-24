@@ -1,0 +1,7 @@
+{
+ "_virus": true,
+ "parent": "item/handheld",
+ "textures": {
+  "layer0": "hxrpmetiers:items/virus/pioche_de_prospecteur"
+ }
+}

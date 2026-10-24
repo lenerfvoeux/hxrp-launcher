@@ -6,6 +6,7 @@ import fr.lenerfvoeux.hxrp.metiers.virus.VirusConfig;
 import fr.lenerfvoeux.hxrp.metiers.virus.VirusRegistre;
 import fr.lenerfvoeux.hxrp.metiers.virus.donnees.Defs;
 import fr.lenerfvoeux.hxrp.metiers.virus.donnees.DonneesVirus;
+import fr.lenerfvoeux.hxrp.metiers.virus.item.ItemPioche;
 import fr.lenerfvoeux.hxrp.metiers.virus.item.ItemPreparation;
 import fr.lenerfvoeux.hxrp.metiers.virus.item.Objets;
 import fr.lenerfvoeux.hxrp.metiers.virus.item.Qualites;
@@ -56,6 +57,10 @@ public final class Officine {
     /** Clic droit sur une machine de l'officine. */
     public static void utiliser(EntityPlayerMP p, Machine m, BlockPos pos) {
         ItemStack held = p.getHeldItemMainhand();
+        if (m == Machine.TABLE && ItemPioche.est(held)) {
+            reparerPioche(p, held, pos);
+            return;
+        }
         if (EnCoursVirus.est(held)) {
             if (!Soins.verifierVirus(p)) return;
             Defs.Preparation x = EnCoursVirus.preparation(held);
@@ -96,6 +101,31 @@ public final class Officine {
         }
         dire(p, TextFormatting.GOLD + m.label + TextFormatting.GRAY + " · " + usage(m)
                 + ". Commence une préparation à la table de préparation, puis reviens avec elle en main.");
+    }
+
+    /** Pioche de prospecteur en main à la table : un lingot d'ostéacier lui rend 125 utilisations. */
+    private static void reparerPioche(EntityPlayerMP p, ItemStack pioche, BlockPos pos) {
+        if (pioche.getItemDamage() <= 0) {
+            dire(p, TextFormatting.GRAY + "Ta pioche de prospecteur est intacte (" + ItemPioche.restantes(pioche) + " utilisations).");
+            return;
+        }
+        Item lingot = Objets.item("lingot_d_osteacier");
+        int k = -1;
+        for (int i = 0; lingot != null && i < p.inventory.getSizeInventory() && k < 0; i++)
+            if (p.inventory.getStackInSlot(i).getItem() == lingot) k = i;
+        if (k < 0) {
+            dire(p, TextFormatting.GOLD + "Il faut un lingot d'ostéacier pour réparer la pioche de prospecteur.");
+            return;
+        }
+        p.inventory.decrStackSize(k, 1);
+        ItemPioche.reparer(pioche);
+        p.inventory.markDirty();
+        p.inventoryContainer.detectAndSendChanges();
+        p.world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 0.5f, 1.3f);
+        if (p.world instanceof net.minecraft.world.WorldServer)
+            ((net.minecraft.world.WorldServer) p.world).spawnParticle(net.minecraft.util.EnumParticleTypes.CRIT, pos.getX() + 0.5, pos.getY() + 1.1,
+                    pos.getZ() + 0.5, 12, 0.2, 0.05, 0.2, 0.1);
+        dire(p, TextFormatting.GREEN + "Pioche de prospecteur réparée : " + ItemPioche.restantes(pioche) + " / " + pioche.getMaxDamage() + " utilisations.");
     }
 
     public static String usage(Machine m) {
@@ -371,7 +401,7 @@ public final class Officine {
         if (i == null) return ItemStack.EMPTY;
         ItemStack out = new ItemStack(i, Math.max(1, x.quantite));
         if (i instanceof ItemPreparation) Qualites.noter(out, note, EnCoursVirus.rang(enCours));
-        else Fraicheur.stamp(out, System.currentTimeMillis());
+        else if (i instanceof IFoodItem) Fraicheur.stamp(out, System.currentTimeMillis());
         return out;
     }
 }

@@ -235,8 +235,9 @@ final class ScenesDosage {
                 Police.centre(t, String.valueOf(place + 1), gx + 1, gy - 29, 0xFF1A1008, 0, 1);
             }
         }
+        if (j.phase == 2 && j.assembler()) assemblage(t, j);
         // étaler : la spatule passe sur le linge
-        if (j.phase == 2) {
+        if (j.phase == 2 && !j.assembler()) {
             int lx0 = 120, lx1 = 250, ly0 = 60, ly1 = 100;
             t.rect(lx0 + 3, ly0 + 3, lx1 - lx0, ly1 - ly0, 0x44000000);
             t.rect(lx0, ly0, lx1 - lx0, ly1 - ly0, 0xFFF4EEE0);
@@ -254,5 +255,39 @@ final class ScenesDosage {
             sp.trait(sx, yy - 2, sx + 10, yy - 30, 4, b[2]);
             poser(t, sp);
         }
+    }
+
+    /** Mode « assembler » : la pioche de prospecteur posée en travers ; chaque geste réussi serre une ligature au col. */
+    private static void assemblage(Toile t, JeuxVirus.Table j) {
+        Dessin.ombre(t, 180, 108, 84, 6);
+        int[] bambou = Dessin.rampe(0xFFC8C070);
+        Dessin.cylindreH(t, 108, 232, 92, 5, 5, bambou);
+        for (int k = 0; k < 4; k++) t.ligneV(126 + k * 26, 88, 96, Toile.sombre(bambou[2], 0.7));
+        // pommeau rouge
+        Dessin.sphere(t, 106, 92, 7, 7, Dessin.rampe(0xFFB8241C), 1);
+        // tête d'ostéacier : métal noir veiné de rouge, pointes couleur os
+        Toile sp = sprite();
+        double[] xs = {242, 249, 246, 249, 242, 236, 233, 236}, ys = {58, 74, 92, 110, 126, 110, 92, 74};
+        sp.polygone(xs, ys, 0xFF2A2630);
+        sp.polygone(new double[]{242, 249, 245}, new double[]{58, 74, 69}, 0xFFE8DCC0);
+        sp.polygone(new double[]{242, 249, 245}, new double[]{126, 110, 115}, 0xFFE8DCC0);
+        sp.trait(240, 76, 244, 88, 1, 0xFF9A2A22);
+        sp.trait(238, 98, 243, 108, 1, 0xFF9A2A22);
+        poser(t, sp);
+        // col de propolis dorée, puis les ligatures d'écorce de bouleau, une par geste
+        t.rect(224, 85, 7, 15, 0xFFD8A030);
+        t.rect(224, 85, 7, 2, 0xFFF0C860);
+        for (int p = 0; p < j.passes; p++) {
+            int x = 214 - p * 8;
+            t.rect(x - 1, 83, 7, 19, 0xFF4A3420);
+            t.rect(x, 84, 5, 17, 0xFFF2EEE2);
+            t.ligneV(x + 1, 84, 100, 0xFFC8C0AE);
+            t.ligneV(x + 3, 84, 100, 0xFFC8C0AE);
+        }
+        // la bobine d'écorce suit le geste
+        int sx = (int) (150 + j.valeur * 80), sy = 66;
+        t.ligne(sx, sy + 6, 216 - Math.min(2, j.passes) * 8, 88, 0xFFEAE6DA);
+        Dessin.ellipseV(t, sx, sy, 7, 6, Dessin.rampe(0xFFEAE6DA), 0.9, 0.4);
+        t.disque(sx, sy, 2, 0xFF8A6A42);
     }
 }

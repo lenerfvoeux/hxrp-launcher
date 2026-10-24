@@ -938,49 +938,6 @@
    }
   },
   {
-   "id": "baie_de_l_ile_de_la_baleine",
-   "nom": "Baie de l'île de la Baleine",
-   "categorie": "rare_hunter",
-   "source": "Rivages des îles",
-   "rarete": "rare",
-   "vie": 120,
-   "recolte": {
-    "type": "plante",
-    "milieux": [
-     "plage"
-    ],
-    "sol": "sable",
-    "arbuste": true
-   }
-  },
-  {
-   "id": "feuille_de_kukuroo",
-   "nom": "Feuille de Kukuroo",
-   "categorie": "rare_hunter",
-   "source": "Montagnes boisées de Kukuroo",
-   "rarete": "très rare",
-   "vie": 168,
-   "recolte": {
-    "type": "plante",
-    "milieux": [
-     "montagne_boisee"
-    ],
-    "sol": "foret",
-    "arbuste": true
-   }
-  },
-  {
-   "id": "oeuf_d_aigle_araignee",
-   "nom": "Œuf d'aigle-araignée",
-   "categorie": "rare_hunter",
-   "source": "Nids sur falaises et ravins",
-   "rarete": "très rare",
-   "vie": 96,
-   "recolte": {
-    "type": "nid"
-   }
-  },
-  {
    "id": "chardon_de_meteor",
    "nom": "Chardon de Meteor",
    "categorie": "rare_hunter",
@@ -1029,30 +986,6 @@
     ],
     "sol": "foret",
     "ombre": true
-   }
-  },
-  {
-   "id": "racine_de_fer_sang",
-   "nom": "Racine de fer-sang",
-   "categorie": "rare_hunter",
-   "source": "Grottes sous Y 20",
-   "rarete": "très rare",
-   "vie": 480,
-   "recolte": {
-    "type": "sol",
-    "bloc": "roche_a_fer_sang"
-   }
-  },
-  {
-   "id": "mousse_des_abysses",
-   "nom": "Mousse des abysses",
-   "categorie": "rare_hunter",
-   "source": "Grottes sous Y 12, lumineuse",
-   "rarete": "très rare",
-   "vie": 168,
-   "recolte": {
-    "type": "sol",
-    "bloc": "roche_des_abysses"
    }
   },
   {

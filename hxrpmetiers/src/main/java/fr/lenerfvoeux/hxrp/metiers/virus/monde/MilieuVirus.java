@@ -64,6 +64,5 @@ public final class MilieuVirus {
     public static void sousTerre(Set<String> s, int y) {
         s.add("grotte");
         if (y < 30) s.add("grotte_profonde");
-        if (y < 12) s.add("abysses");
     }
 }

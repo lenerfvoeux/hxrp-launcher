@@ -56,6 +56,7 @@ public enum Machine {
             case "table:emplatre": return "emplâtre";
             case "table:filtrer": return "filtrer";
             case "table:refroidir": return "refroidir";
+            case "table:assembler": return "assembler";
             default: return mode;
         }
     }
@@ -86,6 +87,7 @@ public enum Machine {
                     case "filtrer": return 1;
                     case "refroidir": return 2;
                     case "emplatre": case "attelle": case "pansement": case "bandage": return 3;
+                    case "assembler": return 4;
                     default: return 0;
                 }
             default:

@@ -32,8 +32,16 @@ public class ModConfig {
     @Config.RangeInt(min = 0, max = 100) public static int chanceArbreFruitier = 12;
     @Config.Comment("Nombre de filons de sel par chunk (couches 20 à 70)")
     @Config.RangeInt(min = 0, max = 30) public static int filonsDeSel = 5;
-    @Config.Comment("Chance (1 sur N) qu'une touffe d'herbe cassée donne des graines d'une culture du climat local")
-    @Config.RangeInt(min = 1, max = 100) public static int grainesDansLHerbe = 8;
+    @Config.Comment("Minutes réelles pour qu'une culture récoltée redevienne mûre (même chunk déchargé)")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeCulturesMinutes = 40;
+    @Config.Comment("Minutes réelles pour que les fruits d'un feuillage récolté repoussent")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeFruitsMinutes = 45;
+    @Config.Comment("Minutes réelles pour qu'un banc de moules ou d'huîtres vidé se remplisse")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeCoquillagesMinutes = 60;
+    @Config.Comment("Minutes réelles pour qu'un minerai de sel épuisé se recharge")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeSelMinutes = 90;
+    @Config.Comment("Minutes réelles pour qu'une ruche sauvage vidée se remplisse")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeRucheMinutes = 60;
     @Config.Comment("Minutes de jeu (en moyenne) entre deux œufs pondus par une poule")
     @Config.RangeInt(min = 1, max = 120) public static int pontePouleMinutes = 8;
 

@@ -39,7 +39,7 @@ public final class JeuxVirus {
     /** Geste d'administration selon la forme du remède (null : rien à jouer, comme les pilules). */
     public static String gesteAdministration(String forme) {
         switch (forme == null ? "" : forme) {
-            case "fiole": case "fumigation": return "gorgees";
+            case "fiole": return "gorgees";
             case "seringue": return "injection";
             case "onguent": case "bandage": case "attelle": return "etaler_soin";
             default: return null;
@@ -48,7 +48,6 @@ public final class JeuxVirus {
 
     public static int parametreAdministration(String forme) {
         switch (forme == null ? "" : forme) {
-            case "fumigation": return 1;
             case "bandage": case "attelle": return 1;
             default: return 0;
         }
@@ -678,8 +677,11 @@ public final class JeuxVirus {
 
         public boolean montre(double tms) { return phase == 0 && tms < DEBUT + montre; }
 
-        @Override public String titre() { return "TABLE"; }
-        @Override public String consigne() { return "RETIENS L'ORDRE, REPLACE-LE, PUIS ÉTALE"; }
+        /** Mode « assembler » (pioche de prospecteur) : on ligature la tête au manche au lieu d'étaler. */
+        public boolean assembler() { return param == 4; }
+
+        @Override public String titre() { return assembler() ? "ASSEMBLAGE" : "TABLE"; }
+        @Override public String consigne() { return assembler() ? "RETIENS L'ORDRE, REPLACE-LE, PUIS LIGATURE" : "RETIENS L'ORDRE, REPLACE-LE, PUIS ÉTALE"; }
         @Override public String commandes() { return "CLIC SUR LES GODETS, PUIS CLIC OU ESPACE"; }
         @Override public String compteur() { return "GESTES"; }
         @Override public int duree() { return 30000; }
@@ -706,7 +708,7 @@ public final class JeuxVirus {
                 fait = place;
                 if (place >= nb) {
                     phase = 2;
-                    retour(INFO, "ÉTALE !");
+                    retour(INFO, assembler() ? "LIGATURE !" : "ÉTALE !");
                 }
             } else if (phase == 2 && appuiType(type, a) && t - tPasse >= 350) {
                 scoreEtaler += juger(valeur, zoneLo, zoneHi);
@@ -723,27 +725,25 @@ public final class JeuxVirus {
     }
 
     // ================================================================== ADMINISTRATION : GORGÉES
-    /** Faire boire trois gorgées (ou respirer trois fois la fumée) : clic quand la flèche est dans le vert. */
+    /** Faire boire trois gorgées : clic quand la flèche est dans le vert. */
     public static final class Gorgees extends MiniJeu {
         public static final int RECUL = 650;
-        public final boolean fumee;
         public final double periode;
         public final int[] tGorgee = new int[3];
         public final int[] qualite = new int[3];
 
         Gorgees(int rang, long graine, int param) {
             super(rang, graine, param);
-            fumee = param == 1;
             periode = r(2200, 1800, 1450, 1150);
             zone(0.55, r(0.30, 0.25, 0.20, 0.15));
             total = 3;
             Arrays.fill(tGorgee, -1);
         }
 
-        @Override public String titre() { return fumee ? "FUMIGATION" : "GORGÉES"; }
-        @Override public String consigne() { return fumee ? "FAIS RESPIRER LA FUMÉE DANS LE VERT" : "INCLINE LA FIOLE DANS LE VERT"; }
+        @Override public String titre() { return "GORGÉES"; }
+        @Override public String consigne() { return "INCLINE LA FIOLE DANS LE VERT"; }
         @Override public String commandes() { return "CLIC OU ESPACE"; }
-        @Override public String compteur() { return fumee ? "INSPIRATIONS" : "GORGÉES"; }
+        @Override public String compteur() { return "GORGÉES"; }
         @Override public int duree() { return 15000; }
 
         @Override protected void tick() {

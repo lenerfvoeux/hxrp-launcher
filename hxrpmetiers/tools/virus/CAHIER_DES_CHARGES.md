@@ -108,7 +108,7 @@ Effets custom (rendus client, déclenchés par le serveur via paquet) :
 
 ## 6. Ingrédients (`data/virus_ingredients.json`)
 
-- 84 ingrédients custom : 34 plantes, 20 champignons, 15 ressources rares du monde Hunter, 15 ressources animales et de ruche. Chacun a sa source (biome, profondeur, moment) et sa rareté : implémente la génération / récolte en conséquence (plantes et champignons en blocs récoltables générés par biome, ruches sauvages, nids d'aigle-araignée sur les falaises, truffe à creuser, etc.). La Sève de l'Arbre-Monde n'est jamais générée : placée par les admins.
+- 79 ingrédients custom (v0.7 : 84 au départ, cinq raretés retirées) : 34 plantes, 20 champignons, 10 ressources rares du monde Hunter, 15 ressources animales et de ruche. Chacun a sa source (biome, profondeur, moment) et sa rareté : implémente la génération / récolte en conséquence (plantes et champignons en blocs récoltables générés par biome, ruches sauvages, truffe à fouiller, etc.). La Sève de l'Arbre-Monde n'est jamais générée : placée par les admins.
 - **Pas de doublon avec le Gourmet** : les produits listés dans `repris_du_gourmet` sont les objets du Gourmet, réutilisés tels quels (vérifie les ids réels dans le code du Gourmet).
 - Ressources animales = **drops ajoutés aux animaux du Gourmet** (plumes, duvet, laine, saindoux, os, coquille d'œuf, écailles, peaux, bois de cerf, défense de sanglier, carapace de crabe, encre de calamar).
 - **Aucun minéral** sauf le sel du Gourmet. **Aucun objet vanilla.** Les fioles, seringues, pots, etc. sont des objets custom.

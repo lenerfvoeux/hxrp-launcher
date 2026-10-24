@@ -73,7 +73,7 @@ def etats(nom, variantes):
 
 def main():
     nettoyer()
-    lang = ['itemGroup.%s.recolte=Gourmet · Récolte' % M]
+    lang = ['itemGroup.%s.recolte=Gourmet · Blocs du monde' % M]
     recolte = {'cultures': [], 'arbres': [], 'animaux': [], 'vanilla': especes.VANILLA, 'blocs': [], 'objets': list(especes.OBJETS)}
     items_dir = os.path.join(A, 'textures', 'items')
 
@@ -112,10 +112,12 @@ def main():
         recolte['arbres'].append({'id': a, 'fruit': fruit, 'climat': climat, 'forme': forme, 'bois': bois})
 
     # ------------------------------------------------------------------ blocs du monde
-    png(arbres.minerai_de_sel(), 'blocks', 'monde', 'minerai_de_sel.png')
-    ecrire(os.path.join(A, 'models', 'block', 'monde', 'minerai_de_sel.json'),
-           {'parent': 'block/cube_all', 'textures': {'all': M + ':blocks/monde/minerai_de_sel'}})
-    etats('minerai_de_sel', {'normal': {'model': M + ':monde/minerai_de_sel'}})
+    # minerai de sel, plein puis épuisé (v0.7 : récolté au clic droit, il se recharge)
+    for nom, epuise in (('minerai_de_sel', False), ('minerai_de_sel_epuise', True)):
+        png(arbres.minerai_de_sel(epuise), 'blocks', 'monde', nom + '.png')
+        ecrire(os.path.join(A, 'models', 'block', 'monde', nom + '.json'),
+               {'parent': 'block/cube_all', 'textures': {'all': M + ':blocks/monde/' + nom}})
+    etats('minerai_de_sel', {'epuise=false': {'model': M + ':monde/minerai_de_sel'}, 'epuise=true': {'model': M + ':monde/minerai_de_sel_epuise'}})
     modele_item_bloc('minerai_de_sel', 'monde/minerai_de_sel')
     for pleine in (0, 1):
         for face in ('avant', 'cote', 'dessus'):
@@ -129,16 +131,18 @@ def main():
                             for f, r in rot.items() for p in (0, 1)})
     modele_item_bloc('ruche_sauvage', 'monde/ruche_1')
     for bloc, kind in (('banc_de_moules', 'moule'), ('banc_d_huitres', 'huitre')):
-        png(arbres.coquillages(kind), 'blocks', 'monde', bloc + '.png')
-        t = '%s:blocks/monde/%s' % (M, bloc)
-        ecrire(os.path.join(A, 'models', 'block', 'monde', bloc + '.json'), {
-            'parent': 'block/thin_block', 'textures': {'particle': t, 'texture': t},
-            'elements': [{'from': [0, 0, 0], 'to': [16, 2, 16], 'faces': {
-                'down': {'uv': [0, 0, 16, 16], 'texture': '#texture', 'cullface': 'down'},
-                'up': {'uv': [0, 0, 16, 16], 'texture': '#texture'},
-                'north': {'uv': [0, 14, 16, 16], 'texture': '#texture'}, 'south': {'uv': [0, 14, 16, 16], 'texture': '#texture'},
-                'west': {'uv': [0, 14, 16, 16], 'texture': '#texture'}, 'east': {'uv': [0, 14, 16, 16], 'texture': '#texture'}}}]})
-        etats(bloc, {'normal': {'model': '%s:monde/%s' % (M, bloc)}})
+        # plein puis vide (coquilles ouvertes, sans chair)
+        for nom, vide in ((bloc, False), (bloc + '_vide', True)):
+            png(arbres.coquillages(kind, vide), 'blocks', 'monde', nom + '.png')
+            t = '%s:blocks/monde/%s' % (M, nom)
+            ecrire(os.path.join(A, 'models', 'block', 'monde', nom + '.json'), {
+                'parent': 'block/thin_block', 'textures': {'particle': t, 'texture': t},
+                'elements': [{'from': [0, 0, 0], 'to': [16, 2, 16], 'faces': {
+                    'down': {'uv': [0, 0, 16, 16], 'texture': '#texture', 'cullface': 'down'},
+                    'up': {'uv': [0, 0, 16, 16], 'texture': '#texture'},
+                    'north': {'uv': [0, 14, 16, 16], 'texture': '#texture'}, 'south': {'uv': [0, 14, 16, 16], 'texture': '#texture'},
+                    'west': {'uv': [0, 14, 16, 16], 'texture': '#texture'}, 'east': {'uv': [0, 14, 16, 16], 'texture': '#texture'}}}]})
+        etats(bloc, {'vide=false': {'model': '%s:monde/%s' % (M, bloc)}, 'vide=true': {'model': '%s:monde/%s_vide' % (M, bloc)}})
         modele_item_bloc(bloc, 'monde/' + bloc)
     for bloc, (nom, produit) in especes.BLOCS.items():
         lang.append('tile.%s.%s.name=%s' % (M, bloc, nom))

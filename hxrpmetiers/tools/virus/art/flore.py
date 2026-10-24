@@ -1,7 +1,7 @@
 """
 Le Hunter Virus dans le monde : dessins des plantes et champignons au sol (32x32, trois stades, modèle en croix
 comme les fleurs vanilla), champignons accrochés aux troncs (modèles à éléments), sols à ingrédient,
-troncs écorcés, nid d'aigle-araignée, lotus de l'aube et source de sève.
+troncs écorcés, lotus de l'aube et source de sève.
 La ligne du bas des sprites (y = 31) est le niveau du sol.
 """
 import math
@@ -316,8 +316,6 @@ PLANTES = {
     'baie_de_givre': lambda c, s: arbuste(c, s, '#5a8aa0', fruits='#4aa8e8', h=18),
     'pollen_dore': lambda c, s: marguerite(c, s, '#6a8a3a', '#f8d040', '#f0a010', n=2, h=12),
     'mousse_de_numere': None,
-    'baie_de_l_ile_de_la_baleine': lambda c, s: arbuste(c, s, '#3a8a5a', fruits='#4a3ab8'),
-    'feuille_de_kukuroo': lambda c, s: arbuste(c, s, '#1aa89a', h=24),
     'chardon_de_meteor': lambda c, s: chardon(c, s, '#6a8a8a', '#b84ad8'),
     'lys_des_nuees': lambda c, s: lys(c, s, '#4a8a5a', '#f4f6fa', '#f0c840'),
     'orchidee_de_kakin': lambda c, s: orchidee(c, s, '#2e7a3a', '#e83aa8'),
@@ -383,44 +381,62 @@ def modele_tronc(id, age):
 
 
 # ============================================================================ sols, troncs écorcés, sève
-def sol(bloc):
+def sol(bloc, vide=False):
+    """Sol à ingrédient ; vide : après la récolte (terre retournée, vase remuée, pierre grattée sans mousse)."""
     if bloc == 'terre_truffiere':
-        c = Mat.new('#6a4a2e')
-        Mat.noise(c, ['#7a5a3a', '#5a3a22', '#8a6a46'], 0.5, 401)
-        for (x, y) in ((8, 9), (22, 18), (12, 25)):
-            c.fill(ellipse(x, y, 3, 2.6), '#2a2220')
-            c.fill(rect(x - 1, y - 1, x - 1, y - 1), '#4a3c36')
+        if vide:
+            # terre retournée : mottes claires et sillons sombres, plus de truffes
+            c = Mat.new('#5a3e26')
+            Mat.noise(c, ['#6a4a2e', '#4a3220', '#7a5636'], 0.55, 451)
+            rs = np.random.RandomState(452)
+            for y in range(3, 32, 6):
+                for x in range(0, 32):
+                    yy = y + int(math.sin(x / 4 + y) * 1.2)
+                    c.fill(rect(x, yy, x, yy), '#2e2016')
+            for _ in range(14):
+                x, y = rs.randint(1, 31), rs.randint(1, 31)
+                c.fill(ellipse(x, y, 1.6, 1.1), '#8a6640')
+                c.fill(rect(x, y - 1, x, y - 1), '#a07a4c')
+        else:
+            c = Mat.new('#6a4a2e')
+            Mat.noise(c, ['#7a5a3a', '#5a3a22', '#8a6a46'], 0.5, 401)
+            for (x, y) in ((8, 9), (22, 18), (12, 25)):
+                c.fill(ellipse(x, y, 3, 2.6), '#2a2220')
+                c.fill(rect(x - 1, y - 1, x - 1, y - 1), '#4a3c36')
     elif bloc == 'vase_a_algue_noire':
-        c = Mat.new('#2a2a22')
-        Mat.noise(c, ['#3a3a2a', '#1e1e18', '#44442e'], 0.45, 402)
+        c = Mat.new('#2a2a22' if not vide else '#3a3828')
+        Mat.noise(c, ['#3a3a2a', '#1e1e18', '#44442e'] if not vide else ['#4a4632', '#2e2c20', '#545038'], 0.45, 402)
         rs = np.random.RandomState(403)
-        for _ in range(9):
-            x = rs.randint(0, 32)
-            for y in range(rs.randint(0, 10), rs.randint(18, 32)):
-                c.fill(rect(x + int(math.sin(y / 3) * 1.5), y, x + int(math.sin(y / 3) * 1.5), y), '#141a16')
+        if vide:
+            # vase remuée : remous clairs, plus d'algue
+            for k in range(4):
+                c.fill(arc_band(8 + k * 6, 10 + (k % 2) * 12, 5, 3, 1, 200, 340), '#5e5a40')
+            for _ in range(8):
+                x, y = rs.randint(0, 32), rs.randint(0, 32)
+                c.fill(rect(x, y, x, y), '#6a6648')
+        else:
+            for _ in range(9):
+                x = rs.randint(0, 32)
+                for y in range(rs.randint(0, 10), rs.randint(18, 32)):
+                    c.fill(rect(x + int(math.sin(y / 3) * 1.5), y, x + int(math.sin(y / 3) * 1.5), y), '#141a16')
     elif bloc == 'pierre_moussue_humide':
         c = Mat.pierre()
         rs = np.random.RandomState(404)
-        for _ in range(40):
-            x, y = rs.randint(0, 32), rs.randint(0, 32)
-            c.fill(circle(x, y, rs.uniform(1, 2.4)), ['#3a7a3a', '#4a8a3a', '#2e6a3a'][rs.randint(3)])
-        for _ in range(5):
-            x = rs.randint(0, 32)
-            c.fill(rect(x, rs.randint(0, 20), x, rs.randint(20, 32)), '#7ab8d8')
-    elif bloc == 'roche_a_fer_sang':
-        c = Mat.pierre_sombre()
-        rs = np.random.RandomState(405)
-        for _ in range(7):
-            x0, y0 = rs.randint(0, 32), rs.randint(0, 32)
-            c.fill(line_mask(x0, y0, x0 + rs.randint(-8, 8), y0 + rs.randint(-8, 8), 1), '#8a1a14')
-            c.fill(circle(x0, y0, 1.6), '#c8302a')
-    else:  # roche des abysses
-        c = Mat.new('#1e222e')
-        Mat.noise(c, ['#262a38', '#161a24', '#2a3040'], 0.5, 406)
-        rs = np.random.RandomState(407)
-        for _ in range(26):
-            x, y = rs.randint(0, 32), rs.randint(0, 32)
-            c.fill(circle(x, y, rs.uniform(0.8, 2)), ['#1aa8b8', '#2ac8c8', '#8af0f8'][rs.randint(3)])
+        if vide:
+            # grattée : plus de mousse ni de suintement, des éraflures claires
+            for _ in range(7):
+                x, y = rs.randint(2, 28), rs.randint(2, 28)
+                c.fill(line_mask(x, y, x + rs.randint(3, 6), y + rs.randint(-2, 3)), '#b4b4b0')
+            for _ in range(5):
+                x, y = rs.randint(0, 32), rs.randint(0, 32)
+                c.fill(circle(x, y, 1), '#5e6a5a')
+        else:
+            for _ in range(40):
+                x, y = rs.randint(0, 32), rs.randint(0, 32)
+                c.fill(circle(x, y, rs.uniform(1, 2.4)), ['#3a7a3a', '#4a8a3a', '#2e6a3a'][rs.randint(3)])
+            for _ in range(5):
+                x = rs.randint(0, 32)
+                c.fill(rect(x, rs.randint(0, 20), x, rs.randint(20, 32)), '#7ab8d8')
     return c
 
 
@@ -440,61 +456,32 @@ def tronc_ecorce(bouleau, bout=False):
     return c
 
 
-def seve(face):
+def seve(face, tarie=False):
+    """Source de sève : coulées dorées ; tarie, des traces ambrées séchées à la place."""
     c = Mat.new('#5a3a22')
     Mat.vstreaks(c, ['#6a4a2a', '#4a2e18', '#7a5232'], 60, 420, lmin=8, lmax=24)
     if face == 'dessus':
         for r in range(2, 16, 3):
             c.fill(arc_band(16, 16, r, r, 1, 0, 360), '#3a2414')
-        c.fill(circle(16, 16, 3), '#f0a020')
-        c.fill(circle(15, 15, 1.2), '#fff0a0')
+        c.fill(circle(16, 16, 3), '#6a4418' if tarie else '#f0a020')
+        c.fill(circle(15, 15, 1.2), '#8a5a22' if tarie else '#fff0a0')
         return c
     rs = np.random.RandomState(421)
     for _ in range(5):
         x = rs.randint(2, 30)
         y0 = rs.randint(0, 14)
         L = rs.randint(8, 18)
-        c.fill(rect(x, y0, x + 1, min(31, y0 + L)), '#e8901a')
-        c.fill(rect(x, y0, x, min(31, y0 + L)), '#ffd060')
-        c.fill(ellipse(x + 0.5, min(31, y0 + L), 1.4, 1.6), '#f0a020')
+        if tarie:
+            c.fill(rect(x, y0, x + 1, min(31, y0 + L // 2)), '#7a4a18')
+            c.fill(rect(x, y0, x, min(31, y0 + L // 2)), '#9a6224')
+        else:
+            c.fill(rect(x, y0, x + 1, min(31, y0 + L)), '#e8901a')
+            c.fill(rect(x, y0, x, min(31, y0 + L)), '#ffd060')
+            c.fill(ellipse(x + 0.5, min(31, y0 + L), 1.4, 1.6), '#f0a020')
     return c
 
 
-# ============================================================================ nid, lotus
-def texture_brindilles():
-    c = Mat.new('#7a5a32')
-    rs = np.random.RandomState(430)
-    for _ in range(60):
-        x, y = rs.uniform(0, 32), rs.uniform(0, 32)
-        a = rs.uniform(0, math.pi)
-        c.fill(line_mask(x, y, x + math.cos(a) * 6, y + math.sin(a) * 6), ['#5a3e20', '#9a7a4a', '#4a3018', '#b8945a'][rs.randint(4)])
-    return c
-
-
-def texture_oeuf():
-    c = Mat.new('#c8c0b0')
-    rs = np.random.RandomState(431)
-    for _ in range(20):
-        x, y = rs.randint(0, 32), rs.randint(0, 32)
-        c.fill(rect(x, y, x + 1, y), '#5a4a5a')
-    return c
-
-
-def modele_nid(n):
-    nom = 'nid_%d' % n
-    m = stations.Model(nom, 'hxrpmetiers:blocks/virus/monde/brindilles')
-    stations.MODELS.pop(nom, None)
-    t = 'virus/monde/brindilles'
-    m.disc(8, 8, 6, 0, 1.2, t)
-    m.ring(8, 8, 7.4, 1.2, 5, 1.8, t, faces='nsewud')
-    m.box([1, 3.2, 5], [3, 4.6, 6], t)
-    m.box([13, 2.6, 10], [15.5, 4, 11], t)
-    for k in range(n):
-        x, z = (6.2, 7.5) if k == 0 else (9.8, 9)
-        m.box([x - 1.3, 1.2, z - 1.6], [x + 1.3, 4, z + 1.6], 'virus/monde/oeuf_aigle')
-    return m
-
-
+# ============================================================================ lotus
 def texture_lotus_feuille():
     c = Canvas()
     c.shape(circle(16, 16, 15) & ~polygon([(16, 16), (31, 12), (31, 20)]), R('#3a8a4a'), L_sphere(10, 10, 16, 16, 0.4))

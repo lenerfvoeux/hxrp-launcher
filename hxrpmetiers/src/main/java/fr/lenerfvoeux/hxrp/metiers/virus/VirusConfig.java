@@ -83,8 +83,11 @@ public final class VirusConfig {
     // ---------------------------------------------------------------- monde
     @Config.Comment("Multiplicateur de génération des plantes et champignons du Virus (0 = aucune)")
     @Config.RangeDouble(min = 0, max = 10) public static double generationPlantes = 1;
-    @Config.Comment("Multiplicateur de vitesse de pousse des plantes du Virus")
-    @Config.RangeDouble(min = 0.05, max = 20) public static double poussePlantes = 1;
+    @Config.Comment({"Minutes réelles pour qu'une plante, un champignon ou un sol du Virus récolté se recharge (même chunk déchargé),",
+            "selon la rareté de l'ingrédient : commune, peu commune, rare, très rare, légendaire"})
+    public static int[] rechargeMinutes = {30, 60, 120, 360, 1440};
+    @Config.Comment("Minutes réelles pour que l'écorce d'un tronc de bouleau ou de saule repousse")
+    @Config.RangeInt(min = 1, max = 10080) public static int rechargeEcorceMinutes = 120;
     @Config.Comment("Jours réels avant qu'un lotus de l'aube cueilli refleurisse")
     @Config.RangeDouble(min = 0, max = 60) public static double lotusJours = 3;
     @Config.Comment("Heures réelles entre deux récoltes de sève sur une source de l'Arbre-Monde")

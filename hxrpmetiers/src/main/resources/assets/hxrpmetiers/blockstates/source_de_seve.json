@@ -1,8 +1,11 @@
 {
  "_virus": true,
  "variants": {
-  "normal": {
+  "tarie=false": {
    "model": "hxrpmetiers:virus/monde/source_de_seve"
+  },
+  "tarie=true": {
+   "model": "hxrpmetiers:virus/monde/source_de_seve_tarie"
   }
  }
 }

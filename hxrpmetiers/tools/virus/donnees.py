@@ -33,7 +33,7 @@ MODES = {
     'chaudron': {'douce', 'forte', 'reduction', 'sec', 'fondre', 'ebullition', 'forte_long'},
     'alambic': {'eau_florale', 'distiller', 'concentrer'},
     'balance': {'', 'stricte'},
-    'table': {'onguent', 'baume', 'cataplasme', 'compresse', 'filtrer', 'refroidir', 'emplatre', 'attelle', 'pansement', 'bandage'},
+    'table': {'onguent', 'baume', 'cataplasme', 'compresse', 'filtrer', 'refroidir', 'emplatre', 'attelle', 'pansement', 'bandage', 'assembler'},
     'mortier': {'', 'gel', 'baume', 'pate'},
 }
 EFFETS = set('''lenteur0 lenteur1 lenteur2 faiblesse1 faiblesse2 nausee cecite degats faim+ faim++ soif+ soif++ sprint5 sprint8 nosprint
@@ -173,8 +173,6 @@ def bonus(p):
         return 'convalescence'
     if p['forme'] in ('bandage', 'attelle'):
         return 'resistance'
-    if p['forme'] == 'fumigation':
-        return 'apaisement'
     if p['forme'] == 'onguent':
         return 'regeneration'
     if n.startswith('sirop'):
@@ -231,7 +229,7 @@ def main():
             ings.extend(GROUPES_SPECIAUX.get(x, [x]))
         q = {'id': p['id'], 'nom': p['nom'], 'forme': p['forme'], 'ingredients': [resoudre(x) for x in ings],
              'etapes': etapes(p['etapes'], p['id']), 'texte': p['texte'],
-             'rang': p.get('rang', 3 if p.get('secret') else 0 if p['forme'] in ('base', 'ingredient') or p.get('soin') else usages.get(p['id'], 0)),
+             'rang': p.get('rang', 3 if p.get('secret') else 0 if p['forme'] in ('base', 'ingredient', 'outil') or p.get('soin') else usages.get(p['id'], 0)),
              'produit': p.get('produit', p['id']), 'quantite': p.get('quantite', 1), 'bonus': bonus(p)}
         if p['forme'] == 'base' and p['id'] in usages and not p.get('secret'):
             q['rang'] = usages[p['id']] if p['id'] in ('teinture_de_valeriane',) else 0
@@ -243,12 +241,12 @@ def main():
             err(p['id'] + ' : une préparation en seringue doit consommer une seringue vide')
         if len(q['etapes']) == 0:
             err(p['id'] + ' : aucune étape')
-        if p['forme'] not in ('fiole', 'seringue', 'pilules', 'onguent', 'bandage', 'attelle', 'fumigation', 'base', 'ingredient'):
+        if p['forme'] not in ('fiole', 'seringue', 'pilules', 'onguent', 'bandage', 'attelle', 'base', 'ingredient', 'outil'):
             err(p['id'] + ' : forme inconnue ' + p['forme'])
         preps.append(q)
     utilises = set(rangs) | {b['soin'] for b in BLESSURES} | {x for p in PREPARATIONS for x in p['ingredients']}
     for p in PREPARATIONS:
-        if p['id'] not in utilises and p['forme'] != 'ingredient' and p['id'] != 'remede_du_second_souffle':
+        if p['id'] not in utilises and p['forme'] not in ('ingredient', 'outil') and p['id'] != 'remede_du_second_souffle':
             err('préparation jamais utilisée : ' + p['id'])
     # ---------------------------------------------------------------- maladies
     sym_ids = {s for s, _ in SYMPTOMES}

@@ -9,7 +9,10 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.registries.IForgeRegistry;
 
-/** Enregistre les blocs et objets de récolte décrits dans recolte.json. */
+/**
+ * Enregistre les blocs et objets de récolte décrits dans recolte.json. Graines, pousses, feuillages et blocs de récolte
+ * ne s'obtiennent qu'en créatif (onglet « Gourmet · Blocs du monde »), pour que les admins aménagent le monde.
+ */
 public final class MondeRegistry {
     private MondeRegistry() {}
 
@@ -25,6 +28,9 @@ public final class MondeRegistry {
             BlockPousse p = new BlockPousse(a);
             f.pousse = p;
             p.feuilles = f;
+            // l'objet d'un bloc suit l'onglet du bloc : pousses et feuillages pour les admins, dans « Blocs du monde »
+            f.setCreativeTab(ModRegistry.TAB_RECOLTE);
+            p.setCreativeTab(ModRegistry.TAB_RECOLTE);
             ModRegistry.FEUILLES.put(a.id, f);
             ModRegistry.POUSSES.put(a.id, p);
             reg.register(f);
@@ -53,10 +59,10 @@ public final class MondeRegistry {
             ajouter(reg, new ItemBlock(ModRegistry.POUSSES.get(id)).setRegistryName(ModRegistry.POUSSES.get(id).getRegistryName()).setCreativeTab(ModRegistry.TAB_RECOLTE));
             ajouter(reg, new ItemBlock(ModRegistry.FEUILLES.get(id)).setRegistryName(ModRegistry.FEUILLES.get(id).getRegistryName()).setCreativeTab(ModRegistry.TAB_RECOLTE));
         }
-        for (Block b : new Block[]{ModRegistry.MINERAI_SEL, ModRegistry.RUCHE, ModRegistry.MOULES, ModRegistry.HUITRES})
+        for (Block b : new Block[]{ModRegistry.MOULES, ModRegistry.HUITRES, ModRegistry.MINERAI_SEL, ModRegistry.RUCHE})
             ajouter(reg, new ItemBlock(b).setRegistryName(b.getRegistryName()));
         for (String o : Recolte.get().objets) {
-            Item i = new Item().setRegistryName(HxrpMetiers.MODID, o).setTranslationKey(HxrpMetiers.MODID + "." + o).setCreativeTab(ModRegistry.TAB_RECOLTE);
+            Item i = new Item().setRegistryName(HxrpMetiers.MODID, o).setTranslationKey(HxrpMetiers.MODID + "." + o).setCreativeTab(ModRegistry.TAB_INGREDIENTS);
             ModRegistry.OBJETS_MONDE.put(o, i);
             ajouter(reg, i);
         }

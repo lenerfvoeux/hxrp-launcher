@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = HxrpMetiers.MODID, name = "HxRP Metiers", version = HxrpMetiers.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class HxrpMetiers {
     public static final String MODID = "hxrpmetiers";
-    public static final String VERSION = "0.6.0";
+    public static final String VERSION = "0.7.0";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.Instance(MODID)
@@ -41,6 +41,7 @@ public class HxrpMetiers {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         GameRegistry.registerTileEntity(TileFrigo.class, new ResourceLocation(MODID, "frigo"));
+        GameRegistry.registerTileEntity(fr.lenerfvoeux.hxrp.metiers.monde.TileRecharge.class, new ResourceLocation(MODID, "recharge"));
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         GameRegistry.registerWorldGenerator(new fr.lenerfvoeux.hxrp.metiers.monde.GenMonde(), 5);
         fr.lenerfvoeux.hxrp.metiers.entite.ModEntites.apparitions();

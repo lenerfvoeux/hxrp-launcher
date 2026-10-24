@@ -367,8 +367,8 @@ M(23, 'sangsue_fantome', 'Sangsue-fantôme', 2, None, 'Vous trouvez une petite p
    S('La tête vous tourne.', 'vertige', 'vertige'),
    S('Vos plaies se referment à peine.', 'recup-', 'paleur'),
    VIE('Il vous manque du sang, pour toujours.', 'coeur-4', 'paleur')],
-  'sirop_de_fer_sang', ['cataplasme_d_algue_noire'],
-  [pr(0, 'cataplasme_d_algue_noire'), pr(1, 'sirop_de_fer_sang'), pr(3, 'sirop_de_fer_sang')],
+  'sirop_de_gentiane_et_de_bardane', ['cataplasme_d_algue_noire'],
+  [pr(0, 'cataplasme_d_algue_noire'), pr(1, 'sirop_de_gentiane_et_de_bardane'), pr(3, 'sirop_de_gentiane_et_de_bardane')],
   [C('pas_d_eau')], "ne pas entrer dans l'eau pendant la cure",
   'Prise 1 : Cataplasme · Prise 2 (+1 h) : Sirop · Prise 3 (+3 h) : Sirop', contexte=['eau', 'marais'])
 
@@ -382,9 +382,9 @@ M(24, 'ver_cerebral', 'Ver cérébral', 3, None, 'Une migraine vous serre le cr�
    S('Une crise vous fige sur place.', 'immobile3', 'paralysie'),
    S('Gauche et droite s\'inversent dans votre tête.', 'desoriente', 'desorientation'),
    VIE('Le sifflement est resté, et parfois tout s\'inverse.', 'acouphenes ~desoriente', 'oreilles desorientation')],
-  'pilules_de_mousse_des_abysses', ['decoction_de_ginkgo_et_valeriane', 'eau_florale_de_lys_des_nuees'],
-  [pr(0, 'pilules_de_mousse_des_abysses', 'decoction_de_ginkgo_et_valeriane'), pr(2, 'eau_florale_de_lys_des_nuees'),
-   pr(4, 'pilules_de_mousse_des_abysses', 'decoction_de_ginkgo_et_valeriane'), pr(2, 'eau_florale_de_lys_des_nuees', dormir=True)],
+  'pilules_de_champignon_luminescent', ['decoction_de_ginkgo_et_valeriane', 'eau_florale_de_lys_des_nuees'],
+  [pr(0, 'pilules_de_champignon_luminescent', 'decoction_de_ginkgo_et_valeriane'), pr(2, 'eau_florale_de_lys_des_nuees'),
+   pr(4, 'pilules_de_champignon_luminescent', 'decoction_de_ginkgo_et_valeriane'), pr(2, 'eau_florale_de_lys_des_nuees', dormir=True)],
   [C('pas_d_alcool')], "pas d'alcool pendant la cure",
   'Prise 1 : Pilules + Décoction · Prise 2 (+2 h) : Eau florale · Prise 3 (+4 h) : Pilules + Décoction · Prise 4 (+2 h) : Eau florale, puis dormir',
   origine=['alimentaire'])
@@ -396,9 +396,9 @@ M(25, 'puces_de_la_fievre', 'Puces de la fièvre', 0, None, 'De petites piqûres
    S('Votre tête cogne, vous avancez plus lentement.', 'lenteur1', 'tete lenteur'),
    S('Une éruption vous couvre ; vous êtes sans force.', 'faiblesse1', 'eruption faiblesse'),
    VIE('Des fièvres passagères vous reprennent sans prévenir.', '~lenteur1 ~rouge', 'fievre')],
-  'baume_de_romarin_au_polypore', ['fumigation_de_plumes'],
-  [pr(0, 'fumigation_de_plumes'), pr(1, 'baume_de_romarin_au_polypore'), pr(2, 'baume_de_romarin_au_polypore')],
-  [], 'aucune', 'Prise 1 : Fumigation · Prise 2 (+1 h) : Baume · Prise 3 (+2 h) : Baume', contexte=['plaines'])
+  'baume_de_romarin_au_polypore', [],
+  [pr(0, 'baume_de_romarin_au_polypore'), pr(2, 'baume_de_romarin_au_polypore')],
+  [], 'aucune', 'Prise 1 : Baume · Prise 2 (+2 h) : Baume', contexte=['plaines'])
 
 M(26, 'pied_de_marais', 'Pied de marais', 0, None, 'Vos orteils vous démangent dans vos bottes.', 10,
   "rien d'anormal · MR : filaments en réseau",
@@ -563,8 +563,8 @@ M(38, 'mal_de_l_ambre', "Mal de l'ambre", 3, None, 'Une fatigue dorée et sucré
    S('Vos membres pèsent comme de l\'ambre figé.', 'lenteur2', 'lenteur'),
    S('Tout ce que vous voyez vire à l\'ambre.', 'ambre', 'couleurs'),
    VIE('Le monde est resté ambré, et vos jambes lentes.', 'ambre lenteur1', 'couleurs lenteur')],
-  'elixir_de_l_aigle_araignee', ['pilules_de_charbon_d_os'],
-  [pr(0, 'pilules_de_charbon_d_os'), pr(2, 'elixir_de_l_aigle_araignee'), pr(4, 'pilules_de_charbon_d_os'), pr(2, 'elixir_de_l_aigle_araignee')],
+  'elixir_de_truffe_noire', ['pilules_de_charbon_d_os'],
+  [pr(0, 'pilules_de_charbon_d_os'), pr(2, 'elixir_de_truffe_noire'), pr(4, 'pilules_de_charbon_d_os'), pr(2, 'elixir_de_truffe_noire')],
   [C('sans_nourriture')], 'à jeun pendant toute la cure',
   'Prise 1 : Pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules · Prise 4 (+2 h) : Élixir', origine=['alimentaire'])
 
@@ -721,9 +721,9 @@ M(50, 'petrification_lente', 'Pétrification lente', 3, None, 'Le bout de vos do
    S('Vos jambes refusent de vous soulever.', 'nosaut', 'crampes'),
    S('Vous êtes figé sur place, comme une statue.', 'immobile5', 'paralysie'),
    VIE('Une part de vous est restée pierre.', 'lenteur2 nosaut', 'lenteur crampes')],
-  'onguent_de_la_baleine', ['decoction_de_fer_sang_et_pied_bleu'],
-  [pr(0, 'onguent_de_la_baleine', 'decoction_de_fer_sang_et_pied_bleu'), pr(6, 'onguent_de_la_baleine', 'decoction_de_fer_sang_et_pied_bleu'),
-   pr(6, 'onguent_de_la_baleine', 'decoction_de_fer_sang_et_pied_bleu', dormir=True)],
+  'onguent_de_la_baleine', ['decoction_de_pied_bleu_et_de_chaga'],
+  [pr(0, 'onguent_de_la_baleine', 'decoction_de_pied_bleu_et_de_chaga'), pr(6, 'onguent_de_la_baleine', 'decoction_de_pied_bleu_et_de_chaga'),
+   pr(6, 'onguent_de_la_baleine', 'decoction_de_pied_bleu_et_de_chaga', dormir=True)],
   [C('a_jeun_avant', prises=[1, 2, 3], heures=1)], 'à jeun avant chaque prise',
   'Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem, puis dormir', contexte=['grotte'])
 
@@ -737,11 +737,11 @@ M(51, 'toxine_de_fourmi_chimere', 'Toxine de fourmi-chimère', 3, None, 'Une pla
    S('Des formes rampent à la lisière de votre regard.', 'hallu', 'hallucinations'),
    S('Gauche et droite s\'échangent sans prévenir.', 'desoriente', 'desorientation'),
    VIE('La toxine a laissé des traces : parfois tout s\'inverse, et votre cœur est faible.', '~desoriente coeur-4', 'desorientation faiblesse')],
-  'elixir_de_l_arbre_monde', ['pilules_de_mousse_des_abysses', 'pilules_de_bourse_a_pasteur'],
-  [pr(0, 'pilules_de_mousse_des_abysses', 'pilules_de_bourse_a_pasteur'), pr(2, 'elixir_de_l_arbre_monde'),
-   pr(4, 'pilules_de_mousse_des_abysses'), pr(2, 'elixir_de_l_arbre_monde')],
+  'elixir_de_l_arbre_monde', ['pilules_de_champignon_luminescent', 'pilules_de_bourse_a_pasteur'],
+  [pr(0, 'pilules_de_champignon_luminescent', 'pilules_de_bourse_a_pasteur'), pr(2, 'elixir_de_l_arbre_monde'),
+   pr(4, 'pilules_de_champignon_luminescent'), pr(2, 'elixir_de_l_arbre_monde')],
   [C('repos')], 'repos absolu : ni sprint ni combat',
-  'Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de mousse des abysses · Prise 4 (+2 h) : Élixir',
+  'Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de champignon luminescent · Prise 4 (+2 h) : Élixir',
   contexte=['combat'])
 
 M(52, 'mal_du_continent_noir', 'Mal du Continent noir', 3, None, "Quelque chose d'inconnu s'est glissé en vous.", 12,

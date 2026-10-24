@@ -40,7 +40,7 @@ public final class ArbreFruitier {
     }
 
     /**
-     * @param monde vrai à la génération du monde : quelques fruits sont déjà mûrs.
+     * @param monde vrai à la génération du monde : les fruits sont presque tous mûrs (sinon l'arbre est en fleurs).
      * @return faux si la place manque (rien n'est posé).
      */
     public static boolean generer(World w, BlockPos base, BlockFeuillage f, Random r, boolean monde) {
@@ -113,7 +113,7 @@ public final class ArbreFruitier {
         if (!s.getBlock().isAir(s, w, p) && !s.getBlock().isLeaves(s, w, p) && s.getMaterial() != Material.PLANTS && s.getMaterial() != Material.VINE) return;
         if (s.getBlock().isLeaves(s, w, p) && !(s.getBlock() instanceof BlockFeuillage)) return;
         int fruit = 0;
-        if (BlockFeuillage.porteur(p)) fruit = monde ? r.nextInt(3) : r.nextInt(2);
+        if (BlockFeuillage.porteur(p)) fruit = monde && r.nextInt(4) != 0 ? 2 : 1;
         w.setBlockState(p, f.withProperty(BlockFeuillage.FRUIT, fruit), 2);
     }
 

@@ -14,7 +14,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-/** Pousse d'arbre fruitier : grandit à la lumière (ou à la poudre d'os) puis devient un arbre. */
+/**
+ * Pousse d'arbre fruitier, posée par les admins (créatif) : grandit à la lumière (ou à la poudre d'os) puis devient un arbre.
+ * Incassable en survie et sans butin : les joueurs ne peuvent pas obtenir de pousses.
+ */
 public class BlockPousse extends BlockBush implements IGrowable {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     private static final AxisAlignedBB BOITE = new AxisAlignedBB(0.1, 0, 0.1, 0.9, 0.8, 0.9);
@@ -27,6 +30,8 @@ public class BlockPousse extends BlockBush implements IGrowable {
         setRegistryName(HxrpMetiers.MODID, "pousse_" + a.id);
         setTranslationKey(HxrpMetiers.MODID + ".pousse_" + a.id);
         setSoundType(SoundType.PLANT);
+        setBlockUnbreakable();
+        setResistance(6000000f);
         setDefaultState(blockState.getBaseState().withProperty(STAGE, 0));
     }
 
@@ -34,6 +39,7 @@ public class BlockPousse extends BlockBush implements IGrowable {
     @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(STAGE, meta & 1); }
     @Override public int getMetaFromState(IBlockState s) { return s.getValue(STAGE); }
     @Override public AxisAlignedBB getBoundingBox(IBlockState s, IBlockAccess w, BlockPos pos) { return BOITE; }
+    @Override public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, IBlockAccess w, BlockPos pos, IBlockState s, int fortune) {}
 
     @Override
     public void updateTick(World w, BlockPos pos, IBlockState s, Random r) {

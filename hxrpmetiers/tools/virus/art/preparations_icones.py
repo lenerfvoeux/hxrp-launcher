@@ -1,7 +1,7 @@
 """
 Icônes 32x32 des préparations de l'officine : un contenant par sorte de préparation (fiole ronde, flacon d'eau
 florale, sirop, teinture à pipette, élixir taillé, onguent en pot, baume en boîte, cataplasme, pilulier, seringue,
-bandage, attelle, fumigation, poudre, alcools…), coloré d'après ses ingrédients (couleur vive de leurs icônes).
+bandage, attelle, poudre, alcools…), coloré d'après ses ingrédients (couleur vive de leurs icônes).
 Le bouchon dit le rang : bois (0★), cire rouge (1★), cire bleue (2★), or (3★).
 """
 import math
@@ -241,17 +241,6 @@ def attelle(c, liq, acc, rang):
         c.fill(line_mask(x - 2, y + 2, x + 3, y - 1), liq)
 
 
-def fumigation(c, liq, acc, rang):
-    c.shadow_under(16, 29, 9, 2, 0.25)
-    for k, (x0, x1) in enumerate(((11, 8), (14, 13), (17, 18), (20, 23))):
-        c.shape(capsule(x0, 29, x1, 13, 1.5, 2.2), R(mix(liq, '#7a6a4a', 0.3) if k % 2 else liq, light=1.2), L_cyl(x0, 29, x1, 13, 2.2))
-    c.shape(rect(11, 22, 21, 24), R('#b8241c'), L_const(0.6))
-    for k in range(4):
-        x, y = 12 + k * 3, 10 - k * 2
-        c.shape(circle(x, y, 2.6 - k * 0.3), R('#d8d4cc'), L_const(0.75), edge=False)
-    c.fill(rect(15, 12, 17, 13), '#f8a030')
-
-
 def poudre(c, liq, acc, rang):
     c.shadow_under(16, 28, 12, 2.4, 0.25)
     c.shape(polygon([(3, 22), (16, 16), (29, 22), (16, 29)]), R('#f2e6c8', light=1.05), L_const(0.8))
@@ -345,7 +334,7 @@ def dessiner(c, p, couleurs):
         return charbon(c, liq, acc, rang)
     if id == 'cendre_doree':
         return cendre_doree(c, liq, acc, rang)
-    if id == 'essence_des_quinze_raretes':
+    if id == 'essence_des_dix_raretes':
         return elixir(c, '#8a6ae8', '#e8b830', rang, eclat='#fff4b0')
     if id == 'baume_des_quinze_ressources':
         return boite_baume(c, '#c8904a', acc, rang, grande=True)
@@ -365,8 +354,6 @@ def dessiner(c, p, couleurs):
         return bandage(c, liq, acc, rang)
     if forme == 'attelle':
         return attelle(c, liq, acc, rang)
-    if forme == 'fumigation':
-        return fumigation(c, liq, acc, rang)
     if forme == 'onguent':
         if id.startswith('baume'):
             return boite_baume(c, liq, acc, rang)

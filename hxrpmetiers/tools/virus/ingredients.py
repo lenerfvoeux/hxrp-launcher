@@ -1,5 +1,5 @@
 """
-Les 84 ingrédients custom du Hunter Virus (data/virus_ingredients.json du cahier des charges),
+Les 79 ingrédients custom du Hunter Virus (data/virus_ingredients.json du cahier des charges),
 avec pour chacun sa façon d'être récolté en jeu.
 
 Récolte (champ « recolte ») :
@@ -8,7 +8,6 @@ Récolte (champ « recolte ») :
   tronc    : champignon accroché au flanc d'un tronc (bois : chene, bouleau, chene_noir, tous).
   sol      : bloc plein du monde (terre truffière, vase, roche…), on gratte ou on creuse.
   ecorce   : clic droit sur un tronc naturel (bouleau / saule = chêne des marais et rivières).
-  nid      : nid d'aigle-araignée sur les falaises.
   lotus    : fleur flottante des rivières, repousse en 3 jours réels.
   arbre    : source de sève posée par les admins.
   jarres   : cultivé à l'officine (koji).
@@ -22,7 +21,7 @@ Durée de vie en heures réelles (0 = ne périme pas).
 # milieux (voir MilieuVirus.java) :
 # plaines, prairies, collines, montagne, montagne_boisee, pics_glaces, savane, desert, aride, foret,
 # foret_claire, lisiere, foret_bouleau, foret_sombre, foret_humide, taiga, taiga_enneigee, marais,
-# riviere, jungle, plage, partout, grotte, grotte_profonde, abysses
+# riviere, jungle, plage, partout, grotte, grotte_profonde
 
 def I(id, nom, cat, source, rarete, vie, recolte, **opts):
     d = {'id': id, 'nom': nom, 'categorie': cat, 'source': source, 'rarete': rarete, 'vie': vie, 'recolte': recolte}
@@ -101,20 +100,15 @@ INGREDIENTS = [
     I('truffe_noire', 'Truffe noire', 'champignon', 'Sous terre près des chênes (creuser)', 'rare', 96, sol('terre_truffiere')),
     I('champignon_luminescent', 'Champignon luminescent', 'champignon', 'Grottes profondes', 'rare', 120, plante('grotte_profonde', sol='pierre', champignon=True, lumiere=7)),
     I('bolet_cendre', 'Bolet cendré', 'champignon', 'Montagnes de Kukuroo', 'rare', 96, plante(['montagne_boisee', 'montagne'], sol='foret', champignon=True)),
-    # ------------------------------------------------------------------ 15 ressources rares du monde Hunter
+    # ------------------------------------------------------------------ 10 ressources rares du monde Hunter
     I('fleur_de_lune_pale', 'Fleur de lune pâle', 'rare_hunter', "Plaines, n'éclot que la nuit", 'rare', 48, plante('plaines', nuit=True, lumiere=5)),
     I('algue_noire', 'Algue noire', 'rare_hunter', 'Fond des marais', 'rare', 72, sol('vase_a_algue_noire')),
     I('baie_de_givre', 'Baie de givre', 'rare_hunter', 'Pics glacés', 'rare', 168, plante('pics_glaces', sol='neige', arbuste=True)),
     I('pollen_dore', 'Pollen doré', 'rare_hunter', "Fleur solitaire des déserts, à l'aube", 'rare', 72, plante('desert', sol='sable', aube=True)),
     I('mousse_de_numere', 'Mousse de Numere', 'rare_hunter', 'Marais de Numere', 'rare', 96, plante('marais', tapis=True)),
-    I('baie_de_l_ile_de_la_baleine', "Baie de l'île de la Baleine", 'rare_hunter', 'Rivages des îles', 'rare', 120, plante('plage', sol='sable', arbuste=True)),
-    I('feuille_de_kukuroo', 'Feuille de Kukuroo', 'rare_hunter', 'Montagnes boisées de Kukuroo', 'très rare', 168, plante('montagne_boisee', sol='foret', arbuste=True)),
-    I('oeuf_d_aigle_araignee', "Œuf d'aigle-araignée", 'rare_hunter', 'Nids sur falaises et ravins', 'très rare', 96, {'type': 'nid'}),
     I('chardon_de_meteor', 'Chardon de Meteor', 'rare_hunter', 'Terres arides', 'très rare', 240, plante(['aride', 'savane', 'desert'], sol='sable')),
     I('lys_des_nuees', 'Lys des nuées', 'rare_hunter', 'Sommets au-dessus de Y 110', 'très rare', 72, plante(['montagne', 'pics_glaces', 'montagne_boisee'], sol='montagne', ymin=110)),
     I('orchidee_de_kakin', 'Orchidée de Kakin', 'rare_hunter', "Cœur des jungles, à l'ombre", 'très rare', 72, plante('jungle', sol='foret', ombre=True)),
-    I('racine_de_fer_sang', 'Racine de fer-sang', 'rare_hunter', 'Grottes sous Y 20', 'très rare', 480, sol('roche_a_fer_sang')),
-    I('mousse_des_abysses', 'Mousse des abysses', 'rare_hunter', 'Grottes sous Y 12, lumineuse', 'très rare', 168, sol('roche_des_abysses')),
     I('lotus_de_l_aube', "Lotus de l'aube", 'rare_hunter', 'Rivières, une fleur par zone, repousse en 3 jours', 'légendaire', 48, {'type': 'lotus'}),
     I('seve_de_l_arbre_monde', "Sève de l'Arbre-Monde", 'rare_hunter', 'Événement ou lieu placé par les admins', 'légendaire', 168, {'type': 'arbre'}),
     # ------------------------------------------------------------------ 15 ressources animales et de ruche
@@ -142,7 +136,7 @@ REPRIS_DU_GOURMET = {
     'lait': 'lait', 'œuf': 'oeuf', 'sel': 'sel', "bouteille d'eau": 'bouteille_d_eau',
 }
 
-assert len(INGREDIENTS) == 84, len(INGREDIENTS)
-assert len({i['id'] for i in INGREDIENTS}) == 84
-for _c, _n in (('plante', 34), ('champignon', 20), ('rare_hunter', 15), ('animal_ruche', 15)):
+assert len(INGREDIENTS) == 79, len(INGREDIENTS)
+assert len({i['id'] for i in INGREDIENTS}) == 79
+for _c, _n in (('plante', 34), ('champignon', 20), ('rare_hunter', 10), ('animal_ruche', 15)):
     assert sum(1 for i in INGREDIENTS if i['categorie'] == _c) == _n, _c

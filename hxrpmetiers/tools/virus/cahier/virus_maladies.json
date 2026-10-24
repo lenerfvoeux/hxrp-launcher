@@ -753,9 +753,9 @@
   ],
   "sang": "GR↓, FE↓, PA+ · MR : crochets noirs",
   "remede_specifique": {
-   "nom": "Sirop de fer-sang",
+   "nom": "Sirop de gentiane et de bardane",
    "forme": "fiole",
-   "recette": "racine de fer-sang → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)"
+   "recette": "racine de gentiane + racine de bardane + eau → Hachoir → Chaudron (décoction) + miel → Chaudron (réduction)"
   },
   "accompagnement": [
    {
@@ -787,9 +787,9 @@
   ],
   "sang": "GB↑, PA+ · MR : kystes blancs",
   "remede_specifique": {
-   "nom": "Pilules de mousse des abysses",
+   "nom": "Pilules de champignon luminescent",
    "forme": "pilules",
-   "recette": "mousse des abysses + champignon luminescent → Yagen → Balance + miel → Mortier → Pilulier"
+   "recette": "champignon luminescent + lys des nuées → Yagen → Balance + miel → Mortier → Pilulier"
   },
   "accompagnement": [
    {
@@ -827,14 +827,8 @@
    "forme": "onguent",
    "recette": "romarin (Gourmet) + polypore → Yagen + base d'onguent → Table"
   },
-  "accompagnement": [
-   {
-    "nom": "Fumigation de plumes",
-    "forme": "fumigation",
-    "recette": "plumes + polypore → Chaudron (à sec), le patient respire la fumée"
-   }
-  ],
-  "traitement": "Prise 1 : Fumigation · Prise 2 (+1 h) : Baume · Prise 3 (+2 h) : Baume",
+  "accompagnement": [],
+  "traitement": "Prise 1 : Baume · Prise 2 (+2 h) : Baume",
   "consigne": null
  },
  {
@@ -1021,7 +1015,7 @@
   "remede_specifique": {
    "nom": "Onguent de Kukuroo",
    "forme": "onguent",
-   "recette": "feuille de Kukuroo + bolet cendré → Yagen + huile de lin + base d'onguent → Table"
+   "recette": "bolet cendré + consoude → Yagen + huile de lin + base d'onguent → Table"
   },
   "accompagnement": [
    {
@@ -1253,9 +1247,9 @@
   ],
   "sang": "SU↑, FE↑, TX+ · MR : paillettes d'ambre",
   "remede_specifique": {
-   "nom": "Élixir de l'aigle-araignée",
+   "nom": "Élixir de truffe noire",
    "forme": "fiole",
-   "recette": "œuf d'aigle-araignée + truffe noire → Mortier + alcool fort → Jarres (6 h) → Alambic"
+   "recette": "truffe noire + chardon de Meteor → Mortier + alcool fort → Jarres (6 h) → Alambic"
   },
   "accompagnement": [
    {
@@ -1632,13 +1626,13 @@
   "remede_specifique": {
    "nom": "Onguent de la Baleine",
    "forme": "onguent",
-   "recette": "baie de l'île de la Baleine + écailles → Yagen + huile de lin + base d'onguent → Table"
+   "recette": "écailles + algue noire → Yagen + huile de lin + base d'onguent → Table"
   },
   "accompagnement": [
    {
-    "nom": "Décoction de fer-sang et pied-bleu",
+    "nom": "Décoction de pied-bleu et de chaga",
     "forme": "fiole",
-    "recette": "racine de fer-sang + pied-bleu + eau → Hachoir → Chaudron (fort)"
+    "recette": "pied-bleu + chaga + eau → Hachoir → Chaudron (fort)"
    }
   ],
   "traitement": "Prise 1 : Onguent + Décoction · Prise 2 (+6 h) : idem · Prise 3 (+6 h) : idem, puis dormir",
@@ -1670,7 +1664,7 @@
   },
   "accompagnement": [
    {
-    "nom": "Pilules de mousse des abysses",
+    "nom": "Pilules de champignon luminescent",
     "forme": "pilules",
     "recette": "voir maladie 24"
    },
@@ -1680,7 +1674,7 @@
     "recette": "voir maladie 18"
    }
   ],
-  "traitement": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de mousse des abysses · Prise 4 (+2 h) : Élixir",
+  "traitement": "Prise 1 : les deux pilules · Prise 2 (+2 h) : Élixir · Prise 3 (+4 h) : Pilules de champignon luminescent · Prise 4 (+2 h) : Élixir",
   "consigne": "repos absolu : ni sprint ni combat"
  },
  {

@@ -790,41 +790,6 @@ def mousse_de_numere(c):
         c.fill(rect(int(x), int(y), int(x), int(y)), '#c84a8a')
 
 
-@icone('baie_de_l_ile_de_la_baleine')
-def baie_baleine(c):
-    brin(c, [(16, 5), (16, 12)], '#4a6a3a')
-    leaf(c, 16, 6, 7, 3, 3.4, '#3a8a5a', vein=False)
-    leaf(c, 16, 6, 25, 3, 3.4, '#3a8a5a', vein=False)
-    baies(c, [(12, 15), (20, 15), (16, 20), (10, 22), (22, 22), (16, 26)], 3.6, '#4a3ab8', hl=2)
-    for (x, y) in ((11, 14), (19, 14), (15, 19)):
-        c.fill(rect(x, y, x, y), '#c8c0ff')
-
-
-@icone('feuille_de_kukuroo')
-def feuille_de_kukuroo(c):
-    brin(c, [(6, 30), (26, 4)], '#2a5a4a', 1)
-    m = leaf(c, 6, 30, 27, 3, 14, '#1aa89a')
-    for t in np.linspace(0.15, 0.85, 6):
-        x, y = 6 + 21 * t, 30 - 27 * t
-        for s in (-1, 1):
-            c.fill(line_mask(x, y, x + s * 5, y - 2 + s * 3) & m & ~edge(m), '#0e7a6e')
-    c.speckle(m, '#7af0d8', 0.04, seed=54)
-
-
-@icone('oeuf_d_aigle_araignee')
-def oeuf_aigle(c):
-    c.shadow_under(16, 28.5, 9, 2.4, 0.35)
-    m = ellipse(16, 17, 9, 11.5)
-    c.shape(m, R('#c8c0b0', light=1.15), L_sphere(13, 11, 9, 11.5), hl=2)
-    # motif en toile d'araignée, sombre
-    for a in range(0, 360, 45):
-        c.fill(line_mask(16, 16, 16 + math.cos(math.radians(a)) * 9, 16 + math.sin(math.radians(a)) * 11) & m & ~edge(m), '#5a4a5a')
-    for r in (3.5, 6.5):
-        c.fill(arc_band(16, 16, r, r * 1.25, 1, 0, 360) & m & ~edge(m), '#5a4a5a')
-    for (x, y) in rng_pts(55, m & ~edge(m), 8):
-        c.fill(rect(x, y, x, y), '#3a2a3a')
-
-
 @icone('chardon_de_meteor')
 def chardon_de_meteor(c):
     brin(c, [(16, 31), (16, 14)], '#5a6a6a', 2)
@@ -863,31 +828,6 @@ def orchidee_de_kakin(c):
             c.shape(ellipse(x + dx, y + dy, rx, ry), R('#e83aa8', light=1.2), L_sphere(x + dx - 1, y + dy - 1, rx, ry), edge=False)
         c.shape(ellipse(x, y + 2, 3, 2.6), R('#a8126a', light=1.2), L_const(0.6))
         c.fill(rect(x - 1, y, x + 1, y), '#f8e040')
-
-
-@icone('racine_de_fer_sang')
-def racine_fer_sang(c):
-    c.shadow_under(16, 28, 12, 2.4, 0.3)
-    racine(c, [(5, 6), (11, 13), (16, 21), (25, 28)], '#6a1e1a', w0=4.2, w1=1.4, radicelles=7, seed=56)
-    racine(c, [(11, 13), (20, 9), (27, 10)], '#6a1e1a', w0=2.2, w1=1, radicelles=3, seed=57)
-    for (x, y) in ((9, 11), (14, 17), (19, 23)):
-        c.fill(rect(x, y, x + 1, y), '#c83a2a')
-        c.fill(rect(x, y + 1, x, y + 1), '#8a9098')
-
-
-@icone('mousse_des_abysses')
-def mousse_des_abysses(c):
-    c.fill(circle(16, 18, 13) & (np.random.RandomState(58).rand(32, 32) < 0.05), '#6af0ff')
-    c.shadow_under(16, 27, 12, 2.6, 0.3)
-    c.shape(ellipse(16, 25, 12, 4) & (YY >= 22), R('#2a2e3a'), L_vert(21, 29, 0.8, 0.3))
-    g = np.random.RandomState(59)
-    for _ in range(26):
-        x, y = g.uniform(6, 26), g.uniform(13, 24)
-        r = g.uniform(1.8, 3.2)
-        c.shape(circle(x, y, r), R(['#1aa8b8', '#2ac8c8', '#0e7a9a'][g.randint(3)], light=1.35), L_sphere(x - 0.6, y - 0.6, r, r), edge=False)
-    for _ in range(8):
-        x, y = g.uniform(8, 24), g.uniform(12, 22)
-        c.fill(rect(int(x), int(y), int(x), int(y)), '#e8ffff')
 
 
 @icone('lotus_de_l_aube')
