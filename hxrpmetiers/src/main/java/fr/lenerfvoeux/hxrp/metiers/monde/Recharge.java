@@ -39,19 +39,13 @@ public final class Recharge {
      * d'ingrédient ne doit pas pouvoir être noyée.
      */
     public static final Material TENACE = new Material(MapColor.FOLIAGE) {
-        {
-            setTranslucent();
-        }
-
+        @Override public boolean isOpaque() { return false; }
         @Override public boolean blocksLight() { return false; }
     };
 
     /** Matière des cultures : comme TENACE, mais pas « solide », sinon la terre labourée dessous redevient de la terre. */
     public static final Material CULTURE = new Material(MapColor.FOLIAGE) {
-        {
-            setTranslucent();
-        }
-
+        @Override public boolean isOpaque() { return false; }
         @Override public boolean isSolid() { return false; }
         @Override public boolean blocksLight() { return false; }
     };

@@ -1,8 +1,55 @@
-# HxRP Métiers — Gourmet et Hunter Virus (0.6.0)
+# HxRP Métiers — Gourmet et Hunter Virus (0.7.0)
 
 Mod Forge 1.12.2 (`modid` `hxrpmetiers`, Java 8, jar côté client **et** serveur) : cuisine, faim/soif et le métier
 de Gourmet, et depuis 0.6.0 le métier de **Hunter Virus** (apothicaire : blessures, maladies, officine, diagnostic).
 Le boss Phénix de feu est un mod séparé : voir `../hxrpphenix`.
+
+## Nouveautés de la 0.7.0
+
+- **Tout se récolte au clic droit, rien ne se casse.** Les blocs de récolte sont incassables en survie (seuls les admins
+  les cassent, en créatif) et ne laissent rien tomber. Après une récolte, le bloc passe dans un état vide qui a sa texture,
+  puis se recharge **en temps réel, même quand son chunk est déchargé** (l'heure de la récolte est gardée dans le bloc).
+  La barre d'action dit ce qui manque : « Pas encore mûr · encore 25 min », « Le banc est vide, reviens plus tard »,
+  « Il te faut une pioche de prospecteur »…
+
+  | Bloc | Clic droit | Après la récolte | Recharge (réglable) |
+  | --- | --- | --- | --- |
+  | Cultures du potager | main nue, au stade mûr | stade 1 | 40 min |
+  | Feuillages des arbres fruitiers | main nue, fruits mûrs → 1 à 2 fruits | en fleurs, sans fruits | 45 min |
+  | Bancs de moules et d'huîtres | main nue → 1 à 3 | **vide** (coquilles ouvertes) | 1 h |
+  | Minerai de sel | **pioche de prospecteur** → 2 à 4 sels | **épuisé** (veines vides) | 1 h 30 |
+  | Ruche sauvage | main nue (cire, propolis) ou fiole (miel) | vide | 1 h |
+  | Plantes et champignons du Virus (au sol, sur les troncs) | main nue, au stade mûr | stade 1 | selon la rareté |
+  | Écorce de bouleau et de saule | main nue sur le tronc | bois nu | 2 h |
+  | Pierre moussue humide | **pioche de prospecteur** | **épuisée** (sans mousse) | selon la rareté |
+  | Terre truffière, vase à algue noire | main nue (fouiller) | **fouillée** | selon la rareté |
+  | Lotus de l'aube · source de sève | main nue · fiole vide | bouton · source **tarie** | 3 jours · 24 h |
+
+  Recharge selon la rareté : commune 30 min, peu commune 1 h, rare 2 h, très rare 6 h, légendaire 24 h
+  (`rechargeMinutes` dans `config/hxrpmetiers_virus.cfg`, les autres durées dans `config/hxrpmetiers.cfg`).
+  L'eau ne noie plus les plantes ; la terre truffière affleure désormais au pied des chênes.
+- **Plus de graines ni de pousses obtenables** : rien dans les hautes herbes, les cultures ou les feuillages, et les
+  ingrédients du Virus ne se replantent plus. Graines, pousses, plantes, champignons de tronc et sols restent en créatif
+  (onglets « Gourmet · Blocs du monde » et « Virus · Blocs du monde ») pour que les admins aménagent le monde.
+- **Pioche de prospecteur** (fabriquée par le Virus, 0★) : le seul outil pour le sel et la pierre moussue. Elle ne casse
+  rien et ne mine pas plus vite ; 250 utilisations, barre d'usure ; émoussée, elle ne disparaît pas et attend une
+  réparation : clic droit sur la table de préparation, pioche en main, avec un **lingot d'ostéacier** (+125).
+  Recettes : lingot = 2 charbons d'os + charbon de bambou + carapace de crabe + écailles → Mortier → Chaudron (fondre)
+  → Table (refroidir) ; pioche = 3 lingots + 2 bambous + écorce de bouleau + propolis → Hachoir → Table (assembler,
+  même mini-jeu que la table, on ligature le manche au lieu d'étaler).
+- **Six onglets Virus** rangés : Officine, Cueillette (34 plantes puis 20 champignons, du commun au rare), Ressources
+  (10 raretés, 15 ressources animales, puis les butins de boss utiles au Virus), Préparations (bases, lingot, soins),
+  Remèdes (dans l'ordre des maladies 1 → 52, puis les accompagnements, puis le Second Souffle), Blocs du monde.
+  « Gourmet · Récolte » devient « Gourmet · Blocs du monde ».
+- **Retraits et renommages** : Feuille de Kukuroo, Baie de l'île de la Baleine, Mousse des abysses (et sa roche),
+  Œuf d'aigle-araignée (et son nid), Racine de fer-sang (et sa roche), Fumigation de plumes. Préparations renommées :
+  Pilules de champignon luminescent, Élixir de truffe noire, Sirop de gentiane et de bardane, Décoction de pied-bleu et
+  de chaga, Essence des dix raretés. Dans un monde existant, les préparations renommées deviennent les nouvelles
+  (rien ne se perd dans les coffres) ; les objets et blocs retirés disparaissent, sans bloquer le démarrage du serveur.
+- **149 textures** retouchées (Gourmet et Virus), rangées dans `tools/surcharges/` : elles priment sur les dessins des
+  générateurs, qui les réappliquent à chaque génération.
+- `/virus verifier` (admin) joue chaque récolte avec un joueur fictif au-dessus du point d'apparition et range tout :
+  la CI s'en sert, les admins peuvent aussi l'utiliser sur le serveur.
 
 ## Hunter Virus (0.6.0)
 
@@ -24,9 +71,9 @@ Le Hunter Virus est le seul à pouvoir soigner (lui-même compris). Rangs 0★ �
   (même moteur que le Gourmet : graine tirée par le serveur, partie rejouée et notée par le serveur) ; seuil de réussite 80 %,
   qualité et étoiles selon la note et le rang. Formulaire de l'officine : recettes visibles selon le rang, ingrédients
   manquants, étapes et machines.
-- **Récolte** : les **84 ingrédients** ont une source en jeu — 52 plantes et champignons au sol (trois stades, replantables),
-  champignons de tronc, sols, troncs écorcés, nids, lotus, sève, butins d'animaux — et les **119 préparations** ont
-  leur icône (couleur tirée des ingrédients, bouchon selon le rang).
+- **Récolte** : les **79 ingrédients** ont une source en jeu — 50 plantes et champignons au sol (trois stades),
+  champignons de tronc, sols, écorce des troncs, lotus, sève, butins d'animaux — et les préparations ont
+  leur icône (couleur tirée des ingrédients, bouchon selon le rang). Voir « Nouveautés de la 0.7.0 » pour la récolte.
 - **Diagnostic** : seringue (prise de sang, mini-jeu), microscope (lecture du sang), écoute des symptômes, carnet de
   consultation à cocher, Grimoire (sommaire, index des symptômes et du sang).
 - **Traitement** : remède spécifique en plusieurs prises (fenêtre de ± 30 min), **ordonnance** remise au patient avec un HUD
@@ -34,7 +81,7 @@ Le Hunter Virus est le seul à pouvoir soigner (lui-même compris). Rangs 0★ �
   pas d'alcool, altitude, grotte, eau, Nether, distance, plat précis du Gourmet, prise de nuit…) : une prise oubliée ou une
   consigne non tenue fait échouer le traitement ; puis convalescence selon le rang du Virus, guérison et immunité.
 - **Remède du Second Souffle** (secret, Virus 3★) : recette sur un **parchemin** qui s'ouvre comme une page du Grimoire ;
-  un exemplaire de chacun des 84 ingrédients et une **plume de phénix** (`hxrpphenix:plume_de_phenix`) ; efface tous les
+  un exemplaire de chacun des 79 ingrédients et une **plume de phénix** (`hxrpphenix:plume_de_phenix`) ; efface tous les
   effets à vie. Le Phénix de feu fait aussi monter la Brûlure à chaque coup de feu (`VirusAPI.brulure`).
 
 ### Commandes du Virus (permission 2)
@@ -53,6 +100,7 @@ Le Hunter Virus est le seul à pouvoir soigner (lui-même compris). Rangs 0★ �
 | `/virus jarres` | termine les macérations des jarres à moins de 8 blocs |
 | `/virus prise <joueur>` | autorise une nouvelle prise de sang tout de suite |
 | `/virus recharger` | relit les JSON de `config/hxrpmetiers/virus/` |
+| `/virus verifier` | vérifie chaque récolte au clic droit (joueur fictif, en l'air au-dessus du point d'apparition) |
 
 ### Tester en jeu
 
@@ -89,12 +137,12 @@ Le Hunter Virus est le seul à pouvoir soigner (lui-même compris). Rangs 0★ �
 
 Chaque ingrédient et chaque épice a une source en jeu (décrite dans `tools/monde/especes.py`) :
 
-- **69 cultures** : graines en sachet (trouvées en cassant les hautes herbes, selon le climat du biome),
+- **69 cultures** : graines en sachet (en créatif depuis la 0.7.0, pour les potagers des admins),
   à semer sur de la terre labourée ; trois stades visibles (vient d'être planté, pousse, prêt).
   Clic droit sur une plante mûre pour récolter sans l'arracher.
 - **22 arbres fruitiers** (pommier, oranger, cocotier, cacaoyer…) générés selon le climat : leurs feuilles
-  fleurissent puis portent des fruits ; **taper** sur un bloc de feuilles mûr fait tomber les fruits
-  sans casser l'arbre. Les feuilles donnent des pousses à replanter.
+  fleurissent puis portent des fruits ; clic droit sur un bloc de feuilles mûr donne les fruits
+  sans casser l'arbre (pousses en créatif seulement depuis la 0.7.0).
 - **14 animaux** : saumon, truite, thon, cabillaud, sardine, maquereau, anchois (en bancs), crevette,
   crabe (plages), dinde, canard, cerf (farouche), sanglier (charge si on l'attaque), chèvre (se trait à la fiole).
   Les animaux vanilla donnent aussi nos viandes (bœuf, veau, porc, poulet, mouton, lapin, calamar) ;
@@ -109,15 +157,16 @@ modèles d'animaux (`data/modeles/*.json`) et `data/recolte.json`.
 ## Compiler
 
 ```sh
-./gradlew build          # produit build/libs/hxrpmetiers-0.6.0.jar
+./gradlew build          # produit build/libs/hxrpmetiers-0.7.0.jar
 ./gradlew runClient      # client de développement
 ```
 
 À chaque push, GitHub Actions (`.github/workflows/hxrpmetiers.yml`) lance le banc d'essai, compile le mod,
-vérifie le jar, puis démarre un vrai serveur Forge et un vrai client avec : le jar est joint à l'exécution
-(artefact `hxrpmetiers-jar`).
+vérifie le jar, puis démarre un vrai serveur Forge (avec `/virus verifier`) et un vrai client, et rouvre un monde
+créé avec le jar publié de la 0.6.0 (`tools/test/migration.sh` : remappage, objets retirés) ; le jar est joint à
+l'exécution (artefact `hxrpmetiers-jar`).
 
-Le nom du jar change à chaque version (0.5.0 → 0.6.0) : le launcher HxRP télécharge ce mod depuis la release
+Le nom du jar change à chaque version (0.6.0 → 0.7.0) : le launcher HxRP télécharge ce mod depuis la release
 `hxrp-extras-v…` décrite dans `manifest.json` ; publier le nouveau jar dans une release puis mettre à jour le manifeste
 (nom, taille, ancien nom dans `oldNames`) en même temps.
 
@@ -127,7 +176,10 @@ Tous les visuels sont générés par des scripts, pour pouvoir les retoucher et 
 
 | Commande | Produit |
 | --- | --- |
-| `python3 tools/textures/gen_items.py` | `textures/items/*.png` + champs `famille`, `pal`, `motif` de `data/food.json` (utilisés par les mini-jeux) |
+| `python3 tools/textures/gen_items.py` | `textures/items/*.png` + champs `famille`, `pal`, `motif` de `data/food.json` (utilisés par les mini-jeux) ; les textures de `tools/surcharges/` priment |
+| `python3 tools/monde/gen_monde.py` | blocs de récolte du Gourmet (cultures, arbres, bancs pleins et vides, sel plein et épuisé, ruches) |
+| `python3 tools/virus/gen_virus.py` | tout le Hunter Virus : données vérifiées, icônes, blocs, plantes, sols pleins et vides, interfaces, sons, noms |
+| `python3 tools/virus/verifier_ressources.py` | modèles, variantes d'états, textures et noms de tous les blocs et objets ; identifiants retirés |
 | `python3 tools/textures/gen_gui.py` | `textures/gui/carnet.png`, `frigo.png`, `poubelle.png`, `hud.png` |
 | `python3 tools/models/gen_blocks.py` | textures, modèles et états de blocs des stations, du frigo et de la poubelle |
 | `sh tools/test/banc.sh` | banc d'essai des mini-jeux hors Minecraft + images des scènes |
