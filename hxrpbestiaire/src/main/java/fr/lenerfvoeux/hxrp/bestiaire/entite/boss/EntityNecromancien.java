@@ -98,7 +98,7 @@ public class EntityNecromancien extends EntityBoss {
             p.motionZ += f.x * i * 0.35;
             world.spawnEntity(p);
         }
-        son(SoundEvents.ENTITY_EVOCATION_ILLAGER_CAST_SPELL, 3F, 0.7F);
+        son(Sons.PLAINTE, 3F, 1.1F);
     }
 
     /** Téléportation : il disparaît dans une fumée noire et reparaît loin du groupe (portée du classeur). */
