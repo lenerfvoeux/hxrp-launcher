@@ -480,6 +480,317 @@ AFFICHAGE = {
     'firstperson_lefthand': {'rotation': [0, 225, 0], 'translation': [0, 0, 0], 'scale': [0.4, 0.4, 0.4]},
 }
 
+# ============================================================================ butins du lot 2 (32×32)
+def soie_de_xerra():
+    """Un écheveau de soie rouge sombre, enroulé, fils qui s'échappent, reflets nacrés."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    for y in range(32):
+        for x in range(32):
+            dx, dy = (x + 0.5 - 16) / 11, (y + 0.5 - 16) / 8
+            r = math.hypot(dx, dy)
+            if r > 1:
+                continue
+            # fils enroulés : bandes obliques
+            bande = math.sin((x + 0.5) * 0.9 - (y + 0.5) * 1.7)
+            c = mix((150, 30, 40), (70, 12, 20), (bande + 1) / 2 * 0.7 + r * 0.3)
+            if bande > 0.75:
+                c = mix(c, (240, 200, 210), 0.45)
+            px[x, y] = c + (255,)
+    # fils lâches
+    for i in range(10):
+        px[26 + i // 3, 18 + i] = (190, 150, 160, 255) if i < 9 else (0, 0, 0, 0)
+    for i in range(6):
+        px[4 - i // 3, 12 - i] = (190, 150, 160, 255)
+    return contour(im)
+
+
+def coeur_de_givre_eternel():
+    """Un cœur de cristal de glace, bleu profond au centre, arêtes blanches, lueur."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    for y in range(32):
+        for x in range(32):
+            u, v = (x + 0.5 - 16) / 11, -(y + 0.5 - 15) / 11
+            # forme de cœur : (u² + v² - 1)³ - u² v³ ≤ 0
+            f = (u * u + v * v - 1) ** 3 - u * u * v ** 3
+            if f > 0:
+                continue
+            k = min(1, math.hypot(u, v + 0.15))
+            c = mix((30, 90, 200), (200, 240, 255), k)
+            facette = (int((x + y) / 4) + int((x - y + 32) / 5)) % 3
+            c = mix(c, (255, 255, 255), 0.18 * facette)
+            px[x, y] = c + (255,)
+    for (x, y) in ((11, 9), (12, 8), (12, 9), (10, 10)):
+        px[x, y] = (255, 255, 255, 255)
+    for (x, y) in ((4, 4), (27, 6), (28, 22), (3, 20)):
+        px[x, y] = (180, 230, 255, 200)
+    return contour(im, (10, 30, 60))
+
+
+def glace_eternelle():
+    """Une grappe d'éclats de glace bleutée, qui ne fond jamais."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    eclats = [((10, 28), (6, 12), (14, 12)), ((17, 28), (12, 4), (21, 8)), ((24, 28), (22, 13), (28, 16)), ((14, 28), (8, 18), (20, 20))]
+    teintes = [(150, 200, 235), (190, 230, 250), (120, 175, 225), (170, 215, 245)]
+    for (a, b, c), t in zip(eclats, teintes):
+        d.polygon([a, b, c], fill=t + (255,))
+        d.line([a, b], fill=mix(t, (255, 255, 255), 0.6) + (255,))
+    d.rectangle((6, 27, 27, 29), fill=(110, 160, 210, 255))
+    return contour(im, (20, 40, 70))
+
+
+def corne_du_demon_noir():
+    """Une grande corne recourbée, noir violacé, annelée, pointe orangée."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    pts = [(6 + t * 20 + math.sin(t * math.pi) * 6, 26 - t * 20 + math.sin(t * math.pi) * 2, t) for t in [i / 70 for i in range(71)]]
+    for x0, y0, t in pts:
+        r = 4.2 * (1 - t) ** 0.9 + 0.5
+        for y in range(32):
+            for x in range(32):
+                dd = math.hypot(x + 0.5 - x0, y + 0.5 - y0)
+                if dd <= r:
+                    base = (52, 36, 58) if int(t * 9) % 2 else (36, 24, 42)
+                    if t > 0.75:
+                        base = mix((120, 70, 50), (230, 160, 100), (t - 0.75) / 0.25)
+                    lum = 1.0 - 0.4 * (dd / r)
+                    px[x, y] = tuple(min(255, int(c * lum)) for c in base) + (255,)
+    return contour(im)
+
+
+OEUFS_LOT2 = {
+    'xerra': (0x2A0A10, 0xD8402A, 'pustules'),
+    'roi_des_glaces': (0x9ED3E6, 0x2F6E9A, 'runes'),
+    'demon_noir': (0x1A1420, 0xE0A070, 'rayures'),
+}
+
+
+# ============================================================================ projectiles du lot 2 (16×16)
+def projectile_toile():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    for a in range(0, 180, 30):
+        r = math.radians(a)
+        d.line((8 - 6 * math.cos(r), 8 - 6 * math.sin(r), 8 + 6 * math.cos(r), 8 + 6 * math.sin(r)), fill=(235, 235, 240, 255))
+    for rr in (2, 4, 6):
+        d.ellipse((8 - rr, 8 - rr, 8 + rr, 8 + rr), outline=(210, 210, 220, 220))
+    return im
+
+
+def projectile_lance_glace():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    for i in range(14):
+        x, y = 1 + i, 14 - i
+        c = mix((90, 150, 210), (230, 250, 255), i / 13)
+        px[x, y] = c + (255,)
+        if 2 < i < 12:
+            px[x, y - 1] = mix(c, (255, 255, 255), 0.3) + (255,)
+            px[x + 1, y] = mix(c, (40, 90, 160), 0.3) + (255,)
+    return im
+
+
+def projectile_fleche_glace():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    for i in range(11):
+        px[3 + i, 12 - i] = (150, 120, 90, 255)
+    for (x, y) in ((13, 2), (14, 1), (12, 2), (13, 3), (14, 2)):
+        px[x, y] = (200, 240, 255, 255)
+    for (x, y) in ((2, 13), (3, 14), (1, 12), (2, 12), (3, 13)):
+        px[x, y] = (160, 210, 240, 255)
+    return im
+
+
+def projectile_orbe():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    disque(px, 8, 8, 6, lambda x, y, k: mix((10, 4, 16), (110, 40, 150), k) + (int(255 * (1 - k * 0.2)),), 16, 16)
+    for (x, y) in ((6, 5), (5, 6)):
+        px[x, y] = (200, 120, 255, 255)
+    return im
+
+
+def projectile_meteore():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    disque(px, 9, 9, 5, lambda x, y, k: mix((30, 20, 34), (90, 40, 110), k), 16, 16)
+    for i in range(5):
+        px[3 - i // 2 + 1, 3 + i // 2] = (150, 70, 200, 200)
+        px[4 + i // 3, 1 + i // 2] = (120, 50, 170, 180)
+    return im
+
+
+def projectile_stalactite():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.polygon([(4, 1), (12, 1), (8, 15)], fill=(170, 215, 245, 255))
+    d.line([(8, 1), (8, 14)], fill=(235, 250, 255, 255))
+    d.line([(4, 1), (12, 1)], fill=(110, 160, 210, 255))
+    return im
+
+
+PROJECTILES_LOT2 = {
+    'toile': projectile_toile,
+    'lance_glace': projectile_lance_glace,
+    'fleche_glace': projectile_fleche_glace,
+    'orbe': projectile_orbe,
+    'meteore': projectile_meteore,
+    'stalactite': projectile_stalactite,
+}
+
+
+# ============================================================================ appâts du lot 2
+def tex_soie():
+    """Soie de cocon, blanc grisé, fils entrecroisés."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(19)
+    for y in range(16):
+        for x in range(16):
+            c = mix((222, 218, 214), (176, 170, 168), rnd.random() * 0.5)
+            if (x + 2 * y) % 7 == 0 or (2 * x - y) % 9 == 0:
+                c = (246, 244, 240)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_toile():
+    """Toile d'araignée (découpée) pour le tapis de soie au sol."""
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    for a in range(0, 180, 45):
+        r = math.radians(a)
+        d.line((8 - 8 * math.cos(r), 8 - 8 * math.sin(r), 8 + 8 * math.cos(r), 8 + 8 * math.sin(r)), fill=(230, 230, 235, 220))
+    for rr in (3, 6):
+        d.rectangle((8 - rr, 8 - rr, 8 + rr, 8 + rr), outline=(220, 220, 228, 200))
+    return im
+
+
+def tex_glace():
+    """Glace bleutée opaque, fissures blanches."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(23)
+    for y in range(16):
+        for x in range(16):
+            c = mix((150, 200, 235), (100, 160, 215), rnd.random() * 0.4 + (x + y) / 60)
+            if abs((x - y) % 11 - 5) == 0 or (x * 3 + y) % 17 == 0:
+                c = (226, 244, 255)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_pelage():
+    """Pelage de cerf : brun fauve, mouchetures claires."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(29)
+    for y in range(16):
+        for x in range(16):
+            c = mix((150, 98, 56), (118, 74, 40), rnd.random() * 0.6)
+            if rnd.random() < 0.06:
+                c = (214, 190, 150)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_bois_cerf():
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            px[x, y] = mix((200, 184, 150), (150, 130, 96), (x % 3) / 3) + (255,)
+    return im
+
+
+def tex_sanglier():
+    """Soies de sanglier : brun noir, poils."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(31)
+    for y in range(16):
+        for x in range(16):
+            c = mix((70, 52, 40), (40, 30, 24), rnd.random() * 0.7)
+            if (x + y * 3) % 5 == 0:
+                c = (96, 74, 56)
+            px[x, y] = c + (255,)
+    return im
+
+
+def modele_cocon():
+    el = [
+        boite((0, 0, 0), (16, 0.1, 16), '#toile', faces=('up', 'down')),           # tapis de toile
+        boite((4, 0, 2), (12, 5, 14), '#soie'),                                     # le cocon allongé
+        boite((5, 5, 3), (11, 6.5, 13), '#soie'),
+        boite((5, 1, 1), (11, 4, 2), '#soie'),
+        boite((5, 1, 14), (11, 4, 15), '#soie'),
+        boite((6, 6.5, 6), (10, 7, 10), '#soie'),                                   # la tête emmaillotée
+        boite((2, 0, 7), (4, 2, 8), '#soie', rot={'origin': [4, 0, 7.5], 'axis': 'y', 'angle': 22.5}),   # fils tendus
+        boite((12, 0, 9), (14, 1.5, 10), '#soie', rot={'origin': [12, 0, 9.5], 'axis': 'y', 'angle': -22.5}),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_soie', 'soie': 'hxrpbestiaire:blocks/appat_soie', 'toile': 'hxrpbestiaire:blocks/appat_toile'}
+    return el, tex
+
+
+def modele_cerf():
+    el = [
+        boite((1, 0, 1), (15, 11, 15), '#glace'),                                   # bloc de glace
+        boite((5, 11, 1.5), (11, 15, 7), '#pelage'),                                 # tête du cerf qui dépasse
+        boite((6.5, 11.5, 0.5), (9.5, 13.5, 1.5), '#pelage'),                         # museau
+        boite((4, 15, 3), (5, 16, 4), '#bois_cerf'),                                 # bois
+        boite((11, 15, 3), (12, 16, 4), '#bois_cerf'),
+        boite((3, 13, 3.5), (4, 16, 4.5), '#bois_cerf', rot={'origin': [4, 13, 4], 'axis': 'z', 'angle': 22.5}),
+        boite((12, 13, 3.5), (13, 16, 4.5), '#bois_cerf', rot={'origin': [12, 13, 4], 'axis': 'z', 'angle': -22.5}),
+        boite((2, 11, 10), (4, 13, 12), '#glace'),                                   # glaçons sur le dessus
+        boite((11, 11, 11), (13, 12, 13), '#glace'),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_glace', 'glace': 'hxrpbestiaire:blocks/appat_glace',
+           'pelage': 'hxrpbestiaire:blocks/appat_pelage', 'bois_cerf': 'hxrpbestiaire:blocks/appat_bois_cerf'}
+    return el, tex
+
+
+def modele_carcasse():
+    el = [
+        boite((2, 0, 4), (14, 6, 12), '#sanglier'),                                  # corps couché
+        boite((14, 1, 5.5), (16, 5, 10.5), '#sanglier'),                             # groin
+        boite((0, 2, 6), (2, 5, 10), '#sanglier'),                                   # tête (l'autre bout : arrière-train)
+        boite((15, 4, 5), (16, 6, 6), '#os'),                                        # défenses
+        boite((15, 4, 10), (16, 6, 11), '#os'),
+        boite((4, 0, 12), (6, 2, 15), '#sanglier'),                                  # pattes raides
+        boite((10, 0, 12), (12, 2, 15), '#sanglier'),
+        boite((5, 6, 6), (11, 7, 10), '#chair'),                                     # flanc ouvert, côtes
+        boite((6, 6, 6), (7, 9, 7), '#os'), boite((8, 6, 6), (9, 9.5, 7), '#os'), boite((10, 6, 6), (11, 9, 7), '#os'),
+        boite((6, 6, 9), (7, 9, 10), '#os'), boite((8, 6, 9), (9, 9.5, 10), '#os'), boite((10, 6, 9), (11, 9, 10), '#os'),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_sanglier', 'sanglier': 'hxrpbestiaire:blocks/appat_sanglier',
+           'os': 'hxrpbestiaire:blocks/appat_os', 'chair': 'hxrpbestiaire:blocks/appat_chair'}
+    return el, tex
+
+
+APPATS_LOT2 = {
+    'cocon_de_proie': modele_cocon,
+    'cerf_pris_dans_la_glace': modele_cerf,
+    'carcasse_de_sanglier': modele_carcasse,
+}
+TEXTURES_BLOCS_LOT2 = {
+    'appat_soie': tex_soie,
+    'appat_toile': tex_toile,
+    'appat_glace': tex_glace,
+    'appat_pelage': tex_pelage,
+    'appat_bois_cerf': tex_bois_cerf,
+    'appat_sanglier': tex_sanglier,
+}
+BUTINS_LOT2 = {
+    'soie_de_xerra': soie_de_xerra,
+    'coeur_de_givre_eternel': coeur_de_givre_eternel,
+    'glace_eternelle': glace_eternelle,
+    'corne_du_demon_noir': corne_du_demon_noir,
+}
+
+
 # ============================================================================ traductions
 NOMS = {
     'itemGroup.hxrpbestiaire': 'HxRP · Bestiaire',
