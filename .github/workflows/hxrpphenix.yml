@@ -60,7 +60,7 @@ jobs:
           test "$(n 'assets/hxrpphenix/textures/entity/phenix_[0-3]\.png')" -eq 4
           test "$(n 'assets/hxrpphenix/sounds/.*\.ogg')" -eq 14
           test "$(n 'assets/hxrpphenix/blockstates/nid_de_braises\.json')" -eq 1
-          test "$(n 'assets/hxrpphenix/textures/blocks/nid_de_braises_.*\.png')" -eq 2
+          test "$(n 'assets/hxrpphenix/textures/blocks/nid_de_braises_[a-z]+\.png$')" -eq 2
           test "$(n 'assets/hxrpphenix/bestiaire_stats\.xlsx')" -eq 1
           test "$(n 'software/bernie')" -eq 0   # GeckoLib n'est pas embarqué : il est déjà sur le serveur
           unzip -p "$J" mcmod.info | grep -q '"version": "1.1.0"'
