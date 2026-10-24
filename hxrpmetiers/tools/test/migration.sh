@@ -65,7 +65,7 @@ partie "$ancien" "v0.6.0 : objets anciens" \
     "setblock $X $((Y + 1)) $Z hxrpmetiers:roche_a_fer_sang" \
     "testforblock $X $((Y + 1)) $Z hxrpmetiers:roche_a_fer_sang" \
     "save-all"
-grep -q "Successfully found the block at $X,$((Y + 1)),$Z" "$journal" || { echo "!! la v0.6.0 n'a pas posé ses objets"; tail -40 "$journal"; exit 1; }
+grep -q "Successfully found the block at $X, $((Y + 1)), $Z" "$journal" || { echo "!! la v0.6.0 n'a pas posé ses objets"; tail -40 "$journal"; exit 1; }
 
 # 3. Le même monde avec la nouvelle version.
 avant=$(wc -l < "$journal")
