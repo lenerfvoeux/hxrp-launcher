@@ -81,7 +81,7 @@ public class CommandBoss extends CommandBase {
                 if (!w.isBlockLoaded(new BlockPos(p))) throw new CommandException("Ce lieu n'est pas chargé.");
                 Entity e = s.getCommandSenderEntity();
                 EntityBoss.invoquer(espece, w, p.x, p.y, p.z, e != null ? e.rotationYaw + 180F : 0F);
-                notifyCommandListener(s, this, "%s invoqué en %s %s %s", espece.nom, (int) Math.floor(p.x), (int) Math.floor(p.y), (int) Math.floor(p.z));
+                notifyCommandListener(s, this, "%s invoqué" + espece.e() + " en %s %s %s", espece.nom, (int) Math.floor(p.x), (int) Math.floor(p.y), (int) Math.floor(p.z));
                 return;
             }
             case "retirer": {
@@ -101,13 +101,13 @@ public class CommandBoss extends CommandBase {
                         }
                     }
                 }
-                notifyCommandListener(s, this, "%s %s retiré(s)", n, espece.nom);
+                notifyCommandListener(s, this, "%s %s retiré" + espece.e() + "(s)", n, espece.nom);
                 return;
             }
             case "attaque": {
                 if (a.length < 2) throw new WrongUsageException("/" + espece.id + " attaque <" + String.join("|", attaques()) + ">");
                 EntityBoss b = lePlusProche(serveur, s);
-                if (b == null) throw new CommandException(espece.nom + " : aucun chargé" + (s instanceof MinecraftServer ? "." : " à moins de 128 blocs."));
+                if (b == null) throw new CommandException(espece.nom + " : aucun" + (espece.feminin ? "e" : "") + " chargé" + espece.e() + (s instanceof MinecraftServer ? "." : " à moins de 128 blocs."));
                 if (b.coup(a[1]) == null) throw new CommandException("Attaque inconnue : " + a[1] + " (" + String.join(", ", attaques()) + ")");
                 if (!b.forcer(a[1])) throw new CommandException(espece.nom + " ne peut pas attaquer maintenant (arrivée, renaissance ou mort).");
                 notifyCommandListener(s, this, "%s lance : %s", espece.nom, a[1]);
@@ -117,9 +117,9 @@ public class CommandBoss extends CommandBase {
                 if (a.length < 2) throw new WrongUsageException("/" + espece.id + " vie <pourcentage>");
                 double k = parseDouble(a[1], 1, 100) / 100;
                 EntityBoss b = lePlusProche(serveur, s);
-                if (b == null) throw new CommandException(espece.nom + " : aucun chargé" + (s instanceof MinecraftServer ? "." : " à moins de 128 blocs."));
+                if (b == null) throw new CommandException(espece.nom + " : aucun" + (espece.feminin ? "e" : "") + " chargé" + espece.e() + (s instanceof MinecraftServer ? "." : " à moins de 128 blocs."));
                 b.fixerVie(k);
-                notifyCommandListener(s, this, "%s ramené à %s %% de sa vie", espece.nom, (int) Math.round(k * 100));
+                notifyCommandListener(s, this, "%s ramené" + espece.e() + " à %s %% de sa vie", espece.nom, (int) Math.round(k * 100));
                 return;
             }
             case "info": {
@@ -130,7 +130,7 @@ public class CommandBoss extends CommandBase {
                             s.sendMessage(new TextComponentString("§6" + ((EntityBoss) e).resume() + " §7(dim " + w.provider.getDimension() + ")"));
                             n++;
                         }
-                if (n == 0) s.sendMessage(new TextComponentString("§7" + espece.nom + " : aucun chargé."));
+                if (n == 0) s.sendMessage(new TextComponentString("§7" + espece.nom + " : aucun" + (espece.feminin ? "e" : "") + " chargé" + espece.e() + "."));
                 s.sendMessage(new TextComponentString("§7" + Stats.resume(espece.id)));
                 return;
             }

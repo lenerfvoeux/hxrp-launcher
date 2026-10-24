@@ -134,7 +134,7 @@ fi
 
 echo "---- extrait du journal ($journal)"
 grep -E 'hxrpbestiaire|Bestiaire|Reine|Abomination|Nécromancien|GeckoLib|geckolib|Done \(|textures-atlas|successfully loaded|Stopping server|Sbires' "$journal" \
-    | grep -Ev $'^\tat |STDERR' | head -120
+    | grep -Ev $'^\tat |STDERR' | grep -v 'Réglages (' | head -200
 
 erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|/(ERROR|FATAL)\].*(hxrpbestiaire|HxRP|Bestiaire|GeckoLib|geckolib)|Error loading (model|animation) file|Could not load animation|at fr\.lenerfvoeux|at software\.bernie|Unable to play unknown soundEvent|Missing (sound|texture)' "$journal" | head -60)
 avertissements=$(grep -E '/WARN\].*(hxrpbestiaire|HxRP|Bestiaire)' "$journal" | head -30)
@@ -182,7 +182,7 @@ if [ "$mode" = serveur ]; then
         'cromancien entre en rage' 'butin de N.+cromancien : [1-9].+Poussi.+re d.os maudite'
         '1 Reine-gu.+pe retir'
         'glages du bestiaire relus \([^)]*config/bestiaire_stats\.xlsx\)'
-        'Un bourdonnement sourd' 'Reine-gu.+pe arrive' 'vore le rayon de miel royal'
+        'Un bourdonnement sourd' 'Reine-gu.+pe attir.+e par .+ \((4[0-9]|5[0-9]|60) blocs\)' 'Reine-gu.+pe arrive' 'vore le rayon de miel royal'
         'Des mouches tournent' 'Abomination, porteuse de Zobae jaillit du sol'
         'Des mains d.+charn.+es' 'cromancien se mat.+rialise'
     )

@@ -23,15 +23,15 @@ public final class Especes {
             .taille(2.4F, 5.5F).vol()
             .appat("rayon_de_miel_royal", "Rayon de miel royal", Espece.Arrivee.VOL, "en jungle ou en forêt",
                     "Un bourdonnement sourd monte de la forêt…", "dévore le rayon de miel royal et fond sur vous !", EnumParticleTypes.DRIP_LAVA)
-            .oeuf(0x26141A, 0xC4182C).lieu("Jungles et forêts profondes");
+            .oeuf(0x26141A, 0xC4182C).lieu("Jungles et forêts profondes").feminin();
     public static final Espece GUEPE_SOLDAT = sbire("guepe_soldat", "Guêpe soldat", "reine_guepe", EntityGuepeSoldat.class, 1)
-            .taille(0.8F, 1.4F).echelle(0.26F).vol().sbireDe("reine_guepe");
+            .taille(0.8F, 1.4F).echelle(0.26F).vol().sbireDe("reine_guepe").feminin();
 
     public static final Espece ABOMINATION = boss("abomination", "Abomination, porteuse de Zobae", "abomination", EntityAbomination.class, 2)
             .taille(1.6F, 3.8F).apparition("spawn")
             .appat("charnier", "Charnier", Espece.Arrivee.SUR_PLACE, "sous terre",
                     "Des mouches tournent au-dessus du charnier, une odeur atroce monte…", "jaillit du sol, affamée !", EnumParticleTypes.VILLAGER_HAPPY)
-            .oeuf(0x2A1C1C, 0x8E1B1B).lieu("Souterrains");
+            .oeuf(0x2A1C1C, 0x8E1B1B).lieu("Souterrains").feminin();
 
     public static final Espece NECROMANCIEN = boss("necromancien", "Nécromancien", "necromancien", EntityNecromancien.class, 3)
             .taille(2.0F, 6.6F).anims("idle", "flotte", "mort").apparition("apparition")

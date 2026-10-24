@@ -53,6 +53,8 @@ public final class Espece {
     public String lieu = "";
     /** Sbire : l'id du boss (classeur, onglet Sbires). */
     public String bossDuSbire = "";
+    /** Nom féminin (la Reine-guêpe, l'Abomination…) : accords des messages. */
+    public boolean feminin;
 
     Espece(String id, String nom, String modele, boolean boss, Class<? extends EntityLiving> classe, int numero) {
         this.id = id;
@@ -119,6 +121,16 @@ public final class Espece {
         this.couleurOeuf = couleur;
         this.couleurTaches = taches;
         return this;
+    }
+
+    Espece feminin() {
+        this.feminin = true;
+        return this;
+    }
+
+    /** « e » si le nom est féminin, pour accorder : vaincu + e(). */
+    public String e() {
+        return feminin ? "e" : "";
     }
 
     Espece lieu(String l) {

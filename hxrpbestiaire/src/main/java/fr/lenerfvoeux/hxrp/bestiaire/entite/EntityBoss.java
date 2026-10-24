@@ -389,7 +389,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         anim("");
         pause = 20;
         son(espece.sonAmbiant, 5F, espece.hauteurSon * 0.7F);
-        annoncer("§5§l" + espece.nom + " se relève avec toute sa vie, plus enragé que jamais !");
+        annoncer("§5§l" + espece.nom + " se relève avec toute sa vie, plus enragé" + espece.e() + " que jamais !");
     }
 
     @Override
@@ -397,7 +397,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         super.onDeath(src);
         if (!world.isRemote) {
             retirerSbires();
-            annoncer("§6" + espece.nom + " est vaincu.");
+            annoncer("§6" + espece.nom + " est vaincu" + espece.e() + ".");
         }
     }
 
@@ -899,6 +899,8 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         if (e.arrivee == Espece.Arrivee.SUR_PLACE && !e.apparition.isEmpty()) b.anim(e.apparition);
         w.spawnEntity(b);
         b.son(e.sonAmbiant, 6F, e.hauteurSon * 0.8F);
+        HxrpBestiaire.LOG.info("Bestiaire : {} attiré{} par l'appât en {} {} {}, part de {} {} {} ({} blocs)", e.nom, e.e(), nid.getX(), nid.getY(),
+                nid.getZ(), MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z), (int) Math.round(Math.sqrt((x - nx) * (x - nx) + (z - nz) * (z - nz))));
         return b;
     }
 
@@ -938,7 +940,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
             for (int essai = 0; essai < 5; essai++) {
                 double an = cap + (essai == 0 ? 0 : (w.rand.nextDouble() - 0.5) * 1.6);
                 BlockPos b = new BlockPos(x0 + Math.cos(an) * d, 64, z0 + Math.sin(an) * d);
-                if (!w.isAreaLoaded(b, 32)) continue;
+                if (!w.isAreaLoaded(b, 8)) continue;
                 double sol = w.getHeight(b).getY();
                 double y = vol ? Math.max(nid.getY() + 24 + w.rand.nextDouble() * 6, sol + 12) : sol;
                 return new double[]{b.getX() + 0.5, Math.min(y, plafond), b.getZ() + 0.5};
