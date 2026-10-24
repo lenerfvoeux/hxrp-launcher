@@ -1,0 +1,129 @@
+# HxRP Bestiaire (0.1.0)
+
+Mod Forge 1.12.2 séparé (`modid` `hxrpbestiaire`, Java 8) : **les boss de HxRP**, animés avec **GeckoLib 3**
+(`geckolib-forge-1.12.2-3.0.31`, déjà présent sur le serveur — il doit aussi l'être chez les joueurs).
+Le jar va côté **client et serveur**. Il ne dépend ni de `hxrpmetiers` ni de `hxrpphenix`, mais s'en sert s'ils sont là.
+
+Ce premier lot contient **la Reine-guêpe, l'Abomination et le Nécromancien** ; les autres boss arrivent par lots
+(Xerra, Roi des glaces, Démon noir, puis Kraken, Calamar des sables, Démon de lave, Aï). La Baleine est reportée.
+
+## Ce que les boss ont en commun
+
+- **Aucune apparition naturelle.** Un boss vient :
+  - par son **appât** (bloc donné par un admin, `/<boss> appat`), posé là où il le faut : il s'anime de plus en
+    plus, un **signe** prévient de l'arrivée (message et son venu de la direction d'arrivée), puis, **30 à 90 s**
+    après la pose, le boss arrive de **40 à 60 blocs** (en vol ou à pied, dans le dos du joueur le plus proche) ou
+    surgit sur place, **dévore l'appât** et attaque. Les appâts sont incassables en survie ; un appât dont le boss
+    a été tué ou retiré en route se défait au bout de 2 min ;
+  - par son **œuf** (admins, `/<boss> oeuf`) ou `/<boss> invoquer` : il apparaît sur place.
+
+  Le lieu d'apparition (ou l'appât) devient **son arène** : il prend pour cible tout joueur à moins de 24 blocs
+  (et celui qui le frappe), le poursuit jusqu'à 64 blocs de l'arène, puis revient. Laissé seul, il se refait une santé.
+- **Barre de boss** à moins de 64 blocs : **rouge** en phase 1, **orange** en phase 2 (le serveur envoie du jaune,
+  que le client repeint en orange), **violette** en phase 3.
+- **Phase 2 sous 50 % de vie** : il entre en rage (cri, explosion), plus rapide, plus fort, des attaques en plus
+  et des pauses plus courtes. Les boss à **trois phases** (Phénix, Xerra, Kraken, Roi des glaces, Démon noir)
+  s'effondrent à 0 PV et **se relèvent avec toute leur vie**.
+- **Sbires** : des versions réduites du boss ou de ses serviteurs. Ils **disparaissent quand leur boss meurt**
+  (ou est retiré). Plus nombreux à chaque phase (multiplicateurs du classeur).
+- **Ne détruisent aucun bloc** ; leurs attaques ne touchent que les joueurs. Les effets (poison, lenteur, recul…)
+  et leur durée viennent du classeur.
+- **Butin** : les objets du bestiaire (onglet Butins du classeur), rien d'autre.
+- Les boss ne craignent ni le poison ni le flétrissement, ni les dégâts de leurs propres sbires.
+
+## Lot 1
+
+### Reine-guêpe — 4000 PV, armure 22
+
+Une reine des guêpes géante (≈ 5 blocs), **volante**, qui tourne autour de sa cible.
+**Appât : rayon de miel royal**, à poser **en jungle ou en forêt**. Signe : « Un bourdonnement sourd monte de la
+forêt… » ; elle arrive en vol et fond sur le rayon.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Taille** droite, gauche, haute, basse | un coup de dard du côté où se tient le joueur |
+| **Hachage** | trois coups de dard en rafale devant elle |
+| **Onde d'air** | un battement d'ailes qui repousse tout ce qui est devant elle (18 blocs) |
+| **Essaim** | elle appelle 3 **guêpes soldats** (6 en phase 2), dont la piqûre empoisonne 4 s |
+| **Regard brûlant** (phase 2) | immobile, elle balaie l'arène d'un rayon rouge qui suit lentement sa cible et enflamme |
+| **Rafale de dards** (phase 2) | cinq dards empoisonnés en éventail |
+| **Piqué** (phase 2) | elle monte au-dessus de sa cible puis fonce dard en avant : choc et poison à l'impact |
+
+Butin : 1-2 **dards de reine**, 2-4 **gelées royales noires**, 3-6 **miels noirs**.
+
+### Abomination, porteuse de Zobae — 3000 PV, armure 22
+
+Un amas de chair qui marche. **Appât : charnier**, à poser **sous terre** (pas de ciel au-dessus). Signe :
+« Des mouches tournent au-dessus du charnier… » ; elle **jaillit du sol** sous le charnier.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Coups** | griffes au contact ; **20 % de chances (40 % en phase 2) de transmettre une maladie du Hunter Virus** |
+| **Bond** | elle se ramasse, saute sur sa cible et écrase tout autour en retombant |
+| **Enfouissement** (phase 2) | elle s'enfonce dans le sol (intouchable), puis **ressort dans le dos** de sa cible et frappe autour d'elle |
+| **Vomissure** (phase 2) | une flaque de bile empoisonnée là où se tient sa cible |
+
+Butin : 1-2 **chairs d'abomination**.
+
+### Nécromancien — 3500 PV, armure 22
+
+Un mage squelettique de près de 7 blocs qui **flotte**, bâton à la main. **Appât : cercueil profané**, à poser au sol.
+Signe : « Des mains décharnées sortent de terre autour du cercueil… » ; il **se matérialise** au-dessus du cercueil.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Coup de bâton** | au contact |
+| **Frappe au sol** | il abat son bâton : onde de choc à 10 blocs, recul et lenteur |
+| **Levée des morts** | 3 **archers squelettes** (6 en phase 2) sortent de terre ; **tant qu'ils vivent, ils le soignent** |
+| **Boules d'âme** (phase 2) | trois âmes qui poursuivent leur cible |
+| **Téléportation** (phase 2) | il disparaît et réapparaît ailleurs dans l'arène |
+
+Butin : 2-4 **poussières d'os maudites**.
+
+## Commandes (permission 2)
+
+Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`) :
+
+| Commande | Effet |
+|---|---|
+| `/<boss> invoquer [x y z]` | le fait apparaître (devant soi, aux coordonnées, ou — depuis la console — au point d'apparition du monde) |
+| `/<boss> retirer [rayon]` | retire ce boss et ses sbires (tous, ou à moins de `rayon` blocs) |
+| `/<boss> attaque <id>` | force une attaque du plus proche (ids du classeur, complétés par Tab) |
+| `/<boss> info` | vie, phase, attaque en cours, cible, sbires de chaque boss chargé, et ses réglages |
+| `/<boss> vie <pourcentage>` | ramène la vie du plus proche à ce pourcentage (pour essayer les phases) |
+| `/<boss> oeuf [joueur]` · `/<boss> appat [joueur]` | donne son œuf ou son appât |
+| `/bestiaire recharger` | relit `config/bestiaire_stats.xlsx` (le Phénix aussi, si son mod est là) ; les boss vivants prennent les nouvelles valeurs |
+| `/bestiaire liste` | les boss, leur commande, leurs PV, leurs phases, combien sont chargés, et le nombre de sbires |
+
+## Onglet créatif « HxRP · Bestiaire »
+
+Les appâts, puis les œufs, puis les butins. Les butins sont des ingrédients : les autres mods y font référence par
+leur id (`hxrpbestiaire:dard_de_reine`, `hxrpbestiaire:gelee_royale_noire`, `hxrpbestiaire:miel_noir`,
+`hxrpbestiaire:chair_d_abomination`, `hxrpbestiaire:poussiere_d_os_maudite`).
+
+## Réglages : `config/bestiaire_stats.xlsx`
+
+Le même classeur que le Phénix (il est créé au premier démarrage s'il manque, avec les valeurs du jar). Onglets :
+
+- **Boss** : par phase, PV, armure, robustesse, résistance au recul, vitesse, multiplicateurs de dégâts et de
+  portée, pause entre attaques, vie reprise (phase 3), rayons de ciblage et d'arène ;
+- **Attaques** : phase d'apparition, dégâts, portée, largeur ou rayon, recharge, effet et sa durée, poids ;
+- **Sbires** : PV, dégâts, vitesse, nombre par appel, multiplicateurs en phase 2 et 3 ;
+- **Appâts** : délai d'arrivée (min-max), distance d'apparition (min-max) ;
+- **Butins** : objet, quantité min-max, chance.
+
+Une case vide ou illisible garde la valeur du jar (avertissement dans le journal). Après modification :
+`/bestiaire recharger`, sans redémarrer.
+
+## Développement
+
+- `python3 tools/bestiaire/gen.py` régénère toutes les ressources : modèles GeckoLib convertis depuis
+  `tools/bestiaire/blockbench/*.bbmodel` (`bbconv.py` : atlas de textures, cubes, animations), animations
+  créées (`anims.py`), durées des animations (`durees.properties`, lues par le serveur pour caler les coups),
+  icônes, appâts et œufs (`art.py`), sons (`sons.py`, ffmpeg), noms, et la copie du classeur.
+- `python3 tools/bestiaire/verifier.py` vérifie la cohérence : espèces, modèles, animations demandées par le code,
+  attaques du classeur, sbires, butins, objets, appâts, noms, sons.
+- `tools/bestiaire/rendu.py` dessine les modèles posés (planches d'aperçu).
+- `tools/test/demarrage.sh serveur <jar> <geckolib.jar> [autres jars]` : vrai serveur Forge, un scénario par boss
+  (chaque attaque, sbires, rage, mort et butin, retrait, appâts) ; `tools/test/demarrage.sh client` : vrai client.
+  La CI (`.github/workflows/hxrpbestiaire.yml`) fait tout cela à chaque modification du mod.

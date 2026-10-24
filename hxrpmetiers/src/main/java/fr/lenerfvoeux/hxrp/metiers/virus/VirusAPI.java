@@ -3,6 +3,8 @@ package fr.lenerfvoeux.hxrp.metiers.virus;
 import fr.lenerfvoeux.hxrp.metiers.data.FoodDatabase;
 import fr.lenerfvoeux.hxrp.metiers.data.FoodEntry;
 import fr.lenerfvoeux.hxrp.metiers.data.Fraicheur;
+import fr.lenerfvoeux.hxrp.metiers.virus.donnees.Defs;
+import fr.lenerfvoeux.hxrp.metiers.virus.donnees.DonneesVirus;
 import fr.lenerfvoeux.hxrp.metiers.virus.item.Objets;
 import fr.lenerfvoeux.hxrp.metiers.virus.sante.Blessures;
 import fr.lenerfvoeux.hxrp.metiers.virus.sante.Maladies;
@@ -165,5 +167,17 @@ public final class VirusAPI {
         if (b != null && b.stade > 0 && System.currentTimeMillis() - b.dernierStade < 3000) return;
         if (b != null && b.stade > 0) b.dernierStade = System.currentTimeMillis() - 60_000;
         Blessures.blesser((EntityPlayerMP) p, d, Blessures.BRULURE, Math.max(1, stades), true);
+    }
+
+    /**
+     * Le bestiaire (mod hxrpbestiaire, par réflexion) : un boss transmet une maladie tirée au hasard parmi les 52,
+     * au premier stade. Refusé si le joueur est déjà malade (une seule maladie à la fois) ; rend vrai s'il l'attrape.
+     */
+    public static boolean maladieAleatoire(EntityPlayer p) {
+        if (!(p instanceof EntityPlayerMP)) return false;
+        SanteData d = Sante.get(p);
+        if (d == null || d.malade() || DonneesVirus.MALADIES.isEmpty()) return false;
+        List<Defs.Maladie> toutes = new ArrayList<>(DonneesVirus.MALADIES.values());
+        return Maladies.contracter((EntityPlayerMP) p, d, toutes.get(RNG.nextInt(toutes.size())), 0, false);
     }
 }

@@ -1,0 +1,144 @@
+name: Mod hxrpbestiaire
+
+on:
+  push:
+    paths:
+      - 'hxrpbestiaire/**'
+      - '.github/workflows/hxrpbestiaire.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GECKOLIB_URL: https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/software/bernie/geckolib/geckolib-forge-1.12.2/3.0.31/geckolib-forge-1.12.2-3.0.31.jar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hxrpbestiaire
+    steps:
+      - uses: actions/checkout@v4
+
+      # Java 8 pour compiler le mod, Java 25 pour faire tourner Gradle (RetroFuturaGradle 2.x).
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: |
+            8
+            25
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Ressources du bestiaire (modèles, animations, durées, classeur, objets, sons, noms)
+        run: |
+          python3 -c 'import PIL' 2>/dev/null || pip install -q pillow
+          python3 tools/bestiaire/verifier.py
+
+      - name: GeckoLib 3.0.31 disponible
+        run: |
+          curl -fsSL -o geckolib.jar "$GECKOLIB_URL"
+          unzip -l geckolib.jar | grep -E 'software/bernie/geckolib3/(GeckoLib|renderers/geo/GeoEntityRenderer)\.class'
+          unzip -p geckolib.jar software/bernie/geckolib3/renderers/geo/GeoEntityRenderer.class | grep -aq 'func_'
+
+      - name: Compiler le mod
+        run: ./gradlew build --no-daemon --stacktrace -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64
+
+      - name: Vérifier le jar
+        run: |
+          ls -l build/libs
+          J=$(ls build/libs/*.jar | grep -v -- '-dev\|-sources')
+          unzip -l "$J" > contenu.txt
+          n() { grep -Ec "$1" contenu.txt; }
+          echo "classes $(n '\.class$') · textures $(n 'textures/.*\.png') · sons $(n 'sounds/.*\.ogg')"
+          A=assets/hxrpbestiaire
+          for m in reine_guepe abomination necromancien archer_squelette; do
+            test "$(n "$A/geo/$m\.geo\.json")" -eq 1
+            test "$(n "$A/animations/$m\.animation\.json")" -eq 1
+            test "$(n "$A/textures/entity/$m\.png")" -eq 1
+          done
+          test "$(n "$A/sounds/.*\.ogg")" -eq 11
+          test "$(n "$A/blockstates/(rayon_de_miel_royal|charnier|cercueil_profane)\.json")" -eq 3
+          test "$(n "$A/models/item/.*\.json")" -eq 14
+          test "$(n "$A/(bestiaire_stats\.xlsx|durees\.properties|sounds\.json|lang/fr_fr\.lang|lang/en_us\.lang)$")" -eq 5
+          test "$(n 'software/bernie')" -eq 0   # GeckoLib n'est pas embarqué : il est déjà sur le serveur
+          unzip -p "$J" mcmod.info | grep -q '"version": "0.1.0"'
+          # Jar final : appels à Minecraft en noms SRG (func_…/field_…), bytecode Java 8
+          unzip -p "$J" fr/lenerfvoeux/hxrp/bestiaire/entite/EntityBoss.class | grep -aq 'func_'
+          unzip -p "$J" fr/lenerfvoeux/hxrp/bestiaire/entite/EntityBoss.class | grep -aq 'field_'
+          test "$(unzip -p "$J" fr/lenerfvoeux/hxrp/bestiaire/HxrpBestiaire.class | od -An -tu1 -j7 -N1 | tr -d ' ')" = 52
+          cp geckolib.jar build/libs/geckolib-forge-1.12.2-3.0.31.jar
+          echo "jar OK : $J"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hxrpbestiaire-jar
+          path: |
+            hxrpbestiaire/build/libs/*.jar
+            !hxrpbestiaire/build/libs/*-dev.jar
+            !hxrpbestiaire/build/libs/*-sources.jar
+          if-no-files-found: error
+
+  # Vrai serveur Forge (jar livré + GeckoLib) avec un scénario de combat pour chaque boss, et vrai client.
+  demarrage:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [serveur, serveur-complet, client]
+    defaults:
+      run:
+        working-directory: hxrpbestiaire
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: |
+            8
+            25
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: matrix.mode != 'serveur'
+
+      - uses: actions/download-artifact@v4
+        if: matrix.mode != 'client'
+        with:
+          name: hxrpbestiaire-jar
+          path: hxrpbestiaire/livre
+
+      - name: Démarrer un serveur Forge 1.12.2 avec le bestiaire
+        if: matrix.mode == 'serveur'
+        run: bash tools/test/demarrage.sh serveur "$(ls livre/hxrpbestiaire-*.jar)" "$(ls livre/geckolib-*.jar)"
+
+      - name: Démarrer un serveur avec le bestiaire, le Phénix et hxrpmetiers (compilés ici)
+        if: matrix.mode == 'serveur-complet'
+        run: |
+          (cd ../hxrpmetiers && ./gradlew build --no-daemon -q -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64)
+          (cd ../hxrpphenix && ./gradlew build --no-daemon -q -Porg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64)
+          bash tools/test/demarrage.sh serveur "$(ls livre/hxrpbestiaire-*.jar)" "$(ls livre/geckolib-*.jar)" \
+            "$(ls ../hxrpmetiers/build/libs/hxrpmetiers-*.jar | grep -v -- '-dev\|-sources')" \
+            "$(ls ../hxrpphenix/build/libs/hxrpphenix-*.jar | grep -v -- '-dev\|-sources')"
+
+      - name: Démarrer un client avec le bestiaire
+        if: matrix.mode == 'client'
+        run: |
+          mkdir -p ~/.gradle && echo 'org.gradle.java.installations.fromEnv=JAVA_HOME_8_X64' >> ~/.gradle/gradle.properties
+          sudo apt-get update -q && sudo apt-get install -y -q xvfb x11-xserver-utils libgl1-mesa-dri
+          xvfb-run -a -s '-screen 0 1280x720x24' bash tools/test/demarrage.sh client
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: journal-bestiaire-${{ matrix.mode }}
+          path: |
+            hxrpbestiaire/build/demarrage-*.log
+            hxrpbestiaire/build/serveur-test/logs/*.log
+            hxrpbestiaire/build/serveur-test/crash-reports/*
+            hxrpbestiaire/run/**/logs/*.log
+            hxrpbestiaire/run/**/crash-reports/*
+          if-no-files-found: ignore

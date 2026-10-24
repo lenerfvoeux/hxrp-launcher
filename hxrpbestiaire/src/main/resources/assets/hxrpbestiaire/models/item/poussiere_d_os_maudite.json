@@ -1,0 +1,6 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "hxrpbestiaire:items/poussiere_d_os_maudite"
+ }
+}

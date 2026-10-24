@@ -1,0 +1,79 @@
+{
+ "bourdon": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.bourdon",
+  "sounds": [
+   "hxrpbestiaire:bourdon"
+  ]
+ },
+ "bourdon_aigu": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.bourdon_aigu",
+  "sounds": [
+   "hxrpbestiaire:bourdon_aigu"
+  ]
+ },
+ "stridulation": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.stridulation",
+  "sounds": [
+   "hxrpbestiaire:stridulation"
+  ]
+ },
+ "reine_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.reine_mort",
+  "sounds": [
+   "hxrpbestiaire:reine_mort"
+  ]
+ },
+ "rale": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.rale",
+  "sounds": [
+   "hxrpbestiaire:rale"
+  ]
+ },
+ "gargouillis": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.gargouillis",
+  "sounds": [
+   "hxrpbestiaire:gargouillis"
+  ]
+ },
+ "chair_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.chair_mort",
+  "sounds": [
+   "hxrpbestiaire:chair_mort"
+  ]
+ },
+ "murmure": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.murmure",
+  "sounds": [
+   "hxrpbestiaire:murmure"
+  ]
+ },
+ "plainte": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.plainte",
+  "sounds": [
+   "hxrpbestiaire:plainte"
+  ]
+ },
+ "ame_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.ame_mort",
+  "sounds": [
+   "hxrpbestiaire:ame_mort"
+  ]
+ },
+ "incantation": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.incantation",
+  "sounds": [
+   "hxrpbestiaire:incantation"
+  ]
+ }
+}
