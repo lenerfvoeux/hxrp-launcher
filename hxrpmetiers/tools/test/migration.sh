@@ -67,17 +67,20 @@ partie "$ancien" "v0.6.0 : objets anciens" \
     "save-all"
 grep -q "Successfully found the block at $X, $((Y + 1)), $Z" "$journal" || { echo "!! la v0.6.0 n'a pas posé ses objets"; tail -40 "$journal"; exit 1; }
 
-# 3. Le même monde avec la nouvelle version.
+# 3. Le même monde avec la nouvelle version. Un bloc retiré devient de l'air « fantôme » de Forge (BlockDummyAir, qui
+#    garde l'ancien nom au cas où le bloc reviendrait) : testforblock minecraft:air échoue, mais « setblock … keep »,
+#    qui ne remplace que de l'air, réussit.
 avant=$(wc -l < "$journal")
 partie "$nouveau" "nouvelle version" \
     "testforblock $X $Y $Z minecraft:chest -1 {Items:[{Slot:0b,id:\"hxrpmetiers:sirop_de_gentiane_et_de_bardane\",Count:3b}]}" \
     "testforblock $X $Y $Z minecraft:chest -1 {Items:[{Slot:1b,id:\"hxrpmetiers:essence_des_dix_raretes\"}]}" \
     "testforblock $X $Y $Z minecraft:chest -1 {Items:[{Slot:2b}]}" \
-    "testforblock $X $((Y + 1)) $Z minecraft:air"
+    "setblock $X $((Y + 1)) $Z minecraft:stone 0 keep" \
+    "testforblock $X $((Y + 1)) $Z minecraft:stone"
 cd - > /dev/null
 apres=$(tail -n +"$avant" "$journal")
 echo "---- nouvelle version"
-echo "$apres" | grep -E 'devient|Successfully found|did not have|is .* \(expected|Done \(|missing|Missing|confirm' | head -30
+echo "$apres" | grep -E 'devient|Successfully found|did not have|is .* \(expected|Done \(|missing|Missing|confirm' | grep -v 'Found a missing id' | head -40
 echo "$apres" | grep -q 'fml confirm' && { echo "!! le serveur demande de confirmer des blocs manquants"; exit 1; }
 n=$(echo "$apres" | grep -c 'Successfully found the block')
 [ "$n" -eq 3 ] || { echo "!! $n vérification(s) réussie(s) sur 3 attendues (coffre remappé, bloc retiré devenu air)"; exit 1; }
