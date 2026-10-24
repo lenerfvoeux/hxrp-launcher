@@ -62,13 +62,13 @@ public class ClientProxy extends CommonProxy {
     }
 
     private static final String[] ANIMATIONS = {"vol", "plane", "plongee", "souffle", "boule", "pluie", "tempete", "perche",
-            "oeuf", "renaissance", "mort"};
+            "oeuf", "renaissance", "mort", "nova"};
 
     @Mod.EventBusSubscriber(modid = HxrpPhenix.MODID, value = Side.CLIENT)
     public static class Modeles {
         @SubscribeEvent
         public static void modeles(ModelRegistryEvent e) {
-            for (Item i : new Item[]{Registre.PLUME, Registre.OEUF})
+            for (Item i : new Item[]{Registre.PLUME, Registre.OEUF, Registre.APPAT})
                 ModelLoader.setCustomModelResourceLocation(i, 0, new ModelResourceLocation(i.getRegistryName(), "inventory"));
         }
     }

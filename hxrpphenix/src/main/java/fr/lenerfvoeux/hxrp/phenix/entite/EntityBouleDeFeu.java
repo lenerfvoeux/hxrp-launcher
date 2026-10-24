@@ -20,6 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class EntityBouleDeFeu extends EntityFireball implements IEntityAdditionalSpawnData {
     private EntityPhenix phenix;
+    /** Réglés par le Phénix d'après le classeur des boss (dégâts déjà multipliés par la phase). */
+    private float degats = 6F;
+    private double rayon = 3.2;
+    private int secondesFeu = 2;
 
     public EntityBouleDeFeu(World w) {
         super(w);
@@ -39,16 +43,24 @@ public class EntityBouleDeFeu extends EntityFireball implements IEntityAdditiona
         motionZ = accelerationZ * 4;
     }
 
+    public EntityBouleDeFeu reglages(float degats, double rayon, int secondesFeu) {
+        this.degats = degats;
+        this.rayon = Math.max(0.5, rayon);
+        this.secondesFeu = secondesFeu;
+        return this;
+    }
+
     @Override
     protected void onImpact(RayTraceResult r) {
         if (world.isRemote) return;
         Entity touche = r.entityHit;
         if (touche != null && touche == phenix && !(shootingEntity instanceof EntityPlayer)) return;
         if (touche instanceof EntityPhenix && shootingEntity instanceof EntityPlayer) {
-            touche.attackEntityFrom(new EntityDamageSourceIndirect("phenix_renvoi", this, shootingEntity).setProjectile(), 20F);
+            // renvoyée d'un coup d'épée : elle le frappe de ses propres dégâts (classeur), 20 au moins
+            touche.attackEntityFrom(new EntityDamageSourceIndirect("phenix_renvoi", this, shootingEntity).setProjectile(), Math.max(20F, degats));
             Feu.explosion(world, null, this, posX, posY + 0.5, posZ, 0.1, 0F, true);
         } else {
-            Feu.explosion(world, phenix, this, posX, posY + 0.5, posZ, 3.2, 6F, true);
+            Feu.explosion(world, phenix, this, posX, posY + 0.5, posZ, rayon, degats, true, secondesFeu);
         }
         setDead();
     }

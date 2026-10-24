@@ -89,5 +89,12 @@
   "sounds": [
    "hxrpphenix:mort"
   ]
+ },
+ "nova": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpphenix.nova",
+  "sounds": [
+   "hxrpphenix:nova"
+  ]
  }
 }

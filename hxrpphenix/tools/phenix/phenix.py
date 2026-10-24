@@ -613,6 +613,27 @@ def animations():
     ren['bec_inf'] = {'rotation': [30, 0, 0]}
     A['renaissance'] = {'loop': False, 'animation_length': 1.5, 'bones': ren}
 
+    # nova solaire (phase 3) : il ramasse ses ailes au-dessus de lui et se recroqueville en rougeoyant (1 s),
+    # puis tout s'ouvre d'un coup — ailes à plat, queue déployée, bec ouvert — au moment de l'explosion
+    nova = {
+        'aile_g': {'rotation': {'0.0': [0, 0, -8], '0.9': [0, 34, -72], '1.0': [0, -12, 16], '1.5': [0, -6, 8], '2.0': [0, 0, -6]}},
+        'aile_d': {'rotation': {'0.0': [0, 0, 8], '0.9': [0, -34, 72], '1.0': [0, 12, -16], '1.5': [0, 6, -8], '2.0': [0, 0, 6]}},
+        'avant_bras_g': {'rotation': {'0.0': [0, 0, 0], '0.9': [0, 40, -28], '1.0': [0, -6, 8], '2.0': [0, 0, 0]}},
+        'avant_bras_d': {'rotation': {'0.0': [0, 0, 0], '0.9': [0, -40, 28], '1.0': [0, 6, -8], '2.0': [0, 0, 0]}},
+        'main_g': {'rotation': {'0.0': [0, 0, 0], '0.9': [0, 20, -14], '1.0': [0, -4, 6], '2.0': [0, 0, 0]}},
+        'main_d': {'rotation': {'0.0': [0, 0, 0], '0.9': [0, -20, 14], '1.0': [0, 4, -6], '2.0': [0, 0, 0]}},
+        'cou': {'rotation': {'0.0': [0, 0, 0], '0.9': [24, 0, 0], '1.0': [-34, 0, 0], '1.5': [-18, 0, 0], '2.0': [0, 0, 0]}},
+        'tete': {'rotation': {'0.0': [0, 0, 0], '0.9': [14, 0, 0], '1.0': [-24, 0, 0], '2.0': [0, 0, 0]}},
+        'bec_inf': {'rotation': {'0.0': [0, 0, 0], '0.9': [4, 0, 0], '1.0': [40, 0, 0], '1.6': [10, 0, 0], '2.0': [0, 0, 0]}},
+        'queue1': {'rotation': {'0.0': [0, 0, 0], '0.9': [-18, 0, 0], '1.0': [26, 0, 0], '2.0': [0, 0, 0]}},
+        'queue2': {'rotation': {'0.0': [0, 0, 0], '0.9': [-10, 0, 0], '1.0': [16, 0, 0], '2.0': [0, 0, 0]}},
+        'corps': {'position': {'0.0': [0, 0, 0], '0.9': [0, 2, 0], '1.0': [0, -1, 0], '2.0': [0, 0, 0]}},
+        'assiette': {'scale': {'0.0': [1, 1, 1], '0.9': [0.92, 0.92, 0.92], '1.05': [1.18, 1.18, 1.18], '1.4': [1, 1, 1]}},
+    }
+    nova.update(pattes_rentrees)
+    nova.update(rubans(2.4, 12))
+    A['nova'] = {'loop': False, 'animation_length': 2.0, 'bones': nova}
+
     mort = {
         'aile_g': {'rotation': {'0.0': [0, 0, 0], '1.0': [0, -20, 55]}},
         'aile_d': {'rotation': {'0.0': [0, 0, 0], '1.0': [0, 20, -55]}},
@@ -663,7 +684,8 @@ def apercu():
     os.makedirs(APERCU, exist_ok=True)
     poses = [('repos', None, 0.0), ('vol', 'vol', 0.0), ('vol', 'vol', 0.43), ('plane', 'plane', 0.5),
              ('plongee', 'plongee', 0.2), ('souffle', 'souffle', 0.3), ('boule', 'boule', 0.5), ('pluie', 'pluie', 0.2),
-             ('tempete', 'tempete', 0.3), ('perche', 'perche', 1.0), ('renaissance', 'renaissance', 0.3), ('mort', 'mort', 1.6)]
+             ('tempete', 'tempete', 0.3), ('perche', 'perche', 1.0), ('renaissance', 'renaissance', 0.3), ('mort', 'mort', 1.6),
+             ('nova (charge)', 'nova', 0.9), ('nova (explosion)', 'nova', 1.05)]
     vues = [(35, 20), (-90, 0), (0, 89), (150, 15)]
     cell = 300
     img = Image.new('RGBA', (cell * len(vues), cell * len(poses)), (26, 22, 30, 255))

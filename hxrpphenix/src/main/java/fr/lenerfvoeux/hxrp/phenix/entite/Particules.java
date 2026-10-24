@@ -9,7 +9,8 @@ import java.util.Random;
 
 /**
  * Particules du Phénix, lancées côté client à partir de l'état synchronisé (aucun paquet par particule) :
- * traînée de braises, souffle ardent, zone de la pluie, anneau de feu, tornade, œuf de cendres, cendres de la mort.
+ * traînée de braises, souffle ardent, zone de la pluie, anneau de feu, tornade, nova solaire, descente vers l'appât,
+ * œuf de cendres, cendres de la mort.
  */
 final class Particules {
     private Particules() {}
@@ -105,6 +106,14 @@ final class Particules {
                 }
                 break;
             case EntityPhenix.TEMPETE: tempete(e, w, r, t); break;
+            case EntityPhenix.NOVA: nova(e, w, r, t); break;
+            case EntityPhenix.ARRIVEE:
+                // comète : longue traînée de flammes et de fumée
+                for (int i = 0; i < 4; i++)
+                    w.spawnParticle(EnumParticleTypes.FLAME, x - fx * (1 + i * 0.8) + (r.nextDouble() - 0.5), y + 1.4 + (r.nextDouble() - 0.5),
+                            z - fz * (1 + i * 0.8) + (r.nextDouble() - 0.5), 0, 0.01, 0);
+                w.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - fx * 2.5, y + 1.5, z - fz * 2.5, 0, 0.02, 0);
+                break;
             default:
         }
     }
@@ -137,7 +146,7 @@ final class Particules {
 
     private static void pluie(EntityPhenix e, World w, Random r, int t) {
         Vec3d z = e.zone();
-        double rayon = e.embrase() ? 5.0 : 4.0;
+        double rayon = e.rayonZone();
         boolean alerte = t < EntityPhenix.PLUIE_DEBUT;
         cercle(w, r, z, rayon, alerte ? 14 : 5, EnumParticleTypes.FLAME, 0.01);
         if (alerte) {
@@ -178,6 +187,44 @@ final class Particules {
             w.spawnParticle(EnumParticleTypes.FLAME, px, c.y + 0.3 + r.nextDouble() * 2, pz, vx, 0.01, vz);
         }
         cercle(w, r, c, 2.6, 6, EnumParticleTypes.FLAME, 0.05);
+    }
+
+    /**
+     * Nova solaire : les flammes affluent de partout vers le Phénix pendant la charge, puis une sphère de feu éclate
+     * et un anneau court au sol jusqu'à la limite de la zone touchée.
+     */
+    private static void nova(EntityPhenix e, World w, Random r, int t) {
+        double x = e.posX, y = e.posY + 1.2, z = e.posZ;
+        if (t < EntityPhenix.NOVA_CHARGE) {
+            int n = 3 + t / 3;
+            for (int i = 0; i < n; i++) {
+                double u = r.nextDouble() * Math.PI * 2, v = Math.acos(2 * r.nextDouble() - 1), d = 3.5 + r.nextDouble() * 2.5;
+                double ox = Math.sin(v) * Math.cos(u) * d, oy = Math.cos(v) * d, oz = Math.sin(v) * Math.sin(u) * d;
+                w.spawnParticle(EnumParticleTypes.FLAME, x + ox, y + oy, z + oz, -ox * 0.11, -oy * 0.11, -oz * 0.11);
+                if (i % 3 == 0) w.spawnParticle(EnumParticleTypes.REDSTONE, x + ox * 0.5, y + oy * 0.5, z + oz * 0.5, 1.0, 0.85, 0.2);
+            }
+            return;
+        }
+        if (t == EntityPhenix.NOVA_CHARGE) {
+            w.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, x, y, z, 0, 0, 0);
+            for (int i = 0; i < 160; i++) {
+                double u = r.nextDouble() * Math.PI * 2, v = Math.acos(2 * r.nextDouble() - 1), s = 0.7 + r.nextDouble() * 0.5;
+                w.spawnParticle(EnumParticleTypes.FLAME, x, y, z, Math.sin(v) * Math.cos(u) * s, Math.cos(v) * s * 0.6, Math.sin(v) * Math.sin(u) * s);
+            }
+            for (int i = 0; i < 90; i++) {
+                double an = i * Math.PI * 2 / 90;
+                w.spawnParticle(EnumParticleTypes.FLAME, x, y, z, Math.cos(an) * 1.1, 0.02, Math.sin(an) * 1.1);
+            }
+            for (int i = 0; i < 16; i++) w.spawnParticle(EnumParticleTypes.LAVA, x, y, z, 0, 0, 0);
+            return;
+        }
+        int k = t - EntityPhenix.NOVA_CHARGE;
+        if (k <= 12) {
+            Vec3d c = e.zone();
+            double rr = k * e.rayonZone() / 12.0;
+            cercle(w, r, c, rr, 10 + k * 3, EnumParticleTypes.FLAME, 0.06);
+            if (k % 2 == 0) cercle(w, r, c, rr, 4, EnumParticleTypes.SMOKE_LARGE, 0.03);
+        }
     }
 
     private static void cercle(World w, Random r, Vec3d c, double rayon, int n, EnumParticleTypes type, double monte) {

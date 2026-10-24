@@ -1,7 +1,7 @@
 """
 Sons du Phénix, synthétisés puis encodés en Ogg Vorbis (ffmpeg) : cri de rapace incandescent, battements
 d'ailes, souffle de flammes, boule de feu, impact, plongée sifflante, onde de choc, tempête, œuf de cendres
-(cœur qui bat, crépitements), craquement, renaissance, mort. Écrit aussi sounds.json.
+(cœur qui bat, crépitements), craquement, renaissance, mort, nova solaire. Écrit aussi sounds.json.
 
 Les empreintes (SHA-1 des échantillons) évitent de réencoder un son inchangé : l'encodeur n'est pas
 déterministe et on ne veut pas de fichiers modifiés à chaque génération.
@@ -237,10 +237,29 @@ def mort():
     return fondu(norm(x, 0.85), 0.08)
 
 
+def nova():
+    """Une seconde de charge (bourdonnement qui monte, flammes aspirées), puis l'éclatement et son écho."""
+    d = 2.6
+    tt = t(d)
+    charge = 1.0
+    monte = np.clip(tt / charge, 0, 1) ** 1.8 * (tt < charge)
+    n = bruit(d, 141)
+    x = biquad(n, 250 + 2600 * np.clip(tt / charge, 0, 1) ** 1.5, 1.6) * monte * 1.6
+    x += voix(lambda u: 90 + 260 * np.clip(u / charge, 0, 1) ** 1.3, d, 6, (9, 0.02), 0, 142) * monte * 0.5
+    x += crepitement(d, 143, 140) * monte * 0.5
+    eclat = boum(d - charge, 42, 144, 140)
+    k = int(SR * charge)
+    x[k:k + len(eclat)] += eclat[:len(x) - k] * 2.2
+    e = np.zeros_like(x)
+    k = int(SR * 0.22)
+    e[k:] = x[:-k] * 0.3
+    return fondu(norm(x + e, 0.92), 0.02)
+
+
 SONS = {
     'cri': cri, 'cri_court': cri_court, 'ailes': ailes, 'souffle': souffle_feu, 'boule': boule, 'impact': impact,
     'plongee': plongee, 'onde': onde, 'tempete': tempete, 'oeuf': oeuf, 'craquement': craquement,
-    'renaissance': renaissance, 'mort': mort,
+    'renaissance': renaissance, 'mort': mort, 'nova': nova,
 }
 
 

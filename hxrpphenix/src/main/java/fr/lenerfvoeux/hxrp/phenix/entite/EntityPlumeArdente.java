@@ -20,9 +20,19 @@ public class EntityPlumeArdente extends Entity {
         isImmuneToFire = true;
     }
 
+    /** Réglés par le Phénix d'après le classeur des boss (dégâts déjà multipliés par la phase). */
+    private float degats = 4F;
+    private int secondesFeu = 2;
+
     public EntityPlumeArdente(World w, EntityPhenix phenix) {
         this(w);
         this.phenix = phenix;
+    }
+
+    public EntityPlumeArdente reglages(float degats, int secondesFeu) {
+        this.degats = degats;
+        this.secondesFeu = secondesFeu;
+        return this;
     }
 
     @Override
@@ -42,7 +52,7 @@ public class EntityPlumeArdente extends Entity {
             world.spawnParticle(EnumParticleTypes.FLAME, posX + (rand.nextDouble() - 0.5) * 0.3, posY + 0.2, posZ + (rand.nextDouble() - 0.5) * 0.3, 0, 0.02, 0);
             if (rand.nextInt(3) == 0) world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.3, posZ, 0, 0.03, 0);
         } else if (onGround || collidedVertically || collidedHorizontally || isInWater() || isInLava() || ticksExisted > 120) {
-            Feu.explosion(world, phenix, this, posX, posY + 0.2, posZ, 1.7, 4F, false);
+            Feu.explosion(world, phenix, this, posX, posY + 0.2, posZ, 1.7, degats, false, secondesFeu);
             setDead();
         }
     }

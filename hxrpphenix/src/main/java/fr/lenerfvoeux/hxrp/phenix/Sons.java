@@ -6,7 +6,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 /** Sons du Phénix (synthétisés par tools/phenix/sons.py). */
 public final class Sons {
-    public static SoundEvent CRI, CRI_COURT, AILES, SOUFFLE, BOULE, IMPACT, PLONGEE, ONDE, TEMPETE, OEUF, CRAQUEMENT, RENAISSANCE, MORT;
+    public static SoundEvent CRI, CRI_COURT, AILES, SOUFFLE, BOULE, IMPACT, PLONGEE, ONDE, TEMPETE, OEUF, CRAQUEMENT, RENAISSANCE, MORT, NOVA;
 
     private Sons() {}
 
@@ -24,6 +24,7 @@ public final class Sons {
         CRAQUEMENT = son(r, "craquement");
         RENAISSANCE = son(r, "renaissance");
         MORT = son(r, "mort");
+        NOVA = son(r, "nova");
     }
 
     private static SoundEvent son(IForgeRegistry<SoundEvent> r, String nom) {

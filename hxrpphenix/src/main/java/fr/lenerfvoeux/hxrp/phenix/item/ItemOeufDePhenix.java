@@ -1,6 +1,7 @@
 package fr.lenerfvoeux.hxrp.phenix.item;
 
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPhenix;
+import fr.lenerfvoeux.hxrp.phenix.stats.StatsPhenix;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -17,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-/** Œuf de phénix : posé contre un bloc, il éclot et le Phénix de feu s'éveille (seul moyen de le faire apparaître). */
+/** Œuf de phénix : posé contre un bloc, il éclot et le Phénix de feu s'éveille sur place (admins). */
 public class ItemOeufDePhenix extends Item {
     public ItemOeufDePhenix() {
         setMaxStackSize(1);
@@ -51,6 +52,6 @@ public class ItemOeufDePhenix extends Item {
     public void addInformation(ItemStack s, @Nullable World w, List<String> tip, ITooltipFlag flag) {
         tip.add("§6Une coquille brûlante où dort un phénix de feu.");
         tip.add("§7Posez-le au sol : il éclot aussitôt.");
-        tip.add("§cLe Phénix attaque tout joueur à moins de 24 blocs.");
+        tip.add("§cLe Phénix attaque tout joueur à moins de " + (int) StatsPhenix.rayonCible + " blocs.");
     }
 }

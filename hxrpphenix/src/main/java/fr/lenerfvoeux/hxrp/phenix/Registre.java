@@ -1,11 +1,15 @@
 package fr.lenerfvoeux.hxrp.phenix;
 
+import fr.lenerfvoeux.hxrp.phenix.bloc.BlockNidDeBraises;
+import fr.lenerfvoeux.hxrp.phenix.bloc.TileNidDeBraises;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityBouleDeFeu;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPhenix;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPlumeArdente;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPlumeObjet;
+import fr.lenerfvoeux.hxrp.phenix.item.ItemNidDeBraises;
 import fr.lenerfvoeux.hxrp.phenix.item.ItemOeufDePhenix;
 import fr.lenerfvoeux.hxrp.phenix.item.ItemPlumeDePhenix;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,10 +20,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod.EventBusSubscriber(modid = HxrpPhenix.MODID)
 public final class Registre {
-    public static Item PLUME, OEUF;
+    public static Item PLUME, OEUF, APPAT;
+    /** Le nid de braises, appât du Phénix. */
+    public static Block NID;
 
     public static final CreativeTabs ONGLET = new CreativeTabs(HxrpPhenix.MODID) {
         @Override
@@ -31,12 +38,21 @@ public final class Registre {
     private Registre() {}
 
     @SubscribeEvent
+    public static void blocs(RegistryEvent.Register<Block> e) {
+        NID = new BlockNidDeBraises().setRegistryName(HxrpPhenix.MODID, "nid_de_braises")
+                .setTranslationKey(HxrpPhenix.MODID + ".nid_de_braises").setCreativeTab(ONGLET);
+        e.getRegistry().register(NID);
+        GameRegistry.registerTileEntity(TileNidDeBraises.class, new ResourceLocation(HxrpPhenix.MODID, "nid_de_braises"));
+    }
+
+    @SubscribeEvent
     public static void objets(RegistryEvent.Register<Item> e) {
         PLUME = new ItemPlumeDePhenix().setRegistryName(HxrpPhenix.MODID, "plume_de_phenix")
                 .setTranslationKey(HxrpPhenix.MODID + ".plume_de_phenix").setCreativeTab(ONGLET);
         OEUF = new ItemOeufDePhenix().setRegistryName(HxrpPhenix.MODID, "oeuf_de_phenix")
                 .setTranslationKey(HxrpPhenix.MODID + ".oeuf_de_phenix").setCreativeTab(ONGLET);
-        e.getRegistry().registerAll(PLUME, OEUF);
+        APPAT = new ItemNidDeBraises(NID).setRegistryName(NID.getRegistryName());
+        e.getRegistry().registerAll(PLUME, OEUF, APPAT);
     }
 
     @SubscribeEvent

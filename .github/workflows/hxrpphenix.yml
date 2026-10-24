@@ -58,9 +58,12 @@ jobs:
           test "$(n 'assets/hxrpphenix/geo/phenix\.geo\.json')" -eq 1
           test "$(n 'assets/hxrpphenix/animations/phenix\.animation\.json')" -eq 1
           test "$(n 'assets/hxrpphenix/textures/entity/phenix_[0-3]\.png')" -eq 4
-          test "$(n 'assets/hxrpphenix/sounds/.*\.ogg')" -eq 13
+          test "$(n 'assets/hxrpphenix/sounds/.*\.ogg')" -eq 14
+          test "$(n 'assets/hxrpphenix/blockstates/nid_de_braises\.json')" -eq 1
+          test "$(n 'assets/hxrpphenix/textures/blocks/nid_de_braises_.*\.png')" -eq 2
+          test "$(n 'assets/hxrpphenix/bestiaire_stats\.xlsx')" -eq 1
           test "$(n 'software/bernie')" -eq 0   # GeckoLib n'est pas embarqué : il est déjà sur le serveur
-          unzip -p "$J" mcmod.info | grep -q '"version": "1.0.0"'
+          unzip -p "$J" mcmod.info | grep -q '"version": "1.1.0"'
           # Jar final : appels à Minecraft en noms SRG (func_…/field_…), bytecode Java 8
           unzip -p "$J" fr/lenerfvoeux/hxrp/phenix/entite/EntityPhenix.class | grep -aq 'func_'
           unzip -p "$J" fr/lenerfvoeux/hxrp/phenix/entite/EntityPhenix.class | grep -aq 'field_'

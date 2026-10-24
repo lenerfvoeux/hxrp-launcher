@@ -4,6 +4,7 @@ import fr.lenerfvoeux.hxrp.phenix.Registre;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityBouleDeFeu;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPhenix;
 import fr.lenerfvoeux.hxrp.phenix.entite.EntityPlumeArdente;
+import fr.lenerfvoeux.hxrp.phenix.stats.StatsPhenix;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import javax.annotation.Nullable;
@@ -26,11 +28,14 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * /phenix invoquer [x y z] · /phenix retirer [rayon] · /phenix attaque <boule|souffle|pluie|plongee|tempete|perche>
- * · /phenix info · /phenix oeuf [joueur] · /phenix plume [joueur] [nombre]   (permission 2)
+ * /phenix invoquer [x y z] · /phenix retirer [rayon] · /phenix attaque <boule|souffle|pluie|plongee|tempete|perche|nova>
+ * · /phenix info · /phenix oeuf [joueur] · /phenix appat [joueur] · /phenix plume [joueur] [nombre]
+ * · /phenix recharger (relit config/bestiaire_stats.xlsx)   (permission 2)
  */
 public class CommandPhenix extends CommandBase {
-    private static final List<String> ATTAQUES = Arrays.asList("boule", "souffle", "pluie", "plongee", "tempete", "perche");
+    private static final List<String> ATTAQUES = Arrays.asList("boule", "souffle", "pluie", "plongee", "tempete", "perche", "nova");
+    private static final int[] ETATS = {EntityPhenix.BOULE, EntityPhenix.SOUFFLE, EntityPhenix.PLUIE, EntityPhenix.PLONGEE,
+            EntityPhenix.TEMPETE, EntityPhenix.PERCHE, EntityPhenix.NOVA};
 
     @Override
     public String getName() {
@@ -39,7 +44,8 @@ public class CommandPhenix extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender s) {
-        return "/phenix invoquer [x y z] | retirer [rayon] | attaque <boule|souffle|pluie|plongee|tempete|perche> | info | oeuf [joueur] | plume [joueur] [nombre]";
+        return "/phenix invoquer [x y z] | retirer [rayon] | attaque <" + String.join("|", ATTAQUES) + "> | info | oeuf [joueur]"
+                + " | appat [joueur] | plume [joueur] [nombre] | recharger";
     }
 
     @Override
@@ -90,11 +96,11 @@ public class CommandPhenix extends CommandBase {
                 return;
             }
             case "attaque": {
-                if (a.length < 2 || !ATTAQUES.contains(a[1])) throw new WrongUsageException("/phenix attaque <boule|souffle|pluie|plongee|tempete|perche>");
+                if (a.length < 2 || !ATTAQUES.contains(a[1])) throw new WrongUsageException("/phenix attaque <" + String.join("|", ATTAQUES) + ">");
                 EntityPhenix p = lePlusProche(serveur, s);
                 if (p == null) throw new CommandException(s instanceof MinecraftServer ? "Aucun Phénix chargé." : "Aucun Phénix à moins de 128 blocs.");
-                int[] etats = {EntityPhenix.BOULE, EntityPhenix.SOUFFLE, EntityPhenix.PLUIE, EntityPhenix.PLONGEE, EntityPhenix.TEMPETE, EntityPhenix.PERCHE};
-                if (!p.forcer(etats[ATTAQUES.indexOf(a[1])])) throw new CommandException("Le Phénix ne peut pas attaquer maintenant (œuf, renaissance ou mort).");
+                if (!p.forcer(ETATS[ATTAQUES.indexOf(a[1])]))
+                    throw new CommandException("Le Phénix ne peut pas attaquer maintenant (œuf, renaissance, arrivée sur l'appât ou mort).");
                 notifyCommandListener(s, this, "Le Phénix lance : %s", a[1]);
                 return;
             }
@@ -107,6 +113,26 @@ public class CommandPhenix extends CommandBase {
                             n++;
                         }
                 if (n == 0) s.sendMessage(new TextComponentString("§7Aucun Phénix chargé."));
+                s.sendMessage(new TextComponentString("§7" + StatsPhenix.resume()));
+                return;
+            }
+            case "recharger": {
+                StatsPhenix.charger(Loader.instance().getConfigDir());
+                int n = 0;
+                for (WorldServer w : serveur.worlds)
+                    for (Entity e : w.loadedEntityList)
+                        if (e instanceof EntityPhenix && e.isEntityAlive()) {
+                            ((EntityPhenix) e).reglagesRelus();
+                            n++;
+                        }
+                notifyCommandListener(s, this, "Réglages du Phénix relus (%s), %s phénix mis à jour", StatsPhenix.source, n);
+                s.sendMessage(new TextComponentString("§7" + StatsPhenix.resume()));
+                return;
+            }
+            case "appat": {
+                EntityPlayerMP p = a.length >= 2 ? getPlayer(serveur, s, a[1]) : getCommandSenderAsPlayer(s);
+                ItemHandlerHelper.giveItemToPlayer(p, new ItemStack(Registre.APPAT));
+                notifyCommandListener(s, this, "Nid de braises (appât du Phénix) donné à %s", p.getName());
                 return;
             }
             case "oeuf": {
@@ -150,15 +176,16 @@ public class CommandPhenix extends CommandBase {
 
     @Override
     public List<String> getTabCompletions(MinecraftServer serveur, ICommandSender s, String[] a, @Nullable BlockPos cible) {
-        if (a.length == 1) return getListOfStringsMatchingLastWord(a, "invoquer", "retirer", "attaque", "info", "oeuf", "plume");
+        if (a.length == 1) return getListOfStringsMatchingLastWord(a, "invoquer", "retirer", "attaque", "info", "oeuf", "appat", "plume", "recharger");
         if (a.length == 2 && "attaque".equals(a[0])) return getListOfStringsMatchingLastWord(a, ATTAQUES);
-        if (a.length == 2 && ("oeuf".equals(a[0]) || "plume".equals(a[0]))) return getListOfStringsMatchingLastWord(a, serveur.getOnlinePlayerNames());
+        if (a.length == 2 && ("oeuf".equals(a[0]) || "appat".equals(a[0]) || "plume".equals(a[0])))
+            return getListOfStringsMatchingLastWord(a, serveur.getOnlinePlayerNames());
         if (a.length >= 2 && a.length <= 4 && "invoquer".equals(a[0])) return getTabCompletionCoordinate(a, 1, cible);
         return Collections.emptyList();
     }
 
     @Override
     public boolean isUsernameIndex(String[] a, int i) {
-        return i == 1 && a.length >= 1 && ("oeuf".equals(a[0]) || "plume".equals(a[0]));
+        return i == 1 && a.length >= 1 && ("oeuf".equals(a[0]) || "appat".equals(a[0]) || "plume".equals(a[0]));
     }
 }

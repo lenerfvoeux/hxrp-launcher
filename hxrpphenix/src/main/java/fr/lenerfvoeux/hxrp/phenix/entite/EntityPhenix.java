@@ -5,6 +5,7 @@ import fr.lenerfvoeux.hxrp.phenix.HxrpPhenix;
 import fr.lenerfvoeux.hxrp.phenix.PhenixConfig;
 import fr.lenerfvoeux.hxrp.phenix.Registre;
 import fr.lenerfvoeux.hxrp.phenix.Sons;
+import fr.lenerfvoeux.hxrp.phenix.stats.StatsPhenix;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -45,16 +46,19 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 /**
- * Le Phénix de feu. Il tourne au-dessus de son arène (le lieu de son éclosion), prend pour cible tout joueur à
- * moins de 24 blocs et enchaîne ses attaques ; il se pose de temps en temps sur un perchoir (c'est là qu'on peut
- * le frapper à l'épée), puis repart. Sous 50 % de vie il s'embrase (tempête de feu). À 0 PV il devient, une fois,
- * un œuf de cendres : 10 secondes pour le briser, sinon il renaît avec 30 % de sa vie.
+ * Le Phénix de feu. Il tourne au-dessus de son arène (le lieu de son éclosion, ou son appât), prend pour cible tout
+ * joueur proche et enchaîne ses attaques ; il se pose de temps en temps sur un perchoir (c'est là qu'on peut le frapper
+ * à l'épée), puis repart. Trois phases (barre rouge, orange, violette) : sous 50 % de vie il s'embrase (tempête de feu,
+ * boules en rafale) ; à 0 PV il devient un œuf de cendres : 10 secondes pour le briser, sinon il renaît avec toute sa
+ * vie et lâche une nova solaire toutes les 20 s. Vie, armure, dégâts, portées et recharges : config/bestiaire_stats.xlsx.
  *
  * Il ne casse aucun bloc et n'allume aucun feu : ses attaques ne touchent que les joueurs.
  * La logique tourne sur le serveur ; l'état est synchronisé et le client en tire animations et particules.
@@ -62,9 +66,11 @@ import java.util.UUID;
 public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     // ------------------------------------------------------------------ états
     public static final int RONDE = 0, BOULE = 1, SOUFFLE = 2, PLUIE = 3, PLONGEE = 4, TEMPETE = 5, APPROCHE = 6,
-            PERCHE = 7, DECOLLAGE = 8, IMPACT = 9, OEUF = 10, RENAISSANCE = 11;
+            PERCHE = 7, DECOLLAGE = 8, IMPACT = 9, OEUF = 10, RENAISSANCE = 11, NOVA = 12, ARRIVEE = 13;
     public static final String[] NOMS = {"ronde", "boule", "souffle", "pluie", "plongee", "tempete", "approche", "perche",
-            "decollage", "impact", "oeuf", "renaissance"};
+            "decollage", "impact", "oeuf", "renaissance", "nova", "arrivee"};
+    /** Nova solaire : le Phénix se ramasse (CHARGE ticks), explose, puis se reprend. */
+    public static final int NOVA_CHARGE = 20, NOVA_FIN = 40;
 
     private static final DataParameter<Byte> ETAT = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.BYTE);
     private static final DataParameter<Boolean> EMBRASE = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.BOOLEAN);
@@ -73,6 +79,9 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     private static final DataParameter<Float> ZZ = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.FLOAT);
     private static final DataParameter<Float> ANGLE = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.FLOAT);
     private static final DataParameter<Float> OEUF_PV = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.FLOAT);
+    private static final DataParameter<Byte> PHASE = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.BYTE);
+    /** Rayon de la zone marquée (pluie de plumes, nova), pour les particules du client. */
+    private static final DataParameter<Float> RAYON = EntityDataManager.createKey(EntityPhenix.class, DataSerializers.FLOAT);
 
     /** Rayon de la tornade autour du centre de l'arène, vitesse angulaire (rad/tick), durée (ticks). */
     public static final double TORNADE_RAYON = 10.0, TORNADE_VITESSE = 0.06;
@@ -89,9 +98,19 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     private double ax, ay, az;
     private boolean ancre;
     private int etat = RONDE, tEtat, recharge = 60, attaques, derniereAttaque = -1, sansCible, depuisDegats = 1000, coince;
-    private long derniereTempete = -100000;
     private EntityPlayer cible;
     private boolean renaissanceFaite, embrase, definitif;
+    private int phase = 1;
+    /**
+     * PV par point de vie Minecraft : la vie maximale vanilla plafonne à 1024, le Phénix du classeur en a 3000. Sa vie
+     * est donc tenue en unités de « echelle » PV, et les dégâts reçus sont divisés d'autant après l'armure.
+     * Sans initialiseur : la valeur est posée pendant le constructeur parent (applyEntityAttributes) et doit rester.
+     */
+    private double echelle;
+    /** Dernier usage de chaque attaque (ticksExisted), pour leurs recharges. */
+    private final Map<String, Integer> dernierUsage = new HashMap<>();
+    /** Appât : position du nid de braises vers lequel il descend, puis qu'il dévore. */
+    private BlockPos appat;
     private float pvOeuf;
     private double angleRonde;
     private int sensRonde = 1, dureePerche;
@@ -127,6 +146,25 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         return e;
     }
 
+    /**
+     * Appât : le Phénix apparaît haut dans le ciel, loin du nid de braises, et descend vers lui en tournoyant ;
+     * arrivé, il le dévore et attaque. Son arène est le nid.
+     */
+    public static EntityPhenix attirer(World w, double x, double y, double z, BlockPos nid) {
+        EntityPhenix e = new EntityPhenix(w);
+        float cap = (float) (MathHelper.atan2(nid.getZ() + 0.5 - z, nid.getX() + 0.5 - x) * (180.0 / Math.PI)) - 90F;
+        e.setLocationAndAngles(x, y, z, cap, 0F);
+        e.rotationYawHead = cap;
+        e.renderYawOffset = cap;
+        e.definirAncre(nid.getX() + 0.5, nid.getY(), nid.getZ() + 0.5);
+        e.appat = nid;
+        e.sensRonde = w.rand.nextBoolean() ? 1 : -1;
+        e.setEtat(ARRIVEE);
+        w.spawnEntity(e);
+        e.son(Sons.CRI, 8F, 0.85F);
+        return e;
+    }
+
     public void definirAncre(double x, double y, double z) {
         ax = x;
         ay = y;
@@ -138,10 +176,79 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(PhenixConfig.pointsDeVie);
         getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(64.0);
-        getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0);
-        getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0);
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(StatsPhenix.phase(1).vitesse);
+        attributsDePhase(1);
+    }
+
+    /** Vie maximale, armure, robustesse et recul de la phase (onglet Boss du classeur). */
+    private void attributsDePhase(int n) {
+        StatsPhenix.Phase p = StatsPhenix.phase(n);
+        double avant = echelle;
+        echelle = Math.max(1, Math.ceil(p.pv / 1024.0));
+        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(p.pv / echelle);
+        if (avant > 0 && avant != echelle) setHealth((float) (getHealth() * avant / echelle));
+        getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(Math.min(30, p.armure));
+        getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(Math.min(20, p.robustesse));
+        getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(Math.min(1, p.recul));
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(p.vitesse);
+    }
+
+    private void entrerPhase(int n) {
+        phase = n;
+        dataManager.set(PHASE, (byte) n);
+        attributsDePhase(n);
+    }
+
+    /** Après /phenix recharger : vie maximale, armure et vitesse de la phase en cours relues dans le classeur. */
+    public void reglagesRelus() {
+        attributsDePhase(phase);
+        if (getHealth() > getMaxHealth()) setHealth(getMaxHealth());
+    }
+
+    /** Vie et vie maximale en PV du classeur (pour /phenix info). */
+    public double pv() {
+        return getHealth() * Math.max(1, echelle);
+    }
+
+    public double pvMax() {
+        return getMaxHealth() * Math.max(1, echelle);
+    }
+
+    public int phase() {
+        return world.isRemote ? dataManager.get(PHASE) : phase;
+    }
+
+    /** Dégâts d'une attaque dans la phase en cours (classeur : dégâts × multiplicateur de la phase). */
+    private float degats(String attaque) {
+        return (float) (StatsPhenix.attaque(attaque).degats * StatsPhenix.phase(phase).degats);
+    }
+
+    /** Secondes de feu laissées par une attaque (au moins 1). */
+    private int feu(String attaque) {
+        return Math.max(1, (int) Math.round(StatsPhenix.attaque(attaque).dureeEffet));
+    }
+
+    /** Distance du classeur sans le multiplicateur : là où il se place pour tirer (la portée réelle, elle, s'allonge). */
+    private double porteeBase(String attaque, double defaut) {
+        double d = StatsPhenix.attaque(attaque).portee;
+        return d > 0 ? d : defaut;
+    }
+
+    /** Une distance de tir du classeur, allongée par le multiplicateur de portée de la phase. */
+    private double portee(String attaque, double defaut) {
+        double d = StatsPhenix.attaque(attaque).portee;
+        return (d > 0 ? d : defaut) * StatsPhenix.phase(phase).portee;
+    }
+
+    /** Facteur de vitesse de vol par rapport aux réglages d'origine (vitesse 0,28). */
+    private double allure() {
+        return StatsPhenix.phase(phase).vitesse / 0.28;
+    }
+
+    private boolean pret(String attaque) {
+        Integer t = dernierUsage.get(attaque);
+        return t == null || ticksExisted - t >= StatsPhenix.attaque(attaque).recharge * 20;
     }
 
     @Override
@@ -154,6 +261,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         dataManager.register(ZZ, 0F);
         dataManager.register(ANGLE, 0F);
         dataManager.register(OEUF_PV, 1F);
+        dataManager.register(PHASE, (byte) 1);
+        dataManager.register(RAYON, 4F);
     }
 
     @Override
@@ -180,6 +289,10 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     public Vec3d zone() {
         return new Vec3d(dataManager.get(ZX), dataManager.get(ZY), dataManager.get(ZZ));
+    }
+
+    public float rayonZone() {
+        return dataManager.get(RAYON);
     }
 
     public float angleTornade() {
@@ -317,10 +430,16 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         return super.attackEntityFrom(src, n);
     }
 
+    /** Après l'armure (calculée sur les vrais dégâts) : ramenés à l'échelle de sa vie. */
+    @Override
+    protected float applyPotionDamageCalculations(DamageSource src, float n) {
+        return super.applyPotionDamageCalculations(src, n) / (float) Math.max(1, echelle);
+    }
+
     @Override
     protected void damageEntity(DamageSource src, float n) {
         super.damageEntity(src, n);
-        if (getHealth() <= 0 && !definitif && PhenixConfig.renaissance && !renaissanceFaite && etat != OEUF) {
+        if (getHealth() <= 0 && !definitif && StatsPhenix.troisPhases() && !renaissanceFaite && etat != OEUF) {
             setHealth(1F);
             entrerOeuf();
         }
@@ -337,15 +456,18 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         annoncer("§6Le Phénix s'effondre en un œuf de cendres… §cbrisez-le avant qu'il ne renaisse !");
     }
 
+    /** L'œuf n'a pas été brisé : 3e phase, toute la vie reprise (part du classeur), encore plus enragé. */
     private void renaitre() {
         renaissanceFaite = true;
         setNoGravity(true);
-        setHealth((float) (getMaxHealth() * PhenixConfig.vieRenaissance));
         embraser(false);
+        entrerPhase(3);
+        setHealth((float) (getMaxHealth() * StatsPhenix.phase(3).vieReprise));
+        dernierUsage.put("nova", ticksExisted);
         setEtat(RENAISSANCE);
         son(Sons.RENAISSANCE, 4F, 1F);
-        Feu.explosion(world, this, this, posX, posY + 1, posZ, 6, 5F, true);
-        annoncer("§6§lLe Phénix renaît de ses cendres !");
+        Feu.explosion(world, this, this, posX, posY + 1, posZ, 6, degats("nova") * 0.25F, true, feu("nova"));
+        annoncer("§5§lLe Phénix renaît de ses cendres, plus ardent que jamais !");
     }
 
     @Override
@@ -370,7 +492,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     @Override
     protected void dropFewItems(boolean touche, int butin) {
-        int min = Math.min(PhenixConfig.plumesMin, PhenixConfig.plumesMax), max = Math.max(PhenixConfig.plumesMin, PhenixConfig.plumesMax);
+        if (rand.nextDouble() >= StatsPhenix.plumesChance) return;
+        int min = Math.min(StatsPhenix.plumesMin, StatsPhenix.plumesMax), max = Math.max(StatsPhenix.plumesMin, StatsPhenix.plumesMax);
         int n = min + rand.nextInt(max - min + 1);
         for (int i = 0; i < n; i++) entityDropItem(new ItemStack(Registre.PLUME), 0.5F);
     }
@@ -444,7 +567,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             barre.setPercent(Math.max(0F, (float) (pvOeuf / PhenixConfig.pointsDeVieOeuf)));
         } else {
             barre.setName(getDisplayName());
-            barre.setColor(embrase ? BossInfo.Color.YELLOW : BossInfo.Color.RED);
+            // rouge, puis orange (jaune vanilla, peinte en orange par le client : voir client.BarreOrange), puis violette
+            barre.setColor(phase >= 3 ? BossInfo.Color.PURPLE : phase == 2 ? BossInfo.Color.YELLOW : BossInfo.Color.RED);
             barre.setPercent(MathHelper.clamp(getHealth() / getMaxHealth(), 0F, 1F));
         }
         if (ticksExisted % 10 == 0) {
@@ -488,8 +612,14 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             if (tEtat >= 30) setEtat(DECOLLAGE);
             return;
         }
+        if (etat == ARRIVEE) {
+            arrivee();
+            return;
+        }
         choisirCible();
-        if (!embrase && getHealth() < getMaxHealth() * 0.5F) embraser(true);
+        if (!embrase && phase < 2 && StatsPhenix.PHASES[2].existe && getHealth() < getMaxHealth() * StatsPhenix.phase(2).declenche) embraser(true);
+        // 3e phase : la nova solaire part dès qu'elle est prête, entre deux attaques
+        if (phase >= 3 && pret("nova") && (etat == RONDE || etat == DECOLLAGE) && cible != null) commencer(NOVA);
         switch (etat) {
             case RONDE: ronde(); break;
             case BOULE: boule(); break;
@@ -501,6 +631,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             case PERCHE: perche(); break;
             case DECOLLAGE: decollage(); break;
             case IMPACT: impact(); break;
+            case NOVA: nova(); break;
             default: setEtat(RONDE);
         }
         // un phénix laissé seul se refait une santé
@@ -510,6 +641,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     private void embraser(boolean tempeteTout) {
         embrase = true;
         dataManager.set(EMBRASE, true);
+        if (phase < 2) entrerPhase(2);
         son(Sons.CRI, 5F, 0.8F);
         if (tempeteTout) {
             annoncer("§6Le Phénix s'embrase ! §eUne tempête de feu se lève…");
@@ -532,7 +664,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     }
 
     private void choisirCible() {
-        int arene = PhenixConfig.rayonArene, rayon = PhenixConfig.rayonCible;
+        double arene = StatsPhenix.rayonArene, rayon = StatsPhenix.rayonCible;
         if (cible != null && (!Feu.cibleValable(cible) || cible.world != world || getDistanceSq(cible) > (rayon + 10) * (rayon + 10)
                 || distAncreSq(cible) > arene * arene))
             cible = null;
@@ -562,6 +694,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     // ------------------------------------------------------------------ déplacements
     private void voler(double tx, double ty, double tz, double vitesse, double agilite) {
+        vitesse *= allure();
         double dx = tx - posX, dy = ty - posY, dz = tz - posZ;
         double d = Math.sqrt(dx * dx + dy * dy + dz * dz);
         double vx = 0, vy = 0, vz = 0;
@@ -622,28 +755,37 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     }
 
     private void lancerAttaque() {
-        if (++attaques > 4 + rand.nextInt(3)) {
+        if (++attaques > 4 + rand.nextInt(3) && pret("perche")) {
             attaques = 0;
             commencerPerche();
             return;
         }
         List<Integer> sac = new ArrayList<>();
-        ajouter(sac, BOULE, 3);
-        ajouter(sac, SOUFFLE, 3);
-        ajouter(sac, PLUIE, 2);
-        ajouter(sac, PLONGEE, 3);
-        if (embrase && ticksExisted - derniereTempete > 600) ajouter(sac, TEMPETE, 5);
+        ajouter(sac, BOULE);
+        ajouter(sac, SOUFFLE);
+        ajouter(sac, PLUIE);
+        ajouter(sac, PLONGEE);
+        // la tempête de feu part dès qu'il s'embrase, puis à chaque fois que sa recharge le permet
+        if (embrase && pret("tempete")) ajouter(sac, TEMPETE, 5);
+        if (sac.isEmpty()) ajouter(sac, BOULE, 1);
         commencer(sac.get(rand.nextInt(sac.size())));
     }
 
+    /** Ajoute une attaque selon son poids dans le classeur, si elle est de cette phase et rechargée. */
+    private void ajouter(List<Integer> sac, int attaque) {
+        StatsPhenix.Attaque a = StatsPhenix.attaque(NOMS[attaque]);
+        if (a.phase > phase || !pret(NOMS[attaque])) return;
+        ajouter(sac, attaque, (int) Math.max(0, Math.round(a.poids)));
+    }
+
     private void ajouter(List<Integer> sac, int attaque, int poids) {
-        if (attaque == derniereAttaque) poids = 1;
+        if (attaque == derniereAttaque) poids = Math.min(poids, 1);
         for (int i = 0; i < poids; i++) sac.add(attaque);
     }
 
     /** Force une attaque (commande /phenix attaque). */
     public boolean forcer(int attaque) {
-        if (etat == OEUF || etat == RENAISSANCE || !isEntityAlive()) return false;
+        if (etat == OEUF || etat == RENAISSANCE || etat == ARRIVEE || !isEntityAlive()) return false;
         if (attaque == PERCHE) commencerPerche();
         else commencer(attaque);
         return true;
@@ -651,13 +793,15 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     private void commencer(int attaque) {
         derniereAttaque = attaque;
-        if (attaque == TEMPETE) derniereTempete = ticksExisted;
+        dernierUsage.put(NOMS[attaque], ticksExisted);
         touchesAnneau.clear();
         setEtat(attaque);
     }
 
+    /** Retour à la ronde ; la pause avant l'attaque suivante vient du classeur (plus courte à chaque phase). */
     private void finAttaque() {
-        recharge = embrase ? 30 + rand.nextInt(30) : 50 + rand.nextInt(40);
+        int pause = (int) Math.round(StatsPhenix.phase(phase).pause * 20);
+        recharge = Math.max(10, pause + rand.nextInt(Math.max(1, pause / 2 + 1)));
         setEtat(RONDE);
     }
 
@@ -667,8 +811,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             finAttaque();
             return;
         }
-        double a = Math.atan2(posZ - cible.posZ, posX - cible.posX);
-        voler(cible.posX + Math.cos(a) * 13, cible.posY + 6.5, cible.posZ + Math.sin(a) * 13, 0.4, 0.15);
+        double a = Math.atan2(posZ - cible.posZ, posX - cible.posX), d = Math.max(8, porteeBase("boule", 26) / 2);
+        voler(cible.posX + Math.cos(a) * d, cible.posY + 6.5, cible.posZ + Math.sin(a) * d, 0.4, 0.15);
         regarder(cible.posX, cible.posZ, 14F);
         if (tEtat == 4) son(Sons.CRI_COURT, 3F, 1.3F);
         if (tEtat == 15 || (embrase && (tEtat == 19 || tEtat == 23))) tirer();
@@ -678,7 +822,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
     private void tirer() {
         Vec3d b = bec();
         double dx = cible.posX - b.x, dy = cible.posY + cible.height * 0.5 - b.y, dz = cible.posZ - b.z;
-        EntityBouleDeFeu f = new EntityBouleDeFeu(world, this, dx, dy, dz);
+        StatsPhenix.Attaque st = StatsPhenix.attaque("boule");
+        EntityBouleDeFeu f = new EntityBouleDeFeu(world, this, dx, dy, dz).reglages(degats("boule"), st.rayon > 0 ? st.rayon : 3.2, feu("boule"));
         f.setPosition(b.x, b.y - 0.5, b.z);
         world.spawnEntity(f);
         son(Sons.BOULE, 3F, 0.9F + rand.nextFloat() * 0.2F);
@@ -691,8 +836,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             return;
         }
         if (cible != null) {
-            double a = Math.atan2(posZ - cible.posZ, posX - cible.posX);
-            voler(cible.posX + Math.cos(a) * 8, cible.posY + 5, cible.posZ + Math.sin(a) * 8, 0.3, 0.1);
+            double a = Math.atan2(posZ - cible.posZ, posX - cible.posX), d = Math.max(5, porteeBase("souffle", 12) * 0.6);
+            voler(cible.posX + Math.cos(a) * d, cible.posY + 5, cible.posZ + Math.sin(a) * d, 0.3, 0.1);
             // pendant le souffle il tourne lentement : on peut esquiver en courant de côté
             getLookHelper().setLookPosition(cible.posX, cible.posY + 0.8, cible.posZ, tEtat < SOUFFLE_DEBUT ? 20F : 2.6F, 40F);
         }
@@ -708,18 +853,21 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     private void brulerCone() {
         Vec3d o = bec(), dir = getLook(1.0F);
-        double cos = Math.cos(Math.toRadians(24));
-        for (EntityPlayer p : world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(15))) {
+        StatsPhenix.Attaque st = StatsPhenix.attaque("souffle");
+        double longueur = portee("souffle", 12) + 1, largeur = st.rayon > 0 ? st.rayon : 5;
+        double cos = Math.cos(Math.atan2(largeur, Math.max(1, longueur)));
+        for (EntityPlayer p : world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(longueur + 2))) {
             Vec3d v = new Vec3d(p.posX - o.x, p.posY + p.height * 0.5 - o.y, p.posZ - o.z);
             double d = v.length();
-            if (d > 13 || d < 0.1 || v.dotProduct(dir) / d < cos) continue;
-            if (Feu.vueDegagee(world, o, p)) Feu.toucher(p, this, this, 2.5F, 2);
+            if (d > longueur || d < 0.1 || v.dotProduct(dir) / d < cos) continue;
+            if (Feu.vueDegagee(world, o, p)) Feu.toucher(p, this, this, degats("souffle"), feu("souffle"));
         }
     }
 
     // ------------------------------------------------------------------ pluie de plumes enflammées
     private double rayonPluie() {
-        return embrase ? 5.0 : 4.0;
+        double r = StatsPhenix.attaque("pluie").rayon;
+        return (r > 0 ? r : 4.0) * (embrase ? 1.25 : 1.0);
     }
 
     private void pluie() {
@@ -729,6 +877,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
                 return;
             }
             setZone(cible.posX, Math.floor(cible.posY + 0.01), cible.posZ);
+            dataManager.set(RAYON, (float) rayonPluie());
             son(Sons.CRI, 4F, 1.15F);
         }
         Vec3d z = zone();
@@ -738,7 +887,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             int n = embrase ? 2 : 1;
             for (int i = 0; i < n; i++) {
                 double a = rand.nextDouble() * Math.PI * 2, r = Math.sqrt(rand.nextDouble()) * rayonPluie();
-                EntityPlumeArdente f = new EntityPlumeArdente(world, this);
+                EntityPlumeArdente f = new EntityPlumeArdente(world, this).reglages(degats("pluie"), feu("pluie"));
                 f.setLocationAndAngles(z.x + Math.cos(a) * r, z.y + 11 + rand.nextDouble() * 3, z.z + Math.sin(a) * r, rand.nextFloat() * 360F, 0F);
                 f.motionY = -0.45 - rand.nextDouble() * 0.15;
                 world.spawnEntity(f);
@@ -775,7 +924,8 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             setZone(posX, posY, posZ);
             setEtat(IMPACT);
             son(Sons.ONDE, 4F, 0.8F);
-            Feu.explosion(world, this, this, posX, posY + 0.3, posZ, 4.5, 8F, true);
+            double r = StatsPhenix.attaque("plongee").rayon;
+            Feu.explosion(world, this, this, posX, posY + 0.3, posZ, r > 0 ? r : 4.5, degats("plongee"), true, feu("plongee"));
         }
     }
 
@@ -791,7 +941,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
                 double d = Math.sqrt((p.posX - z.x) * (p.posX - z.x) + (p.posZ - z.z) * (p.posZ - z.z));
                 if (Math.abs(d - r) < 0.9 && p.posY - z.y < 1.2 && p.posY - z.y > -1.5) {
                     touchesAnneau.add(p.getUniqueID());
-                    Feu.toucher(p, this, this, 4F, 2);
+                    Feu.toucher(p, this, this, degats("plongee") * 0.5F, feu("plongee"));
                 }
             }
         }
@@ -816,22 +966,24 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             if ((tEtat - TORNADE_DEBUT) % 40 == 0) son(Sons.TEMPETE, 4F, 1F);
             double th = angleTornade() + (tEtat - TORNADE_DEBUT) * TORNADE_VITESSE;
             double tx = c.x + Math.cos(th) * TORNADE_RAYON, tz = c.z + Math.sin(th) * TORNADE_RAYON;
-            List<EntityPlayer> proches = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(c.x - 26, c.y - 6, c.z - 26, c.x + 26, c.y + 16, c.z + 26));
+            double zone = Math.max(26, StatsPhenix.attaque("tempete").rayon * StatsPhenix.phase(phase).portee + 2);
+            List<EntityPlayer> proches = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(c.x - zone, c.y - 6, c.z - zone, c.x + zone, c.y + 16, c.z + zone));
             for (EntityPlayer p : proches) {
                 if (!Feu.cibleValable(p)) continue;
                 double hx = p.posX - tx, hz = p.posZ - tz;
                 boolean hauteur = p.posY > c.y - 2 && p.posY < c.y + 11;
                 if (hauteur && hx * hx + hz * hz < 2.8 * 2.8) {
-                    if (Feu.toucher(p, this, this, 3F, 2)) {
+                    if (Feu.toucher(p, this, this, degats("tempete"), feu("tempete"))) {
                         p.motionY = Math.max(p.motionY, 0.45);
                         p.velocityChanged = true;
                     }
                 }
                 double cx = c.x - p.posX, cz = c.z - p.posZ, d = Math.sqrt(cx * cx + cz * cz);
-                if (hauteur && d < 3.0) Feu.toucher(p, this, this, 2F, 1);
+                if (hauteur && d < 3.0) Feu.toucher(p, this, this, degats("tempete") * 0.6F, feu("tempete"));
                 // aspiration vers le centre de l'arène
-                if (tEtat % 4 == 0 && d > 1.5 && d < 24) {
-                    double f = 0.14 + 0.12 * (1 - d / 24);
+                double aspire = Math.max(12, StatsPhenix.attaque("tempete").rayon * StatsPhenix.phase(phase).portee);
+                if (tEtat % 4 == 0 && d > 1.5 && d < aspire) {
+                    double f = 0.14 + 0.12 * (1 - d / aspire);
                     p.motionX += cx / d * f;
                     p.motionZ += cz / d * f;
                     p.velocityChanged = true;
@@ -839,6 +991,83 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             }
         }
         if (tEtat >= TORNADE_FIN + 15) finAttaque();
+    }
+
+    // ------------------------------------------------------------------ nova solaire (3e phase)
+    /**
+     * Il fond vers sa cible en se ramassant, ailes levées, et aspire les flammes (une seconde pour s'abriter ou
+     * s'éloigner), puis explose : tout joueur à portée (classeur, 15 blocs) est brûlé et projeté au loin. Un mur protège.
+     */
+    private void nova() {
+        if (tEtat == 1) {
+            if (cible != null) setZone(cible.posX, cible.posY + 4.5, cible.posZ);
+            else setZone(posX, posY, posZ);
+            son(Sons.NOVA, 5F, 1F);
+        }
+        Vec3d z = zone();
+        if (tEtat < NOVA_CHARGE) {
+            voler(z.x, Math.max(z.y, sol(z.x, z.z) + 3), z.z, 0.8, 0.2);
+            if (cible != null) regarder(cible.posX, cible.posZ, 12F);
+        } else {
+            motionX *= 0.5;
+            motionY *= 0.5;
+            motionZ *= 0.5;
+        }
+        if (tEtat == NOVA_CHARGE) eclaterNova();
+        if (tEtat >= NOVA_FIN) finAttaque();
+    }
+
+    private void eclaterNova() {
+        double r = StatsPhenix.attaque("nova").rayon;
+        if (r <= 0) r = 15;
+        Vec3d c = new Vec3d(posX, posY + 1.2, posZ);
+        for (EntityPlayer p : world.getEntitiesWithinAABB(EntityPlayer.class, getEntityBoundingBox().grow(r))) {
+            double dx = p.posX - c.x, dy = p.posY + p.height * 0.5 - c.y, dz = p.posZ - c.z;
+            double d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            if (d > r || !Feu.cibleValable(p) || !Feu.vueDegagee(world, c, p)) continue;
+            double k = 1 - 0.5 * d / r;
+            if (Feu.toucher(p, this, this, (float) (degats("nova") * k), feu("nova")))
+                Feu.repousser(p, dx, dz, 0.6 + 1.4 * k, 0.6);
+        }
+        setZone(posX, sol(posX, posZ), posZ);
+        dataManager.set(RAYON, (float) r);
+        son(Sons.ONDE, 5F, 0.7F);
+    }
+
+    // ------------------------------------------------------------------ arrivée sur l'appât
+    /** Descente en spirale vers le nid : à peu près un tour complet, de plus en plus serré et de plus en plus bas. */
+    private void arrivee() {
+        if (appat == null) {
+            setEtat(DECOLLAGE);
+            return;
+        }
+        double nx = appat.getX() + 0.5, ny = appat.getY(), nz = appat.getZ() + 0.5;
+        double dx = posX - nx, dz = posZ - nz, h = Math.sqrt(dx * dx + dz * dz);
+        double an = Math.atan2(dz, dx) + sensRonde * Math.min(0.5, 2.5 / Math.max(1.0, h));
+        double r = Math.max(0, h - 1.2);
+        voler(nx + Math.cos(an) * r, ny + 1.2 + r * 0.5, nz + Math.sin(an) * r, 0.75, 0.2);
+        suivreCap();
+        if (tEtat % 60 == 1) son(Sons.CRI, 6F, 0.85F + rand.nextFloat() * 0.1F);
+        if ((h < 1.3 && posY - ny < 3.0) || tEtat > 1200) devorer();
+    }
+
+    /** Il se pose sur le nid, le dévore dans une gerbe de braises, crie et attaque. */
+    private void devorer() {
+        BlockPos n = appat;
+        appat = null;
+        if (world.getBlockState(n).getBlock() == Registre.NID) {
+            world.setBlockToAir(n);
+            if (world instanceof WorldServer) {
+                WorldServer ws = (WorldServer) world;
+                ws.spawnParticle(EnumParticleTypes.LAVA, n.getX() + 0.5, n.getY() + 0.3, n.getZ() + 0.5, 20, 0.4, 0.2, 0.4, 0.0);
+                ws.spawnParticle(EnumParticleTypes.FLAME, n.getX() + 0.5, n.getY() + 0.3, n.getZ() + 0.5, 60, 0.5, 0.3, 0.5, 0.12);
+                ws.spawnParticle(EnumParticleTypes.SMOKE_LARGE, n.getX() + 0.5, n.getY() + 0.5, n.getZ() + 0.5, 20, 0.5, 0.4, 0.5, 0.04);
+            }
+        }
+        definirAncre(n.getX() + 0.5, n.getY(), n.getZ() + 0.5);
+        son(Sons.CRI, 6F, 0.8F);
+        annoncer("§6Le Phénix de feu dévore le nid de braises… §cet se tourne vers vous !");
+        setEtat(DECOLLAGE);
     }
 
     // ------------------------------------------------------------------ perchoir
@@ -851,7 +1080,9 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         px = p.getX() + 0.5;
         py = p.getY();
         pz = p.getZ() + 0.5;
-        dureePerche = cible != null ? 70 + rand.nextInt(30) : 120 + rand.nextInt(80);
+        double vulnerable = StatsPhenix.attaque("perche").dureeEffet;
+        dureePerche = cible != null ? (int) Math.round((vulnerable > 0 ? vulnerable : 4) * 20) : 120 + rand.nextInt(80);
+        dernierUsage.put("perche", ticksExisted);
         setEtat(APPROCHE);
     }
 
@@ -988,7 +1219,11 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
                     b.addAnimation("animation.phenix.renaissance", false).addAnimation("animation.phenix.vol", true);
                     break;
                 case APPROCHE:
+                case ARRIVEE:
                     b.addAnimation(motionY < -0.05 ? "animation.phenix.plane" : "animation.phenix.vol", true);
+                    break;
+                case NOVA:
+                    b.addAnimation("animation.phenix.nova", false).addAnimation("animation.phenix.vol", true);
                     break;
                 default:
                     b.addAnimation((ticksExisted / 70) % 3 == 2 ? "animation.phenix.plane" : "animation.phenix.vol", true);
@@ -1016,6 +1251,10 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         c.setBoolean("Oeuf", etat == OEUF);
         c.setInteger("TempsOeuf", etat == OEUF ? tEtat : 0);
         c.setFloat("PvOeuf", pvOeuf);
+        c.setByte("Phase", (byte) phase);
+        c.setDouble("Echelle", echelle);
+        if (appat != null) c.setLong("Appat", appat.toLong());
+        c.setBoolean("Arrivee", etat == ARRIVEE);
     }
 
     @Override
@@ -1028,6 +1267,12 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
         renaissanceFaite = c.getBoolean("Renaissance");
         embrase = c.getBoolean("Embrase");
         dataManager.set(EMBRASE, embrase);
+        // monde de la 1.0 : pas de phase enregistrée, on la déduit
+        // la vie enregistrée est en unités de l'échelle d'alors (1 en 1.0) ; les PV du classeur ont pu changer depuis
+        echelle = c.hasKey("Echelle") ? Math.max(1, c.getDouble("Echelle")) : 1;
+        entrerPhase(c.hasKey("Phase") ? MathHelper.clamp(c.getByte("Phase"), 1, 3) : renaissanceFaite ? 3 : embrase ? 2 : 1);
+        if (getHealth() > getMaxHealth()) setHealth(getMaxHealth());
+        appat = c.hasKey("Appat") ? BlockPos.fromLong(c.getLong("Appat")) : null;
         if (c.getBoolean("Oeuf")) {
             setEtat(OEUF);
             tEtat = c.getInteger("TempsOeuf");
@@ -1035,7 +1280,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
             dataManager.set(OEUF_PV, Math.max(0F, (float) (pvOeuf / PhenixConfig.pointsDeVieOeuf)));
             setNoGravity(false);
         } else {
-            setEtat(RONDE);
+            setEtat(c.getBoolean("Arrivee") && appat != null ? ARRIVEE : RONDE);
             setNoGravity(true);
         }
         if (hasCustomName()) barre.setName(getDisplayName());
@@ -1043,7 +1288,7 @@ public class EntityPhenix extends EntityLiving implements IMob, IAnimatable {
 
     // ------------------------------------------------------------------ pour la commande
     public String resume() {
-        return String.format("%s : %.0f / %.0f PV, %s%s, à %d %d %d", getDisplayName().getUnformattedText(), getHealth(), getMaxHealth(),
-                NOMS[etat()], embrase ? " (embrasé)" : "", MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ));
+        return String.format("%s : %.0f / %.0f PV, phase %d, %s%s, à %d %d %d", getDisplayName().getUnformattedText(), pv(), pvMax(),
+                phase, NOMS[etat()], embrase ? " (embrasé)" : "", MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ));
     }
 }

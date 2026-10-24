@@ -2,6 +2,7 @@
 itemGroup.hxrpphenix=HxRP — Phénix
 item.hxrpphenix.plume_de_phenix.name=Plume de phénix
 item.hxrpphenix.oeuf_de_phenix.name=Œuf de phénix
+tile.hxrpphenix.nid_de_braises.name=Nid de braises
 entity.hxrpphenix.phenix.name=Phénix de feu
 entity.hxrpphenix.boule_de_feu.name=Boule de feu du Phénix
 entity.hxrpphenix.plume_ardente.name=Plume enflammée
@@ -26,3 +27,4 @@ subtitles.hxrpphenix.oeuf=L'œuf de cendres palpite
 subtitles.hxrpphenix.craquement=L'œuf se fêle
 subtitles.hxrpphenix.renaissance=Le Phénix renaît
 subtitles.hxrpphenix.mort=Le Phénix s'éteint
+subtitles.hxrpphenix.nova=Nova solaire du Phénix

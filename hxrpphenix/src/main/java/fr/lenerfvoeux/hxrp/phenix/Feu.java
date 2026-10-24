@@ -43,7 +43,7 @@ public final class Feu {
         return p != null && p.isEntityAlive() && !p.isSpectator() && !p.isCreative();
     }
 
-    /** Touche un joueur : dégâts, quelques secondes à brûler, Brûlure du Virus. */
+    /** Touche un joueur : dégâts (déjà multipliés par la phase du Phénix), quelques secondes à brûler, Brûlure du Virus. */
     public static boolean toucher(EntityPlayer p, Entity phenix, Entity direct, float degats, int secondesFeu) {
         if (!cibleValable(p) || p.world.isRemote) return false;
         long t = p.world.getTotalWorldTime();
@@ -51,8 +51,7 @@ public final class Feu {
         if (avant != null && t - avant < 10 && t >= avant) return false;
         DERNIER_COUP.put(p.getUniqueID(), t);
         if (DERNIER_COUP.size() > 256) DERNIER_COUP.clear();
-        float d = (float) (degats * PhenixConfig.degats);
-        boolean ok = d <= 0 || p.attackEntityFrom(source(phenix, direct), d);
+        boolean ok = degats <= 0 || p.attackEntityFrom(source(phenix, direct), degats);
         if (ok) {
             if (secondesFeu > 0) p.setFire(secondesFeu);
             brulure(p);
@@ -62,6 +61,12 @@ public final class Feu {
 
     /** Explosion de flammes : touche les joueurs dans le rayon et les repousse ; ne casse rien. */
     public static void explosion(World w, Entity phenix, Entity direct, double x, double y, double z, double rayon, float degats, boolean grosse) {
+        explosion(w, phenix, direct, x, y, z, rayon, degats, grosse, 2);
+    }
+
+    /** Explosion de flammes qui laisse les joueurs touchés brûler secondesFeu secondes. */
+    public static void explosion(World w, Entity phenix, Entity direct, double x, double y, double z, double rayon, float degats, boolean grosse,
+                                 int secondesFeu) {
         if (w.isRemote) return;
         if (w instanceof WorldServer) {
             WorldServer ws = (WorldServer) w;
@@ -80,7 +85,7 @@ public final class Feu {
             if (d > rayon || !cibleValable(p)) continue;
             if (!vueDegagee(w, new Vec3d(x, y + 0.2, z), p)) continue;
             float k = (float) (1.0 - 0.5 * d / rayon);
-            if (toucher(p, phenix, direct, degats * k, 2)) repousser(p, dx, dz, 0.5 * k, 0.25 * k);
+            if (toucher(p, phenix, direct, degats * k, secondesFeu)) repousser(p, dx, dz, 0.5 * k, 0.25 * k);
         }
     }
 
