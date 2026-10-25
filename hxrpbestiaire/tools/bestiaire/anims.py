@@ -55,6 +55,35 @@ def plus(a, b):
     return [a[i] + b[i] for i in range(3)]
 
 
+def accelerer(source, k):
+    """La même animation jouée k fois plus vite (temps des images-clés divisés par k)."""
+    a = anim(float(source['animation_length']) / k, source.get('loop', False))
+    for os_, canaux in source['bones'].items():
+        for canal, kf in canaux.items():
+            if isinstance(kf, dict):
+                a['bones'].setdefault(os_, {})[canal] = {'%.4f' % (float(t) / k): copy.deepcopy(v) for t, v in kf.items()}
+            else:
+                a['bones'].setdefault(os_, {})[canal] = copy.deepcopy(kf)
+    return a
+
+
+def extrait(source, t0, t1):
+    """Le passage [t0, t1] d'une animation, ramené à commencer à 0 (bornes comprises)."""
+    a = anim(t1 - t0)
+    for os_, canaux in source['bones'].items():
+        for canal, kf in canaux.items():
+            if not isinstance(kf, dict):
+                a['bones'].setdefault(os_, {})[canal] = copy.deepcopy(kf)
+                continue
+            garde = {t: v for t, v in kf.items() if t0 - 1e-6 <= float(t) <= t1 + 1e-6}
+            if not garde:
+                avant = [t for t in kf if float(t) < t0]
+                if avant:
+                    garde = {str(t0): kf[max(avant, key=float)]}
+            a['bones'].setdefault(os_, {})[canal] = {'%.4f' % (float(t) - t0): copy.deepcopy(v) for t, v in garde.items()}
+    return a
+
+
 def enchainer(a1, a2, pause=0.0, boucle=False):
     """a1, puis (après une pause figée sur sa dernière pose) a2 : une seule animation."""
     L1 = float(a1['animation_length'])
@@ -419,6 +448,179 @@ def demon_noir(A):
     return nouvelles
 
 
+# ============================================================================ Kraken et Calamar des sables (même squelette)
+TENTACULES = ('tentacle1', 'tentacle2', 'tentacle3', 'tentacle4')
+
+
+def kraken(A):
+    bas = A['low_idle']
+    nouvelles = {}
+    racine = valeur_repos(bas, 'desert_octopus', 'rotation')
+    # réveil des abysses (renaissance) : il coule, reste au fond, puis remonte
+    nouvelles['reveil_abysses'] = enchainer(A['low_immerse'], A['low_emerge'], 1.5)
+
+    # nuage d'encre : il se contracte, tentacules repliés, puis se gonfle et les déploie d'un coup
+    a = anim(1.6)
+    fond(a, bas, sauf=('body_ppal',) + TENTACULES)
+    cles(a, 'body_ppal', 'scale', [(0, (1, 1, 1)), (0.35, (0.85, 0.85, 0.85)), (0.6, (1.18, 1.18, 1.18)), (1.0, (1.05, 1.05, 1.05)), (1.6, (1, 1, 1))])
+    cles(a, 'body_ppal', 'rotation', [(0, valeur_repos(bas, 'body_ppal', 'rotation')), (0.35, (-15, -5, -10)), (0.6, (10, -5, -10)),
+                                      (1.6, valeur_repos(bas, 'body_ppal', 'rotation'))])
+    for i, t in enumerate(TENTACULES):
+        r0 = valeur_repos(bas, t, 'rotation')
+        ouvre = (25, 0, 30 if i % 2 else -30)
+        cles(a, t, 'rotation', [(0, r0), (0.35, plus(r0, (-20, 0, 0))), (0.6, plus(r0, ouvre)), (1.1, plus(r0, ouvre)), (1.6, r0)])
+    nouvelles['nuage_encre'] = a
+
+    # saisie : un tentacule se tend vers l'avant (vers 25 %), se relève en tenant sa prise, puis la jette (vers 65 %)
+    a = anim(2.5)
+    fond(a, bas, sauf=('tentacle2', 'sub_tentacle2', 'min_tentacle2', 'head'))
+    t2 = valeur_repos(bas, 'tentacle2', 'rotation')
+    cles(a, 'tentacle2', 'rotation', [(0, t2), (0.6, (-80, 0, -10)), (1.0, (-120, 0, -20)), (1.5, (-140, 0, -25)), (1.65, (-40, 0, -5)),
+                                      (2.0, (-20, 0, 0)), (2.5, t2)])
+    cles(a, 'sub_tentacle2', 'rotation', [(0, valeur_repos(bas, 'sub_tentacle2', 'rotation')), (0.6, (0, 0, -5)), (0.8, (0, 0, -60)),
+                                          (1.5, (0, 0, -70)), (1.65, (0, 0, 0)), (2.5, valeur_repos(bas, 'sub_tentacle2', 'rotation'))])
+    cles(a, 'min_tentacle2', 'rotation', [(0, valeur_repos(bas, 'min_tentacle2', 'rotation')), (0.6, (0, 0, -10)), (0.8, (0, 0, -80)),
+                                          (1.5, (0, 0, -80)), (1.65, (0, 0, -10)), (2.5, valeur_repos(bas, 'min_tentacle2', 'rotation'))])
+    tete = valeur_repos(bas, 'head', 'rotation')
+    cles(a, 'head', 'rotation', [(0, tete), (0.6, plus(tete, (-10, 0, 0))), (1.6, plus(tete, (-20, 0, 0))), (2.5, tete)])
+    nouvelles['saisie'] = a
+    return nouvelles
+
+
+def calamar_des_sables(A):
+    repos = A['idle']
+    nouvelles = {}
+    racine_p = valeur_repos(repos, 'desert_octopus', 'position')
+    racine_r = valeur_repos(repos, 'desert_octopus', 'rotation')
+
+    # tempête de sable : il s'enfonce à demi et tourne sur lui-même, tentacules à l'horizontale (le rayon reste caché)
+    a = anim(3.5)
+    fond(a, repos, sauf=('desert_octopus',) + TENTACULES)
+    cles(a, 'desert_octopus', 'position', [(0, racine_p), (0.4, (0, -20, 0)), (3.0, (0, -20, 0)), (3.5, racine_p)])
+    cles(a, 'desert_octopus', 'rotation', [(0, racine_r)] + [(0.4 + i * 0.26, plus(racine_r, (0, 72 * (i + 1), 0))) for i in range(10)]
+         + [(3.5, plus(racine_r, (0, 720, 0)))])
+    for i, t in enumerate(TENTACULES):
+        r0 = valeur_repos(repos, t, 'rotation')
+        cles(a, t, 'rotation', [(0, r0), (0.4, plus(r0, (40, 0, 35 if i % 2 else -35))), (3.0, plus(r0, (40, 0, 35 if i % 2 else -35))), (3.5, r0)])
+    nouvelles['tempete_sable'] = a
+
+    # aspiration : il se penche, la tête rejetée (gueule ouverte vers le ciel puis vers l'avant), les tentacules ramènent
+    a = anim(4.0)
+    fond(a, repos, sauf=('head', 'body_ppal') + TENTACULES)
+    tete = valeur_repos(repos, 'head', 'rotation')
+    corps = valeur_repos(repos, 'body_ppal', 'rotation')
+    cles(a, 'head', 'rotation', [(0, tete), (0.5, plus(tete, (-35, 0, 0))), (0.8, plus(tete, (15, 0, 0))), (3.4, plus(tete, (15, 0, 0))), (4.0, tete)])
+    cles(a, 'body_ppal', 'rotation', [(0, corps), (0.8, plus(corps, (20, 0, 0))), (3.4, plus(corps, (20, 0, 0))), (4.0, corps)])
+    for i, t in enumerate(TENTACULES):
+        r0 = valeur_repos(repos, t, 'rotation')
+        pts = [(0, r0)] + [(0.8 + k * 0.35, plus(r0, (-25 if (k + i) % 2 else -5, 0, 0))) for k in range(8)] + [(4.0, r0)]
+        cles(a, t, 'rotation', pts)
+    nouvelles['aspiration'] = a
+    return nouvelles
+
+
+# ============================================================================ Démon de lave
+def demon_de_lave(A):
+    idle = A['idle']
+    nouvelles = {}
+    # ses animations d'origine durent 8 à 15 s : on les joue plus vite
+    nouvelles['rayon'] = accelerer(A['beam_1'], 2)
+    nouvelles['double_rayon'] = accelerer(A['beam_2'], 2)
+    nouvelles['plongee'] = accelerer(A['under_lava'], 2.5)
+    nouvelles['remontee'] = extrait(A['under_lava_end'], 0, 2.6)
+    rug = accelerer(A['roar'], 2)
+    rug['bones'].get('red_demon', {}).pop('position', None)       # il rugit debout, sans replonger
+    nouvelles['rugissement'] = rug
+    nouvelles['surgissement'] = accelerer(extrait(A['roar'], 0, 6.0), 1.5)
+
+    b1, b2 = valeur_repos(idle, 'arm1', 'rotation'), valeur_repos(idle, 'arm2', 'rotation')
+    s1, s2 = valeur_repos(idle, 'sub_arm1', 'rotation'), valeur_repos(idle, 'sub_arm2', 'rotation')
+    corps = valeur_repos(idle, 'body', 'rotation')
+
+    # coup de poing : le bras droit armé en arrière, puis frappe droit devant (vers 50 %)
+    a = anim(1.4)
+    fond(a, idle, sauf=('arm1', 'sub_arm1', 'body'))
+    cles(a, 'body', 'rotation', [(0, corps), (0.45, plus(corps, (-5, -20, 0))), (0.7, plus(corps, (20, 15, 0))), (1.4, corps)])
+    cles(a, 'arm1', 'rotation', [(0, b1), (0.45, (-10, 40, 60)), (0.7, (-95, -10, 20)), (0.95, (-90, -10, 20)), (1.4, b1)])
+    cles(a, 'sub_arm1', 'rotation', [(0, s1), (0.45, (-100, 0, 0)), (0.7, (-5, 0, 0)), (1.4, s1)])
+    nouvelles['coup_poing'] = a
+
+    # balayage : le bras gauche part loin sur le côté, puis balaie toute la rive devant lui (vers 45 %)
+    a = anim(1.8)
+    fond(a, idle, sauf=('arm2', 'sub_arm2', 'body'))
+    cles(a, 'body', 'rotation', [(0, corps), (0.5, plus(corps, (0, 35, 0))), (0.85, plus(corps, (10, -40, 0))), (1.8, corps)])
+    cles(a, 'arm2', 'rotation', [(0, b2), (0.5, (-40, 60, -70)), (0.85, (-80, -60, -40)), (1.1, (-70, -70, -40)), (1.8, b2)])
+    cles(a, 'sub_arm2', 'rotation', [(0, s2), (0.5, (-30, 0, 0)), (0.85, (-10, 0, 0)), (1.8, s2)])
+    nouvelles['balayage'] = a
+
+    # jets de magma : il puise dans la lave et lance trois boules, bras droit, gauche, droit
+    a = anim(2.4)
+    fond(a, idle, sauf=('arm1', 'arm2', 'sub_arm1', 'sub_arm2', 'body'))
+    cles(a, 'body', 'rotation', [(0, corps), (0.84, plus(corps, (15, 10, 0))), (1.32, plus(corps, (15, -10, 0))), (1.8, plus(corps, (15, 10, 0))), (2.4, corps)])
+    cles(a, 'arm1', 'rotation', [(0, b1), (0.5, (30, 20, 40)), (0.84, (-140, 0, 20)), (1.2, (20, 20, 40)), (1.8, (-140, 0, 20)), (2.4, b1)])
+    cles(a, 'arm2', 'rotation', [(0, b2), (0.9, (30, -20, -40)), (1.32, (-140, 0, -20)), (2.4, b2)])
+    cles(a, 'sub_arm1', 'rotation', [(0, s1), (0.84, (-20, 0, 0)), (1.8, (-20, 0, 0)), (2.4, s1)])
+    cles(a, 'sub_arm2', 'rotation', [(0, s2), (1.32, (-20, 0, 0)), (2.4, s2)])
+    nouvelles['jets_magma'] = a
+    return nouvelles
+
+
+# ============================================================================ Aï
+def ai(A):
+    idle = A['idle']
+    nouvelles = {}
+    b1, b2 = valeur_repos(idle, 'arm_1', 'rotation'), valeur_repos(idle, 'arm_2', 'rotation')
+    s1, s2 = valeur_repos(idle, 'sub_arm1', 'rotation'), valeur_repos(idle, 'sub_arm2', 'rotation')
+    p0 = valeur_repos(idle, 'spirit', 'position')
+
+    # griffes d'ombre : le bras levé haut, puis un coup de griffes en travers (vers 45 %)
+    a = anim(1.2)
+    fond(a, idle, sauf=('arm_1', 'sub_arm1', 'arm_2', 'body_main'))
+    cles(a, 'body_main', 'rotation', [(0, (0, 0, 0)), (0.4, (-10, -20, 0)), (0.6, (15, 25, 0)), (1.2, (0, 0, 0))])
+    cles(a, 'arm_1', 'rotation', [(0, b1), (0.4, (-150, 0, 40)), (0.6, (20, 0, -10)), (0.8, (10, 0, 0)), (1.2, b1)])
+    cles(a, 'sub_arm1', 'rotation', [(0, s1), (0.4, (-40, 0, 0)), (0.6, (-5, 0, 0)), (1.2, s1)])
+    cles(a, 'arm_2', 'rotation', [(0, b2), (0.6, (-40, 0, -40)), (1.2, b2)])
+    nouvelles['griffes_ombre'] = a
+
+    # cri : il se cambre, tête rejetée, bras ouverts, puis hurle vers l'avant (vers 45 %)
+    a = anim(1.6)
+    fond(a, idle, sauf=('head', 'arm_1', 'arm_2', 'body_main', 'spirit'))
+    cles(a, 'head', 'rotation', [(0, (0, 0, 0)), (0.4, (-45, 0, 0)), (0.7, (25, 0, 0)), (1.2, (20, 0, 0)), (1.6, (0, 0, 0))])
+    cles(a, 'body_main', 'rotation', [(0, (0, 0, 0)), (0.4, (-20, 0, 0)), (0.7, (15, 0, 0)), (1.6, (0, 0, 0))])
+    cles(a, 'arm_1', 'rotation', [(0, b1), (0.4, (-20, 0, 80)), (0.7, (-60, 0, 60)), (1.6, b1)])
+    cles(a, 'arm_2', 'rotation', [(0, b2), (0.4, (-20, 0, -80)), (0.7, (-60, 0, -60)), (1.6, b2)])
+    cles(a, 'spirit', 'scale', [(0, (1, 1, 1)), (0.7, (1.15, 1.1, 1.15)), (1.0, (1, 1, 1)), (1.6, (1, 1, 1))])
+    cles(a, 'spirit', 'position', [(0, p0), (1.6, p0)])
+    nouvelles['cri'] = a
+
+    # disparition : il tourbillonne et se dissout dans l'air (la suite est invisible)
+    a = anim(1.0)
+    cles(a, 'spirit', 'position', [(0, p0), (1.0, plus(p0, (0, 6, 0)))])
+    cles(a, 'spirit', 'rotation', [(0, (0, 0, 0)), (1.0, (0, 540, 0))])
+    cles(a, 'spirit', 'scale', [(0, (1, 1, 1)), (0.5, (0.6, 1.2, 0.6)), (1.0, (0.02, 0.02, 0.02))])
+    nouvelles['disparition'] = a
+
+    # vœu maudit : il tend les deux mains, paumes ouvertes, puis les écarte d'un coup (vers 55 %)
+    a = anim(2.2)
+    fond(a, idle, sauf=('arm_1', 'arm_2', 'sub_arm1', 'sub_arm2', 'head', 'body_main'))
+    cles(a, 'body_main', 'rotation', [(0, (0, 0, 0)), (0.8, (15, 0, 0)), (1.3, (-5, 0, 0)), (2.2, (0, 0, 0))])
+    cles(a, 'head', 'rotation', [(0, (0, 0, 0)), (0.8, (10, 0, 0)), (1.3, (-15, 0, 0)), (2.2, (0, 0, 0))])
+    cles(a, 'arm_1', 'rotation', [(0, b1), (0.8, (-85, 0, 10)), (1.2, (-60, 0, 75)), (1.7, (-50, 0, 70)), (2.2, b1)])
+    cles(a, 'arm_2', 'rotation', [(0, b2), (0.8, (-85, 0, -10)), (1.2, (-60, 0, -75)), (1.7, (-50, 0, -70)), (2.2, b2)])
+    cles(a, 'sub_arm1', 'rotation', [(0, s1), (0.8, (-10, 0, 0)), (2.2, s1)])
+    cles(a, 'sub_arm2', 'rotation', [(0, s2), (0.8, (-10, 0, 0)), (2.2, s2)])
+    nouvelles['voeu_maudit'] = a
+
+    # formation : la brume se condense en lui, en tournoyant
+    a = anim(2.5)
+    fond(a, idle, sauf=('spirit',))
+    cles(a, 'spirit', 'scale', [(0, (0.02, 0.02, 0.02)), (1.2, (0.5, 1.3, 0.5)), (2.0, (1, 1, 1)), (2.5, (1, 1, 1))])
+    cles(a, 'spirit', 'rotation', [(0, (0, -720, 0)), (2.0, (0, 0, 0)), (2.5, (0, 0, 0))])
+    cles(a, 'spirit', 'position', [(0, plus(p0, (0, -10, 0))), (2.0, p0), (2.5, p0)])
+    nouvelles['formation'] = a
+    return nouvelles
+
+
 CREATIONS = {
     'reine_guepe': reine_guepe,
     'abomination': abomination,
@@ -428,4 +630,8 @@ CREATIONS = {
     'roi_des_glaces': roi_des_glaces,
     'gobelin_archer': gobelin_archer,
     'demon_noir': demon_noir,
+    'kraken': kraken,
+    'calamar_des_sables': calamar_des_sables,
+    'demon_de_lave': demon_de_lave,
+    'ai': ai,
 }

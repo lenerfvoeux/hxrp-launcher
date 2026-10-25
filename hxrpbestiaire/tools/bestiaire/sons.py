@@ -290,6 +290,117 @@ def demon_mort():
     return fondu(norm(passe_bas(x, 1200), 0.85), 0.1)
 
 
+# ============================================================================ lot 3
+def grondement_abyssal():
+    """Kraken : grondement des profondeurs, bulles qui remontent."""
+    d = 2.6
+    tt = t(d)
+    x = scie(38 + 4 * np.sin(2 * np.pi * 0.5 * tt), tt) * 0.6 + passe_bas(bruit(d, 61), 180) * 3
+    rs = np.random.RandomState(62)
+    for _ in range(12):
+        a = rs.uniform(0, d - 0.2)
+        k = tt - a
+        m = k >= 0
+        x[m] += np.sin(2 * np.pi * rs.uniform(150, 500) * k[m] * (1 + k[m] * 4)) * np.exp(-k[m] / 0.05) * 0.4
+    return fondu(norm(passe_bas(x, 1500) * enveloppe(len(tt), 0.4, 0.8, 1.2), 0.85), 0.15)
+
+
+def cri_kraken():
+    d = 1.8
+    tt = t(d)
+    f = 180 * np.exp(-((tt - 0.4) / 0.5) ** 2) + 70
+    x = scie(f, tt) * 0.6 + scie(f * 1.33, tt) * 0.3 + passe_bas(bruit(d, 63), 900) * 1.2
+    return fondu(norm(passe_bas(x, 2200) * enveloppe(len(tt), 0.06, 0.6, 0.5), 0.9), 0.05)
+
+
+def kraken_mort():
+    d = 3.2
+    tt = t(d)
+    x = scie(60 * np.exp(-tt / 1.6) + 20, tt) * np.exp(-tt / 1.5) * 0.7 + passe_bas(bruit(d, 64), 300) * np.exp(-tt / 1.2) * 2.5
+    return fondu(norm(passe_bas(x, 1000), 0.85), 0.1)
+
+
+def sifflement_sable():
+    """Calamar des sables : sable qui coule et siffle."""
+    d = 1.8
+    tt = t(d)
+    x = (passe_bas(bruit(d, 65), 6000) - passe_bas(bruit(d, 65), 1800)) * (0.6 + 0.4 * np.sin(2 * np.pi * 1.5 * tt))
+    return fondu(norm(x * enveloppe(len(tt), 0.3, 0.5, 0.8), 0.75), 0.1)
+
+
+def cri_calamar():
+    d = 1.2
+    tt = t(d)
+    f = 320 * np.exp(-tt / 0.8) + 110
+    x = scie(f, tt) * 0.5 + (passe_bas(bruit(d, 66), 4000) - passe_bas(bruit(d, 66), 1000)) * 0.6
+    return fondu(norm(passe_bas(x, 3500) * enveloppe(len(tt), 0.03, 0.4, 0.3), 0.85), 0.03)
+
+
+def calamar_mort():
+    d = 2.6
+    tt = t(d)
+    x = scie(120 * np.exp(-tt / 1.0) + 30, tt) * np.exp(-tt / 1.2) * 0.6 + (passe_bas(bruit(d, 67), 3000) - passe_bas(bruit(d, 67), 600)) * np.exp(-tt / 1.5)
+    return fondu(norm(x, 0.85), 0.1)
+
+
+def bouillonnement():
+    """Démon de lave : lave qui bouillonne, grondement."""
+    d = 2.2
+    tt = t(d)
+    x = passe_bas(bruit(d, 68), 250) * 2.5
+    rs = np.random.RandomState(69)
+    for _ in range(18):
+        a = rs.uniform(0, d - 0.15)
+        k = tt - a
+        m = k >= 0
+        x[m] += np.sin(2 * np.pi * rs.uniform(80, 260) * k[m]) * np.exp(-k[m] / 0.06) * 0.6
+    return fondu(norm(x * enveloppe(len(tt), 0.2, 0.6, 1.2), 0.85), 0.15)
+
+
+def rugissement_lave():
+    d = 2.0
+    tt = t(d)
+    f = 80 + 50 * np.exp(-((tt - 0.4) / 0.35) ** 2)
+    x = scie(f, tt) * 0.7 + scie(f * 2.01, tt) * 0.2 + passe_bas(bruit(d, 70), 1800) * 1.0
+    return fondu(norm(passe_bas(x, 2500) * enveloppe(len(tt), 0.08, 0.6, 0.8), 0.9), 0.05)
+
+
+def lave_mort():
+    d = 3.0
+    tt = t(d)
+    x = passe_bas(bruit(d, 71), 200) * np.exp(-tt / 1.4) * 3 + scie(50 * np.exp(-tt / 1.5) + 25, tt) * np.exp(-tt / 1.0) * 0.5
+    return fondu(norm(x, 0.85), 0.1)
+
+
+def chuchotement():
+    """Aï : chuchotements superposés, souffle froid."""
+    d = 2.4
+    tt = t(d)
+    x = np.zeros_like(tt)
+    for i, g in enumerate((72, 73, 74)):
+        souffle = passe_bas(bruit(d, g), 5000) - passe_bas(bruit(d, g), 1500)
+        x += souffle * (0.5 + 0.5 * np.sin(2 * np.pi * (3 + i * 1.3) * tt + i) ** 2)
+    return fondu(norm(x * enveloppe(len(tt), 0.4, 0.6, 1.2), 0.7), 0.2)
+
+
+def cri_ai():
+    """Aï : un cri spectral qui monte et se déchire."""
+    d = 1.6
+    tt = t(d)
+    f = 400 + 500 * tt / d
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.4 + np.sin(2 * np.pi * np.cumsum(f * 1.5) / SR) * 0.25
+    x += (passe_bas(bruit(d, 75), 6000) - passe_bas(bruit(d, 75), 2000)) * 0.5
+    return fondu(norm(x * enveloppe(len(tt), 0.05, 0.4, 0.8), 0.85), 0.03)
+
+
+def ai_mort():
+    d = 2.8
+    tt = t(d)
+    f = 600 * np.exp(-tt / 1.0) + 80
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt / 1.2) * 0.4 + (passe_bas(bruit(d, 76), 4000) - passe_bas(bruit(d, 76), 800)) * np.exp(-tt / 1.4)
+    return fondu(norm(x, 0.85), 0.1)
+
+
 SONS = {
     'bourdon': ('Bourdonnement de la Reine-guêpe', bourdon),
     'bourdon_aigu': ('Bourdonnement de guêpe soldat', bourdon_aigu),
@@ -313,6 +424,18 @@ SONS = {
     'grondement_demon': ('Grondement du Démon noir', grondement_demon),
     'rugissement_demon': ('Rugissement du Démon noir', rugissement_demon),
     'demon_mort': ('Le Démon noir tombe', demon_mort),
+    'grondement_abyssal': ('Grondement des abysses', grondement_abyssal),
+    'cri_kraken': ('Cri du Kraken', cri_kraken),
+    'kraken_mort': ('Le Kraken sombre', kraken_mort),
+    'sifflement_sable': ('Le sable siffle', sifflement_sable),
+    'cri_calamar': ('Cri du Calamar des sables', cri_calamar),
+    'calamar_mort': ('Le Calamar des sables s\'effondre', calamar_mort),
+    'bouillonnement': ('La lave bouillonne', bouillonnement),
+    'rugissement_lave': ('Rugissement du Démon de lave', rugissement_lave),
+    'lave_mort': ('Le Démon de lave s\'éteint', lave_mort),
+    'chuchotement': ("Chuchotements d'Aï", chuchotement),
+    'cri_ai': ("Cri d'Aï", cri_ai),
+    'ai_mort': ('Aï se dissipe', ai_mort),
 }
 
 

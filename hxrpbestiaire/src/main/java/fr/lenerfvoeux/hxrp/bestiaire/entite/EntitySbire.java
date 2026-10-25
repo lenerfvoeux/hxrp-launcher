@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
  * (dard), à l'arc (garde ses distances), au bouclier (bloque les coups de face).
  */
 public abstract class EntitySbire extends EntityMob implements Bestiole {
-    public enum Comportement { CONTACT, VOL, ARCHER, BOUCLIER }
+    public enum Comportement { CONTACT, VOL, ARCHER, BOUCLIER, NAGE }
 
     private static final DataParameter<String> ANIM = EntityDataManager.createKey(EntitySbire.class, DataSerializers.STRING);
     private static final DataParameter<Integer> ANIM_N = EntityDataManager.createKey(EntitySbire.class, DataSerializers.VARINT);
@@ -154,7 +154,17 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
 
     @Override
     public void fall(float distance, float multiplicateur) {
-        if (comportement != Comportement.VOL) super.fall(distance, multiplicateur);
+        if (comportement != Comportement.VOL && comportement != Comportement.NAGE) super.fall(distance, multiplicateur);
+    }
+
+    @Override
+    public boolean isPushedByWater() {
+        return comportement != Comportement.NAGE;
+    }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return comportement == Comportement.NAGE;
     }
 
     @Override
@@ -188,6 +198,17 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
 
     @Override
     public void travel(float strafe, float vertical, float forward) {
+        if (comportement == Comportement.NAGE && isServerWorld()) {
+            // dans l'eau il nage librement ; hors de l'eau, il retombe et se traîne
+            setNoGravity(isInWater());
+            if (isInWater()) {
+                move(MoverType.SELF, motionX, motionY, motionZ);
+                motionX *= 0.85;
+                motionY *= 0.85;
+                motionZ *= 0.85;
+                return;
+            }
+        }
         if (comportement == Comportement.VOL && isServerWorld()) {
             move(MoverType.SELF, motionX, motionY, motionZ);
             motionX *= 0.9;
@@ -247,11 +268,20 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
         recharge--;
         if (comportementPropre()) return;
         if (cible == null) {
-            if (comportement == Comportement.VOL) planer(posX, posY, posZ);
+            if (comportement == Comportement.VOL || (comportement == Comportement.NAGE && isInWater())) planer(posX, posY, posZ);
             return;
         }
         double d = getDistance(cible);
         switch (comportement) {
+            case NAGE:
+                if (!isInWater()) {
+                    if (ticksExisted % 10 == 0 || getNavigator().noPath()) getNavigator().tryMoveToEntityLiving(cible, 0.6);
+                } else {
+                    planer(cible.posX, Math.min(cible.posY + cible.height * 0.4, posY + 1), cible.posZ);
+                }
+                faceA(cible);
+                if (d < width / 2 + 1.8 && recharge <= 0 && tAttaque < 0) attaquer();
+                break;
             case VOL:
                 planer(cible.posX, cible.posY + cible.height * 0.6, cible.posZ);
                 faceA(cible);

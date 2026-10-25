@@ -152,5 +152,89 @@
   "sounds": [
    "hxrpbestiaire:demon_mort"
   ]
+ },
+ "grondement_abyssal": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.grondement_abyssal",
+  "sounds": [
+   "hxrpbestiaire:grondement_abyssal"
+  ]
+ },
+ "cri_kraken": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.cri_kraken",
+  "sounds": [
+   "hxrpbestiaire:cri_kraken"
+  ]
+ },
+ "kraken_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.kraken_mort",
+  "sounds": [
+   "hxrpbestiaire:kraken_mort"
+  ]
+ },
+ "sifflement_sable": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.sifflement_sable",
+  "sounds": [
+   "hxrpbestiaire:sifflement_sable"
+  ]
+ },
+ "cri_calamar": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.cri_calamar",
+  "sounds": [
+   "hxrpbestiaire:cri_calamar"
+  ]
+ },
+ "calamar_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.calamar_mort",
+  "sounds": [
+   "hxrpbestiaire:calamar_mort"
+  ]
+ },
+ "bouillonnement": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.bouillonnement",
+  "sounds": [
+   "hxrpbestiaire:bouillonnement"
+  ]
+ },
+ "rugissement_lave": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.rugissement_lave",
+  "sounds": [
+   "hxrpbestiaire:rugissement_lave"
+  ]
+ },
+ "lave_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.lave_mort",
+  "sounds": [
+   "hxrpbestiaire:lave_mort"
+  ]
+ },
+ "chuchotement": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.chuchotement",
+  "sounds": [
+   "hxrpbestiaire:chuchotement"
+  ]
+ },
+ "cri_ai": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.cri_ai",
+  "sounds": [
+   "hxrpbestiaire:cri_ai"
+  ]
+ },
+ "ai_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.ai_mort",
+  "sounds": [
+   "hxrpbestiaire:ai_mort"
+  ]
  }
 }

@@ -845,6 +845,321 @@ TEXTURES_BLOCS.update(TEXTURES_BLOCS_LOT2)
 TEXTURES_BLOCS.update({'toile_de_xerra': tex_toile_xerra, 'graine_piege': tex_graine})
 
 
+# ============================================================================ lot 3 : butins (32×32)
+def encre_des_abysses():
+    """Une fiole d'encre noire aux reflets violets, bouchon de liège, une goutte qui perle."""
+    im = bocal((14, 8, 22), (120, 60, 170), (150, 110, 70))
+    px = im.load()
+    for (x, y) in ((24, 26), (24, 27), (25, 27)):
+        px[x, y] = (30, 14, 40, 255)
+    return im
+
+
+def tentacule_de_kraken():
+    """Un tronçon de tentacule vert et violet, ventouses pâles, qui s'enroule."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    pts = [(16 + 11 * math.cos(t * 4.2) * (1 - t * 0.6), 16 + 11 * math.sin(t * 4.2) * (1 - t * 0.6), t) for t in [i / 90 for i in range(91)]]
+    for x0, y0, t in pts:
+        r = 3.6 * (1 - t) + 0.8
+        for y in range(32):
+            for x in range(32):
+                d = math.hypot(x + 0.5 - x0, y + 0.5 - y0)
+                if d <= r:
+                    c = mix((70, 150, 60), (90, 40, 110), (math.sin(t * 20) + 1) / 2 * 0.5)
+                    px[x, y] = tuple(min(255, int(v * (1 - 0.35 * d / r))) for v in c) + (255,)
+    for i in range(0, 90, 9):
+        x0, y0, t = pts[i]
+        xx, yy = int(x0 + 1), int(y0 + 1)
+        if 0 <= xx < 32 and 0 <= yy < 32:
+            px[xx, yy] = (230, 200, 220, 255)
+    return contour(im)
+
+
+def bile_des_sables():
+    """Un bocal de bile jaune-ocre, trouble, couvercle de cuir."""
+    im = bocal((200, 160, 40), (250, 230, 140), (110, 70, 40), etiquette=(220, 200, 160))
+    return im
+
+
+def chair_de_calamar_des_sables():
+    """Un morceau de chair de calamar, rose sable, ventouses, croûte de sable."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    rnd = random.Random(41)
+    for y in range(32):
+        for x in range(32):
+            dx, dy = (x + 0.5 - 16) / 12, (y + 0.5 - 17) / 8
+            r = math.hypot(dx, dy) + 0.1 * math.sin(x * 0.8)
+            if r > 1:
+                continue
+            c = mix((230, 170, 150), (180, 110, 100), r)
+            if rnd.random() < 0.12:
+                c = mix(c, (210, 180, 120), 0.6)
+            px[x, y] = c + (255,)
+    for (x, y) in ((10, 15), (15, 13), (20, 16), (13, 19), (19, 20)):
+        for dx, dy in ((0, 0), (1, 0), (0, 1), (1, 1)):
+            px[x + dx, y + dy] = (250, 220, 210, 255) if (dx, dy) == (0, 0) else (200, 140, 130, 255)
+    return contour(im)
+
+
+def braise_demoniaque():
+    """Une braise noire veinée de feu, qui rougeoie."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    for y in range(32):
+        for x in range(32):
+            dx, dy = (x + 0.5 - 16) / 10, (y + 0.5 - 17) / 9
+            r = math.hypot(dx, dy) + 0.12 * math.sin(x * 1.3) * math.cos(y * 0.9)
+            if r > 1:
+                continue
+            c = mix((60, 20, 16), (24, 10, 10), r)
+            if abs(math.sin(x * 0.7 + y * 0.5)) < 0.18 or abs(math.sin(x * 0.4 - y * 0.8)) < 0.12:
+                c = mix((255, 200, 60), (255, 80, 20), r)
+            px[x, y] = c + (255,)
+    for (x, y) in ((16, 4), (12, 6), (20, 5), (17, 2)):
+        px[x, y] = (255, 140, 40, 220)
+    return contour(im)
+
+
+def sel_de_lave():
+    """Un petit tas de cristaux de sel orangés, brillants."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    rnd = random.Random(43)
+    for i in range(12):
+        x, y = 6 + rnd.random() * 20, 16 + rnd.random() * 10
+        t = 2 + rnd.random() * 3
+        c = mix((255, 170, 60), (220, 90, 30), rnd.random())
+        d.polygon([(x, y - t * 1.5), (x + t, y), (x, y + t * 0.6), (x - t, y)], fill=c + (255,))
+        d.line([(x, y - t * 1.5), (x, y)], fill=(255, 230, 160, 255))
+    return contour(im)
+
+
+def ectoplasme_sombre():
+    """Une volute d'ectoplasme noir aux franges violettes, qui flotte."""
+    im = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+    px = im.load()
+    for y in range(32):
+        for x in range(32):
+            dx, dy = (x + 0.5 - 16) / 11, (y + 0.5 - 15) / 10
+            r = math.hypot(dx, dy) + 0.18 * math.sin(x * 0.6 + y * 0.4)
+            if r > 1:
+                continue
+            a = int(255 * min(1, (1 - r) * 3))
+            c = mix((20, 14, 30), (120, 50, 170), r ** 2)
+            px[x, y] = c + (a,)
+    for (x, y) in ((12, 11), (13, 11), (19, 12)):
+        px[x, y] = (200, 120, 255, 255)
+    for i in range(6):
+        px[14 + i % 3, 25 + i // 3] = (70, 30, 100, 160)
+    return im
+
+
+OEUFS_LOT3 = {
+    'kraken': (0x2B1B3A, 0x5BD04A, 'pustules'),
+    'calamar_des_sables': (0xC9A35A, 0x7A4A1E, 'rayures'),
+    'demon_de_lave': (0x3A0C08, 0xFF6A10, 'runes'),
+    'ai': (0x14121A, 0x8A2BE2, 'pustules'),
+}
+
+
+def projectile_magma():
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    disque(px, 8, 8, 6, lambda x, y, k: mix((255, 220, 90), (200, 40, 10), k), 16, 16)
+    for (x, y) in ((6, 9), (9, 6), (10, 10)):
+        px[x, y] = (60, 20, 10, 255)
+    return im
+
+
+def icone_inverse():
+    """Icône du vœu maudit (18×18) : deux flèches qui se croisent, violettes."""
+    im = Image.new('RGBA', (18, 18), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.line((3, 5, 14, 5), fill=(200, 140, 255, 255), width=2)
+    d.polygon([(14, 2), (17, 5), (14, 8)], fill=(200, 140, 255, 255))
+    d.line((3, 12, 14, 12), fill=(150, 80, 220, 255), width=2)
+    d.polygon([(3, 9), (0, 12), (3, 15)], fill=(150, 80, 220, 255))
+    return contour(im, (30, 10, 50))
+
+
+# ============================================================================ lot 3 : appâts
+def tex_douelle():
+    """Douelles de tonneau : bois brun, cerclage de fer."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(47)
+    for y in range(16):
+        for x in range(16):
+            c = mix((130, 90, 50), (100, 66, 36), rnd.random() * 0.5 + (x % 4 == 0) * 0.3)
+            if y in (2, 3, 12, 13):
+                c = (80, 80, 86)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_poisson():
+    """Poissons entassés : écailles argentées, nageoires."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(53)
+    for y in range(16):
+        for x in range(16):
+            c = mix((170, 190, 200), (110, 130, 150), rnd.random() * 0.6)
+            if (x + y * 2) % 7 == 0:
+                c = (220, 230, 235)
+            if (x * 3 + y) % 11 == 0:
+                c = (200, 100, 70)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_peau_tambour():
+    """Peau tendue du tambour : beige, motifs peints."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            d = math.hypot(x + 0.5 - 8, y + 0.5 - 8)
+            c = mix((230, 210, 170), (200, 175, 130), d / 11)
+            if abs(d - 5) < 0.6 or (abs(x - 7.5) < 0.6 and d < 5):
+                c = (150, 60, 30)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_fut_tambour():
+    """Fût du tambour : bois rouge sombre, cordages."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            c = mix((140, 60, 40), (100, 40, 28), (x % 3) / 3)
+            if (x + y) % 6 == 0 or (x - y) % 6 == 0:
+                c = (210, 190, 140)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_obsidienne():
+    """Obsidienne : noir violacé, éclats brillants, veines de lave."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    rnd = random.Random(59)
+    for y in range(16):
+        for x in range(16):
+            c = mix((30, 20, 40), (14, 8, 20), rnd.random())
+            if rnd.random() < 0.06:
+                c = (120, 90, 170)
+            if abs(math.sin(x * 0.9 + y * 0.3)) < 0.07:
+                c = (255, 120, 30)
+            px[x, y] = c + (255,)
+    return im
+
+
+def tex_fer_lanterne():
+    """Fer noir de la lanterne."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            px[x, y] = mix((50, 50, 56), (30, 30, 34), ((x + y) % 4) / 4) + (255,)
+    return im
+
+
+def tex_flamme_noire():
+    """Flamme noire dans la lanterne : cœur noir, liseré violet."""
+    im = Image.new('RGBA', (16, 16))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            d = math.hypot((x + 0.5 - 8) / 4, (y + 0.5 - 10) / 6)
+            c = mix((10, 6, 14), (130, 60, 200), max(0, d - 0.4)) if d < 1.2 else (40, 30, 50)
+            px[x, y] = c + (255,)
+    return im
+
+
+def modele_tonneau():
+    el = [
+        boite((3, 0, 3), (13, 12, 13), '#douelle', '#douelle'),
+        boite((2.5, 1, 2.5), (13.5, 3, 13.5), '#douelle'),
+        boite((2.5, 9, 2.5), (13.5, 11, 13.5), '#douelle'),
+        boite((4, 12, 4), (12, 13, 12), '#poisson', faces=('up', 'north', 'south', 'west', 'east')),     # poissons qui débordent
+        boite((6, 13, 5), (11, 14.5, 7), '#poisson'),
+        boite((5, 13, 9), (9, 14, 11), '#poisson'),
+        boite((11, 12, 7), (14.5, 13, 8), '#poisson', rot={'origin': [12, 12, 7.5], 'axis': 'y', 'angle': 22.5}),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_douelle', 'douelle': 'hxrpbestiaire:blocks/appat_douelle',
+           'poisson': 'hxrpbestiaire:blocks/appat_poisson'}
+    return el, tex
+
+
+def modele_tambour():
+    el = [
+        boite((2, 0, 2), (14, 10, 14), '#fut', '#peau'),
+        boite((1.5, 9, 1.5), (14.5, 10.5, 14.5), '#fut', '#peau'),
+        boite((1.5, 0, 1.5), (14.5, 1.5, 14.5), '#fut'),
+        # deux baguettes posées sur la peau
+        boite((4, 10.5, 6), (13, 11.5, 7), '#fut', rot={'origin': [8, 10.5, 6.5], 'axis': 'y', 'angle': 22.5}),
+        boite((4, 10.5, 9), (12, 11.5, 10), '#fut', rot={'origin': [8, 10.5, 9.5], 'axis': 'y', 'angle': -22.5}),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_fut', 'fut': 'hxrpbestiaire:blocks/appat_fut', 'peau': 'hxrpbestiaire:blocks/appat_peau'}
+    return el, tex
+
+
+def modele_idole():
+    el = [
+        boite((4, 0, 4), (12, 3, 12), '#obsidienne'),                     # socle
+        boite((5, 3, 5), (11, 11, 11), '#obsidienne'),                    # corps
+        boite((4.5, 11, 4.5), (11.5, 15, 11.5), '#obsidienne'),           # tête
+        boite((3.5, 14, 6.5), (4.5, 16, 9.5), '#obsidienne'),             # cornes
+        boite((11.5, 14, 6.5), (12.5, 16, 9.5), '#obsidienne'),
+        boite((6, 12.5, 4.4), (7, 13.5, 4.5), '#lave', faces=('north',)),  # yeux de lave
+        boite((9, 12.5, 4.4), (10, 13.5, 4.5), '#lave', faces=('north',)),
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_obsidienne', 'obsidienne': 'hxrpbestiaire:blocks/appat_obsidienne',
+           'lave': 'minecraft:blocks/lava_still'}
+    return el, tex
+
+
+def modele_lanterne():
+    el = [
+        boite((5, 0, 5), (11, 1, 11), '#fer'),
+        boite((5.5, 1, 5.5), (10.5, 8, 10.5), '#flamme'),                 # la flamme noire, derrière les montants
+        boite((5, 1, 5), (6, 8, 6), '#fer'), boite((10, 1, 5), (11, 8, 6), '#fer'),
+        boite((5, 1, 10), (6, 8, 11), '#fer'), boite((10, 1, 10), (11, 8, 11), '#fer'),
+        boite((5, 8, 5), (11, 9, 11), '#fer'),
+        boite((6.5, 9, 6.5), (9.5, 10, 9.5), '#fer'),
+        boite((7.5, 10, 7.5), (8.5, 12, 8.5), '#fer'),                    # anneau
+    ]
+    tex = {'particle': 'hxrpbestiaire:blocks/appat_fer', 'fer': 'hxrpbestiaire:blocks/appat_fer', 'flamme': 'hxrpbestiaire:blocks/appat_flamme'}
+    return el, tex
+
+
+BUTINS.update({
+    'encre_des_abysses': encre_des_abysses,
+    'tentacule_de_kraken': tentacule_de_kraken,
+    'bile_des_sables': bile_des_sables,
+    'chair_de_calamar_des_sables': chair_de_calamar_des_sables,
+    'braise_demoniaque': braise_demoniaque,
+    'sel_de_lave': sel_de_lave,
+    'ectoplasme_sombre': ectoplasme_sombre,
+})
+OEUFS.update(OEUFS_LOT3)
+PROJECTILES_LOT2['magma'] = projectile_magma
+APPATS.update({
+    'tonneau_appat_poisson': modele_tonneau,
+    'tambour_des_sables': modele_tambour,
+    'idole_d_obsidienne': modele_idole,
+    'lanterne_des_voeux': modele_lanterne,
+})
+TEXTURES_BLOCS.update({
+    'appat_douelle': tex_douelle, 'appat_poisson': tex_poisson, 'appat_peau': tex_peau_tambour, 'appat_fut': tex_fut_tambour,
+    'appat_obsidienne': tex_obsidienne, 'appat_fer': tex_fer_lanterne, 'appat_flamme': tex_flamme_noire,
+})
+
+
 # ============================================================================ traductions
 NOMS = {
     'itemGroup.hxrpbestiaire': 'HxRP · Bestiaire',
@@ -895,6 +1210,29 @@ NOMS = {
     'entity.hxrpbestiaire.gobelin_archer.name': 'Gobelin archer',
     'entity.hxrpbestiaire.demon_noir.name': 'Démon noir du Continent noir',
     'effect.hxrpbestiaire.givre': 'Sol gelé',
+    # lot 3
+    'tile.hxrpbestiaire.tonneau_appat_poisson.name': "Tonneau d'appât de poisson",
+    'tile.hxrpbestiaire.tambour_des_sables.name': 'Tambour des sables',
+    'tile.hxrpbestiaire.idole_d_obsidienne.name': "Idole d'obsidienne",
+    'tile.hxrpbestiaire.lanterne_des_voeux.name': 'Lanterne des vœux',
+    'item.hxrpbestiaire.oeuf_kraken.name': 'Œuf de Kraken',
+    'item.hxrpbestiaire.oeuf_calamar_des_sables.name': 'Œuf de Calamar des sables',
+    'item.hxrpbestiaire.oeuf_demon_de_lave.name': 'Œuf du Démon de lave',
+    'item.hxrpbestiaire.oeuf_ai.name': "Œuf d'Aï",
+    'item.hxrpbestiaire.encre_des_abysses.name': 'Encre des abysses',
+    'item.hxrpbestiaire.tentacule_de_kraken.name': 'Tentacule de kraken',
+    'item.hxrpbestiaire.bile_des_sables.name': 'Bile des sables',
+    'item.hxrpbestiaire.chair_de_calamar_des_sables.name': 'Chair de calamar des sables',
+    'item.hxrpbestiaire.braise_demoniaque.name': 'Braise démoniaque',
+    'item.hxrpbestiaire.sel_de_lave.name': 'Sel de lave',
+    'item.hxrpbestiaire.ectoplasme_sombre.name': 'Ectoplasme sombre',
+    'item.hxrpbestiaire.projectile_magma.name': 'Boule de magma',
+    'entity.hxrpbestiaire.kraken.name': 'Kraken des abysses',
+    'entity.hxrpbestiaire.petit_kraken.name': 'Petit kraken',
+    'entity.hxrpbestiaire.calamar_des_sables.name': 'Calamar des sables',
+    'entity.hxrpbestiaire.demon_de_lave.name': 'Démon de lave',
+    'entity.hxrpbestiaire.ai.name': 'Aï, forme de vie gazeuse',
+    'effect.hxrpbestiaire.inverse': 'Vœu maudit',
 }
 
 
@@ -933,6 +1271,7 @@ def tout(assets):
     gui = os.path.join(assets, 'textures', 'gui')
     os.makedirs(gui, exist_ok=True)
     icone_givre().save(os.path.join(gui, 'givre.png'))
+    icone_inverse().save(os.path.join(gui, 'inverse.png'))
     texte = '# HxRP Bestiaire (écrit par tools/bestiaire/gen.py)\n' + ''.join('%s=%s\n' % kv for kv in NOMS.items())
     import sons
     texte += ''.join('subtitles.hxrpbestiaire.%s=%s\n' % (k, v[0]) for k, v in sons.SONS.items())

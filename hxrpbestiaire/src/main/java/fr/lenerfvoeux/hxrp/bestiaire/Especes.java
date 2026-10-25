@@ -1,6 +1,10 @@
 package fr.lenerfvoeux.hxrp.bestiaire;
 
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityAbomination;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityAi;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityCalamarDesSables;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityDemonDeLave;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityKraken;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityDemonNoir;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityNecromancien;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityReineGuepe;
@@ -11,7 +15,9 @@ import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityArcherSquelette;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGobelinArcher;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGobelinBouclier;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGuepeSoldat;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityPetitKraken;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityRatDesGlaces;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.EnumParticleTypes;
 
@@ -20,7 +26,7 @@ import java.util.List;
 
 /**
  * Les espèces du bestiaire. Numéros d'entité : 0-49 boss et sbires, 50+ projectiles (voir Registre).
- * Les boss qui n'y sont pas encore arriveront par lots (la Baleine est reportée).
+ * Onze boss, en trois lots ; la Baleine est reportée.
  */
 public final class Especes {
     public static final List<Espece> TOUTES = new ArrayList<>();
@@ -75,6 +81,34 @@ public final class Especes {
             .appat("carcasse_de_sanglier", "Carcasse de sanglier", Espece.Arrivee.SAUT, "au sol",
                     "Des corbeaux tournent au-dessus de la carcasse…", "atterrit d'un saut sur la carcasse et la dévore !", EnumParticleTypes.SMOKE_NORMAL)
             .oeuf(0x1A1420, 0xE0A070).lieu("Ruines du Continent noir");
+
+    public static final Espece KRAKEN = boss("kraken", "Kraken des abysses", "kraken", EntityKraken.class, 12)
+            .taille(5.0F, 5.0F).nage(Material.WATER, 0F).anims("low_idle", "low_walk", "low_immerse").apparition("emerge").cacher("vfx_blade")
+            .appat("tonneau_appat_poisson", "Tonneau d'appât de poisson", Espece.Arrivee.SUR_PLACE, "sur l'eau profonde",
+                    "L'eau se met à bouillonner autour du tonneau…", "émerge sous le tonneau et le broie !", EnumParticleTypes.WATER_SPLASH)
+            .oeuf(0x2B1B3A, 0x5BD04A).lieu("Océan profond");
+    /** Petit kraken : le Kraken en petit. */
+    public static final Espece PETIT_KRAKEN = sbire("petit_kraken", "Petit kraken", "kraken", EntityPetitKraken.class, 13)
+            .taille(0.9F, 0.8F).echelle(0.12F).anims("low_idle", "low_walk", "low_immerse").cacher("vfx_blade").sbireDe("kraken");
+
+    public static final Espece CALAMAR_DES_SABLES = boss("calamar_des_sables", "Calamar des sables", "calamar_des_sables", EntityCalamarDesSables.class, 14)
+            .taille(4.5F, 8.0F).anims("idle", "walk", "low_immerse").apparition("emerge").cacher("vfx_blade")
+            .appat("tambour_des_sables", "Tambour des sables", Espece.Arrivee.SUR_PLACE, "sur le sable",
+                    "Le tambour bat tout seul, le sol se met à vibrer…", "surgit du sable sous le tambour et l'avale !", EnumParticleTypes.CLOUD)
+            .oeuf(0xC9A35A, 0x7A4A1E).lieu("Désert");
+
+    public static final Espece DEMON_DE_LAVE = boss("demon_de_lave", "Démon de lave", "demon_de_lave", EntityDemonDeLave.class, 15)
+            .taille(4.0F, 9.0F).nage(Material.LAVA, -3F).anims("idle", "idle", "death").apparition("surgissement")
+            .appat("idole_d_obsidienne", "Idole d'obsidienne", Espece.Arrivee.SUR_PLACE, "à moins de 3 blocs de la lave",
+                    "La lave se met à bouillonner…", "sort du lac de lave et fracasse l'idole !", EnumParticleTypes.LAVA)
+            .oeuf(0x3A0C08, 0xFF6A10).lieu("Lac de lave");
+
+    public static final Espece AI = boss("ai", "Aï, forme de vie gazeuse", "ai", EntityAi.class, 16)
+            .taille(2.0F, 6.2F).vol().apparition("formation")
+            .appat("lanterne_des_voeux", "Lanterne des vœux", Espece.Arrivee.SUR_PLACE, "la nuit, dans un marais",
+                    "Le brouillard monte, la flamme noire de la lanterne vacille…", "se forme dans la brume et éteint la lanterne !",
+                    EnumParticleTypes.SMOKE_LARGE)
+            .oeuf(0x14121A, 0x8A2BE2).lieu("Marais de Numere, la nuit");
 
     private Especes() {}
 

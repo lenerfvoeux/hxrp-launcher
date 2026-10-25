@@ -1,11 +1,11 @@
-# HxRP Bestiaire (0.2.0)
+# HxRP Bestiaire (0.3.0)
 
 Mod Forge 1.12.2 séparé (`modid` `hxrpbestiaire`, Java 8) : **les boss de HxRP**, animés avec **GeckoLib 3**
 (`geckolib-forge-1.12.2-3.0.31`, déjà présent sur le serveur — il doit aussi l'être chez les joueurs).
 Le jar va côté **client et serveur**. Il ne dépend ni de `hxrpmetiers` ni de `hxrpphenix`, mais s'en sert s'ils sont là.
 
-Deux lots sont là : **la Reine-guêpe, l'Abomination et le Nécromancien**, puis **Xerra, le Roi des glaces et le
-Démon noir**. Le dernier lot (Kraken, Calamar des sables, Démon de lave, Aï) arrive ensuite. La Baleine est reportée.
+Trois lots sont là : **la Reine-guêpe, l'Abomination et le Nécromancien**, puis **Xerra, le Roi des glaces et le
+Démon noir**, puis **le Kraken, le Calamar des sables, le Démon de lave et Aï**. La Baleine est reportée.
 
 ## Ce que les boss ont en commun
 
@@ -150,9 +150,92 @@ S'il **heurte un mur** pendant un saut ou une charge, il reste **étourdi** prè
 c'est la fenêtre pour le frapper.
 Butin : 1-2 **cornes du démon noir**.
 
+## Lot 3
+
+### Kraken des abysses — 6000 PV, trois phases
+
+Un poulpe géant (≈ 5 blocs) qui **ne quitte jamais l'eau** : il se tient à la surface, tête et tentacules dressés, et
+s'arrête au bord. **Appât : tonneau d'appât de poisson**, à poser **sur l'eau profonde** (au moins 4 blocs d'eau
+dessous ; clic droit en visant l'eau). Signe : « L'eau se met à bouillonner autour du tonneau… » ; il **émerge sous le
+tonneau** et le broie.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Tentacules 1 à 3** | frappes de tentacules ; la troisième balaie large et **repousse** |
+| **Plongée** | il disparaît sous l'eau et ressort ailleurs, près de sa cible |
+| **Rayon** | un jet d'eau sous pression, droit sur un joueur |
+| **Charge** | il fonce à la surface ; **frappé 3 fois pendant sa charge**, il s'arrête net, **étourdi** près de 5 s, et encaisse 50 % de dégâts en plus |
+| **Double rayon** (phase 2) | deux jets qui **balaient tout l'horizon** |
+| **Ponte** (phase 2) | des œufs éclosent : **2 à 4 petits krakens**, qui nagent |
+| **Nuage d'encre** (phase 2) | une nappe noire qui **aveugle** 5 s autour de lui |
+| **Saisie** (phase 2) | il attrape un joueur, le tient en l'air, puis le **projette** |
+| **Réveil des abysses** (à 0 PV) | il coule, puis remonte avec **toute sa vie** (phase 3) |
+| **Rage des abysses** (phase 3) | longue charge qui finit sous l'eau ; il ressort plus loin. Ses rayons reviennent **deux fois plus vite** |
+
+Butin : 1-3 **encres des abysses**, 2-4 **tentacules de kraken**.
+
+### Calamar des sables — 5000 PV
+
+Un calamar géant (≈ 8 blocs) qui vit **sous le sable**. **Appât : tambour des sables**, à poser **sur le sable**.
+Signe : « Le tambour bat tout seul… » ; il **surgit du sable sous le tambour** et l'avale.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Surgissement** | il s'enfouit, puis **jaillit sous un joueur** et le **projette** en l'air |
+| **Tentacules** | une des trois frappes de tentacules |
+| **Rayon de sable** | un jet de sable qui **aveugle** 2 s |
+| **Enfouissement** | il plonge dans le sable et change de place |
+| **Charge longue** (phase 2) | il traverse l'arène ; s'il **heurte un mur**, il reste **étourdi**, tentacules au sol |
+| **Double rayon** (phase 2) | deux jets qui **se croisent** sur la cible |
+| **Tempête de sable** (phase 2) | un tourbillon autour de lui qui blesse et **aveugle** |
+| **Aspiration** (phase 2) | il **attire** les joueurs vers sa gueule |
+
+Il ne peut surgir que sous un **sol meuble** (sable, terre, herbe, argile, neige) : sur du grès ou de la pierre, il
+remonte à côté. C'est l'endroit où se mettre à l'abri.
+Butin : 1-3 **biles des sables**, 2-4 **chairs de calamar des sables**.
+
+### Démon de lave — 6000 PV
+
+Un colosse de roche en fusion (≈ 9 blocs) qui **ne quitte jamais la lave** : il se tient dans le lac, la lave aux
+genoux. **Immunisé au feu.** **Appât : idole d'obsidienne**, à poser **à moins de 3 blocs de la lave**. Signe :
+« La lave se met à bouillonner… » ; il **sort du lac de lave** et fracasse l'idole.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Rayon de feu** | un rayon qui suit un joueur et l'**enflamme** |
+| **Plongée dans la lave** | il disparaît dans le lac et ressort ailleurs |
+| **Coup de poing** | pour ceux qui s'approchent du bord |
+| **Balayage du bras** | un grand revers qui **projette** |
+| **Double rayon** (phase 2) | deux rayons qui balaient l'arène |
+| **Rugissement volcanique** (phase 2) | il rugit et **la lave pleut** autour du lac |
+| **Jets de magma** (phase 2) | trois boules de magma ; chacune laisse une **flaque de feu** au sol pendant 8 s |
+
+Les flaques de feu ne sont pas de vrais feux : elles **ne brûlent aucun bloc** et s'éteignent seules.
+Butin : 1-3 **braises démoniaques**, 3-6 **sels de lave**.
+
+### Aï, forme de vie gazeuse — 3500 PV
+
+Une silhouette d'ombre très fine (≈ 6 blocs) qui flotte et **traverse les blocs** : impossible à coincer. **Appât :
+lanterne des vœux**, à poser **la nuit, dans un marais**. Signe : « Le brouillard monte, la flamme noire de la lanterne
+vacille… » ; il **se forme dans la brume** et éteint la lanterne.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Aspiration d'aura** | il **draine la vie et la faim** des joueurs proches |
+| **Griffes d'ombre** | des griffes qui **aveuglent** 1 s |
+| **Grande aspiration** (phase 2) | deux fois plus loin, et **chaque joueur drainé le soigne** |
+| **Cri** (phase 2) | **nausée** et **faiblesse** |
+| **Disparition** (phase 2) | il devient **invisible** 4 s, puis reparaît **dans le dos** d'un joueur et frappe |
+| **Vœu maudit** (phase 2) | un effet néfaste au hasard : lenteur, faim, cécité, faiblesse, nausée ou **contrôles inversés** (effet « Vœu maudit ») |
+
+**La lumière est son point faible** : plus l'endroit est éclairé, plus son aspiration est courte, et une lumière vive
+(niveau 12 et plus : torches, feu) le **blesse**. Apparu la nuit, il **se dissipe à l'aube**, sans être vaincu (et sans butin).
+Butin : 1-3 **ectoplasmes sombres**.
+
 ## Commandes (permission 2)
 
-Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`, `/xerra`, `/roi_des_glaces`, `/demon_noir`) :
+Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`, `/xerra`, `/roi_des_glaces`, `/demon_noir`,
+`/kraken`, `/calamar_des_sables`, `/demon_de_lave`, `/ai`) :
 
 | Commande | Effet |
 |---|---|
@@ -170,7 +253,10 @@ Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`, `/xe
 Les appâts, puis les œufs, puis les butins. Les butins sont des ingrédients : les autres mods y font référence par
 leur id (`hxrpbestiaire:dard_de_reine`, `hxrpbestiaire:gelee_royale_noire`, `hxrpbestiaire:miel_noir`,
 `hxrpbestiaire:chair_d_abomination`, `hxrpbestiaire:poussiere_d_os_maudite`, `hxrpbestiaire:soie_de_xerra`,
-`hxrpbestiaire:coeur_de_givre_eternel`, `hxrpbestiaire:glace_eternelle`, `hxrpbestiaire:corne_du_demon_noir`).
+`hxrpbestiaire:coeur_de_givre_eternel`, `hxrpbestiaire:glace_eternelle`, `hxrpbestiaire:corne_du_demon_noir`,
+`hxrpbestiaire:encre_des_abysses`, `hxrpbestiaire:tentacule_de_kraken`, `hxrpbestiaire:bile_des_sables`,
+`hxrpbestiaire:chair_de_calamar_des_sables`, `hxrpbestiaire:braise_demoniaque`, `hxrpbestiaire:sel_de_lave`,
+`hxrpbestiaire:ectoplasme_sombre`).
 
 ## Réglages : `config/bestiaire_stats.xlsx`
 

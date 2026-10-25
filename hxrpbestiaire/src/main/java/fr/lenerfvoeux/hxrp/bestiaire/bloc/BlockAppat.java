@@ -64,6 +64,20 @@ public class BlockAppat extends Block {
                 forme = new AxisAlignedBB(0, 0, 0.25, 1, 0.5, 0.9375);
                 setSoundType(SoundType.SLIME);
                 break;
+            case "tonneau_appat_poisson":
+                forme = new AxisAlignedBB(0.1875, 0, 0.1875, 0.8125, 0.875, 0.8125);
+                break;
+            case "tambour_des_sables":
+                forme = new AxisAlignedBB(0.125, 0, 0.125, 0.875, 0.75, 0.875);
+                break;
+            case "idole_d_obsidienne":
+                forme = new AxisAlignedBB(0.25, 0, 0.25, 0.75, 1, 0.75);
+                setSoundType(SoundType.STONE);
+                break;
+            case "lanterne_des_voeux":
+                forme = new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 0.75, 0.6875);
+                setSoundType(SoundType.METAL);
+                break;
             default:
                 forme = new AxisAlignedBB(0.0625, 0, 0.0625, 0.9375, 0.5, 0.9375);
         }

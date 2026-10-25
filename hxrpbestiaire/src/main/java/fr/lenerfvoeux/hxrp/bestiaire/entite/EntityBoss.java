@@ -70,6 +70,10 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     private static final DataParameter<Float> ZY = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
     private static final DataParameter<Float> ZZ = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
     private static final DataParameter<Float> ZR = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
+    /** Second point (le bout du second rayon d'une attaque à deux rayons). */
+    private static final DataParameter<Float> Z2X = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
+    private static final DataParameter<Float> Z2Y = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
+    private static final DataParameter<Float> Z2Z = EntityDataManager.createKey(EntityBoss.class, DataSerializers.FLOAT);
 
     /** Une attaque : l'id du classeur (onglet Attaques), son animation et le moment de son effet. */
     public static final class Coup {
@@ -138,7 +142,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         enablePersistence();
         attributsDePhase(1);
         setHealth(getMaxHealth());
-        if (e.deplacement == Espece.Deplacement.VOL) setNoGravity(true);
+        if (e.sansGravite()) setNoGravity(true);
         stepHeight = Math.max(1.0F, e.hauteur / 4F);
     }
 
@@ -267,6 +271,9 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         dataManager.register(ZY, 0F);
         dataManager.register(ZZ, 0F);
         dataManager.register(ZR, 0F);
+        dataManager.register(Z2X, 0F);
+        dataManager.register(Z2Y, 0F);
+        dataManager.register(Z2Z, 0F);
     }
 
     protected void zone(double x, double y, double z, double r) {
@@ -282,6 +289,16 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
 
     public float rayonZone() {
         return dataManager.get(ZR);
+    }
+
+    protected void zone2(Vec3d p) {
+        dataManager.set(Z2X, (float) p.x);
+        dataManager.set(Z2Y, (float) p.y);
+        dataManager.set(Z2Z, (float) p.z);
+    }
+
+    public Vec3d zone2() {
+        return new Vec3d(dataManager.get(Z2X), dataManager.get(Z2Y), dataManager.get(Z2Z));
     }
 
     @Override
@@ -325,7 +342,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
 
     @Override
     public boolean isPushedByWater() {
-        return espece.deplacement != Espece.Deplacement.VOL;
+        return espece.deplacement == Espece.Deplacement.SOL;
     }
 
     @Override
@@ -335,7 +352,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
 
     @Override
     public void travel(float strafe, float vertical, float forward) {
-        if (espece.deplacement == Espece.Deplacement.VOL && isServerWorld() && hasNoGravity()) {
+        if (espece.sansGravite() && isServerWorld() && hasNoGravity()) {
             move(MoverType.SELF, motionX, motionY, motionZ);
             motionX *= 0.91;
             motionY *= 0.91;
@@ -537,6 +554,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         super.onUpdate();
         if (!world.isRemote) {
             if (!ancre) definirAncre(posX, posY, posZ);
+            if (espece.deplacement == Espece.Deplacement.NAGE && mode() != CACHE && !enSaut()) flotter();
             majBarre();
         } else if (isEntityAlive()) {
             int n = dataManager.get(ANIM_N);
@@ -644,6 +662,17 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     // ================================================================== déplacements
     /** Hors attaque : rejoindre la cible (ou revenir à l'arène). */
     protected void deplacer() {
+        if (espece.deplacement == Espece.Deplacement.NAGE) {
+            if (cible != null) {
+                double a = Math.atan2(posZ - cible.posZ, posX - cible.posX), d = distanceNage();
+                nager(cible.posX + Math.cos(a) * d, cible.posZ + Math.sin(a) * d, 0.35);
+                regarder(cible.posX, cible.posZ, 8F);
+            } else {
+                nager(ax, az, 0.25);
+                suivreCap();
+            }
+            return;
+        }
         if (espece.deplacement == Espece.Deplacement.VOL) {
             if (cible != null) {
                 double a = Math.atan2(posZ - cible.posZ, posX - cible.posX) + 0.02;
@@ -681,6 +710,52 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
             trouve = true;
         }
         return m;
+    }
+
+    /** Boss nageur : distance horizontale qu'il garde avec sa cible. */
+    protected double distanceNage() {
+        return Math.max(3, distanceContact() * 0.8);
+    }
+
+    /**
+     * Surface du liquide de l'espèce dans la colonne (x, z), en cherchant de y + 6 vers le bas sur 20 blocs : le haut du
+     * premier bloc de liquide rencontré ; NaN s'il n'y en a pas (ou si le tronçon n'est pas chargé).
+     */
+    public double surface(double x, double y, double z) {
+        BlockPos.MutableBlockPos b = new BlockPos.MutableBlockPos(MathHelper.floor(x), MathHelper.floor(y) + 6, MathHelper.floor(z));
+        for (int k = 0; k < 20; k++) {
+            if (!world.isBlockLoaded(b)) return Double.NaN;
+            if (world.getBlockState(b).getMaterial() == espece.liquide) return b.getY() + 1;
+            b.setY(b.getY() - 1);
+        }
+        return Double.NaN;
+    }
+
+    /** Nage vers (tx, tz) sans jamais quitter son liquide : il s'arrête au bord. */
+    protected void nager(double tx, double tz, double vitesse) {
+        double dx = tx - posX, dz = tz - posZ, d = Math.sqrt(dx * dx + dz * dz);
+        double vx = 0, vz = 0;
+        if (d > 0.5) {
+            double v = Math.min(vitesse * allure(), d * 0.2);
+            vx = dx / d * v;
+            vz = dz / d * v;
+            // la colonne où il va (bord compris) doit contenir son liquide
+            double bord = width / 2 + 1;
+            if (Double.isNaN(surface(posX + dx / d * bord + vx * 4, posY, posZ + dz / d * bord + vz * 4))) vx = vz = 0;
+        }
+        motionX += (vx - motionX) * 0.15;
+        motionZ += (vz - motionZ) * 0.15;
+    }
+
+    /** Boss nageur : il se tient à sa hauteur de flottaison (sinon, hors de son liquide, il tombe). */
+    protected void flotter() {
+        double s = surface(posX, posY, posZ);
+        if (Double.isNaN(s)) {
+            motionY = Math.max(motionY - 0.08, -0.6);
+            return;
+        }
+        double cible = s + espece.flottaison;
+        motionY += ((cible - posY) * 0.2 - motionY) * 0.4;
     }
 
     /** Boss volant : distance horizontale à sa cible pendant les déplacements. */
@@ -773,7 +848,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     protected void finSaut() {
         bondVers = null;
         noClip = false;
-        if (espece.deplacement != Espece.Deplacement.VOL) setNoGravity(false);
+        if (!espece.sansGravite()) setNoGravity(false);
         motionX = motionY = motionZ = 0;
     }
 
@@ -960,7 +1035,12 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         Stats.Boss s = b.st();
         double nx = nid.getX() + 0.5, ny = nid.getY(), nz = nid.getZ() + 0.5;
         double x = nx, y = ny, z = nz;
-        if (e.arrivee == Espece.Arrivee.PLAFOND) {
+        if (e.arrivee == Espece.Arrivee.SUR_PLACE) {
+            Vec3d p = b.pointDeSurgissement(nid);
+            x = p.x;
+            y = p.y;
+            z = p.z;
+        } else if (e.arrivee == Espece.Arrivee.PLAFOND) {
             // sous le premier bloc plein au-dessus de l'appât (24 blocs au plus) ; à ciel ouvert, 16 blocs plus haut
             int haut = 16;
             for (int k = 3; k <= 24; k++)
@@ -981,7 +1061,8 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         b.setLocationAndAngles(x, y, z, surPlace ? w.rand.nextFloat() * 360F : lacet, 0F);
         b.rotationYawHead = b.rotationYaw;
         b.renderYawOffset = b.rotationYaw;
-        b.definirAncre(nx, ny, nz);
+        if (e.deplacement == Espece.Deplacement.NAGE) b.definirAncre(x, y, z);
+        else b.definirAncre(nx, ny, nz);
         b.appat = nid;
         b.mode(ARRIVEE);
         if (e.arrivee == Espece.Arrivee.SUR_PLACE && !e.apparition.isEmpty()) b.anim(e.apparition);
@@ -990,6 +1071,39 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         HxrpBestiaire.LOG.info("Bestiaire : {} attiré{} par l'appât en {} {} {}, part de {} {} {} ({} blocs)", e.nom, e.e(), nid.getX(), nid.getY(),
                 nid.getZ(), MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z), (int) Math.round(Math.sqrt((x - nx) * (x - nx) + (z - nz) * (z - nz))));
         return b;
+    }
+
+    /** Arrivée sur place : où il surgit (sous l'appât, par défaut ; dans son liquide, pour un nageur). */
+    protected Vec3d pointDeSurgissement(BlockPos appat) {
+        return new Vec3d(appat.getX() + 0.5, appat.getY(), appat.getZ() + 0.5);
+    }
+
+    /** Un de ses projectiles vient de toucher (un bloc ou un joueur) en ce point. */
+    public void surImpact(EntityProjectileBoss p, Vec3d ou) {
+    }
+
+    /**
+     * Un rayon droit depuis {@code o} vers {@code dir}, arrêté par le premier bloc plein : chaque joueur à moins de
+     * {@code largeur} blocs de la ligne est touché (part des dégâts de l'attaque). Rend le bout du rayon.
+     */
+    protected Vec3d rayon(Coup c, Vec3d o, Vec3d dir, double portee, double largeur, float part) {
+        Vec3d fin = o.add(dir.normalize().scale(portee));
+        net.minecraft.util.math.RayTraceResult r = world.rayTraceBlocks(o, fin, false, true, false);
+        if (r != null && r.hitVec != null) fin = r.hitVec;
+        AxisAlignedBB boite = new AxisAlignedBB(o.x, o.y, o.z, fin.x, fin.y, fin.z).grow(largeur + 1);
+        for (EntityPlayer p : world.getEntitiesWithinAABB(EntityPlayer.class, boite)) {
+            if (!valable(p)) continue;
+            Vec3d m = new Vec3d(p.posX, p.posY + p.height / 2, p.posZ);
+            if (distanceSegment(m, o, fin) <= largeur + p.width / 2) toucher(p, c, part);
+        }
+        return fin;
+    }
+
+    protected static double distanceSegment(Vec3d p, Vec3d a, Vec3d b) {
+        Vec3d ab = b.subtract(a);
+        double l2 = ab.lengthSquared();
+        double k = l2 < 1e-9 ? 0 : MathHelper.clamp(p.subtract(a).dotProduct(ab) / l2, 0, 1);
+        return p.distanceTo(a.add(ab.scale(k)));
     }
 
     /** Fait apparaître le boss sur place (œuf, /<boss> invoquer). */
@@ -1108,7 +1222,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     protected void finirArrivee(boolean devorer) {
         if (enSaut()) finSaut();
         noClip = false;
-        if (espece.deplacement != Espece.Deplacement.VOL) setNoGravity(false);
+        if (!espece.sansGravite()) setNoGravity(false);
         if (devorer && appat != null) {
             IBlockState s = world.getBlockState(appat);
             if (Registre.estAppat(s.getBlock())) {
@@ -1121,7 +1235,8 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
                 }
                 annoncer("§c" + espece.nom + " " + espece.arriveeAppat);
             }
-            definirAncre(appat.getX() + 0.5, appat.getY(), appat.getZ() + 0.5);
+            // un nageur garde son arène dans son liquide (l'appât est sur la rive ou à la surface)
+            if (espece.deplacement != Espece.Deplacement.NAGE) definirAncre(appat.getX() + 0.5, appat.getY(), appat.getZ() + 0.5);
         }
         appat = null;
         mode(NORMAL);
@@ -1138,7 +1253,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
 
     private <E extends software.bernie.geckolib3.core.IAnimatable> PlayState predicat(AnimationEvent<E> ev) {
         AnimationBuilder b = new AnimationBuilder();
-        String fond = ev.isMoving() || (espece.deplacement == Espece.Deplacement.VOL && motionX * motionX + motionZ * motionZ > 0.01)
+        String fond = ev.isMoving() || (espece.sansGravite() && motionX * motionX + motionZ * motionZ > 0.01)
                 ? espece.marche : espece.repos;
         if (getHealth() <= 0 || deathTime > 0) {
             b.addAnimation(espece.animation(espece.mort), false);
@@ -1195,7 +1310,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         appat = c.hasKey("Appat") ? BlockPos.fromLong(c.getLong("Appat")) : null;
         mode(c.getBoolean("Arrivee") && appat != null ? ARRIVEE : NORMAL);
         boolean suspendu = mode() == ARRIVEE && espece.arrivee == Espece.Arrivee.PLAFOND;
-        if (espece.deplacement != Espece.Deplacement.VOL && !suspendu) setNoGravity(false);
+        if (!espece.sansGravite() && !suspendu) setNoGravity(false);
         if (mode() == ARRIVEE && espece.arrivee == Espece.Arrivee.SAUT) {
             // le saut d'arrivée ne reprend pas en cours : il est déjà là
             mode(NORMAL);

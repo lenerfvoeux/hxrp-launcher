@@ -33,6 +33,9 @@ def lire(p):
         return f.read()
 
 
+# textures de Minecraft qu'un modèle de bloc du bestiaire peut emprunter
+TEXTURES_VANILLA = {'blocks/lava_still'}
+
 # ---------------------------------------------------------------- espèces
 especes = {}
 src = lire(os.path.join(JAVA, 'Especes.java'))
@@ -252,7 +255,10 @@ for e in especes.values():
             continue
         m = json.load(open(mb))
         for t in m['textures'].values():
-            if not os.path.exists(os.path.join(RES, 'textures', t.split(':')[1] + '.png')):
+            dom, chem = t.split(':', 1)
+            if dom == 'minecraft' and chem in TEXTURES_VANILLA:
+                continue
+            if dom != 'hxrpbestiaire' or not os.path.exists(os.path.join(RES, 'textures', chem + '.png')):
                 err('texture de bloc manquante : ' + t)
         for i, el in enumerate(m['elements']):
             for fa, fd in el['faces'].items():

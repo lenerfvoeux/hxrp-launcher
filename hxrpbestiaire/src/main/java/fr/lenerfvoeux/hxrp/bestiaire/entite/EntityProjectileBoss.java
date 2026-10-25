@@ -35,7 +35,8 @@ public class EntityProjectileBoss extends EntityThrowable {
         FLECHE_GLACE(0.05F, EnumParticleTypes.SNOW_SHOVEL, false, 0, false, 1F),
         ORBE(0F, EnumParticleTypes.SPELL_MOB, true, 0, false, 1.7F),
         METEORE(0.06F, EnumParticleTypes.SMOKE_LARGE, false, 3.5, false, 2.6F),
-        STALACTITE(0.08F, EnumParticleTypes.SNOW_SHOVEL, false, 2.5, false, 2.2F);
+        STALACTITE(0.08F, EnumParticleTypes.SNOW_SHOVEL, false, 2.5, false, 2.2F),
+        MAGMA(0.05F, EnumParticleTypes.FLAME, false, 2.5, false, 1.8F);
 
         public final float gravite;
         public final EnumParticleTypes trainee;
@@ -139,6 +140,7 @@ public class EntityProjectileBoss extends EntityThrowable {
                 world.spawnParticle(t.trainee, posX + (rand.nextDouble() - 0.5) * e, posY + (rand.nextDouble() - 0.5) * e, posZ + (rand.nextDouble() - 0.5) * e,
                         0, 0, 0);
             if (t == Type.METEORE) world.spawnParticle(EnumParticleTypes.SPELL_WITCH, posX, posY, posZ, 0, 0, 0);
+            if (t == Type.MAGMA && rand.nextInt(3) == 0) world.spawnParticle(EnumParticleTypes.LAVA, posX, posY, posZ, 0, 0, 0);
             return;
         }
         if (--vie <= 0) {
@@ -187,6 +189,7 @@ public class EntityProjectileBoss extends EntityThrowable {
             }
         }
         eclat(t.rayonImpact > 0 ? 30 : 12);
+        if (getThrower() instanceof EntityBoss) ((EntityBoss) getThrower()).surImpact(this, new net.minecraft.util.math.Vec3d(posX, posY, posZ));
         setDead();
     }
 
@@ -224,6 +227,10 @@ public class EntityProjectileBoss extends EntityThrowable {
                 case TOILE:
                     ws.spawnParticle(EnumParticleTypes.SNOWBALL, posX, posY, posZ, n, 0.4, 0.4, 0.4, 0.05);
                     break;
+                case MAGMA:
+                    ws.spawnParticle(EnumParticleTypes.LAVA, posX, posY + 0.3, posZ, n / 2, 0.8, 0.2, 0.8, 0.0);
+                    ws.spawnParticle(EnumParticleTypes.FLAME, posX, posY + 0.3, posZ, n, 1.0, 0.3, 1.0, 0.05);
+                    break;
                 default:
                     ws.spawnParticle(EnumParticleTypes.CRIT, posX, posY, posZ, n, 0.2, 0.2, 0.2, 0.05);
             }
@@ -236,6 +243,9 @@ public class EntityProjectileBoss extends EntityThrowable {
                 break;
             case METEORE:
                 s = SoundEvents.ENTITY_GENERIC_EXPLODE;
+                break;
+            case MAGMA:
+                s = SoundEvents.BLOCK_LAVA_POP;
                 break;
             case STALACTITE:
             case LANCE_GLACE:

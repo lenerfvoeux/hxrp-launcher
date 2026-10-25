@@ -57,7 +57,7 @@ else
     printf 'online-mode=false\nlevel-type=FLAT\ngenerate-structures=false\nspawn-animals=false\nspawn-monsters=false\ndifficulty=2\n' > server.properties
     mkdir -p config
     presse=()
-    for b in reine_guepe abomination necromancien xerra roi_des_glaces demon_noir; do
+    for b in reine_guepe abomination necromancien xerra roi_des_glaces demon_noir kraken calamar_des_sables demon_de_lave ai; do
         presse+=("Appâts|id boss=$b|Délai min (s)=3" "Appâts|id boss=$b|Délai max (s)=5")
     done
     python3 "$racine/tools/test/classeur.py" "$racine/src/main/resources/assets/hxrpbestiaire/bestiaire_stats.xlsx" \
@@ -71,6 +71,17 @@ else
     if [ $etat = 0 ]; then
         # Sans joueur, le monde cesse de faire vivre entités et blocs au bout de 15 s : chaque commande du bestiaire les réveille.
         c() { echo "$1" >&3; sleep "$2"; }
+        c 'save-all' 3
+        read -r X Y Z < <(python3 - world/level.dat <<'PY'
+import gzip, struct, sys
+d = gzip.open(sys.argv[1]).read()
+def entier(nom):
+    i = d.index(b'\x03' + struct.pack('>H', len(nom)) + nom)
+    return struct.unpack('>i', d[i + 3 + len(nom):i + 7 + len(nom)])[0]
+print(entier(b'SpawnX'), entier(b'SpawnY'), entier(b'SpawnZ'))
+PY
+)
+        echo "point d'apparition : $X $Y $Z"
         c 'bestiaire liste' 2
         # --- Reine-guêpe : ses dix attaques, l'essaim (3 guêpes soldats), la rage, la mort
         c 'reine_guepe invoquer' 3
@@ -153,24 +164,81 @@ else
         c 'demon_noir info' 1
         c 'kill @e[type=hxrpbestiaire:demon_noir]' 6
         c 'bestiaire liste' 2
+        # --- lot 3 : arènes (le monde de test est plat) — bassin d'eau profonde à l'est, lac de lave à l'ouest, sable au sud
+        EX=$((X + 56)); LX=$((X - 56)); SX=$((X + 15)); SZ=$((Z + 55)); AZ=$((Z - 40))
+        c "fill $((X + 40)) $Y $((Z - 16)) $((X + 72)) $((Y + 5)) $((Z + 16)) minecraft:stone" 2
+        c "fill $((X + 41)) $Y $((Z - 15)) $((X + 71)) $((Y + 5)) $((Z + 15)) minecraft:water" 2
+        c "fill $((X - 72)) $Y $((Z - 16)) $((X - 40)) $((Y + 5)) $((Z + 16)) minecraft:stone" 2
+        c "fill $((X - 71)) $Y $((Z - 15)) $((X - 41)) $((Y + 5)) $((Z + 15)) minecraft:lava" 2
+        c "fill $X $((Y - 1)) $((Z + 40)) $((X + 30)) $((Y - 1)) $((Z + 70)) minecraft:sand" 2
+        # --- Kraken : il émerge au milieu du bassin, frappe, plonge, rayons, charge, ponte, encre, saisie ; réveil des abysses
+        c "kraken invoquer $EX $((Y + 6)) $Z" 4
+        c 'kraken info' 1
+        for a in tentacule_1 tentacule_2 tentacule_3 rayon; do c "kraken attaque $a" 3; done
+        c 'kraken attaque charge' 3
+        c 'kraken attaque plongee' 6
+        c 'kraken info' 1
+        c 'kraken vie 40' 2
+        for a in double_rayon ponte nuage_encre saisie; do c "kraken attaque $a" 3; done
+        c 'kraken info' 1
+        c 'kill @e[type=hxrpbestiaire:kraken]' 4
+        c 'kraken info' 4
+        c 'kraken info' 1
+        c 'kraken attaque rage_abysses' 7
+        c 'kraken info' 1
+        c 'kill @e[type=hxrpbestiaire:kraken]' 6
+        c 'bestiaire liste' 2
+        # --- Calamar des sables : surgissement, tentacules, rayon, enfouissement ; charge longue, double rayon, tempête, aspiration
+        c "calamar_des_sables invoquer $SX $Y $SZ" 4
+        c 'calamar_des_sables info' 1
+        c 'calamar_des_sables attaque surgissement' 5
+        for a in tentacules rayon_sable; do c "calamar_des_sables attaque $a" 3; done
+        c 'calamar_des_sables attaque enfouissement' 5
+        c 'calamar_des_sables vie 40' 2
+        c 'calamar_des_sables attaque charge_longue' 7
+        for a in double_rayon tempete_sable aspiration; do c "calamar_des_sables attaque $a" 4; done
+        c 'calamar_des_sables info' 1
+        c 'kill @e[type=hxrpbestiaire:calamar_des_sables]' 6
+        # --- Démon de lave : il sort du lac ; rayon de feu, plongée, poing, balayage ; double rayon, pluie de lave, jets de magma
+        c "demon_de_lave invoquer $LX $((Y + 3)) $Z" 5
+        c 'demon_de_lave info' 1
+        c 'demon_de_lave attaque rayon_feu' 8
+        c 'demon_de_lave attaque plongee_lave' 8
+        for a in coup_poing balayage; do c "demon_de_lave attaque $a" 3; done
+        c 'demon_de_lave vie 40' 2
+        c 'demon_de_lave attaque double_rayon' 8
+        c 'demon_de_lave attaque pluie_lave' 6
+        c 'demon_de_lave attaque jets_magma' 3
+        c 'demon_de_lave info' 1
+        c 'kill @e[type=hxrpbestiaire:demon_de_lave]' 6
+        # --- Aï : il se forme dans la brume ; aspiration, griffes ; grande aspiration, cri, disparition, vœu maudit
+        c "ai invoquer $X $((Y + 1)) $AZ" 4
+        c 'ai info' 1
+        for a in aspiration_aura griffes_ombre; do c "ai attaque $a" 3; done
+        c 'ai vie 40' 2
+        for a in grande_aspiration cri; do c "ai attaque $a" 3; done
+        c 'ai attaque disparition' 3
+        c 'ai info' 1
+        c 'ai info' 4
+        c 'ai attaque voeu_maudit' 3
+        c 'kill @e[type=hxrpbestiaire:ai]' 5
+        c 'bestiaire liste' 2
         # --- appâts au point d'apparition (classeur pressé : 3 à 5 s)
         c 'bestiaire recharger' 2
-        c 'save-all' 3
-        read -r X Y Z < <(python3 - world/level.dat <<'PY'
-import gzip, struct, sys
-d = gzip.open(sys.argv[1]).read()
-def entier(nom):
-    i = d.index(b'\x03' + struct.pack('>H', len(nom)) + nom)
-    return struct.unpack('>i', d[i + 3 + len(nom):i + 7 + len(nom)])[0]
-print(entier(b'SpawnX'), entier(b'SpawnY'), entier(b'SpawnZ'))
-PY
-)
         echo "appâts en $X $Y $Z"
         for b in reine_guepe:rayon_de_miel_royal:6 abomination:charnier:6 necromancien:cercueil_profane:6 xerra:cocon_de_proie:6 \
             roi_des_glaces:cerf_pris_dans_la_glace:12 demon_noir:carcasse_de_sanglier:6; do
             IFS=: read -r boss appat tours <<< "$b"
             c "setblock $X $Y $Z hxrpbestiaire:$appat" 2
             for _ in $(seq 1 "$tours"); do c "$boss info" 3; done
+            c "$boss retirer" 2
+        done
+        # lot 3 : chaque appât dans son arène (tonneau sur l'eau, tambour sur le sable, idole sur la rive du lac de lave)
+        for b in kraken:tonneau_appat_poisson:$EX:$((Y + 6)):$Z calamar_des_sables:tambour_des_sables:$SX:$Y:$SZ \
+            demon_de_lave:idole_d_obsidienne:$((X - 40)):$((Y + 6)):$Z ai:lanterne_des_voeux:$X:$Y:$AZ; do
+            IFS=: read -r boss appat bx by bz <<< "$b"
+            c "setblock $bx $by $bz hxrpbestiaire:$appat" 2
+            for _ in $(seq 1 6); do c "$boss info" 3; done
             c "$boss retirer" 2
         done
         c 'bestiaire liste' 2
@@ -183,7 +251,7 @@ PY
 fi
 
 echo "---- extrait du journal ($journal)"
-grep -E 'hxrpbestiaire|Bestiaire|Reine|Abomination|Nécromancien|Xerra|Roi des glaces|Démon|GeckoLib|geckolib|Done \(|textures-atlas|successfully loaded|Stopping server|Sbires|ne peut pas|inconnue' "$journal" \
+grep -E 'hxrpbestiaire|Bestiaire|Reine|Abomination|Nécromancien|Xerra|Roi des glaces|Démon|Kraken|Calamar|Aï|blocks filled|GeckoLib|geckolib|Done \(|textures-atlas|successfully loaded|Stopping server|Sbires|ne peut pas|inconnue' "$journal" \
     | grep -Ev $'^\tat |STDERR' | grep -v 'Réglages (' | head -400
 
 erreurs=$(grep -E 'Exception loading|Model definition for location|texture errors were found|Caught exception from|Crash Report|crash-reports|/(ERROR|FATAL)\].*(hxrpbestiaire|HxRP|Bestiaire|GeckoLib|geckolib)|Error loading (model|animation) file|Could not load animation|at fr\.lenerfvoeux|at software\.bernie|Unable to play unknown soundEvent|Missing (sound|texture)|ne peut pas attaquer maintenant|Attaque inconnue' "$journal" | head -60)
@@ -201,7 +269,7 @@ if ! grep -q 'Bestiaire : pr' "$journal"; then
     echo "!! le bestiaire ne s'est pas initialisé"
     exit 1
 fi
-if [ "$mode" = client ] && ! grep -Eq 'Bestiaire : 10 mod.+les et [0-9]+ animations GeckoLib charg' "$journal"; then
+if [ "$mode" = client ] && ! grep -Eq 'Bestiaire : 14 mod.+les et [0-9]+ animations GeckoLib charg' "$journal"; then
     echo "!! GeckoLib n'a pas lu les modèles et animations du bestiaire"
     exit 1
 fi
@@ -255,12 +323,31 @@ if [ "$mode" = serveur ]; then
         'Des araign.es sortent des murs' 'Xerra, m.re-araign.e attir.e par l.app.t' 'descend du plafond et d.vore le cocon'
         'La neige tombe plus fort' 'Roi des glaces attir. par .+ \((4[0-9]|5[0-9]|60) blocs\)' 'brise la glace, d.vore le cerf'
         'Des corbeaux tournent' 'D.mon noir du Continent noir attir. par .+ \((4[0-9]|5[0-9]|60) blocs\)' 'atterrit d.un saut sur la carcasse'
+        # lot 3
+        'Kraken des abysses : 6000 / 6000 PV, phase 1'
+        'Kraken des abysses lance : tentacule_3' 'lance : rayon' 'lance : charge' 'lance : plongee'
+        'Kraken des abysses lance : double_rayon' 'lance : ponte' 'lance : nuage_encre' 'lance : saisie'
+        'Kraken des abysses : 2400 / 6000 PV, phase 2, [a-z_ ]+, [1-9][0-9]* sbire'
+        'Kraken des abysses se rel.ve avec toute sa vie' 'Kraken des abysses : 6000 / 6000 PV, phase 3' 'lance : rage_abysses'
+        'butin de Kraken des abysses : [1-9].+Encre des abysses.+Tentacule de kraken' 'Kraken des abysses est vaincu\.'
+        'Calamar des sables : 5000 / 5000 PV, phase 1'
+        'Calamar des sables lance : surgissement' 'lance : enfouissement' 'lance : rayon_sable' 'lance : charge_longue'
+        'lance : tempete_sable' 'lance : aspiration' 'Calamar des sables entre en rage'
+        'butin de Calamar des sables : [1-9].+Bile des sables.+Chair de calamar des sables'
+        'D.mon de lave : 6000 / 6000 PV, phase 1' 'D.mon de lave lance : rayon_feu' 'lance : plongee_lave' 'lance : balayage'
+        'lance : pluie_lave' 'lance : jets_magma' 'D.mon de lave entre en rage' 'butin de D.mon de lave : [1-9].+Braise d.moniaque.+Sel de lave'
+        'A., forme de vie gazeuse : 3500 / 3500 PV, phase 1' 'lance : aspiration_aura' 'lance : griffes_ombre' 'lance : grande_aspiration'
+        'lance : cri' 'lance : disparition' 'phase 2.+invisible' 'butin de A., forme de vie gazeuse : [1-9].+Ectoplasme sombre'
+        'L.eau se met . bouillonner' 'Kraken des abysses .merge sous le tonneau'
+        'Le tambour bat tout seul' 'Calamar des sables surgit du sable sous le tambour'
+        'La lave se met . bouillonner' 'D.mon de lave sort du lac de lave'
+        'Le brouillard monte' 'A., forme de vie gazeuse se forme dans la brume'
     )
     for attendu in "${attendus[@]}"; do
         grep -Eq "$attendu" "$journal" || { echo "!! scénario : « $attendu » n'apparaît pas dans le journal"; tail -80 "$journal"; exit 1; }
     done
-    # chaque mort et chaque retrait dissipe les sbires : aucun ne reste aux huit relevés (début, morts, retrait, fin)
-    test "$(grep -c 'Sbires charg.s : 0' "$journal")" -ge 8 || { echo "!! des sbires survivent à leur boss"; grep 'Sbires charg' "$journal"; exit 1; }
+    # chaque mort et chaque retrait dissipe les sbires : aucun ne reste aux neuf relevés (début, morts, retrait, fin)
+    test "$(grep -c 'Sbires charg.s : 0' "$journal")" -ge 9 || { echo "!! des sbires survivent à leur boss"; grep 'Sbires charg' "$journal"; exit 1; }
 fi
 if [ -n "$erreurs" ]; then
     echo "!! erreurs :"

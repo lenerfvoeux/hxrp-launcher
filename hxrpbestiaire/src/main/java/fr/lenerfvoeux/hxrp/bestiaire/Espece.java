@@ -31,8 +31,8 @@ public final class Espece {
         SAUT
     }
 
-    /** Comment l'espèce se déplace en combat. */
-    public enum Deplacement { SOL, VOL }
+    /** Comment l'espèce se déplace en combat : à pied, en vol, ou à la surface de son liquide (eau, lave). */
+    public enum Deplacement { SOL, VOL, NAGE }
 
     public final String id;
     public final String nom;
@@ -42,6 +42,9 @@ public final class Espece {
     public final int numero;
     public float largeur = 1, hauteur = 2, echelle = 1;
     public Deplacement deplacement = Deplacement.SOL;
+    /** NAGE : le liquide où il vit, et la hauteur de son origine par rapport à la surface (blocs). */
+    public net.minecraft.block.material.Material liquide = net.minecraft.block.material.Material.WATER;
+    public float flottaison;
     /** Animations de base (sans le préfixe « animation.<modele>. »). */
     public String repos = "idle", marche = "walk", mort = "death", apparition = "";
     /** Os cachés hors des animations qui les montrent (rayons, effets…) : os -> animations où il est visible. */
@@ -83,6 +86,18 @@ public final class Espece {
     Espece vol() {
         this.deplacement = Deplacement.VOL;
         return this;
+    }
+
+    Espece nage(net.minecraft.block.material.Material liquide, float flottaison) {
+        this.deplacement = Deplacement.NAGE;
+        this.liquide = liquide;
+        this.flottaison = flottaison;
+        return this;
+    }
+
+    /** Ni gravité ni marche : il vole ou nage. */
+    public boolean sansGravite() {
+        return deplacement != Deplacement.SOL;
     }
 
     Espece anims(String repos, String marche, String mort) {

@@ -9,7 +9,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 public final class Sons {
     public static SoundEvent BOURDON, BOURDON_AIGU, STRIDULATION, REINE_MORT, RALE, GARGOUILLIS, CHAIR_MORT, MURMURE, PLAINTE, AME_MORT,
             INCANTATION, SIFFLEMENT, CRI_XERRA, XERRA_MORT, CRAQUEMENT_GLACE, GROGNEMENT_GLACIAL, ROI_MORT, COUINEMENT, GROGNEMENT_GOBELIN,
-            GRONDEMENT_DEMON, RUGISSEMENT_DEMON, DEMON_MORT;
+            GRONDEMENT_DEMON, RUGISSEMENT_DEMON, DEMON_MORT, GRONDEMENT_ABYSSAL, CRI_KRAKEN, KRAKEN_MORT, SIFFLEMENT_SABLE, CRI_CALAMAR,
+            CALAMAR_MORT, BOUILLONNEMENT, RUGISSEMENT_LAVE, LAVE_MORT, CHUCHOTEMENT, CRI_AI, AI_MORT;
 
     private Sons() {}
 
@@ -36,6 +37,18 @@ public final class Sons {
         GRONDEMENT_DEMON = son(r, "grondement_demon");
         RUGISSEMENT_DEMON = son(r, "rugissement_demon");
         DEMON_MORT = son(r, "demon_mort");
+        GRONDEMENT_ABYSSAL = son(r, "grondement_abyssal");
+        CRI_KRAKEN = son(r, "cri_kraken");
+        KRAKEN_MORT = son(r, "kraken_mort");
+        SIFFLEMENT_SABLE = son(r, "sifflement_sable");
+        CRI_CALAMAR = son(r, "cri_calamar");
+        CALAMAR_MORT = son(r, "calamar_mort");
+        BOUILLONNEMENT = son(r, "bouillonnement");
+        RUGISSEMENT_LAVE = son(r, "rugissement_lave");
+        LAVE_MORT = son(r, "lave_mort");
+        CHUCHOTEMENT = son(r, "chuchotement");
+        CRI_AI = son(r, "cri_ai");
+        AI_MORT = son(r, "ai_mort");
         Especes.REINE_GUEPE.sons(BOURDON, STRIDULATION, REINE_MORT, 1F);
         Especes.GUEPE_SOLDAT.sons(BOURDON_AIGU, STRIDULATION, REINE_MORT, 1.7F);
         Especes.ABOMINATION.sons(RALE, GARGOUILLIS, CHAIR_MORT, 1F);
@@ -48,6 +61,11 @@ public final class Sons {
         Especes.GOBELIN_BOUCLIER.sons(GROGNEMENT_GOBELIN, GROGNEMENT_GOBELIN, GROGNEMENT_GOBELIN, 0.85F);
         Especes.GOBELIN_ARCHER.sons(GROGNEMENT_GOBELIN, GROGNEMENT_GOBELIN, GROGNEMENT_GOBELIN, 1.1F);
         Especes.DEMON_NOIR.sons(GRONDEMENT_DEMON, RUGISSEMENT_DEMON, DEMON_MORT, 1F);
+        Especes.KRAKEN.sons(GRONDEMENT_ABYSSAL, CRI_KRAKEN, KRAKEN_MORT, 1F);
+        Especes.PETIT_KRAKEN.sons(SoundEvents.ENTITY_SQUID_AMBIENT, SoundEvents.ENTITY_SQUID_HURT, SoundEvents.ENTITY_SQUID_DEATH, 1.4F);
+        Especes.CALAMAR_DES_SABLES.sons(SIFFLEMENT_SABLE, CRI_CALAMAR, CALAMAR_MORT, 1F);
+        Especes.DEMON_DE_LAVE.sons(BOUILLONNEMENT, RUGISSEMENT_LAVE, LAVE_MORT, 1F);
+        Especes.AI.sons(CHUCHOTEMENT, CRI_AI, AI_MORT, 1F);
     }
 
     private static SoundEvent son(IForgeRegistry<SoundEvent> r, String nom) {

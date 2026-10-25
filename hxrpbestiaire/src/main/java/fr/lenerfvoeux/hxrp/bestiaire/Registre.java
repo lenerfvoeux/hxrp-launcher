@@ -46,11 +46,18 @@ public final class Registre {
             {"coeur_de_givre_eternel", "Cœur de givre éternel", "roi_des_glaces", "Hunter Virus"},
             {"glace_eternelle", "Glace éternelle", "roi_des_glaces", "Gourmet"},
             {"corne_du_demon_noir", "Corne du démon noir", "demon_noir", "Hunter Virus"},
+            {"encre_des_abysses", "Encre des abysses", "kraken", "Hunter Virus"},
+            {"tentacule_de_kraken", "Tentacule de kraken", "kraken", "Gourmet"},
+            {"bile_des_sables", "Bile des sables", "calamar_des_sables", "Hunter Virus"},
+            {"chair_de_calamar_des_sables", "Chair de calamar des sables", "calamar_des_sables", "Gourmet"},
+            {"braise_demoniaque", "Braise démoniaque", "demon_de_lave", "Hunter Virus"},
+            {"sel_de_lave", "Sel de lave", "demon_de_lave", "Gourmet"},
+            {"ectoplasme_sombre", "Ectoplasme sombre", "ai", "Hunter Virus : épuisement d'aura"},
     };
 
     /** Blocs posés par les boss (toiles de Xerra, graines-pièges) et l'effet « sol gelé ». */
     public static Block TOILE, GRAINE;
-    public static net.minecraft.potion.Potion GIVRE;
+    public static net.minecraft.potion.Potion GIVRE, INVERSE;
 
     private static final Map<String, Item> OBJETS_BUTIN = new LinkedHashMap<>();
     private static final Map<String, Item> OEUFS = new LinkedHashMap<>();
@@ -121,7 +128,9 @@ public final class Registre {
     @SubscribeEvent
     public static void effets(RegistryEvent.Register<net.minecraft.potion.Potion> e) {
         GIVRE = new PotionGivre();
+        INVERSE = new fr.lenerfvoeux.hxrp.bestiaire.effet.PotionInverse();
         e.getRegistry().register(GIVRE);
+        e.getRegistry().register(INVERSE);
     }
 
     /** Les toiles brûlent (le feu libère l'arène de Xerra). Appelé à l'initialisation. */

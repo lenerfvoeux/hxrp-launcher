@@ -54,18 +54,18 @@ jobs:
           n() { grep -Ec "$1" contenu.txt; }
           echo "classes $(n '\.class$') · textures $(n 'textures/.*\.png') · sons $(n 'sounds/.*\.ogg')"
           A=assets/hxrpbestiaire
-          for m in reine_guepe abomination necromancien archer_squelette xerra roi_des_glaces rat_des_glaces gobelin_bouclier gobelin_archer demon_noir; do
+          for m in reine_guepe abomination necromancien archer_squelette xerra roi_des_glaces rat_des_glaces gobelin_bouclier gobelin_archer demon_noir kraken calamar_des_sables demon_de_lave ai; do
             test "$(n "$A/geo/$m\.geo\.json")" -eq 1
             test "$(n "$A/animations/$m\.animation\.json")" -eq 1
             test "$(n "$A/textures/entity/$m\.png")" -eq 1
           done
-          test "$(n "$A/sounds/.*\.ogg")" -eq 22
-          test "$(n "$A/blockstates/.*\.json")" -eq 8
-          test "$(n "$A/models/item/.*\.json")" -eq 30
-          test "$(n "$A/textures/gui/givre\.png")" -eq 1
+          test "$(n "$A/sounds/.*\.ogg")" -eq 34
+          test "$(n "$A/blockstates/.*\.json")" -eq 12
+          test "$(n "$A/models/item/.*\.json")" -eq 46
+          test "$(n "$A/textures/gui/(givre|inverse)\.png")" -eq 2
           test "$(n "$A/(bestiaire_stats\.xlsx|durees\.properties|sounds\.json|lang/fr_fr\.lang|lang/en_us\.lang)$")" -eq 5
           test "$(n 'software/bernie')" -eq 0   # GeckoLib n'est pas embarqué : il est déjà sur le serveur
-          unzip -p "$J" mcmod.info | grep -q '"version": "0.2.0"'
+          unzip -p "$J" mcmod.info | grep -q '"version": "0.3.0"'
           # Jar final : appels à Minecraft en noms SRG (func_…/field_…), bytecode Java 8
           unzip -p "$J" fr/lenerfvoeux/hxrp/bestiaire/entite/EntityBoss.class | grep -aq 'func_'
           unzip -p "$J" fr/lenerfvoeux/hxrp/bestiaire/entite/EntityBoss.class | grep -aq 'field_'

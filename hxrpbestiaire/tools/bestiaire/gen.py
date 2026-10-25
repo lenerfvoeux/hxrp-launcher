@@ -22,7 +22,7 @@ RACINE = os.path.normpath(os.path.join(ICI, '..', '..'))
 ASSETS = os.path.join(RACINE, 'src', 'main', 'resources', 'assets', 'hxrpbestiaire')
 SOURCES = os.path.join(ICI, 'blockbench')
 
-# identifiant GeckoLib → modèle Blockbench (lots 1 et 2 ; les autres boss arriveront par lots)
+# identifiant GeckoLib → modèle Blockbench (les onze boss et leurs sbires, la Baleine reportée)
 MODELES = {
     'reine_guepe': 'wasp_boss',
     'abomination': 'abomination',
@@ -34,6 +34,10 @@ MODELES = {
     'gobelin_bouclier': 'ice_tank',
     'gobelin_archer': 'ice_distance',
     'demon_noir': 'dark_demon',
+    'kraken': 'octopus',
+    'calamar_des_sables': 'desert_octopus',
+    'demon_de_lave': 'red_demon',
+    'ai': 'dark_spirit',
 }
 
 
