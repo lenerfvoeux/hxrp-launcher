@@ -200,7 +200,7 @@ public class EntityRoiDesGlaces extends EntityBoss {
                 for (Vec3d z : zones)
                     for (int i = 0; i < 12; i++) {
                         double an = i * Math.PI / 6;
-                        ws.spawnParticle(EnumParticleTypes.SNOW_SHOVEL, z.x + Math.cos(an) * 1.6, z.y + 0.1, z.z + Math.sin(an) * 1.6, 1, 0, 0, 0, 0);
+                        ws.spawnParticle(EnumParticleTypes.SNOW_SHOVEL, z.x + Math.cos(an) * 1.6, z.y + 0.1, z.z + Math.sin(an) * 1.6, 1, 0.0, 0.0, 0.0, 0.0);
                     }
             return;
         }

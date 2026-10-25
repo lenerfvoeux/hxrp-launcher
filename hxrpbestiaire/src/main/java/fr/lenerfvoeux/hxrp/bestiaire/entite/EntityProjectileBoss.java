@@ -211,7 +211,7 @@ public class EntityProjectileBoss extends EntityThrowable {
                     ws.spawnParticle(EnumParticleTypes.SPELL_WITCH, posX, posY, posZ, n, 0.3, 0.3, 0.3, 0.05);
                     break;
                 case METEORE:
-                    ws.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, posX, posY, posZ, 4, 1, 0.3, 1, 0);
+                    ws.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, posX, posY, posZ, 4, 1.0, 0.3, 1.0, 0.0);
                     ws.spawnParticle(EnumParticleTypes.SPELL_WITCH, posX, posY + 0.5, posZ, n, t.rayonImpact / 2, 0.4, t.rayonImpact / 2, 0.1);
                     break;
                 case STALACTITE:
