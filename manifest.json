@@ -41,8 +41,8 @@
     ]
   },
   "extras": {
-    "tag": "hxrp-extras-v1.6.0",
-    "version": "1.6.0",
+    "tag": "hxrp-extras-v1.6.1",
+    "version": "1.6.1",
     "mods": [
       {
         "name": "hunterxrp-identity-client-2_5_1.jar",
@@ -75,7 +75,7 @@
       },
       {
         "name": "hxrpbestiaire-0_3_0.jar",
-        "size": 2350287,
+        "size": 2345276,
         "oldNames": []
       },
       {
