@@ -1,10 +1,17 @@
 package fr.lenerfvoeux.hxrp.bestiaire;
 
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityAbomination;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityDemonNoir;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityNecromancien;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityReineGuepe;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityRoiDesGlaces;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.boss.EntityXerra;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityAraigneeXerra;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityArcherSquelette;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGobelinArcher;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGobelinBouclier;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityGuepeSoldat;
+import fr.lenerfvoeux.hxrp.bestiaire.entite.sbire.EntityRatDesGlaces;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.EnumParticleTypes;
 
@@ -40,6 +47,34 @@ public final class Especes {
             .oeuf(0x1B1F2E, 0xC81E2A).lieu("Cimetières, ruines");
     public static final Espece ARCHER_SQUELETTE = sbire("archer_squelette", "Archer squelette", "archer_squelette", EntityArcherSquelette.class, 4)
             .taille(0.9F, 3.1F).apparition("spawn").sbireDe("necromancien");
+
+    public static final Espece XERRA = boss("xerra", "Xerra, mère-araignée", "xerra", EntityXerra.class, 5)
+            .taille(4.0F, 3.8F)
+            .appat("cocon_de_proie", "Cocon de proie", Espece.Arrivee.PLAFOND, "sous terre (pas de ciel)",
+                    "Des araignées sortent des murs, la soie tremble au plafond…", "descend du plafond et dévore le cocon !", EnumParticleTypes.TOWN_AURA)
+            .oeuf(0x2A0A10, 0xD8402A).lieu("Grottes profondes").feminin();
+    /** Araignée de Xerra : Xerra en petit, sans la femme qui la chevauche. */
+    public static final Espece ARAIGNEE_XERRA = sbire("araignee_xerra", "Araignée de Xerra", "xerra", EntityAraigneeXerra.class, 6)
+            .taille(1.2F, 0.85F).echelle(0.22F).cacher("woman").sbireDe("xerra").feminin();
+
+    public static final Espece ROI_DES_GLACES = boss("roi_des_glaces", "Roi des glaces", "roi_des_glaces", EntityRoiDesGlaces.class, 7)
+            .taille(3.0F, 3.9F)
+            .appat("cerf_pris_dans_la_glace", "Cerf pris dans la glace", Espece.Arrivee.MARCHE, "dans un biome froid",
+                    "La neige tombe plus fort, un grondement glacé approche…", "brise la glace, dévore le cerf et appelle son escorte !",
+                    EnumParticleTypes.SNOW_SHOVEL)
+            .oeuf(0x9ED3E6, 0x2F6E9A).lieu("Pics glacés");
+    public static final Espece RAT_DES_GLACES = sbire("rat_des_glaces", "Rat des glaces", "rat_des_glaces", EntityRatDesGlaces.class, 8)
+            .taille(0.9F, 1.2F).sbireDe("roi_des_glaces");
+    public static final Espece GOBELIN_BOUCLIER = sbire("gobelin_bouclier", "Gobelin bouclier", "gobelin_bouclier", EntityGobelinBouclier.class, 9)
+            .taille(1.0F, 1.9F).sbireDe("roi_des_glaces");
+    public static final Espece GOBELIN_ARCHER = sbire("gobelin_archer", "Gobelin archer", "gobelin_archer", EntityGobelinArcher.class, 10)
+            .taille(0.9F, 1.75F).sbireDe("roi_des_glaces");
+
+    public static final Espece DEMON_NOIR = boss("demon_noir", "Démon noir du Continent noir", "demon_noir", EntityDemonNoir.class, 11)
+            .taille(3.5F, 9.0F).apparition("spawn")
+            .appat("carcasse_de_sanglier", "Carcasse de sanglier", Espece.Arrivee.SAUT, "au sol",
+                    "Des corbeaux tournent au-dessus de la carcasse…", "atterrit d'un saut sur la carcasse et la dévore !", EnumParticleTypes.SMOKE_NORMAL)
+            .oeuf(0x1A1420, 0xE0A070).lieu("Ruines du Continent noir");
 
     private Especes() {}
 

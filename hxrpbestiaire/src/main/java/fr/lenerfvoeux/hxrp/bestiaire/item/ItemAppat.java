@@ -65,6 +65,10 @@ public class ItemAppat extends ItemBlock {
             case "abomination":
             case "xerra":
                 return w.canSeeSky(ici) ? "il faut le poser sous terre, à l'abri du ciel." : null;
+            case "roi_des_glaces":
+                if (!BiomeDictionary.hasType(b, BiomeDictionary.Type.COLD) && !BiomeDictionary.hasType(b, BiomeDictionary.Type.SNOWY))
+                    return "il faut un biome froid.";
+                return null;
             default:
                 return null;
         }

@@ -75,5 +75,82 @@
   "sounds": [
    "hxrpbestiaire:incantation"
   ]
+ },
+ "sifflement": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.sifflement",
+  "sounds": [
+   "hxrpbestiaire:sifflement"
+  ]
+ },
+ "cri_xerra": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.cri_xerra",
+  "sounds": [
+   "hxrpbestiaire:cri_xerra"
+  ]
+ },
+ "xerra_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.xerra_mort",
+  "sounds": [
+   "hxrpbestiaire:xerra_mort"
+  ]
+ },
+ "craquement_glace": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.craquement_glace",
+  "sounds": [
+   "hxrpbestiaire:craquement_glace"
+  ]
+ },
+ "grognement_glacial": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.grognement_glacial",
+  "sounds": [
+   "hxrpbestiaire:grognement_glacial"
+  ]
+ },
+ "roi_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.roi_mort",
+  "sounds": [
+   "hxrpbestiaire:roi_mort"
+  ]
+ },
+ "couinement": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.couinement",
+  "sounds": [
+   "hxrpbestiaire:couinement"
+  ]
+ },
+ "grognement_gobelin": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.grognement_gobelin",
+  "sounds": [
+   "hxrpbestiaire:grognement_gobelin"
+  ]
+ },
+ "grondement_demon": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.grondement_demon",
+  "sounds": [
+   "hxrpbestiaire:grondement_demon"
+  ]
+ },
+ "rugissement_demon": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.rugissement_demon",
+  "sounds": [
+   "hxrpbestiaire:rugissement_demon"
+  ]
+ },
+ "demon_mort": {
+  "category": "hostile",
+  "subtitle": "subtitles.hxrpbestiaire.demon_mort",
+  "sounds": [
+   "hxrpbestiaire:demon_mort"
+  ]
  }
 }

@@ -3,11 +3,22 @@
  "bourdon.ogg": "07960f5f53045cc84d8fb30ecedd999fd1e805d6",
  "bourdon_aigu.ogg": "86cd4084466c667d865d3baaca418401432c6d72",
  "chair_mort.ogg": "e26fc7654f98432900a6c53bda5caa6c0917c010",
+ "couinement.ogg": "f7256674a2766c3629398a21360a443165fb5a02",
+ "craquement_glace.ogg": "8b401337062c7a7cc77833920094aeaeb6685d94",
+ "cri_xerra.ogg": "3b7f40ca87f5a9d674a07e249bdfeb31278255b5",
+ "demon_mort.ogg": "a2c800f4ad5ace4583c41765f947c74de3055d3a",
  "gargouillis.ogg": "c3bebac5453f11857ac28692d64508147138dc86",
+ "grognement_glacial.ogg": "194edeea4b1930955ee824e6fa6511b1d2a5cee3",
+ "grognement_gobelin.ogg": "eb62e2307c312c086b7d4f4f9f16f285ed3ac428",
+ "grondement_demon.ogg": "1bdfe1517712ee9c2511e427366b299e4af360d8",
  "incantation.ogg": "cb02e81e0bbf424e3ac247cffa040b48c1a2134a",
  "murmure.ogg": "5f77280c9c603ee383cdb92d9485b955b77c5a71",
  "plainte.ogg": "579db0bb830ce865e77b2c69fd5f7643f43fb8f5",
  "rale.ogg": "d993ce8a1ea7f3ddc5617417102f1517ae30170e",
  "reine_mort.ogg": "2c1768e1be927a8e4de5707c3f27938f4a3be514",
- "stridulation.ogg": "edecb78898fff0d006d3493b83ee347c46db4265"
+ "roi_mort.ogg": "fe9e222af8e167af7d69dbcc19dd5d1226403a0d",
+ "rugissement_demon.ogg": "7e6ec3f9ee13fa91aedd571fc2731bdc29b59999",
+ "sifflement.ogg": "bbb9dbe59557c4083920d24bd8b6711261d2777c",
+ "stridulation.ogg": "edecb78898fff0d006d3493b83ee347c46db4265",
+ "xerra_mort.ogg": "e9ad35cd9ddc6ce98a8e3b6944fd2ec9b277385d"
 }

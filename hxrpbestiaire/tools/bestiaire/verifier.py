@@ -52,6 +52,7 @@ for bloc in re.split(r'public static final Espece ', src)[1:]:
     a = re.search(r'\.appat\("(\w+)", "([^"]+)"', bloc)
     if a:
         e['appat'] = a.group(1)
+    e['cachees'] = re.findall(r'\.cacher\("(\w+)"', bloc)
     especes[const] = e
 if not especes:
     err('aucune espèce lue dans Especes.java')
@@ -61,6 +62,7 @@ if len(set(nums)) != len(nums):
 
 # ---------------------------------------------------------------- modèles et animations
 animations = {}
+os_modele = {}
 for e in especes.values():
     md = e['modele']
     if md in animations:
@@ -82,6 +84,7 @@ for e in especes.values():
         if b['name'] in noms:
             err('%s : os en double %s' % (md, b['name']))
         noms.add(b['name'])
+    os_modele[md] = noms
     for b in g['bones']:
         if 'parent' in b and b['parent'] not in noms:
             err('%s : parent inconnu %s' % (md, b['parent']))
@@ -123,6 +126,9 @@ def exige(md, anim, ou):
 for e in especes.values():
     for k in ('repos', 'marche', 'mort', 'apparition'):
         exige(e['modele'], e[k], e['id'])
+    for o in e['cachees']:
+        if o not in os_modele.get(e['modele'], set()):
+            err('%s : os caché « %s » absent du modèle %s' % (e['id'], o, e['modele']))
 
 # ---------------------------------------------------------------- classeur
 NS = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
@@ -189,6 +195,9 @@ for p in glob.glob(os.path.join(JAVA, 'entite', '**', '*.java'), recursive=True)
             err('%s : sbire « %s » absent du classeur' % (e['id'], id_s))
     for an in re.findall(r'anim\("(\w+)"\)', s):
         exige(e['modele'], an, e['id'])
+    # animations de renaissance et durées lues par le serveur
+    for an in re.findall(r'animRenaissance\(\) \{\s*return "(\w+)"', s) + re.findall(r'duree\("(\w+)"', s):
+        exige(e['modele'], an, e['id'])
 
 # ---------------------------------------------------------------- objets, appâts, traductions
 lang = {}
@@ -202,7 +211,7 @@ reg = lire(os.path.join(JAVA, 'Registre.java'))
 butins = re.findall(r'\{"(\w+)", "[^"]+", "(\w+)", "[^"]+"\}', reg)
 objets = [b for b, _ in butins] + ['oeuf_' + e['id'] for e in especes.values() if e['boss']]
 proj = re.search(r'enum Type \{(.*?)\}', lire(os.path.join(JAVA, 'entite', 'EntityProjectileBoss.java')), re.S).group(1)
-objets += ['projectile_' + t.lower() for t in re.findall(r'^\s*([A-Z]+)\(', proj, re.M)]
+objets += ['projectile_' + t.lower() for t in re.findall(r'^\s*([A-Z_]+)\(', proj, re.M)]
 for o in objets:
     mj = os.path.join(RES, 'models', 'item', o + '.json')
     if not os.path.exists(mj):

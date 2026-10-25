@@ -78,6 +78,18 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
     /** Animations d'attaque (une au hasard à chaque coup) ; la première sert au tir pour un archer. */
     protected abstract String[] attaques();
 
+    /** Son boss, s'il est chargé et vivant. */
+    protected EntityBoss boss() {
+        if (boss == null || !(world instanceof WorldServer)) return null;
+        Entity b = ((WorldServer) world).getEntityFromUuid(boss);
+        return b instanceof EntityBoss && b.isEntityAlive() ? (EntityBoss) b : null;
+    }
+
+    /** Un comportement propre à l'espèce, avant le comportement commun ; vrai s'il remplace celui-ci ce tick. */
+    protected boolean comportementPropre() {
+        return false;
+    }
+
     /** Rattache le sbire à son boss et lui donne ses stats. */
     void lier(EntityBoss b, Stats.Sbire s) {
         boss = b.getUniqueID();
@@ -233,6 +245,7 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
             }
         }
         recharge--;
+        if (comportementPropre()) return;
         if (cible == null) {
             if (comportement == Comportement.VOL) planer(posX, posY, posZ);
             return;

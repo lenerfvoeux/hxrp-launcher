@@ -1,0 +1,6 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "hxrpbestiaire:items/corne_du_demon_noir"
+ }
+}

@@ -170,6 +170,126 @@ def incantation():
     return fondu(norm(x, 0.85), 0.05)
 
 
+# ============================================================================ lot 2
+def sifflement():
+    """Xerra : sifflement d'araignée géante, souffle aigu et cliquetis de chélicères."""
+    d = 1.6
+    tt = t(d)
+    souffle = passe_bas(bruit(d, 12), 7000) - passe_bas(bruit(d, 12), 2500)
+    clics = np.zeros_like(tt)
+    rs = np.random.RandomState(13)
+    for _ in range(14):
+        a = rs.uniform(0, d - 0.05)
+        k = tt - a
+        m = k >= 0
+        clics[m] += np.sin(2 * np.pi * 2200 * k[m]) * np.exp(-k[m] / 0.006)
+    x = souffle * 1.3 * enveloppe(len(tt), 0.2, 0.5, 0.8) + clics * 0.6
+    return fondu(norm(x, 0.8), 0.08)
+
+
+def cri_xerra():
+    """Xerra blessée : cri strident, mi-femme mi-insecte."""
+    d = 0.9
+    tt = t(d)
+    f = 900 * np.exp(-tt / 0.7) + 380
+    x = scie(f, tt) * 0.5 + np.sin(2 * np.pi * np.cumsum(f * 1.5) / SR) * 0.3
+    x = x * (0.7 + 0.3 * np.sin(2 * np.pi * 32 * tt)) + bruit(d, 14) * 0.15
+    return fondu(norm(passe_bas(x, 6000) * enveloppe(len(tt), 0.01, 0.3, 0.3), 0.85), 0.02)
+
+
+def xerra_mort():
+    d = 2.6
+    tt = t(d)
+    f = 700 * np.exp(-tt / 0.9) + 90
+    x = scie(f, tt) * 0.5 * np.exp(-tt / 1.3)
+    x += (passe_bas(bruit(d, 15), 3000) - passe_bas(bruit(d, 15), 500)) * np.exp(-tt / 0.8) * 0.8
+    x += bruit(d, 16) * np.exp(-np.maximum(0, tt - 1.6) / 0.05) * (tt > 1.6) * 0.6
+    return fondu(norm(x, 0.85), 0.05)
+
+
+def craquement_glace():
+    """Roi des glaces : grondement sourd, glace qui craque et tinte."""
+    d = 2.0
+    tt = t(d)
+    x = passe_bas(bruit(d, 17), 200) * 3 * enveloppe(len(tt), 0.3, 0.6, 0.8)
+    rs = np.random.RandomState(18)
+    for _ in range(10):
+        a = rs.uniform(0, d - 0.2)
+        k = tt - a
+        m = k >= 0
+        f = rs.uniform(1800, 4200)
+        x[m] += (np.sin(2 * np.pi * f * k[m]) * 0.4 + bruit(d, 19)[m] * 0.5) * np.exp(-k[m] / 0.03)
+    return fondu(norm(x, 0.8), 0.1)
+
+
+def grognement_glacial():
+    d = 1.4
+    tt = t(d)
+    f = 70 + 12 * np.sin(2 * np.pi * 2.5 * tt)
+    x = scie(f, tt) * (0.6 + 0.4 * np.sin(2 * np.pi * 11 * tt)) + passe_bas(bruit(d, 20), 900) * 1.2
+    x += (passe_bas(bruit(d, 21), 6000) - passe_bas(bruit(d, 21), 3000)) * 0.4
+    return fondu(norm(passe_bas(x, 2500) * enveloppe(len(tt), 0.08, 0.4, 0.6), 0.85), 0.05)
+
+
+def roi_mort():
+    """La glace du Roi vole en éclats : fracas, puis pluie d'éclats qui tintent."""
+    d = 2.8
+    tt = t(d)
+    x = bruit(d, 22) * np.exp(-tt / 0.15) * 0.9 + passe_bas(bruit(d, 23), 150) * np.exp(-tt / 0.6) * 3
+    rs = np.random.RandomState(24)
+    for _ in range(30):
+        a = rs.uniform(0.1, d - 0.2)
+        k = tt - a
+        m = k >= 0
+        x[m] += np.sin(2 * np.pi * rs.uniform(2500, 6000) * k[m]) * np.exp(-k[m] / 0.02) * 0.3 * np.exp(-a / 1.2)
+    return fondu(norm(x, 0.85), 0.05)
+
+
+def couinement():
+    """Rat des glaces : couinement aigu, deux notes."""
+    d = 0.35
+    tt = t(d)
+    f = np.where(tt < 0.16, 2600 + 900 * tt / 0.16, 3100 - 800 * (tt - 0.16) / 0.19)
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * enveloppe(len(tt), 0.01, 0.08, 0.15)
+    x *= (np.abs(tt - 0.16) > 0.015)
+    return fondu(norm(x + bruit(d, 25) * 0.05, 0.75), 0.01)
+
+
+def grognement_gobelin():
+    """Gobelin : grognement guttural, court."""
+    d = 0.6
+    tt = t(d)
+    f = 140 + 30 * np.sin(2 * np.pi * 6 * tt)
+    x = scie(f, tt) * (0.5 + 0.5 * np.sin(2 * np.pi * 23 * tt)) + passe_bas(bruit(d, 26), 1200) * 0.8
+    return fondu(norm(passe_bas(x, 2000) * enveloppe(len(tt), 0.03, 0.2, 0.25), 0.8), 0.02)
+
+
+def grondement_demon():
+    """Démon noir : grondement très grave, souffle qui vibre."""
+    d = 2.4
+    tt = t(d)
+    f = 42 + 5 * np.sin(2 * np.pi * 0.8 * tt)
+    x = scie(f, tt) * 0.8 + scie(f * 1.5, tt) * 0.3 + passe_bas(bruit(d, 27), 400) * 2
+    x *= 0.7 + 0.3 * np.sin(2 * np.pi * 7 * tt)
+    return fondu(norm(passe_bas(x, 900) * enveloppe(len(tt), 0.4, 0.6, 1.2), 0.85), 0.15)
+
+
+def rugissement_demon():
+    d = 1.6
+    tt = t(d)
+    f = 95 + 60 * np.exp(-((tt - 0.3) / 0.25) ** 2)
+    x = scie(f, tt) * 0.7 + scie(f * 2.02, tt) * 0.25 + passe_bas(bruit(d, 28), 2500) * 0.9
+    return fondu(norm(passe_bas(x, 3000) * enveloppe(len(tt), 0.05, 0.5, 0.6), 0.9), 0.05)
+
+
+def demon_mort():
+    d = 3.0
+    tt = t(d)
+    f = 110 * np.exp(-tt / 1.5) + 30
+    x = scie(f, tt) * np.exp(-tt / 1.4) * 0.8 + passe_bas(bruit(d, 29), 300) * np.exp(-tt / 1.0) * 2.5
+    return fondu(norm(passe_bas(x, 1200), 0.85), 0.1)
+
+
 SONS = {
     'bourdon': ('Bourdonnement de la Reine-guêpe', bourdon),
     'bourdon_aigu': ('Bourdonnement de guêpe soldat', bourdon_aigu),
@@ -182,6 +302,17 @@ SONS = {
     'plainte': ('Plainte du Nécromancien', plainte),
     'ame_mort': ('Le Nécromancien se dissipe', ame_mort),
     'incantation': ('Incantation', incantation),
+    'sifflement': ('Sifflement de Xerra', sifflement),
+    'cri_xerra': ('Cri de Xerra', cri_xerra),
+    'xerra_mort': ("Xerra s'effondre", xerra_mort),
+    'craquement_glace': ('La glace craque', craquement_glace),
+    'grognement_glacial': ('Grognement du Roi des glaces', grognement_glacial),
+    'roi_mort': ('Le Roi des glaces vole en éclats', roi_mort),
+    'couinement': ('Couinement de rat des glaces', couinement),
+    'grognement_gobelin': ('Grognement de gobelin', grognement_gobelin),
+    'grondement_demon': ('Grondement du Démon noir', grondement_demon),
+    'rugissement_demon': ('Rugissement du Démon noir', rugissement_demon),
+    'demon_mort': ('Le Démon noir tombe', demon_mort),
 }
 
 

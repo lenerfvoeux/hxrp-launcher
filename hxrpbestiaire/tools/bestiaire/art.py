@@ -791,6 +791,60 @@ BUTINS_LOT2 = {
 }
 
 
+# ============================================================================ blocs posés par les boss, icône d'effet
+def tex_toile_xerra():
+    """Toile de Xerra (bloc en croix, découpé) : fils blancs rosés, nœuds plus épais."""
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    for a in (0, 45, 90, 135):
+        r = math.radians(a)
+        d.line((7.5 - 8 * math.cos(r), 7.5 - 8 * math.sin(r), 7.5 + 8 * math.cos(r), 7.5 + 8 * math.sin(r)), fill=(236, 226, 228, 235))
+    for rr in (2, 4, 6):
+        pts = [(7.5 + rr * math.cos(math.radians(a)), 7.5 + rr * math.sin(math.radians(a))) for a in range(0, 361, 45)]
+        d.line(pts, fill=(220, 206, 210, 215))
+    px = im.load()
+    for (x, y) in ((7, 7), (8, 8), (7, 8), (8, 7), (3, 3), (12, 12), (12, 3), (3, 12)):
+        px[x, y] = (250, 240, 242, 255)
+    return im
+
+
+def tex_graine():
+    """Graine-piège (bloc en croix) : un bulbe rouge sombre au ras du sol, deux vrilles."""
+    im = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    px = im.load()
+    for y in range(16):
+        for x in range(16):
+            d = math.hypot((x + 0.5 - 8) / 3.2, (y + 0.5 - 13) / 2.6)
+            if d <= 1:
+                px[x, y] = mix((170, 30, 40), (70, 10, 18), d) + (255,)
+    for i in range(6):
+        px[5 - i // 3, 11 - i] = (110, 40, 40, 255)
+        px[10 + i // 3, 11 - i] = (110, 40, 40, 255)
+    for (x, y) in ((7, 12), (8, 12)):
+        px[x, y] = (240, 120, 100, 255)
+    return im
+
+
+def icone_givre():
+    """Icône de l'effet « Sol gelé » (18×18) : un flocon sur une plaque de glace."""
+    im = Image.new('RGBA', (18, 18), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rectangle((1, 12, 16, 16), fill=(150, 200, 235, 255))
+    d.line((1, 12, 16, 12), fill=(220, 240, 255, 255))
+    for a in (0, 60, 120):
+        r = math.radians(a)
+        d.line((8.5 - 6 * math.cos(r), 6.5 - 6 * math.sin(r), 8.5 + 6 * math.cos(r), 6.5 + 6 * math.sin(r)), fill=(235, 248, 255, 255))
+    d.point([(8, 6), (9, 6), (8, 7), (9, 7)], fill=(120, 180, 230, 255))
+    return contour(im, (30, 60, 100))
+
+
+BUTINS.update(BUTINS_LOT2)
+OEUFS.update(OEUFS_LOT2)
+APPATS.update(APPATS_LOT2)
+TEXTURES_BLOCS.update(TEXTURES_BLOCS_LOT2)
+TEXTURES_BLOCS.update({'toile_de_xerra': tex_toile_xerra, 'graine_piege': tex_graine})
+
+
 # ============================================================================ traductions
 NOMS = {
     'itemGroup.hxrpbestiaire': 'HxRP · Bestiaire',
@@ -814,6 +868,33 @@ NOMS = {
     'entity.hxrpbestiaire.necromancien.name': 'Nécromancien',
     'entity.hxrpbestiaire.archer_squelette.name': 'Archer squelette',
     'entity.hxrpbestiaire.projectile.name': 'Projectile du bestiaire',
+    # lot 2
+    'tile.hxrpbestiaire.cocon_de_proie.name': 'Cocon de proie',
+    'tile.hxrpbestiaire.cerf_pris_dans_la_glace.name': 'Cerf pris dans la glace',
+    'tile.hxrpbestiaire.carcasse_de_sanglier.name': 'Carcasse de sanglier',
+    'tile.hxrpbestiaire.toile_de_xerra.name': 'Toile de Xerra',
+    'tile.hxrpbestiaire.graine_piege.name': 'Graine-piège',
+    'item.hxrpbestiaire.oeuf_xerra.name': 'Œuf de Xerra',
+    'item.hxrpbestiaire.oeuf_roi_des_glaces.name': 'Œuf du Roi des glaces',
+    'item.hxrpbestiaire.oeuf_demon_noir.name': 'Œuf du Démon noir',
+    'item.hxrpbestiaire.soie_de_xerra.name': 'Soie de Xerra',
+    'item.hxrpbestiaire.coeur_de_givre_eternel.name': 'Cœur de givre éternel',
+    'item.hxrpbestiaire.glace_eternelle.name': 'Glace éternelle',
+    'item.hxrpbestiaire.corne_du_demon_noir.name': 'Corne du démon noir',
+    'item.hxrpbestiaire.projectile_toile.name': 'Jet de toile',
+    'item.hxrpbestiaire.projectile_lance_glace.name': 'Lance de glace',
+    'item.hxrpbestiaire.projectile_fleche_glace.name': 'Flèche de glace',
+    'item.hxrpbestiaire.projectile_orbe.name': 'Orbe sombre',
+    'item.hxrpbestiaire.projectile_meteore.name': 'Météore sombre',
+    'item.hxrpbestiaire.projectile_stalactite.name': 'Stalactite',
+    'entity.hxrpbestiaire.xerra.name': 'Xerra, mère-araignée',
+    'entity.hxrpbestiaire.araignee_xerra.name': 'Araignée de Xerra',
+    'entity.hxrpbestiaire.roi_des_glaces.name': 'Roi des glaces',
+    'entity.hxrpbestiaire.rat_des_glaces.name': 'Rat des glaces',
+    'entity.hxrpbestiaire.gobelin_bouclier.name': 'Gobelin bouclier',
+    'entity.hxrpbestiaire.gobelin_archer.name': 'Gobelin archer',
+    'entity.hxrpbestiaire.demon_noir.name': 'Démon noir du Continent noir',
+    'effect.hxrpbestiaire.givre': 'Sol gelé',
 }
 
 
@@ -830,10 +911,10 @@ def tout(assets):
     for boss, (c, t, m) in OEUFS.items():
         oeuf(c, t, m).save(os.path.join(items, 'oeuf_' + boss + '.png'))
         ecrire_json(os.path.join(assets, 'models', 'item', 'oeuf_' + boss + '.json'), gen('oeuf_' + boss))
-    projectile_dard().save(os.path.join(items, 'projectile_dard.png'))
-    projectile_ame().save(os.path.join(items, 'projectile_ame.png'))
-    ecrire_json(os.path.join(assets, 'models', 'item', 'projectile_dard.json'), gen('projectile_dard'))
-    ecrire_json(os.path.join(assets, 'models', 'item', 'projectile_ame.json'), gen('projectile_ame'))
+    projectiles = dict(dard=projectile_dard, ame=projectile_ame, **PROJECTILES_LOT2)
+    for nom, f in projectiles.items():
+        f().save(os.path.join(items, 'projectile_' + nom + '.png'))
+        ecrire_json(os.path.join(assets, 'models', 'item', 'projectile_' + nom + '.json'), gen('projectile_' + nom))
     ecrire_json(os.path.join(assets, 'models', 'item', 'projectile_fleche.json'),
                 {'parent': 'item/generated', 'textures': {'layer0': 'minecraft:items/arrow'}})
     for nom, f in TEXTURES_BLOCS.items():
@@ -844,6 +925,14 @@ def tout(assets):
                     {'ambientocclusion': False, 'textures': tex, 'elements': el, 'display': AFFICHAGE})
         ecrire_json(os.path.join(assets, 'models', 'item', nom + '.json'), {'parent': 'hxrpbestiaire:block/' + nom})
         ecrire_json(os.path.join(assets, 'blockstates', nom + '.json'), {'variants': {'normal': {'model': 'hxrpbestiaire:' + nom}}})
+    # blocs en croix posés par les boss : la toile (4 âges, même aspect) et la graine-piège
+    for nom, variantes in (('toile_de_xerra', ['age=%d' % i for i in range(4)]), ('graine_piege', ['normal'])):
+        ecrire_json(os.path.join(assets, 'models', 'block', nom + '.json'),
+                    {'parent': 'block/cross', 'textures': {'cross': 'hxrpbestiaire:blocks/' + nom}})
+        ecrire_json(os.path.join(assets, 'blockstates', nom + '.json'), {'variants': {v: {'model': 'hxrpbestiaire:' + nom} for v in variantes}})
+    gui = os.path.join(assets, 'textures', 'gui')
+    os.makedirs(gui, exist_ok=True)
+    icone_givre().save(os.path.join(gui, 'givre.png'))
     texte = '# HxRP Bestiaire (écrit par tools/bestiaire/gen.py)\n' + ''.join('%s=%s\n' % kv for kv in NOMS.items())
     import sons
     texte += ''.join('subtitles.hxrpbestiaire.%s=%s\n' % (k, v[0]) for k, v in sons.SONS.items())
@@ -852,4 +941,4 @@ def tout(assets):
         os.makedirs(os.path.dirname(p), exist_ok=True)
         with open(p, 'w', encoding='utf-8') as f:
             f.write(texte)
-    print('art : %d butins, %d œufs, 3 projectiles, %d appâts' % (len(BUTINS), len(OEUFS), len(APPATS)))
+    print('art : %d butins, %d œufs, %d projectiles, %d appâts' % (len(BUTINS), len(OEUFS), len(projectiles) + 1, len(APPATS)))

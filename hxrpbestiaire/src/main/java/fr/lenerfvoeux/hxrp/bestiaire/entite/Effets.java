@@ -16,8 +16,9 @@ import java.util.Random;
 
 /**
  * Les effets des attaques, lus dans la colonne « effet » du classeur (onglet Attaques) avec leur durée :
- * poison, lenteur, cécité, feu, recul, projette, renverse, attire, immobilise, enracine, saignement, nausée,
- * faiblesse, faim, maladie (Hunter Virus). Plusieurs effets se cumulent (« recul + lenteur »).
+ * poison, lenteur, sol gelé (on glisse), glace (flèches de glace), cécité, vue réduite, feu, recul, projette,
+ * renverse, attire, immobilise, enracine, saignement, nausée, faiblesse, faim, maladie (Hunter Virus).
+ * Plusieurs effets se cumulent (« recul + lenteur »).
  */
 public final class Effets {
     private static Method maladie;
@@ -44,7 +45,9 @@ public final class Effets {
         if (e.isEmpty()) return;
         int t = (int) Math.max(20, Math.round(dureeS * 20));
         if (e.contains("poison")) effet(p, MobEffects.POISON, t, 1);
-        if (e.contains("lenteur") || e.contains("sol gele")) effet(p, MobEffects.SLOWNESS, t, 2);
+        if (e.contains("lenteur")) effet(p, MobEffects.SLOWNESS, t, 2);
+        if (e.contains("sol gele") && fr.lenerfvoeux.hxrp.bestiaire.Registre.GIVRE != null) effet(p, fr.lenerfvoeux.hxrp.bestiaire.Registre.GIVRE, t, 0);
+        if (e.contains("glace") && !e.contains("sol gele")) effet(p, MobEffects.SLOWNESS, t, 1);
         if (e.contains("cecite") || e.contains("vue reduite")) effet(p, MobEffects.BLINDNESS, t, 0);
         if (e.contains("feu")) p.setFire(Math.max(1, (int) Math.round(dureeS)));
         if (e.contains("immobilise") || e.contains("enracine")) {

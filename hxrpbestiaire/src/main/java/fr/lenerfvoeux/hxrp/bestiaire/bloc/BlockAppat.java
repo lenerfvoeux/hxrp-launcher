@@ -52,6 +52,18 @@ public class BlockAppat extends Block {
             case "cercueil_profane":
                 forme = new AxisAlignedBB(0.1875, 0, 0, 0.8125, 0.625, 1);
                 break;
+            case "cocon_de_proie":
+                forme = new AxisAlignedBB(0.25, 0, 0.0625, 0.75, 0.4375, 0.9375);
+                setSoundType(SoundType.CLOTH);
+                break;
+            case "cerf_pris_dans_la_glace":
+                forme = new AxisAlignedBB(0.0625, 0, 0.0625, 0.9375, 1, 0.9375);
+                setSoundType(SoundType.GLASS);
+                break;
+            case "carcasse_de_sanglier":
+                forme = new AxisAlignedBB(0, 0, 0.25, 1, 0.5, 0.9375);
+                setSoundType(SoundType.SLIME);
+                break;
             default:
                 forme = new AxisAlignedBB(0.0625, 0, 0.0625, 0.9375, 0.5, 0.9375);
         }

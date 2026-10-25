@@ -1,6 +1,9 @@
 package fr.lenerfvoeux.hxrp.bestiaire;
 
 import fr.lenerfvoeux.hxrp.bestiaire.bloc.BlockAppat;
+import fr.lenerfvoeux.hxrp.bestiaire.bloc.BlockGrainePiege;
+import fr.lenerfvoeux.hxrp.bestiaire.bloc.BlockToile;
+import fr.lenerfvoeux.hxrp.bestiaire.effet.PotionGivre;
 import fr.lenerfvoeux.hxrp.bestiaire.bloc.TileAppat;
 import fr.lenerfvoeux.hxrp.bestiaire.entite.EntityProjectileBoss;
 import fr.lenerfvoeux.hxrp.bestiaire.item.ItemAppat;
@@ -39,7 +42,15 @@ public final class Registre {
             {"miel_noir", "Miel noir", "reine_guepe", "Gourmet"},
             {"chair_d_abomination", "Chair d'abomination", "abomination", "Hunter Virus : échantillon de pathogène"},
             {"poussiere_d_os_maudite", "Poussière d'os maudite", "necromancien", "Hunter Virus"},
+            {"soie_de_xerra", "Soie de Xerra", "xerra", "Hunter Virus : bandages"},
+            {"coeur_de_givre_eternel", "Cœur de givre éternel", "roi_des_glaces", "Hunter Virus"},
+            {"glace_eternelle", "Glace éternelle", "roi_des_glaces", "Gourmet"},
+            {"corne_du_demon_noir", "Corne du démon noir", "demon_noir", "Hunter Virus"},
     };
+
+    /** Blocs posés par les boss (toiles de Xerra, graines-pièges) et l'effet « sol gelé ». */
+    public static Block TOILE, GRAINE;
+    public static net.minecraft.potion.Potion GIVRE;
 
     private static final Map<String, Item> OBJETS_BUTIN = new LinkedHashMap<>();
     private static final Map<String, Item> OEUFS = new LinkedHashMap<>();
@@ -101,6 +112,22 @@ public final class Registre {
             e.getRegistry().register(b);
         }
         GameRegistry.registerTileEntity(TileAppat.class, new ResourceLocation(HxrpBestiaire.MODID, "appat"));
+        TOILE = new BlockToile().setRegistryName(HxrpBestiaire.MODID, "toile_de_xerra").setTranslationKey(HxrpBestiaire.MODID + ".toile_de_xerra");
+        GRAINE = new BlockGrainePiege().setRegistryName(HxrpBestiaire.MODID, "graine_piege").setTranslationKey(HxrpBestiaire.MODID + ".graine_piege");
+        e.getRegistry().register(TOILE);
+        e.getRegistry().register(GRAINE);
+    }
+
+    @SubscribeEvent
+    public static void effets(RegistryEvent.Register<net.minecraft.potion.Potion> e) {
+        GIVRE = new PotionGivre();
+        e.getRegistry().register(GIVRE);
+    }
+
+    /** Les toiles brûlent (le feu libère l'arène de Xerra). Appelé à l'initialisation. */
+    static void feu() {
+        net.minecraft.init.Blocks.FIRE.setFireInfo(TOILE, 60, 100);
+        net.minecraft.init.Blocks.FIRE.setFireInfo(GRAINE, 60, 100);
     }
 
     @SubscribeEvent

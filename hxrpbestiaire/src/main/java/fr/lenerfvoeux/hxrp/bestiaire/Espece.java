@@ -24,7 +24,11 @@ public final class Espece {
         /** Il marche depuis 40-60 blocs jusqu'à l'appât. */
         MARCHE,
         /** Il surgit sur place : sort du sol, se matérialise… (animation d'apparition). */
-        SUR_PLACE
+        SUR_PLACE,
+        /** Il descend du plafond (ou du ciel) au bout d'un fil, juste au-dessus de l'appât. */
+        PLAFOND,
+        /** Il bondit depuis 40-60 blocs et retombe sur l'appât. */
+        SAUT
     }
 
     /** Comment l'espèce se déplace en combat. */

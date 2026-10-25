@@ -1,0 +1,6 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "hxrpbestiaire:items/coeur_de_givre_eternel"
+ }
+}

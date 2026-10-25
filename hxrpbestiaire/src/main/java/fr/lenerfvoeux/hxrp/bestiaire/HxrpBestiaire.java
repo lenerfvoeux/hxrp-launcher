@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
         dependencies = "required-after:geckolib3;after:hxrpmetiers;after:hxrpphenix")
 public class HxrpBestiaire {
     public static final String MODID = "hxrpbestiaire";
-    public static final String VERSION = "0.1.0";
+    public static final String VERSION = "0.2.0";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.Instance(MODID)
@@ -38,6 +38,7 @@ public class HxrpBestiaire {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.init();
+        Registre.feu();
         LOG.info("Bestiaire : prêt, {} boss, {} espèces, {} animations (maladies du Hunter Virus : {})", Especes.BOSS.size(), Especes.TOUTES.size(),
                 Durees.nombre(), Effets.virusPresent() ? "oui" : "non");
     }

@@ -158,6 +158,8 @@ def cube_geo(e, atlas, stats):
             continue
         ti = int(fa['texture'])
         u1, v1, u2, v2 = [float(x) for x in fa['uv']]
+        if u1 == u2 and v1 == v2:
+            continue    # face sans surface de texture (tranche d'un plan) : Blockbench la laisse vide, on ne la dessine pas
         r = int(fa.get('rotation', 0) or 0) % 360
         if r in (90, 270):
             # copie tournée dans la zone des morceaux : UV déjà en coordonnées de l'atlas

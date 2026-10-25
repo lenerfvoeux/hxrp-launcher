@@ -118,6 +118,11 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     protected int tMode;
     private int sansCible, depuisDegats = 1000;
     private String derniere = "";
+    /** Saut en cloche en cours (attaques bondissantes, arrivée d'un saut) : départ, arrivée, avancement. */
+    private Vec3d bondDe, bondVers;
+    private int bondT, bondDuree, atterri = -1;
+    private double bondHaut;
+    private boolean bondTraverse;
 
     // client
     private int animVue = -1, animEffets = -1;
@@ -206,6 +211,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     protected void mode(byte m) {
         dataManager.set(MODE, m);
         tMode = 0;
+        atterri = -1;
     }
 
     public double pv() {
@@ -232,7 +238,17 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
 
     protected boolean pret(String id) {
         Integer t = dernierUsage.get(id);
-        return t == null || ticksExisted - t >= st().attaque(id).recharge * 20;
+        return t == null || ticksExisted - t >= recharge(id) * 20;
+    }
+
+    /** Recharge d'une attaque en secondes (classeur) ; un boss peut la raccourcir selon sa phase. */
+    protected double recharge(String id) {
+        return st().attaque(id).recharge;
+    }
+
+    /** Pause avant la prochaine attaque (ticks). */
+    protected void pause(int ticks) {
+        pause = ticks;
     }
 
     /** Vitesse de déplacement par rapport à la vitesse « 0,28 » du classeur. */
@@ -367,6 +383,7 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
     /** 3e phase : il s'effondre (animation de mort simulée), puis se relève avec toute sa vie. */
     protected void commencerRenaissance() {
         renaissanceFaite = true;
+        if (enSaut()) finSaut();
         coup = null;
         mode(RENAISSANCE);
         anim(animRenaissance());
@@ -708,11 +725,71 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
             tourner((float) (MathHelper.atan2(motionZ, motionX) * (180.0 / Math.PI)) - 90F, 9F);
     }
 
+    /**
+     * Lance un saut en cloche vers un point : il s'y pose en {@code duree} ticks, le sommet de la courbe à {@code haut}
+     * blocs au-dessus de la droite. {@code traverser} : il passe à travers ce qui se trouve en chemin (arrivée de loin).
+     */
+    protected void sauter(Vec3d vers, int duree, double haut, boolean traverser) {
+        bondDe = getPositionVector();
+        bondVers = vers;
+        bondT = 0;
+        bondDuree = Math.max(4, duree);
+        bondHaut = haut;
+        bondTraverse = traverser;
+        setNoGravity(true);
+        noClip = traverser;
+        motionX = motionY = motionZ = 0;
+        getNavigator().clearPath();
+    }
+
+    public boolean enSaut() {
+        return bondVers != null;
+    }
+
+    /** Un tick du saut : 0 en l'air, 1 posé, 2 arrêté net par un mur (le saut est alors fini). */
+    protected int bondir() {
+        if (bondVers == null) return 1;
+        bondT++;
+        double u = Math.min(1, bondT / (double) bondDuree);
+        double x = bondDe.x + (bondVers.x - bondDe.x) * u, z = bondDe.z + (bondVers.z - bondDe.z) * u;
+        double y = bondDe.y + (bondVers.y - bondDe.y) * u + bondHaut * 4 * u * (1 - u);
+        tourner((float) (MathHelper.atan2(bondVers.z - bondDe.z, bondVers.x - bondDe.x) * (180.0 / Math.PI)) - 90F, 20F);
+        if (bondTraverse) {
+            setPosition(x, y, z);
+        } else {
+            move(MoverType.SELF, x - posX, y - posY, z - posZ);
+            if (collidedHorizontally && u < 0.85) {
+                finSaut();
+                return 2;
+            }
+        }
+        if (u >= 1) {
+            finSaut();
+            return 1;
+        }
+        return 0;
+    }
+
+    protected void finSaut() {
+        bondVers = null;
+        noClip = false;
+        if (espece.deplacement != Espece.Deplacement.VOL) setNoGravity(false);
+        motionX = motionY = motionZ = 0;
+    }
+
     /** Hauteur du sol (premier bloc qui arrête la vue) ; la position actuelle si le tronçon n'est pas chargé. */
     protected double sol(double x, double z) {
         BlockPos p = new BlockPos(x, 0, z);
         if (!world.isBlockLoaded(p)) return posY - 4;
         return world.getHeight(p).getY();
+    }
+
+    /** Le point visé : les pieds de la cible, ou (attaque forcée sans cible) le sol à {@code d} blocs devant lui. */
+    protected Vec3d visee(double d) {
+        if (cible != null) return new Vec3d(cible.posX, cible.posY, cible.posZ);
+        Vec3d f = devant();
+        double x = posX + f.x * (width / 2 + d), z = posZ + f.z * (width / 2 + d);
+        return new Vec3d(x, sol(x, z), z);
     }
 
     /** Vecteur unitaire devant le boss (à plat). */
@@ -883,14 +960,25 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         Stats.Boss s = b.st();
         double nx = nid.getX() + 0.5, ny = nid.getY(), nz = nid.getZ() + 0.5;
         double x = nx, y = ny, z = nz;
-        if (e.arrivee != Espece.Arrivee.SUR_PLACE) {
+        if (e.arrivee == Espece.Arrivee.PLAFOND) {
+            // sous le premier bloc plein au-dessus de l'appât (24 blocs au plus) ; à ciel ouvert, 16 blocs plus haut
+            int haut = 16;
+            for (int k = 3; k <= 24; k++)
+                if (w.getBlockState(nid.up(k)).getMaterial().blocksMovement()) {
+                    haut = k;
+                    break;
+                }
+            y = ny + Math.max(1, haut - e.hauteur - 0.2);
+            b.setNoGravity(true);
+        } else if (e.arrivee != Espece.Arrivee.SUR_PLACE) {
             double[] p = depart(w, nid, cap, s.appatDistanceMin, s.appatDistanceMax, e.arrivee == Espece.Arrivee.VOL);
             x = p[0];
             y = p[1];
             z = p[2];
         }
         float lacet = (float) (MathHelper.atan2(nz - z, nx - x) * (180.0 / Math.PI)) - 90F;
-        b.setLocationAndAngles(x, y, z, e.arrivee == Espece.Arrivee.SUR_PLACE ? w.rand.nextFloat() * 360F : lacet, 0F);
+        boolean surPlace = e.arrivee == Espece.Arrivee.SUR_PLACE || e.arrivee == Espece.Arrivee.PLAFOND;
+        b.setLocationAndAngles(x, y, z, surPlace ? w.rand.nextFloat() * 360F : lacet, 0F);
         b.rotationYawHead = b.rotationYaw;
         b.renderYawOffset = b.rotationYaw;
         b.definirAncre(nx, ny, nz);
@@ -964,6 +1052,25 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
                 if (tMode >= d) finirArrivee(true);
                 return;
             }
+            case PLAFOND: {
+                // il descend au bout de son fil, lentement, jusqu'à l'appât
+                motionX = motionY = motionZ = 0;
+                move(MoverType.SELF, 0, -0.14, 0);
+                if (posY <= ny + 0.05 || onGround || tMode > 600) finirArrivee(true);
+                return;
+            }
+            case SAUT: {
+                // il se ramasse, bondit par-dessus tout, retombe sur l'appât, puis se redresse
+                if (tMode == 1) debutSautArrivee();
+                if (tMode == ENVOL) sauter(new Vec3d(nx, ny, nz), (int) MathHelper.clamp(h / 2.2, 16, 30), 8 + h * 0.2, true);
+                else if (tMode > ENVOL && atterri < 0) {
+                    if (bondir() != 0) {
+                        atterri = tMode;
+                        atterrissage();
+                    }
+                } else if (atterri >= 0 && tMode >= atterri + 20) finirArrivee(true);
+                return;
+            }
             case VOL: {
                 double ty = h > 6 ? ny + 3 + Math.min(20, h * 0.4) : ny + 1;
                 voler(nx, ty, nz, 0.7, 0.15);
@@ -983,8 +1090,25 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         if ((h < Math.max(2.5, width / 2 + 1) && Math.abs(posY - ny) < 3) || tMode > 1200) finirArrivee(true);
     }
 
+    /** Arrivée d'un saut : moment où il quitte le sol (ticks). */
+    protected static final int ENVOL = 12;
+
+    /** Arrivée d'un saut : il se ramasse (animation du saut). */
+    protected void debutSautArrivee() {
+    }
+
+    /** Arrivée d'un saut : il retombe (onde de choc, réception). */
+    protected void atterrissage() {
+        if (world instanceof WorldServer)
+            ((WorldServer) world).spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, posX, posY + 0.5, posZ, 8, width, 0.3, width, 0);
+        son(net.minecraft.init.SoundEvents.ENTITY_GENERIC_EXPLODE, 3F, 0.6F);
+    }
+
     /** Arrivé : il dévore l'appât (gerbe de particules), pousse un cri, et le combat commence. */
     protected void finirArrivee(boolean devorer) {
+        if (enSaut()) finSaut();
+        noClip = false;
+        if (espece.deplacement != Espece.Deplacement.VOL) setNoGravity(false);
         if (devorer && appat != null) {
             IBlockState s = world.getBlockState(appat);
             if (Registre.estAppat(s.getBlock())) {
@@ -1070,6 +1194,13 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         if (getHealth() > getMaxHealth()) setHealth(getMaxHealth());
         appat = c.hasKey("Appat") ? BlockPos.fromLong(c.getLong("Appat")) : null;
         mode(c.getBoolean("Arrivee") && appat != null ? ARRIVEE : NORMAL);
+        boolean suspendu = mode() == ARRIVEE && espece.arrivee == Espece.Arrivee.PLAFOND;
+        if (espece.deplacement != Espece.Deplacement.VOL && !suspendu) setNoGravity(false);
+        if (mode() == ARRIVEE && espece.arrivee == Espece.Arrivee.SAUT) {
+            // le saut d'arrivée ne reprend pas en cours : il est déjà là
+            mode(NORMAL);
+            appat = null;
+        }
         NBTTagList l = c.getTagList("Sbires", 8);
         for (int i = 0; i < l.tagCount(); i++) {
             try {

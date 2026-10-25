@@ -1,11 +1,11 @@
-# HxRP Bestiaire (0.1.0)
+# HxRP Bestiaire (0.2.0)
 
 Mod Forge 1.12.2 séparé (`modid` `hxrpbestiaire`, Java 8) : **les boss de HxRP**, animés avec **GeckoLib 3**
 (`geckolib-forge-1.12.2-3.0.31`, déjà présent sur le serveur — il doit aussi l'être chez les joueurs).
 Le jar va côté **client et serveur**. Il ne dépend ni de `hxrpmetiers` ni de `hxrpphenix`, mais s'en sert s'ils sont là.
 
-Ce premier lot contient **la Reine-guêpe, l'Abomination et le Nécromancien** ; les autres boss arrivent par lots
-(Xerra, Roi des glaces, Démon noir, puis Kraken, Calamar des sables, Démon de lave, Aï). La Baleine est reportée.
+Deux lots sont là : **la Reine-guêpe, l'Abomination et le Nécromancien**, puis **Xerra, le Roi des glaces et le
+Démon noir**. Le dernier lot (Kraken, Calamar des sables, Démon de lave, Aï) arrive ensuite. La Baleine est reportée.
 
 ## Ce que les boss ont en commun
 
@@ -80,9 +80,78 @@ Signe : « Des mains décharnées sortent de terre autour du cercueil… » ; il
 
 Butin : 2-4 **poussières d'os maudites**.
 
+## Lot 2
+
+### Xerra, mère-araignée — 4500 PV, trois phases
+
+Une araignée géante (≈ 7 × 4 × 5 blocs) chevauchée par une femme pâle. **Appât : cocon de proie**, à poser **sous
+terre**. Signe : « Des araignées sortent des murs, la soie tremble au plafond… » ; elle **descend du plafond** au bout
+de son fil, droit sur le cocon, et le dévore.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Coup de patte** | balaye devant elle |
+| **Griffures** | quatre lacérations qui font **saigner** |
+| **Rugissement** | ralentit tous les joueurs proches |
+| **Couvée** | 4 **araignées de Xerra** (des Xerra en petit) |
+| **Jet de toile** | une boule de soie qui **immobilise** 3 s et laisse une **toile** là où elle touche |
+| **Graines-pièges** (phase 2) | des bulbes plantés autour de la cible : qui marche dessus est **enraciné** |
+| **Course** (phase 2) | elle fonce et percute |
+| **Bond** (phase 2) | elle saute sur un joueur éloigné et écrase tout autour |
+| **Renaissance** (à 0 PV) | elle s'effondre, puis se relève avec **toute sa vie** (phase 3) |
+| **Grande couvée** (phase 3) | 12 araignées, et l'arène se couvre de **toiles** |
+
+En phase 3, **ses araignées la soignent** (2 % de sa vie chacune) en la rejoignant : il faut les tuer d'abord.
+**Les toiles brûlent** (feu, briquet) : c'est ainsi qu'on libère le terrain ; elles se défont aussi seules en une
+minute environ. Les toiles et les graines ne remplacent jamais un bloc et ne lâchent rien.
+Butin : 2-4 **soies de Xerra**.
+
+### Roi des glaces — 4000 PV, trois phases
+
+Un colosse de glace au bâton (≈ 4 blocs). **Appât : cerf pris dans la glace**, à poser **dans un biome froid**.
+Signe : « La neige tombe plus fort, un grondement glacé approche… » ; il arrive **à pied**, dévore le cerf et appelle
+aussitôt son escorte. Invoqué par commande ou par œuf, il arrive **seul**.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Coup de bâton** | grand coup en arc |
+| **Écrasement** | il frappe le sol : onde de givre qui ralentit (10 blocs) |
+| **Appel de l'escorte** | il lève les bras : **1 à 5 sbires de chaque type** (rats des glaces, gobelins boucliers, gobelins archers) ; le double en phase 2, le triple en phase 3 |
+| **Lance de glace** | un pic de glace qui **transperce** tous les joueurs sur sa ligne et ralentit |
+| **Rugissement glacial** (phase 2) | **le sol gèle** : les joueurs **glissent** comme sur de la glace pendant 10 s (effet « Sol gelé ») |
+| **Pluie de stalactites** (phase 2) | des cercles de givre marquent le sol, puis des stalactites y tombent 1,5 s plus tard |
+| **Couronne de givre** (à 0 PV) | il se fige dans la glace, puis la brise avec **toute sa vie** (phase 3) |
+| **Blizzard** (phase 3) | 12 s de tempête : chaque seconde, tous les joueurs de l'arène sont blessés et **aveuglés** |
+
+L'escorte : **rats des glaces** (rapides, en meute), **gobelins boucliers** (lents ; ils arrêtent presque tous les coups
+de face et se postent entre leur cible et le Roi : il faut les contourner), **gobelins archers** (flèches de glace qui
+ralentissent). Tous disparaissent à la mort du Roi.
+Butin : 1 **cœur de givre éternel**, 2-4 **glaces éternelles**.
+
+### Démon noir du Continent noir — 5500 PV, trois phases
+
+Un colosse de 9 blocs aux bras griffus et aux tentacules dorsaux. **Appât : carcasse de sanglier**, à poser au sol.
+Signe : « Des corbeaux tournent au-dessus de la carcasse… » ; il **bondit** de 40 à 60 blocs et **atterrit** sur la
+carcasse (onde de choc), puis la dévore. Invoqué sur place, il sort de terre.
+
+| Attaque | Ce qui se passe |
+|---|---|
+| **Combos 1 à 3** | enchaînements de griffes |
+| **Saut écrasé** | il bondit et retombe sur un joueur : **onde de choc** qui repousse |
+| **Charge d'épaule** | il fonce et **renverse** tous les joueurs sur son passage |
+| **Combos 4 et 5** (phase 2) | plus longs, plus lourds |
+| **Pluie de météores sombres** (phase 2) | des boules d'ombre tombent en biais autour de la cible et éclatent |
+| **Orbe sombre** (phase 2) | une sphère lente qui **poursuit** sa cible |
+| **Second souffle** (à 0 PV) | il s'agenouille, puis se relève avec **toute sa vie** (phase 3) |
+| **Déchaînement** (phase 3) | trois combos d'affilée, **plus aucune pause** entre ses attaques, sauts deux fois plus fréquents |
+
+S'il **heurte un mur** pendant un saut ou une charge, il reste **étourdi** près de 2 s et encaisse 50 % de dégâts en plus :
+c'est la fenêtre pour le frapper.
+Butin : 1-2 **cornes du démon noir**.
+
 ## Commandes (permission 2)
 
-Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`) :
+Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`, `/xerra`, `/roi_des_glaces`, `/demon_noir`) :
 
 | Commande | Effet |
 |---|---|
@@ -99,7 +168,8 @@ Chaque boss a sa commande (`/reine_guepe`, `/abomination`, `/necromancien`) :
 
 Les appâts, puis les œufs, puis les butins. Les butins sont des ingrédients : les autres mods y font référence par
 leur id (`hxrpbestiaire:dard_de_reine`, `hxrpbestiaire:gelee_royale_noire`, `hxrpbestiaire:miel_noir`,
-`hxrpbestiaire:chair_d_abomination`, `hxrpbestiaire:poussiere_d_os_maudite`).
+`hxrpbestiaire:chair_d_abomination`, `hxrpbestiaire:poussiere_d_os_maudite`, `hxrpbestiaire:soie_de_xerra`,
+`hxrpbestiaire:coeur_de_givre_eternel`, `hxrpbestiaire:glace_eternelle`, `hxrpbestiaire:corne_du_demon_noir`).
 
 ## Réglages : `config/bestiaire_stats.xlsx`
 
