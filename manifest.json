@@ -1,6 +1,6 @@
 {
   "$schema_version": "1.0",
-  "_updated": "2026-10-06",
+  "_updated": "2026-10-25",
   "_notes": "Manifest source de verite pour le launcher hxrp v0.9.0+. Bumper les tag/version/file ici met a jour tous les joueurs au prochain JOUER. Les URLs sont construites auto par le launcher (releaseUrl(tag, file)).",
   "mods": {
     "tag": "mods-v1.0",
@@ -41,8 +41,8 @@
     ]
   },
   "extras": {
-    "tag": "hxrp-extras-v1.5.0",
-    "version": "1.5.0",
+    "tag": "hxrp-extras-v1.6.0",
+    "version": "1.6.0",
     "mods": [
       {
         "name": "hunterxrp-identity-client-2_5_1.jar",
@@ -54,9 +54,10 @@
         ]
       },
       {
-        "name": "hxrpmetiers-0_6_0.jar",
-        "size": 2671939,
+        "name": "hxrpmetiers-0_7_0.jar",
+        "size": 2706307,
         "oldNames": [
+          "hxrpmetiers-0_6_0.jar",
           "hxrpmetiers-0_5_0.jar",
           "hxrpmetiers-0_3_1.jar",
           "hxrpmetiers-0_3_0.jar",
@@ -66,8 +67,15 @@
         ]
       },
       {
-        "name": "hxrpphenix-1_0_0.jar",
-        "size": 430265,
+        "name": "hxrpphenix-1_1_0.jar",
+        "size": 523189,
+        "oldNames": [
+          "hxrpphenix-1_0_0.jar"
+        ]
+      },
+      {
+        "name": "hxrpbestiaire-0_3_0.jar",
+        "size": 2350287,
         "oldNames": []
       },
       {
