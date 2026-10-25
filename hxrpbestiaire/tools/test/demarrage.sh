@@ -9,7 +9,8 @@
 #       Avec hxrpmetiers en plus : les maladies du Hunter Virus sont trouvées ; avec hxrpphenix : /bestiaire recharger
 #       relit aussi le Phénix.
 #   tools/test/demarrage.sh client
-#       client obfusqué de RetroFuturaGradle (runObfClient, GeckoLib inclus) ; il faut un écran (xvfb-run).
+#       client obfusqué de RetroFuturaGradle (runObfClient, GeckoLib inclus) ; il faut un écran (xvfb-run). Essai du
+#       rendu : le client ouvre un monde plat, dessine chaque espèce dans chacune de ses animations, puis se ferme.
 set -u
 cd "$(dirname "$0")/../.."
 mode=${1:-serveur}
@@ -34,11 +35,11 @@ attendre() {
 }
 
 if [ "$mode" = client ]; then
-    ./gradlew runObfClient --no-daemon > "$journal" 2>&1 &
+    ./gradlew runObfClient --no-daemon -Pextra_jvm_args=-Dhxrpbestiaire.essaiRendu=true > "$journal" 2>&1 &
     pid=$!
-    attendre 'textures-atlas|successfully loaded|Sound engine started' $pid
+    attendre 'Bestiaire : rendu essay' $pid
     etat=$?
-    sleep 45
+    sleep 10
     arreter $pid
     sleep 5
 else
@@ -72,6 +73,8 @@ else
         # Sans joueur, le monde cesse de faire vivre entités et blocs au bout de 15 s : chaque commande du bestiaire les réveille.
         c() { echo "$1" >&3; sleep "$2"; }
         c 'save-all' 3
+        # sans argument : l'aide de la commande (son texte passe par les formats de Minecraft, et de Bukkit sur Mohist)
+        c 'reine_guepe' 2
         read -r X Y Z < <(python3 - world/level.dat <<'PY'
 import gzip, struct, sys
 d = gzip.open(sys.argv[1]).read()
@@ -273,6 +276,11 @@ if [ "$mode" = client ] && ! grep -Eq 'Bestiaire : 14 mod.+les et [0-9]+ animati
     echo "!! GeckoLib n'a pas lu les modèles et animations du bestiaire"
     exit 1
 fi
+if [ "$mode" = client ] && ! grep -Eq 'Bestiaire : rendu essay.+ : 17 esp.+ces, [0-9]+ animations dessin' "$journal"; then
+    echo "!! l'essai du rendu n'a pas dessiné toutes les espèces"
+    grep -E 'Bestiaire : (rendu|essai)' "$journal"
+    exit 1
+fi
 if [ "$mode" = serveur ]; then
     mods=$(ls "$PWD/build/serveur-test/mods")
     if echo "$mods" | grep -q hxrpmetiers; then
@@ -283,6 +291,7 @@ if [ "$mode" = serveur ]; then
     fi
     attendus=(
         'glages lus \([^)]*config/bestiaire_stats\.xlsx\) : [0-9]+ boss'
+        'Usage: /reine_guepe invoquer \[x y z\] .+ \| vie <pourcentage> \| oeuf'
         'Reine-gu.+pe \(/reine_guepe\) : 4000 PV, 2 phase'
         'Reine-gu.+pe appara.+t'
         'Reine-gu.+pe : 4000 / 4000 PV, phase 1'

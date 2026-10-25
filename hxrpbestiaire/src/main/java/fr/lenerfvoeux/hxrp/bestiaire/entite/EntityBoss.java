@@ -312,6 +312,11 @@ public abstract class EntityBoss extends EntityMob implements Bestiole {
         dataManager.set(ANIM_N, dataManager.get(ANIM_N) + 1);
     }
 
+    @Override
+    public void jouerAnimation(String court) {
+        anim(court);
+    }
+
     protected int duree(String anim, int defaut) {
         return Durees.ticks(espece.modele, anim, defaut);
     }

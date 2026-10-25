@@ -139,7 +139,12 @@ public abstract class EntitySbire extends EntityMob implements Bestiole {
         coupEnCours = coup;
         dureeAttaque = duree;
         tAttaque = 0;
-        dataManager.set(ANIM, a);
+        jouerAnimation(a);
+    }
+
+    @Override
+    public void jouerAnimation(String court) {
+        dataManager.set(ANIM, court);
         dataManager.set(ANIM_N, dataManager.get(ANIM_N) + 1);
     }
 

@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +36,7 @@ public class ClientProxy extends CommonProxy {
         GeckoLib.initialize();
         for (Espece e : Especes.TOUTES) rendu(e);
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectileBoss.class, RenduProjectile::new);
+        if (EssaiRendu.ACTIF) MinecraftForge.EVENT_BUS.register(new EssaiRendu());
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
