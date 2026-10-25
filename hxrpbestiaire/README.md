@@ -1,4 +1,4 @@
-# HxRP Bestiaire (0.3.0)
+# HxRP Bestiaire (0.3.1)
 
 Mod Forge 1.12.2 séparé (`modid` `hxrpbestiaire`, Java 8) : **les boss de HxRP**, animés avec **GeckoLib 3**
 (`geckolib-forge-1.12.2-3.0.31`, déjà présent sur le serveur — il doit aussi l'être chez les joueurs).
@@ -282,5 +282,10 @@ Une case vide ou illisible garde la valeur du jar (avertissement dans le journal
   attaques du classeur, sbires, butins, objets, appâts, noms, sons.
 - `tools/bestiaire/rendu.py` dessine les modèles posés (planches d'aperçu).
 - `tools/test/demarrage.sh serveur <jar> <geckolib.jar> [autres jars]` : vrai serveur Forge, un scénario par boss
-  (chaque attaque, sbires, rage, mort et butin, retrait, appâts) ; `tools/test/demarrage.sh client` : vrai client.
-  La CI (`.github/workflows/hxrpbestiaire.yml`) fait tout cela à chaque modification du mod.
+  (chaque attaque, sbires, rage, mort et butin, retrait, appâts) ; `tools/test/demarrage.sh client` : vrai client
+  qui ouvre un monde plat et dessine les 17 espèces dans chacune de leurs animations (`client/EssaiRendu`, actif
+  seulement avec `-Dhxrpbestiaire.essaiRendu=true`). La CI (`.github/workflows/hxrpbestiaire.yml`) fait tout cela à
+  chaque modification du mod.
+- Rendu : GeckoLib 3.0.31 plante sur un cube texturé face par face auquel il manque des faces (les plans très fins
+  n'ont que l'avant et l'arrière) ; `RenduBestiaire.renderCube` saute ces faces (corrigé en 0.3.1 : Aï, Xerra, le
+  Nécromancien, le Roi des glaces, les démons et l'escorte du Roi plantaient le client à l'affichage).

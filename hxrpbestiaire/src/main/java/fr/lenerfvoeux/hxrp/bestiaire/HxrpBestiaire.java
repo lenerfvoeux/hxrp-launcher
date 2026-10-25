@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
         dependencies = "required-after:geckolib3;after:hxrpmetiers;after:hxrpphenix")
 public class HxrpBestiaire {
     public static final String MODID = "hxrpbestiaire";
-    public static final String VERSION = "0.3.0";
+    public static final String VERSION = "0.3.1";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @Mod.Instance(MODID)

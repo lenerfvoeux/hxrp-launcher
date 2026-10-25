@@ -45,7 +45,7 @@ public class CommandBoss extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender s) {
-        return "/" + espece.id + " invoquer [x y z] | retirer [rayon] | attaque <" + String.join("|", attaques()) + "> | info | vie <%> | oeuf [joueur] | appat [joueur]";
+        return "/" + espece.id + " invoquer [x y z] | retirer [rayon] | attaque <" + String.join("|", attaques()) + "> | info | vie <pourcentage> | oeuf [joueur] | appat [joueur]";
     }
 
     private List<String> attaques() {
