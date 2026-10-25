@@ -101,7 +101,8 @@ de son fil, droit sur le cocon, et le dévore.
 | **Renaissance** (à 0 PV) | elle s'effondre, puis se relève avec **toute sa vie** (phase 3) |
 | **Grande couvée** (phase 3) | 12 araignées, et l'arène se couvre de **toiles** |
 
-En phase 3, **ses araignées la soignent** (2 % de sa vie chacune) en la rejoignant : il faut les tuer d'abord.
+En phase 3, quand elle est blessée, **ses araignées la soignent** (2 % de sa vie chacune) : après 5 à 12 s de combat,
+elles courent la rejoindre et se fondent en elle. Il faut les tuer d'abord.
 **Les toiles brûlent** (feu, briquet) : c'est ainsi qu'on libère le terrain ; elles se défont aussi seules en une
 minute environ. Les toiles et les graines ne remplacent jamais un bloc et ne lâchent rien.
 Butin : 2-4 **soies de Xerra**.

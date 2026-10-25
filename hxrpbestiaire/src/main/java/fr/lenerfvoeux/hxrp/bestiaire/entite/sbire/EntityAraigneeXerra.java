@@ -11,11 +11,14 @@ import net.minecraft.world.WorldServer;
 
 /**
  * Araignée de Xerra : Xerra en petit (sans la femme qui la chevauche), mord au contact, ne se prend pas dans les
- * toiles. En phase 3, elle court rejoindre sa mère : en la touchant, elle la soigne (2 % de sa vie) et se fond en elle.
+ * toiles. En phase 3, quand sa mère est blessée, elle finit par courir la rejoindre (après 5 à 12 s de combat : le
+ * temps de la tuer avant) ; en la touchant, elle la soigne (2 % de sa vie) et se fond en elle.
  */
 public class EntityAraigneeXerra extends EntitySbire {
     private static final String[] ATTAQUES = {"swing_leg"};
     private static final float SOIN = 0.02F;
+    /** Combat avant de partir soigner sa mère (ticks). */
+    private final int attente = 100 + rand.nextInt(140);
 
     public EntityAraigneeXerra(World w) {
         super(w, Especes.ARAIGNEE_XERRA, Comportement.CONTACT);
@@ -29,7 +32,7 @@ public class EntityAraigneeXerra extends EntitySbire {
     @Override
     protected boolean comportementPropre() {
         EntityBoss b = boss();
-        if (b == null || b.phase() < 3 || b.mode() != EntityBoss.NORMAL) return false;
+        if (b == null || b.phase() < 3 || b.mode() != EntityBoss.NORMAL || ticksExisted < attente || b.getHealth() >= b.getMaxHealth()) return false;
         double dx = b.posX - posX, dz = b.posZ - posZ;
         if (Math.sqrt(dx * dx + dz * dz) < b.width / 2 + width / 2 + 0.8 && Math.abs(b.posY - posY) < b.height) {
             b.heal(b.getMaxHealth() * SOIN);
